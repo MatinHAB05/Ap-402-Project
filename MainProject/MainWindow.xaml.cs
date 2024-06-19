@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using MainProject.LoginForm_Matin;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -19,6 +20,14 @@ namespace MainProject
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            LoginPage loginPageDemo = new LoginPage();
+            this.Close();
+            loginPageDemo.Show();
+
         }
     }
 }
