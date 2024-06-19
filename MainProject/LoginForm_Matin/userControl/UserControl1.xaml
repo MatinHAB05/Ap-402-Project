@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="MainProject.LoginForm_Matin.userControl.UserControl1"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MainProject.LoginForm_Matin.userControl"
+             mc:Ignorable="d" 
+             d:DesignHeight="50" d:DesignWidth="500"
+             >
+    <Grid>
+        <Grid.ColumnDefinitions >
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0"  HorizontalAlignment="Left">
+            <Label Content="{Binding Content}" />
+            
+        </Grid>
+        <Grid Grid.Column="1">
+            <TextBox x:Name="textBoxname"/>
+        </Grid>
+    </Grid>
+</UserControl>

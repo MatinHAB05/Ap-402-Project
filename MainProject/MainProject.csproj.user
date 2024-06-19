@@ -10,9 +10,15 @@
     <Compile Update="LoginForm_Matin\LoginPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="LoginForm_Matin\userControl\UserControl1.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="LoginForm_Matin\LoginPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="LoginForm_Matin\userControl\UserControl1.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">

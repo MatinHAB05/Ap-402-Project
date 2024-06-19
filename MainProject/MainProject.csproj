@@ -8,4 +8,13 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="LoginForm_Matin\images\background1.jpg" />
+    <None Remove="LoginForm_Matin\ToDo.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="LoginForm_Matin\images\background1.jpg" />
+  </ItemGroup>
+
 </Project>
