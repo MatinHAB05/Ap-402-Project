@@ -23,5 +23,16 @@ namespace MainProject.LoginForm_Matin
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            //Check the value 
+            //PassWordBox.textBoxname.Text ...
+            //if Undifinded Username or PassWord
+            PassWordBox.TextBolckTEXT.Text = "Error";
+            UserNameBox.TextBolckTEXT.Text = "Error2";
+            MessageBox.Show("Hint to edit the Bad Inputs","This is Caption",MessageBoxButton.OK,MessageBoxImage.Error);
+
+        }
     }
 }

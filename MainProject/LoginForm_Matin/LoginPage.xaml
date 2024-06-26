@@ -13,24 +13,26 @@
     <Grid >
         
         <Grid.ColumnDefinitions >
-                <ColumnDefinition Width="450"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="1.5*"/>
+                <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
 
-        <Grid Grid.Column="1" Background="Transparent" Margin="50,0,0,0">
+        <Grid Grid.Column="1" Background="Transparent" Margin="0,0,0,0">
             <Grid.RowDefinitions>
-                <RowDefinition />
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="1*"/>
-                 <RowDefinition/>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition/>
                 
             </Grid.RowDefinitions>
 
-                <Label Grid.Row="0" Content="Titre" FontSize="50" HorizontalAlignment="Left"/>
-                <UserCont111:UserControl1 Grid.Row="1" Content="UserName :"/>
+                <Label Grid.Row="0" Content="Title" FontSize="50" HorizontalAlignment="Left" />
+            <UserCont111:UserControl1 Grid.Row="1"  x:Name="UserNameBox" ContentTxt="UserName :" Height="30" Margin="0,0,10,0"/>
 
-                <UserCont111:UserControl1 Grid.Row="2" Content="PassWord :"/>
-                <Label Grid.Row="3"  FontSize="25" HorizontalAlignment="Left">
+            <UserCont111:UserControl1 Grid.Row="2" x:Name="PassWordBox" ContentTxt="PassWord :" Height="30" Margin="0,0,10,0"/>
+            <Button Grid.Row="3" Content="Login"  Margin="10" Width="100" Click="Button_Click"/>
+            <Label Grid.Row="4"  FontSize="25" HorizontalAlignment="Left">
                     <Hyperlink>
                         Create Acount
                     </Hyperlink>

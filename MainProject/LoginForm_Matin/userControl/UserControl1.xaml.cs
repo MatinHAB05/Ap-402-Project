@@ -20,10 +20,16 @@ namespace MainProject.LoginForm_Matin.userControl
     /// </summary>
     public partial class UserControl1 : UserControl
     {
-        string Content { get; set; }
+        public string ContentTxt { get; set; }
+        public string ErrorTxt { get; set; }
+
+
+
         public UserControl1()
         {
             InitializeComponent();
+            this.DataContext = this;
+            
         }
     }
 }
