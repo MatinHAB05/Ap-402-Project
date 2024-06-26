@@ -7,6 +7,6 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Button Content="Click to open LoginPage" Click="Button_Click" FontSize="50"/>
+        <Button Content="Click to open SetPassWordPage" Click="Button_Click" FontSize="50"/>
     </Grid>
 </Window>

@@ -1,4 +1,5 @@
 ﻿using MainProject.LoginForm_Matin;
+using MainProject.SetPassWordPage_Matin;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -20,12 +21,21 @@ namespace MainProject
         public MainWindow()
         {
             InitializeComponent();
+
+            SetPassWordForm setPassWordForm = new SetPassWordForm();
+            setPassWordForm.Show();
+            this.Close();
+
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            LoginPage loginPageDemo = new LoginPage();
-            loginPageDemo.Show();
+            //LoginPage loginPageDemo = new LoginPage();
+            //loginPageDemo.Show();
+            //this.Close();
+            SetPassWordForm setPassWordForm = new SetPassWordForm();
+            setPassWordForm.Show();
             this.Close();
 
         }

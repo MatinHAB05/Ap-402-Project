@@ -10,7 +10,13 @@
     <Compile Update="LoginForm_Matin\LoginPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="LoginForm_Matin\userControl\UserControl1.xaml.cs">
+    <Compile Update="LoginForm_Matin\userControl_LoginForm\UserControl1.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="SetPassWordPage_Matin\SetPassWordForm.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="SetPassWordPage_Matin\userControl_SetPassword\TextBOX_con.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -18,10 +24,16 @@
     <Page Update="LoginForm_Matin\LoginPage.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="LoginForm_Matin\userControl\UserControl1.xaml">
+    <Page Update="LoginForm_Matin\userControl_LoginForm\UserControl1.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="SetPassWordPage_Matin\SetPassWordForm.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="SetPassWordPage_Matin\userControl_SetPassword\UserControl1.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
