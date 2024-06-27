@@ -1,5 +1,6 @@
 ﻿using MainProject.LoginForm_Matin;
 using MainProject.SetPassWordPage_Matin;
+using MainProject.SignInPage_Matin;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -22,8 +23,8 @@ namespace MainProject
         {
             InitializeComponent();
 
-            SetPassWordForm setPassWordForm = new SetPassWordForm();
-            setPassWordForm.Show();
+            SignInForm signInForm = new SignInForm();
+            signInForm.Show();
             this.Close();
 
 

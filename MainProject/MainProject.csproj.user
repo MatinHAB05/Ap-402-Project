@@ -7,33 +7,39 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="LoginForm_Matin\LoginPage.xaml.cs">
+    <Compile Update="Finish-forNow-DirectoryWrong\LoginForm_Matin\LoginPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="LoginForm_Matin\userControl_LoginForm\UserControl1.xaml.cs">
+    <Compile Update="Finish-forNow-DirectoryWrong\LoginForm_Matin\userControl_LoginForm\UserControl1.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="SetPassWordPage_Matin\SetPassWordForm.xaml.cs">
+    <Compile Update="Finish-forNow-DirectoryWrong\SetPassWordPage_Matin\SetPassWordForm.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="SetPassWordPage_Matin\userControl_SetPassword\TextBOX_con.cs">
+    <Compile Update="Finish-forNow-DirectoryWrong\SetPassWordPage_Matin\userControl_SetPassword\TextBOX_con.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="SignInPage_Matin\Usercontrol\UserControl1.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="LoginForm_Matin\LoginPage.xaml">
+    <Page Update="Finish-forNow-DirectoryWrong\LoginForm_Matin\LoginPage.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="LoginForm_Matin\userControl_LoginForm\UserControl1.xaml">
+    <Page Update="Finish-forNow-DirectoryWrong\LoginForm_Matin\userControl_LoginForm\UserControl1.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="SetPassWordPage_Matin\SetPassWordForm.xaml">
+    <Page Update="Finish-forNow-DirectoryWrong\SetPassWordPage_Matin\SetPassWordForm.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="SetPassWordPage_Matin\userControl_SetPassword\UserControl1.xaml">
+    <Page Update="Finish-forNow-DirectoryWrong\SetPassWordPage_Matin\userControl_SetPassword\UserControl1.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="SignInPage_Matin\Usercontrol\UserControl1.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

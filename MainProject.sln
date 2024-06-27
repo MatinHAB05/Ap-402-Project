@@ -5,11 +5,6 @@ VisualStudioVersion = 17.10.34916.146
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MainProject", "MainProject\MainProject.csproj", "{E1CB949E-0E6A-4A81-8EF3-32C771E84534}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{88FFA302-5693-4E5A-82C6-11A0FEFE4BF5}"
-	ProjectSection(SolutionItems) = preProject
-		MainProject\SetPassWordPage_Matin\images\lock_background.jpg = MainProject\SetPassWordPage_Matin\images\lock_background.jpg
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

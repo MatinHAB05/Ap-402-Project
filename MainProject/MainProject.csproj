@@ -9,18 +9,36 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="LoginForm_Matin\images\background1.jpg" />
-    <None Remove="LoginForm_Matin\ToDo.txt" />
-    <None Remove="SetPassWordPage_Matin\images\hide.png" />
-    <None Remove="SetPassWordPage_Matin\images\lock_background.jpg" />
-    <None Remove="SetPassWordPage_Matin\images\show.png" />
+    <Compile Remove="SigInPage_Matin\**" />
+    <EmbeddedResource Remove="SigInPage_Matin\**" />
+    <None Remove="SigInPage_Matin\**" />
+    <Page Remove="SigInPage_Matin\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="LoginForm_Matin\images\background1.jpg" />
-    <Resource Include="SetPassWordPage_Matin\images\hide.png" />
-    <Resource Include="SetPassWordPage_Matin\images\lock_background.jpg" />
-    <Resource Include="SetPassWordPage_Matin\images\show.png" />
+    <None Remove="Finish-forNow-DirectoryWrong\LoginForm_Matin\images\background1.jpg" />
+    <None Remove="Finish-forNow-DirectoryWrong\LoginForm_Matin\ToDo.txt" />
+    <None Remove="Finish-forNow-DirectoryWrong\SetPassWordPage_Matin\images\hide.png" />
+    <None Remove="Finish-forNow-DirectoryWrong\SetPassWordPage_Matin\images\lock_background.jpg" />
+    <None Remove="Finish-forNow-DirectoryWrong\SetPassWordPage_Matin\images\show.png" />
+    <None Remove="SignInPage_Matin\images\backGround2.jpg" />
+    <None Remove="SignInPage_Matin\images\icons8-email-64.jpg" />
+    <None Remove="SignInPage_Matin\images\icons8-name-tag-64.jpg" />
+    <None Remove="SignInPage_Matin\images\icons8-phone-64.jpg" />
+    <None Remove="SignInPage_Matin\images\user.jpg" />
+    <None Remove="SignInPage_Matin\images\user.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Finish-forNow-DirectoryWrong\LoginForm_Matin\images\background1.jpg" />
+    <Resource Include="Finish-forNow-DirectoryWrong\SetPassWordPage_Matin\images\hide.png" />
+    <Resource Include="Finish-forNow-DirectoryWrong\SetPassWordPage_Matin\images\lock_background.jpg" />
+    <Resource Include="Finish-forNow-DirectoryWrong\SetPassWordPage_Matin\images\show.png" />
+    <Resource Include="SignInPage_Matin\images\backGround2.jpg" />
+    <Resource Include="SignInPage_Matin\images\icons8-email-64.jpg" />
+    <Resource Include="SignInPage_Matin\images\icons8-name-tag-64.jpg" />
+    <Resource Include="SignInPage_Matin\images\icons8-phone-64.jpg" />
+    <Resource Include="SignInPage_Matin\images\user.jpg" />
   </ItemGroup>
 
 </Project>
