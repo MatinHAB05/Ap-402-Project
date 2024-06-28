@@ -21,12 +21,19 @@
     <None Remove="Finish-forNow-DirectoryWrong\SetPassWordPage_Matin\images\hide.png" />
     <None Remove="Finish-forNow-DirectoryWrong\SetPassWordPage_Matin\images\lock_background.jpg" />
     <None Remove="Finish-forNow-DirectoryWrong\SetPassWordPage_Matin\images\show.png" />
-    <None Remove="SignInPage_Matin\images\backGround2.jpg" />
-    <None Remove="SignInPage_Matin\images\icons8-email-64.jpg" />
-    <None Remove="SignInPage_Matin\images\icons8-name-tag-64.jpg" />
-    <None Remove="SignInPage_Matin\images\icons8-phone-64.jpg" />
-    <None Remove="SignInPage_Matin\images\user.jpg" />
-    <None Remove="SignInPage_Matin\images\user.png" />
+    <None Remove="Finish-forNow-DirectoryWrong\SignInPage_Matin\images\backGround2.jpg" />
+    <None Remove="Finish-forNow-DirectoryWrong\SignInPage_Matin\images\icons8-email-64.jpg" />
+    <None Remove="Finish-forNow-DirectoryWrong\SignInPage_Matin\images\icons8-name-tag-64.jpg" />
+    <None Remove="Finish-forNow-DirectoryWrong\SignInPage_Matin\images\icons8-phone-64.jpg" />
+    <None Remove="Finish-forNow-DirectoryWrong\SignInPage_Matin\images\user.jpg" />
+    <None Remove="Finish-forNow-DirectoryWrong\SignInPage_Matin\images\user.png" />
+    <None Remove="Search_Restuant_PageADMIN_Matin\Images\icons8-search-50.jpg" />
+    <None Remove="Search_Restuant_PageADMIN_Matin\Images\s1.jpg" />
+    <None Remove="Search_Restuant_PageADMIN_Matin\Images\s2.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Search_Restuant_PageADMIN_Matin\Images\s2.jpg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -34,11 +41,12 @@
     <Resource Include="Finish-forNow-DirectoryWrong\SetPassWordPage_Matin\images\hide.png" />
     <Resource Include="Finish-forNow-DirectoryWrong\SetPassWordPage_Matin\images\lock_background.jpg" />
     <Resource Include="Finish-forNow-DirectoryWrong\SetPassWordPage_Matin\images\show.png" />
-    <Resource Include="SignInPage_Matin\images\backGround2.jpg" />
-    <Resource Include="SignInPage_Matin\images\icons8-email-64.jpg" />
-    <Resource Include="SignInPage_Matin\images\icons8-name-tag-64.jpg" />
-    <Resource Include="SignInPage_Matin\images\icons8-phone-64.jpg" />
-    <Resource Include="SignInPage_Matin\images\user.jpg" />
+    <Resource Include="Finish-forNow-DirectoryWrong\SignInPage_Matin\images\backGround2.jpg" />
+    <Resource Include="Finish-forNow-DirectoryWrong\SignInPage_Matin\images\icons8-email-64.jpg" />
+    <Resource Include="Finish-forNow-DirectoryWrong\SignInPage_Matin\images\icons8-name-tag-64.jpg" />
+    <Resource Include="Finish-forNow-DirectoryWrong\SignInPage_Matin\images\icons8-phone-64.jpg" />
+    <Resource Include="Finish-forNow-DirectoryWrong\SignInPage_Matin\images\user.jpg" />
+    <Resource Include="Search_Restuant_PageADMIN_Matin\Images\s1.jpg" />
   </ItemGroup>
 
 </Project>
