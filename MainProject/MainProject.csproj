@@ -8,4 +8,8 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="AdminPage_Parham\images\" />
+  </ItemGroup>
+
 </Project>
