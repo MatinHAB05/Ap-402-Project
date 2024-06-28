@@ -22,10 +22,7 @@
     <Compile Update="Finish-forNow-DirectoryWrong\SignInPage_Matin\Usercontrol\UserControl1.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Search_Restuant_PageADMIN_Matin\UserControls\searchBox.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Search_Restuant_PageADMIN_Matin\SearchPageForm.xaml.cs">
+    <Compile Update="Search_complaints_PageADMIN_Matin\Search_complaints_AdminPageForm.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -48,10 +45,7 @@
     <Page Update="Finish-forNow-DirectoryWrong\SignInPage_Matin\Usercontrol\UserControl1.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Search_Restuant_PageADMIN_Matin\UserControls\searchBox.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Search_Restuant_PageADMIN_Matin\SearchPageForm.xaml">
+    <Page Update="Search_complaints_PageADMIN_Matin\Search_complaints_AdminPageForm.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

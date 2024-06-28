@@ -1,4 +1,4 @@
-﻿<Window x:Class="MainProject.Search_Restuant_PageADMIN_Matin.SearchPageForm"
+﻿<Window x:Class="MainProject.Search_Restuant_PageADMIN_Matin.Search_Res_AdminPageForm"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:MainProject.Search_Restuant_PageADMIN_Matin"
         xmlns:USEcon="clr-namespace:MainProject.Search_Restuant_PageADMIN_Matin.UserControls"
         mc:Ignorable="d"
-        Title="SearchPageForm" Height="824" Width="1500" Background="#FFF5EE" MouseDown="Window_MouseDown" >
+        Title="Search_Res_AdminPageForm" Height="824" Width="1500" Background="#FFF5EE" MouseDown="Window_MouseDown" >
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>

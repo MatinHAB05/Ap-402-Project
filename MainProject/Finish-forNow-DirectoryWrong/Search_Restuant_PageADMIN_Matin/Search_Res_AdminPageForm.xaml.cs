@@ -18,7 +18,7 @@ namespace MainProject.Search_Restuant_PageADMIN_Matin
     /// <summary>
     /// Interaction logic for SearchPageForm.xaml
     /// </summary>
-    public partial class SearchPageForm : Window, INotifyPropertyChanged
+    public partial class Search_Res_AdminPageForm : Window, INotifyPropertyChanged
     {
         private double _MinPointsSearch;
         public double MinPointsSearch
@@ -48,7 +48,7 @@ namespace MainProject.Search_Restuant_PageADMIN_Matin
                 this.point = point;
             }
         }
-        public SearchPageForm()
+        public Search_Res_AdminPageForm()
         {
             InitializeComponent();
             this.DataContext = this;

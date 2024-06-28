@@ -1,4 +1,5 @@
 ﻿using MainProject.LoginForm_Matin;
+using MainProject.Search_complaints_PageADMIN_Matin;
 using MainProject.Search_Restuant_PageADMIN_Matin;
 using MainProject.SetPassWordPage_Matin;
 using MainProject.SignInPage_Matin;
@@ -24,7 +25,7 @@ namespace MainProject
         {
             InitializeComponent();
 
-            SearchPageForm searchPageForm = new SearchPageForm();
+            Search_complaints_AdminPageForm searchPageForm = new Search_complaints_AdminPageForm();
             searchPageForm.Show();
             this.Close();
 
