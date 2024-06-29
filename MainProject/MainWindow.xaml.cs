@@ -1,4 +1,5 @@
-﻿using MainProject.LoginForm_Matin;
+﻿using MainProject.AddRestunts_AdminPanel_Matin;
+using MainProject.LoginForm_Matin;
 using MainProject.ReviewAndEditUnreviewedComplaints_Matin;
 using System.Windows;
 using System.Windows.Shapes;
@@ -14,7 +15,7 @@ namespace MainProject
         {
             InitializeComponent();
 
-            LoginPage searchPageForm = new LoginPage();
+            AddRestunts_AdminPanel_Page searchPageForm = new AddRestunts_AdminPanel_Page();
             searchPageForm.Show();
             this.Close();
 

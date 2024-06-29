@@ -7,6 +7,9 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="AddRestunts_AdminPanel_Matin\AddRestunts_AdminPanel_Page.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Finish-forNow-DirectoryWrong\SetPassWordPage_Matin\SetPassWordForm.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -21,6 +24,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="AddRestunts_AdminPanel_Matin\AddRestunts_AdminPanel_Page.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>

@@ -1,0 +1,40 @@
+﻿<Window x:Class="MainProject.AddRestunts_AdminPanel_Matin.AddRestunts_AdminPanel_Page"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MainProject.AddRestunts_AdminPanel_Matin"
+        xmlns:UserCont111="clr-namespace:MainProject.SetPassWordPage_Matin.userControl_SetPassword"
+        
+        mc:Ignorable="d"
+        Title="AddRestunts_AdminPanel_Page" Height="450" Width="800">
+    <Window.Background>
+        <ImageBrush ImageSource="/AddRestunts_AdminPanel_Matin/Images/woodBack.jpg" Stretch="Fill"/>
+
+    </Window.Background>
+    <Grid>
+        <StackPanel Height="260" Width="500"  VerticalAlignment="Center" HorizontalAlignment="Center" Background="White">
+            <Label Content="Username" FontSize="15"/>
+            <UserCont111:txtBoxControl  x:Name="UserName" Height="19.96" Margin="5"/>
+            <Label Content="Password(or New Password)" FontSize="15"/>
+            <UserCont111:txtBoxControl  x:Name="PassWord" Height="19.96" Margin="5"/>
+            <Button Foreground="WhiteSmoke" FontSize="18" Width="488"  Height="40" Margin="5,10,5,5" Click="AddResturnatsBut">
+                <Button.Background>
+                    <SolidColorBrush Color="#33b249"/>
+                </Button.Background>
+                <Button.Content>
+                    <TextBlock FontWeight="Bold" Text="Add Resturants"/>
+                </Button.Content>
+            </Button>
+            <Label Content="OR" HorizontalAlignment="Center" FontSize="12"/>
+            <Button Foreground="WhiteSmoke" FontSize="18" Width="488"  Height="40" Margin="5" Click="EditPassBut">
+                <Button.Background>
+                    <SolidColorBrush Color="#ffbd03"/>
+                </Button.Background>
+                <Button.Content>
+                    <TextBlock FontWeight="Bold" Text="Edit The Password" />
+                </Button.Content>
+            </Button>
+        </StackPanel>
+    </Grid>
+</Window>
