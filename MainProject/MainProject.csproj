@@ -11,6 +11,7 @@
   <ItemGroup>
     <Folder Include="AdminPage_Parham\images\" />
     <Folder Include="ProfilePage_Parham\images\" />
+    <Folder Include="RestaurantPanel_Parham\images\" />
   </ItemGroup>
 
 </Project>

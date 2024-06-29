@@ -13,6 +13,9 @@
     <Compile Update="ProfilePage_Parham\ProfilePage\ProfilePage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="RestaurantPanel_Parham\RestaurantPanel\RestaurantPanel.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="AdminPage_Parham\AdminPage\AdminPage.xaml">
@@ -22,6 +25,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="ProfilePage_Parham\ProfilePage\ProfilePage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="RestaurantPanel_Parham\RestaurantPanel\RestaurantPanel.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
