@@ -27,14 +27,8 @@
     <None Remove="Finish-forNow-DirectoryWrong\SignInPage_Matin\images\icons8-phone-64.jpg" />
     <None Remove="Finish-forNow-DirectoryWrong\SignInPage_Matin\images\user.jpg" />
     <None Remove="Finish-forNow-DirectoryWrong\SignInPage_Matin\images\user.png" />
-    <None Remove="Finish-forNow-DirectoryWrong\Search_Restuant_PageADMIN_Matin\Images\s1.jpg" />
-    <None Remove="Finish-forNow-DirectoryWrong\Search_Restuant_PageADMIN_Matin\Images\s2.jpg" />
-    <None Remove="Search_complaints_PageADMIN_Matin\Images\s1.jpg" />
-    <None Remove="Search_complaints_PageADMIN_Matin\Images\s2.jpg" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Resource Include="Finish-forNow-DirectoryWrong\Search_Restuant_PageADMIN_Matin\Images\s1.jpg" />
+    <None Remove="Finish-forNow-DirectoryWrong\Search_complaints_PageADMIN_Matin\Images\s1.jpg" />
+    <None Remove="Finish-forNow-DirectoryWrong\Search_complaints_PageADMIN_Matin\Images\s2.jpg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -47,9 +41,8 @@
     <Resource Include="Finish-forNow-DirectoryWrong\SignInPage_Matin\images\icons8-name-tag-64.jpg" />
     <Resource Include="Finish-forNow-DirectoryWrong\SignInPage_Matin\images\icons8-phone-64.jpg" />
     <Resource Include="Finish-forNow-DirectoryWrong\SignInPage_Matin\images\user.jpg" />
-    <Resource Include="Finish-forNow-DirectoryWrong\Search_Restuant_PageADMIN_Matin\Images\s2.jpg" />
-    <Resource Include="Search_complaints_PageADMIN_Matin\Images\s1.jpg" />
-    <Resource Include="Search_complaints_PageADMIN_Matin\Images\s2.jpg" />
+    <Resource Include="Finish-forNow-DirectoryWrong\Search_complaints_PageADMIN_Matin\Images\s1.jpg" />
+    <Resource Include="Finish-forNow-DirectoryWrong\Search_complaints_PageADMIN_Matin\Images\s2.jpg" />
   </ItemGroup>
 
 </Project>
