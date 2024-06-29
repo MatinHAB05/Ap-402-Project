@@ -25,9 +25,6 @@
     <Compile Update="Finish-forNow-DirectoryWrong\Search_complaints_PageADMIN_Matin\Search_complaints_AdminPageForm.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Finish-forNow-DirectoryWrong\ReviewUnreviewedComplaints_Matin\ReviewUnreviewedComplaints_Page.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Finish-forNow-DirectoryWrong\LoginForm_Matin\LoginPage.xaml">
@@ -49,9 +46,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Finish-forNow-DirectoryWrong\Search_complaints_PageADMIN_Matin\Search_complaints_AdminPageForm.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Finish-forNow-DirectoryWrong\ReviewUnreviewedComplaints_Matin\ReviewUnreviewedComplaints_Page.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

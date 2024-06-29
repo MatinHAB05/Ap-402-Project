@@ -1,11 +1,11 @@
-﻿<Window x:Class="MainProject.ReviewUnreviewedComplaints_Matin.ReviewUnreviewedComplaints_Page"
+﻿<Window x:Class="MainProject.ReviewComplaints_Matin.ReviewComplaints_Page"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:MainProject.ReviewUnreviewedComplaints_Matin"
+        xmlns:local="clr-namespace:MainProject.ReviewComplaints_Matin"
         mc:Ignorable="d"
-        Title="ReviewUnreviewedComplaints_Page" Height="750" Width="1200" Background="Black">
+        Title="ReviewComplaints_Page" Height="750" Width="1200" Background="Black">
 
     <Grid>
         <Grid.ColumnDefinitions>

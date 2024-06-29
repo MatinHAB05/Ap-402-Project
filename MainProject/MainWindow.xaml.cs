@@ -1,5 +1,4 @@
-﻿
-using MainProject.ReviewComplaints_Matin;
+﻿using MainProject.ReviewAndEditUnreviewedComplaints_Matin;
 using System.Windows;
 using System.Windows.Shapes;
 
@@ -14,7 +13,7 @@ namespace MainProject
         {
             InitializeComponent();
 
-            ReviewComplaints_Page searchPageForm = new ReviewComplaints_Page();
+            ReviewAndEditUnreviewedComplaints_Page searchPageForm = new ReviewAndEditUnreviewedComplaints_Page();
             searchPageForm.Show();
             this.Close();
 
