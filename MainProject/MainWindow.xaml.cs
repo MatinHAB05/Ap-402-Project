@@ -1,6 +1,7 @@
-﻿using MainProject.AddRestunts_AdminPanel_Matin;
+﻿
+using MainProject.Follow_RegisterComplaints_Matin;
 using MainProject.LoginForm_Matin;
-using MainProject.ReviewAndEditUnreviewedComplaints_Matin;
+using MainProject.OrderHistoryPage_Matin;
 using System.Windows;
 using System.Windows.Shapes;
 
@@ -15,7 +16,7 @@ namespace MainProject
         {
             InitializeComponent();
 
-            AddRestunts_AdminPanel_Page searchPageForm = new AddRestunts_AdminPanel_Page();
+            Follow_RegisterComplaints_CustomerPanel searchPageForm = new Follow_RegisterComplaints_CustomerPanel();
             searchPageForm.Show();
             this.Close();
 

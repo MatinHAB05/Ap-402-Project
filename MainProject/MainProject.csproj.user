@@ -7,9 +7,6 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="AddRestunts_AdminPanel_Matin\AddRestunts_AdminPanel_Page.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="Finish-forNow-DirectoryWrong\SetPassWordPage_Matin\SetPassWordForm.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -22,9 +19,21 @@
     <Compile Update="Finish-forNow-DirectoryWrong\Search_complaints_PageADMIN_Matin\Search_complaints_AdminPageForm.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Finish-forNow-DirectoryWrong\OrderHistoryPage_Matin\OrderHistoryPage_CustomerPanel.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Follow_RegisterComplaints_Matin\Follow_RegisterComplaints_CustomerPanel.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Follow_RegisterComplaints_Matin\UserControls\UserControlFollowAndRegisterComplaints_CustomerPanel.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="AddRestunts_AdminPanel_Matin\AddRestunts_AdminPanel_Page.xaml">
+    <Page Update="Follow_RegisterComplaints_Matin\Follow_RegisterComplaints_CustomerPanel.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Follow_RegisterComplaints_Matin\UserControls\UserControlFollowAndRegisterComplaints_CustomerPanel.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">
@@ -40,6 +49,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Finish-forNow-DirectoryWrong\Search_complaints_PageADMIN_Matin\Search_complaints_AdminPageForm.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Finish-forNow-DirectoryWrong\OrderHistoryPage_Matin\OrderHistoryPage_CustomerPanel.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

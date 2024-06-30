@@ -9,22 +9,22 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Finish-forNow-DirectoryWrong\LoginForm_Matin\**" />
+    <Compile Remove="AddRestunts_AdminPanel_Matin\**" />
     <Compile Remove="ReviewAndEditUnreviewedComplaints_Matin\**" />
     <Compile Remove="SigInPage_Matin\**" />
-    <EmbeddedResource Remove="Finish-forNow-DirectoryWrong\LoginForm_Matin\**" />
+    <EmbeddedResource Remove="AddRestunts_AdminPanel_Matin\**" />
     <EmbeddedResource Remove="ReviewAndEditUnreviewedComplaints_Matin\**" />
     <EmbeddedResource Remove="SigInPage_Matin\**" />
-    <None Remove="Finish-forNow-DirectoryWrong\LoginForm_Matin\**" />
+    <None Remove="AddRestunts_AdminPanel_Matin\**" />
     <None Remove="ReviewAndEditUnreviewedComplaints_Matin\**" />
     <None Remove="SigInPage_Matin\**" />
-    <Page Remove="Finish-forNow-DirectoryWrong\LoginForm_Matin\**" />
+    <Page Remove="AddRestunts_AdminPanel_Matin\**" />
     <Page Remove="ReviewAndEditUnreviewedComplaints_Matin\**" />
     <Page Remove="SigInPage_Matin\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="AddRestunts_AdminPanel_Matin\Images\woodBack.jpg" />
+    <None Remove="Finish-forNow-DirectoryWrong\AddRestunts_AdminPanel_Matin\Images\woodBack.jpg" />
     <None Remove="Finish-forNow-DirectoryWrong\SetPassWordPage_Matin\images\hide.png" />
     <None Remove="Finish-forNow-DirectoryWrong\SetPassWordPage_Matin\images\lock_background.jpg" />
     <None Remove="Finish-forNow-DirectoryWrong\SetPassWordPage_Matin\images\show.png" />
@@ -36,13 +36,20 @@
     <None Remove="Finish-forNow-DirectoryWrong\SignInPage_Matin\images\user.png" />
     <None Remove="Finish-forNow-DirectoryWrong\Search_complaints_PageADMIN_Matin\Images\s1.jpg" />
     <None Remove="Finish-forNow-DirectoryWrong\Search_complaints_PageADMIN_Matin\Images\s2.jpg" />
-    <None Remove="LoginForm_Matin\images\background1.jpg" />
-    <None Remove="LoginForm_Matin\images\res1.jpg" />
-    <None Remove="LoginForm_Matin\images\res2.jpg" />
+    <None Remove="Finish-forNow-DirectoryWrong\LoginForm_Matin\images\background1.jpg" />
+    <None Remove="Finish-forNow-DirectoryWrong\LoginForm_Matin\images\res1.jpg" />
+    <None Remove="Finish-forNow-DirectoryWrong\LoginForm_Matin\images\res2.jpg" />
+    <None Remove="Finish-forNow-DirectoryWrong\OrderHistoryPage_Matin\Images\edit.png" />
+    <None Remove="Finish-forNow-DirectoryWrong\OrderHistoryPage_Matin\Images\save.png" />
+    <None Remove="Follow_RegisterComplaints_Matin\Images\addIcon.png" />
+    <None Remove="Follow_RegisterComplaints_Matin\Images\addIcon_.png" />
+    <None Remove="Follow_RegisterComplaints_Matin\Images\edit.png" />
+    <None Remove="Follow_RegisterComplaints_Matin\Images\IconAdd_.png" />
+    <None Remove="Follow_RegisterComplaints_Matin\Images\save.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="AddRestunts_AdminPanel_Matin\Images\woodBack.jpg" />
+    <Resource Include="Finish-forNow-DirectoryWrong\AddRestunts_AdminPanel_Matin\Images\woodBack.jpg" />
     <Resource Include="Finish-forNow-DirectoryWrong\SetPassWordPage_Matin\images\hide.png" />
     <Resource Include="Finish-forNow-DirectoryWrong\SetPassWordPage_Matin\images\lock_background.jpg" />
     <Resource Include="Finish-forNow-DirectoryWrong\SetPassWordPage_Matin\images\show.png" />
@@ -53,9 +60,18 @@
     <Resource Include="Finish-forNow-DirectoryWrong\SignInPage_Matin\images\user.jpg" />
     <Resource Include="Finish-forNow-DirectoryWrong\Search_complaints_PageADMIN_Matin\Images\s1.jpg" />
     <Resource Include="Finish-forNow-DirectoryWrong\Search_complaints_PageADMIN_Matin\Images\s2.jpg" />
-    <Resource Include="LoginForm_Matin\images\background1.jpg" />
-    <Resource Include="LoginForm_Matin\images\res1.jpg" />
-    <Resource Include="LoginForm_Matin\images\res2.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Finish-forNow-DirectoryWrong\LoginForm_Matin\images\background1.jpg" />
+    <Resource Include="Finish-forNow-DirectoryWrong\LoginForm_Matin\images\res1.jpg" />
+    <Resource Include="Finish-forNow-DirectoryWrong\LoginForm_Matin\images\res2.jpg" />
+    <Resource Include="Finish-forNow-DirectoryWrong\OrderHistoryPage_Matin\Images\edit.png" />
+    <Resource Include="Finish-forNow-DirectoryWrong\OrderHistoryPage_Matin\Images\save.png" />
+    <Resource Include="Follow_RegisterComplaints_Matin\Images\addIcon.png" />
+    <Resource Include="Follow_RegisterComplaints_Matin\Images\edit.png" />
+    <Resource Include="Follow_RegisterComplaints_Matin\Images\IconAdd_.png" />
+    <Resource Include="Follow_RegisterComplaints_Matin\Images\save.png" />
   </ItemGroup>
 
 </Project>
