@@ -28,10 +28,13 @@
     <Compile Update="Finish-forNow-DirectoryWrong\Follow_RegisterComplaints_Matin\UserControls\UserControlFollowAndRegisterComplaints_CustomerPanel.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Review_Search_OrderAndReservation_ResturantsPanel_Matin\Review_Search_OrderAndReservation_ResturantsPage.xaml.cs">
+    <Compile Update="Finish-forNow-DirectoryWrong\Review_Search_OrderAndReservation_ResturantsPanel_Matin\Review_Search_OrderAndReservation_ResturantsPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Review_Search_OrderAndReservation_ResturantsPanel_Matin\UserControls\UserControl1.xaml.cs">
+    <Compile Update="Finish-forNow-DirectoryWrong\Review_Search_OrderAndReservation_ResturantsPanel_Matin\UserControls\UserControl1.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="reserrveORorderFoods_CustomerPage_Matin\reserrveORorderFoods_CustomerPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -60,10 +63,13 @@
     <Page Update="Finish-forNow-DirectoryWrong\OrderHistoryPage_Matin\OrderHistoryPage_CustomerPanel.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Review_Search_OrderAndReservation_ResturantsPanel_Matin\Review_Search_OrderAndReservation_ResturantsPage.xaml">
+    <Page Update="Finish-forNow-DirectoryWrong\Review_Search_OrderAndReservation_ResturantsPanel_Matin\Review_Search_OrderAndReservation_ResturantsPage.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Review_Search_OrderAndReservation_ResturantsPanel_Matin\UserControls\UserControl1.xaml">
+    <Page Update="Finish-forNow-DirectoryWrong\Review_Search_OrderAndReservation_ResturantsPanel_Matin\UserControls\UserControl1.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="reserrveORorderFoods_CustomerPage_Matin\reserrveORorderFoods_CustomerPage.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
