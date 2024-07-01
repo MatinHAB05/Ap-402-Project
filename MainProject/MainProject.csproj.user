@@ -22,18 +22,24 @@
     <Compile Update="Finish-forNow-DirectoryWrong\OrderHistoryPage_Matin\OrderHistoryPage_CustomerPanel.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Follow_RegisterComplaints_Matin\Follow_RegisterComplaints_CustomerPanel.xaml.cs">
+    <Compile Update="Finish-forNow-DirectoryWrong\Follow_RegisterComplaints_Matin\Follow_RegisterComplaints_CustomerPanel.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Follow_RegisterComplaints_Matin\UserControls\UserControlFollowAndRegisterComplaints_CustomerPanel.xaml.cs">
+    <Compile Update="Finish-forNow-DirectoryWrong\Follow_RegisterComplaints_Matin\UserControls\UserControlFollowAndRegisterComplaints_CustomerPanel.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Review_Search_OrderAndReservation_ResturantsPanel_Matin\Review_Search_OrderAndReservation_ResturantsPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Review_Search_OrderAndReservation_ResturantsPanel_Matin\UserControls\UserControl1.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="Follow_RegisterComplaints_Matin\Follow_RegisterComplaints_CustomerPanel.xaml">
+    <Page Update="Finish-forNow-DirectoryWrong\Follow_RegisterComplaints_Matin\Follow_RegisterComplaints_CustomerPanel.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Follow_RegisterComplaints_Matin\UserControls\UserControlFollowAndRegisterComplaints_CustomerPanel.xaml">
+    <Page Update="Finish-forNow-DirectoryWrong\Follow_RegisterComplaints_Matin\UserControls\UserControlFollowAndRegisterComplaints_CustomerPanel.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">
@@ -52,6 +58,12 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Finish-forNow-DirectoryWrong\OrderHistoryPage_Matin\OrderHistoryPage_CustomerPanel.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Review_Search_OrderAndReservation_ResturantsPanel_Matin\Review_Search_OrderAndReservation_ResturantsPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Review_Search_OrderAndReservation_ResturantsPanel_Matin\UserControls\UserControl1.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

@@ -41,11 +41,17 @@
     <None Remove="Finish-forNow-DirectoryWrong\LoginForm_Matin\images\res2.jpg" />
     <None Remove="Finish-forNow-DirectoryWrong\OrderHistoryPage_Matin\Images\edit.png" />
     <None Remove="Finish-forNow-DirectoryWrong\OrderHistoryPage_Matin\Images\save.png" />
-    <None Remove="Follow_RegisterComplaints_Matin\Images\addIcon.png" />
-    <None Remove="Follow_RegisterComplaints_Matin\Images\addIcon_.png" />
-    <None Remove="Follow_RegisterComplaints_Matin\Images\edit.png" />
-    <None Remove="Follow_RegisterComplaints_Matin\Images\IconAdd_.png" />
-    <None Remove="Follow_RegisterComplaints_Matin\Images\save.png" />
+    <None Remove="Finish-forNow-DirectoryWrong\Follow_RegisterComplaints_Matin\Images\addIcon.png" />
+    <None Remove="Finish-forNow-DirectoryWrong\Follow_RegisterComplaints_Matin\Images\addIcon_.png" />
+    <None Remove="Finish-forNow-DirectoryWrong\Follow_RegisterComplaints_Matin\Images\edit.png" />
+    <None Remove="Finish-forNow-DirectoryWrong\Follow_RegisterComplaints_Matin\Images\IconAdd_.png" />
+    <None Remove="Finish-forNow-DirectoryWrong\Follow_RegisterComplaints_Matin\Images\save.png" />
+    <None Remove="Review_Search_OrderAndReservation_ResturantsPanel_Matin\Images\s1.jpg" />
+    <None Remove="Review_Search_OrderAndReservation_ResturantsPanel_Matin\Images\s2.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CsvHelper" Version="33.0.1" />
   </ItemGroup>
 
   <ItemGroup>
@@ -68,10 +74,16 @@
     <Resource Include="Finish-forNow-DirectoryWrong\LoginForm_Matin\images\res2.jpg" />
     <Resource Include="Finish-forNow-DirectoryWrong\OrderHistoryPage_Matin\Images\edit.png" />
     <Resource Include="Finish-forNow-DirectoryWrong\OrderHistoryPage_Matin\Images\save.png" />
-    <Resource Include="Follow_RegisterComplaints_Matin\Images\addIcon.png" />
-    <Resource Include="Follow_RegisterComplaints_Matin\Images\edit.png" />
-    <Resource Include="Follow_RegisterComplaints_Matin\Images\IconAdd_.png" />
-    <Resource Include="Follow_RegisterComplaints_Matin\Images\save.png" />
+    <Resource Include="Finish-forNow-DirectoryWrong\Follow_RegisterComplaints_Matin\Images\addIcon.png" />
+    <Resource Include="Finish-forNow-DirectoryWrong\Follow_RegisterComplaints_Matin\Images\edit.png" />
+    <Resource Include="Finish-forNow-DirectoryWrong\Follow_RegisterComplaints_Matin\Images\IconAdd_.png" />
+    <Resource Include="Finish-forNow-DirectoryWrong\Follow_RegisterComplaints_Matin\Images\save.png" />
+    <Resource Include="Review_Search_OrderAndReservation_ResturantsPanel_Matin\Images\s1.jpg" />
+    <Resource Include="Review_Search_OrderAndReservation_ResturantsPanel_Matin\Images\s2.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="CSVtext\" />
   </ItemGroup>
 
 </Project>

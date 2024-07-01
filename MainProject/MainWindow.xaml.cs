@@ -2,6 +2,7 @@
 using MainProject.Follow_RegisterComplaints_Matin;
 using MainProject.LoginForm_Matin;
 using MainProject.OrderHistoryPage_Matin;
+using MainProject.Review_Search_OrderAndReservation_ResturantsPanel_Matin;
 using System.Windows;
 using System.Windows.Shapes;
 
@@ -16,7 +17,7 @@ namespace MainProject
         {
             InitializeComponent();
 
-            Follow_RegisterComplaints_CustomerPanel searchPageForm = new Follow_RegisterComplaints_CustomerPanel();
+            Review_Search_OrderAndReservation_ResturantsPage searchPageForm = new Review_Search_OrderAndReservation_ResturantsPage();
             searchPageForm.Show();
             this.Close();
 
