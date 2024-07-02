@@ -176,6 +176,12 @@ namespace MainProject.Review_Search_OrderAndReservation_ResturantsPanel_Matin
                 D2.txtBoxSerach.Background = new SolidColorBrush(System.Windows.Media.Color.FromRgb(220, 220, 220));
                 D2.imgD.Source = new BitmapImage(new Uri("\\Search_Restuant_PageADMIN_Matin\\Images\\s1.jpg", UriKind.Relative));
             }
+            if (D3.IsClicked == 1)
+            {
+                D3.IsClicked = 0;
+                D3.txtBoxSerach.Background = new SolidColorBrush(System.Windows.Media.Color.FromRgb(220, 220, 220));
+                D3.imgD.Source = new BitmapImage(new Uri("\\Search_Restuant_PageADMIN_Matin\\Images\\s1.jpg", UriKind.Relative));
+            }
         }
 
         private void SearchClick(object sender, RoutedEventArgs e)

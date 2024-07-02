@@ -1,16 +1,16 @@
-﻿<Window x:Class="MainProject.Search_complaints_PageADMIN_Matin.Search_complaints_AdminPageForm"
+﻿<Window x:Class="MainProject.Search_Restuant_PageADMIN_Matin.Search_Res_AdminPageForm"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:MainProject.Search_complaints_PageADMIN_Matin"
-        xmlns:USEcon="clr-namespace:MainProject.Search_complaints_PageADMIN_Matin.UserControls"
+        xmlns:local="clr-namespace:MainProject.Search_Restuant_PageADMIN_Matin"
+        xmlns:USEcon="clr-namespace:MainProject.Search_Restuant_PageADMIN_Matin.UserControls"
         mc:Ignorable="d"
-        Title="Search_complaints_PageADMIN" Height="824" Width="1500" Background="#FFF5EE" MouseDown="Window_MouseDown" >
+        Title="Search_Res_AdminPageForm" Height="824" Width="1500" Background="#FFF5EE" PreviewMouseDown="Window_MouseDown" >
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
-            <ColumnDefinition Width="300" />
+            <ColumnDefinition Width="220" />
         </Grid.ColumnDefinitions>
 
         <Grid Grid.Column="1">
@@ -22,15 +22,21 @@
                             <Hyperlink Click="RemoveFilters" >Remove Filters</Hyperlink>
                         </Label>
                     </StackPanel>
-                    <USEcon:searchBox x:Name="D" WidthImage="30" WidthTxtBox="229" Margin="5,15,5,15"/>
-                    <USEcon:searchBox x:Name="D2" WidthImage="30" WidthTxtBox="229"  Margin="5,15,5,15"/>
-                    <USEcon:searchBox x:Name="D3" WidthImage="30" WidthTxtBox="229"  Margin="5,15,5,15"/>
+                    <USEcon:searchBox x:Name="D"  Margin="5,15,5,5"/>
+                    <USEcon:searchBox x:Name="D2"  Margin="5,5,5,15"/>
+
                     <StackPanel Orientation="Horizontal">
-                        <USEcon:searchBox x:Name="D4" WidthImage="0" WidthTxtBox="120"   Margin="5,5,0,15"/>
-                        <USEcon:searchBox x:Name="D5" WidthImage="30"  WidthTxtBox="110"  Margin="2,5,5,15"/>
+                        <Label Content="Min Points :" FontWeight="Bold" Margin="5,5,5,2" FontSize="15"/>
+                        <Label x:Name="PointsLabel" Content="{Binding MinPointsSearch,UpdateSourceTrigger=PropertyChanged}"  VerticalContentAlignment="Center"/>
                     </StackPanel>
+                    <Slider x:Name="sliderPoint"  Maximum="{Binding MaxPointsSearch,UpdateSourceTrigger=PropertyChanged}"  Minimum="0" LargeChange="0.5" TickPlacement="BottomRight" TickFrequency="0.1" Value="{Binding MinPointsSearch,  Mode=OneWayToSource , FallbackValue =0}" Margin="5,5,5,15" ValueChanged="sliderPoint_ValueChanged"/>
 
 
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Max Points :" FontWeight="Bold" Margin="5,5,5,2" FontSize="15"/>
+                        <Label x:Name="PointsLabel2" Content="{Binding MaxPointsSearch,UpdateSourceTrigger=PropertyChanged}" VerticalContentAlignment="Center"/>
+                    </StackPanel>
+                    <Slider x:Name="sliderPoint2" Maximum="5" Minimum="{Binding MinPointsSearch,UpdateSourceTrigger=PropertyChanged}"   LargeChange="0.5" TickPlacement="BottomRight" TickFrequency="0.1" Value="{Binding MaxPointsSearch,  Mode=OneWayToSource , FallbackValue=5}"    Margin="5,5,5,15" ValueChanged="sliderPoint_ValueChanged"/>
                     <Label Content="Have an unanswered complaint?" Margin="0,0,0,0"/>
                     <RadioButton Content="Yes" x:Name="radioButton" GroupName="Complaints" Margin="0,0,0,3" />
                     <RadioButton Content="No" x:Name="radioButton2" GroupName="Complaints"  Margin="0,0,0,25"/>
@@ -46,7 +52,6 @@
 
 
         </Grid>
-        
         <ScrollViewer >
             <Border BorderThickness="2" Background="White" BorderBrush="LightGray" Margin="8,10,8,10">
 

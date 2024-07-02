@@ -1,10 +1,12 @@
-﻿
-using MainProject.Follow_RegisterComplaints_Matin;
-using MainProject.LoginForm_Matin;
-using MainProject.OrderHistoryPage_Matin;
-using MainProject.reserrveORorderFoods_CustomerPage_Matin;
-using MainProject.Review_Search_OrderAndReservation_ResturantsPanel_Matin;
+﻿using System.Text;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace MainProject
@@ -17,23 +19,6 @@ namespace MainProject
         public MainWindow()
         {
             InitializeComponent();
-
-            reserrveORorderFoods_CustomerPage searchPageForm = new reserrveORorderFoods_CustomerPage();
-            searchPageForm.Show();
-            this.Close();
-
-
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            //LoginPage loginPageDemo = new LoginPage();
-            //loginPageDemo.Show();
-            //this.Close();
-            //SetPassWordForm setPassWordForm = new SetPassWordForm();
-            //setPassWordForm.Show();
-            //this.Close();
-
         }
     }
 }

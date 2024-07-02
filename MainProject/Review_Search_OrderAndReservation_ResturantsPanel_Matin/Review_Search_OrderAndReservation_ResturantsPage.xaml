@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:MainProject.Review_Search_OrderAndReservation_ResturantsPanel_Matin"
         xmlns:USEcon="clr-namespace:MainProject.Review_Search_OrderAndReservation_ResturantsPanel_Matin.UserControls"
         mc:Ignorable="d"
-        Title="Review_Search_OrderAndReservation_ResturantsPage" Height="750" Width="1500" Background="#FFF5EE" MouseDown="Window_MouseDown" >
+        Title="Review_Search_OrderAndReservation_ResturantsPage" Height="750" Width="1500" Background="#FFF5EE" PreviewMouseDown="Window_MouseDown" >
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
