@@ -48,7 +48,7 @@
         <TextBlock Grid.Row="2" Grid.Column="2" Text="Choose your filter" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
         <TextBox Grid.Row="3" Grid.Column="2" Margin="-50,-50,0,0" Text="enter Name" Width="150" Height="20" Foreground="LightGray"/>
         <TextBox Grid.Row="3" Grid.Column="2" Margin="-50,30,0,0" Text="enter City" Width="150" Height="20" Foreground="LightGray"/>
-        <TextBox Grid.Row="3" Grid.Column="2" Grid.RowSpan="2" Margin="-50,0,0,0" Text="enter how many stars" Width="150" Height="20" Foreground="LightGray"/>
+        <TextBox Grid.Row="3" Grid.Column="2" Grid.RowSpan="2" Margin="-50,0,0,0" Text="enter how many rating" Width="150" Height="20" Foreground="LightGray"/>
         <Button Grid.Row="3" Grid.Column="2" Margin="200,-50,0,0" Background="White" Width="32" Height="30" Content="Press" Click="SearchByName"/>
         <Button Grid.Row="3" Grid.Column="2" Margin="200,30,0,0" Background="White" Width="32" Height="30" Content="Press" Click="SearchByCity"/>
         <Button Grid.Row="3" Grid.Column="2" Grid.RowSpan="2" Margin="200,0,0,0" Background="White" Width="32" Height="30" Content="Press" Click="SearchByStars"/>
