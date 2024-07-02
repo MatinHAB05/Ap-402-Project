@@ -28,11 +28,11 @@ namespace MainProject.RestaurantPanel_Parham.RestaurantPanel
         {
 
         }
-        private void Activate_the_reservation_service(object sender, ExecutedRoutedEventArgs e)
+        private void Activate_the_reservation_service(object sender, RoutedEventArgs e)
         {
 
         }
-        private void Order_and_reservation_history(object sender, ExecutedRoutedEventArgs e)
+        private void Order_and_reservation_history(object sender, RoutedEventArgs e)
         {
 
         }

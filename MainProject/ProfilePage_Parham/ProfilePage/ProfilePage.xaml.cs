@@ -28,15 +28,15 @@ namespace MainProject.ProfilePage_Parham.ProfilePage
             LastName.Text = lastName;
             Name.Text = name;
         }
+        private void Change_Address_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
         private void Change_Email_Click(object sender, RoutedEventArgs e)
         {
 
         }
-        private void Change_Email_Address(object sender, RoutedEventArgs e)
-        {
-
-        }
-        private void Change_Email_CustomerType(object sender, RoutedEventArgs e)
+        private void Change_CustomerType_Click(object sender, RoutedEventArgs e)
         {
 
         }
