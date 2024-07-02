@@ -9,6 +9,36 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Resource Include="Follow_RegisterComplaints_Matin\Images\save.png" />
+    <Resource Include="AddRestunts_AdminPanel_Matin\Images\woodBack.jpg" />
+    <Resource Include="Follow_RegisterComplaints_Matin\Images\addIcon.png" />
+    <Resource Include="Follow_RegisterComplaints_Matin\Images\edit.png" />
+    <Resource Include="Follow_RegisterComplaints_Matin\Images\IconAdd_.png" />
+    <Resource Include="LoginForm_Matin\images\background1.jpg" />
+    <Resource Include="LoginForm_Matin\images\res1.jpg" />
+    <Resource Include="LoginForm_Matin\images\res2.jpg" />
+    <Resource Include="OrderHistoryPage_Matin\Images\edit.png" />
+    <Resource Include="OrderHistoryPage_Matin\Images\save.png" />
+    <Resource Include="reserrveORorderFoods_CustomerPage_Matin\Images\add.png" />
+    <Resource Include="reserrveORorderFoods_CustomerPage_Matin\Images\comment.png" />
+    <Resource Include="reserrveORorderFoods_CustomerPage_Matin\Images\demo.png" />
+    <Resource Include="reserrveORorderFoods_CustomerPage_Matin\Images\remove.png" />
+    <Resource Include="ReviewAndEditUnreviewedComplaints_Matin\Images\edit.png" />
+    <Resource Include="ReviewAndEditUnreviewedComplaints_Matin\Images\save.png" />
+    <Resource Include="Review_Search_OrderAndReservation_ResturantsPanel_Matin\Images\s1.jpg" />
+    <Resource Include="Review_Search_OrderAndReservation_ResturantsPanel_Matin\Images\s2.jpg" />
+    <Resource Include="Search_complaints_PageADMIN_Matin\Images\s1.jpg" />
+    <Resource Include="Search_complaints_PageADMIN_Matin\Images\s2.jpg" />
+    <Resource Include="Search_Restuant_PageADMIN_Matin\Images\s1.jpg" />
+    <Resource Include="Search_Restuant_PageADMIN_Matin\Images\s2.jpg" />
+    <Resource Include="SetPassWordPage_Matin\images\hide.png" />
+    <Resource Include="SetPassWordPage_Matin\images\lock_background.jpg" />
+    <Resource Include="SetPassWordPage_Matin\images\show.png" />
+    <Resource Include="SignInPage_Matin\images\backGround2.jpg" />
+    <Resource Include="SignInPage_Matin\images\icons8-email-64.jpg" />
+    <Resource Include="SignInPage_Matin\images\icons8-name-tag-64.jpg" />
+    <Resource Include="SignInPage_Matin\images\icons8-phone-64.jpg" />
+    <Resource Include="SignInPage_Matin\images\user.jpg" />
     <Folder Include="AdminPage_Parham\images\" />
     <Folder Include="ChangeMenu_Parham\Images\" />
     <Folder Include="CustomerMainPage_Parham\Images\" />
