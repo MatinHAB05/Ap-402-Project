@@ -1,0 +1,51 @@
+﻿<Window x:Class="MainProject.ChangeMenu_Parham.ChangeMenu.ChangeMenu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MainProject.ChangeMenu_Parham.ChangeMenu"
+        mc:Ignorable="d"
+        Background="LightSkyBlue"
+        Title="ChangeMenu" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.ColumnSpan="3" Grid.Row="0" Grid.Column="0" Text="Change Restaurant menu" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30"/>
+        <DataGrid x:Name="FoodSearchList" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2" Grid.Column="0" Background="LightSkyBlue" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="Foods" Width="250">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="must be completed after logic" Click="Food_Button_Click"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="rating" Width="100">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="60">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Delete" Click="Delete_Food_Button"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Image Grid.Column="2" Grid.Row="0" Margin="-100,0,0,0" Source="/ChangeMenu_Parham/Images/menu-symbol.jpg" Stretch="Fill" Width="40" Height="40"/>
+        <Image Grid.Column="0" Grid.Row="0" Margin="100,0,0,0" Source="/ChangeMenu_Parham/Images/menu-symbol.jpg" Stretch="Fill" Width="40" Height="40"/>
+        <Button Grid.Row="1" Grid.Column="2" Content="Add a food" VerticalAlignment="Center" HorizontalAlignment="Center" Width="150" Height="40" Click="Add_A_Food_Button"/>
+    </Grid>
+</Window>
