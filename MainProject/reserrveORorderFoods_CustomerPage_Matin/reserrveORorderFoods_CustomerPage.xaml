@@ -1,0 +1,135 @@
+﻿<Window x:Class="MainProject.reserrveORorderFoods_CustomerPage_Matin.reserrveORorderFoods_CustomerPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MainProject.reserrveORorderFoods_CustomerPage_Matin"
+        mc:Ignorable="d"
+        Title="reserrveORorderFoods_CustomerPage" Height="470" Width="1000">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition Width="auto" />
+
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <ListView x:Name="CategoryLIST_VIEW" ItemsSource="{Binding Categories}" Margin="15">
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="ListViewItem">
+                                        <Border BorderBrush="Gray" BorderThickness="0,0,0,1" Padding="5">
+                                            <ContentPresenter />
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Expander Header="{Binding CategoryName}">
+                                <ListView ItemsSource="{Binding Foods}">
+                                    <ListView.ItemContainerStyle>
+                                        <Style TargetType="ListViewItem">
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate TargetType="ListViewItem">
+                                                        <Border BorderBrush="Gray"  BorderThickness="0,0,0,1" Padding="5" Margin="15,0,15,0">
+                                                            <ContentPresenter />
+                                                        </Border>
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Style>
+                                    </ListView.ItemContainerStyle>
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal">
+                                                <Image Source="/reserrveORorderFoods_CustomerPage_Matin/Images/demo.png" Height="20" Width="20" VerticalAlignment="Top" Margin="0,5,0,0" />
+                                                <Button Click="CommentSection"   Height="29" Width="27"  Margin="0,0,0,0"
+                                                        Background="Transparent" VerticalAlignment="Top" BorderThickness="0"
+                                                         Command="{Binding DataContext.CommentFUN, RelativeSource={RelativeSource AncestorType=Window}}"
+                                                         CommandParameter="{Binding}">
+                                                    <Image Source="/reserrveORorderFoods_CustomerPage_Matin/Images/comment.png"  Height="20" Width="20"  VerticalAlignment="Top" Margin="0,0,0,0" />
+                                                </Button>
+                                                <TextBlock Text="{Binding Name}" Margin="5"/>
+                                                <TextBlock Text="{Binding price}" Margin="5"/>
+                                                <TextBlock Text="{Binding Raw_materials}" Margin="5"/>
+                                                <TextBlock Text="{Binding xBar}" Margin="5"/>
+                                                <TextBlock Text="{Binding RemNumber}" Margin="5"/>
+                                                <Button Background="Transparent" VerticalAlignment="Top" BorderThickness="0"
+                                                         Command="{Binding DataContext.FUN, RelativeSource={RelativeSource AncestorType=Window}}"
+                                                         CommandParameter="{Binding}">
+                                                    <Image Source="/reserrveORorderFoods_CustomerPage_Matin/Images/add.png" Height="20" Width="20" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,2,0,0" />
+                                                </Button>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                            </Expander>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </ScrollViewer>
+        </Grid>
+
+        <Grid Grid.Column="1"  >
+
+                <Border BorderThickness="5" BorderBrush="LightGoldenrodYellow" Width="auto" VerticalAlignment="Top" Height="406" Margin="10,10,10,0">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+
+                    <StackPanel>
+
+                    <ListView x:Name="MainListView" ItemsSource="{Binding SelectedFoods}" Margin="15">
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="ListViewItem">
+                                            <Border BorderBrush="Gray" BorderThickness="0,0,0,1" Padding="5">
+                                                <ContentPresenter />
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Name}" Margin="5"/>
+                                    <TextBlock Text="{Binding price}" Margin="5"/>
+                                    <TextBlock Text="{Binding Raw_materials}" Margin="5"/>
+                                    <TextBlock Text="{Binding xBar}" Margin="5"/>
+                                    <TextBlock Text="{Binding RemNumber}" Margin="5"/>
+                                    <Button Background="Transparent" VerticalAlignment="Top" BorderThickness="0"
+                                    Command="{Binding DataContext.RemoveFoodCommand, RelativeSource={RelativeSource AncestorType=Window}}"
+                                    CommandParameter="{Binding}">
+                                        <Image Source="/reserrveORorderFoods_CustomerPage_Matin/Images/remove.png" Height="20" Width="20" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,2,0,0" />
+                                    </Button>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+
+
+                    <RadioButton Content="Reserve" x:Name="radioButton1" GroupName="OrderType" Margin="2,0,0,3" />
+                    <RadioButton Content="Order" x:Name="radioButton2" GroupName="OrderType"  Margin="2,0,0,25"/>
+
+                    <RadioButton Content="Online" x:Name="radioButton3" GroupName="BuyType" Margin="2,0,0,3" />
+                    <RadioButton Content="Cach" x:Name="radioButton4" GroupName="BuyType"  Margin="2,0,0,25"/>
+
+                    <Button Content="PAY" Margin="8" Click="Pay_Button"  Foreground="DarkBlue" Background="Khaki"/>
+
+                </StackPanel>
+                </ScrollViewer>
+
+            </Border>
+
+
+        </Grid>
+    </Grid>
+</Window>
