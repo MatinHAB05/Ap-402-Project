@@ -10,6 +10,9 @@
     <Compile Update="AdminPage_Parham\AdminPage\AdminPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="ChangeMenu_Parham\ChangeMenu\ChangeMenu.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="CustomerMainPage_Parham\CustomerMainPage\CustomerMainPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -22,6 +25,9 @@
   </ItemGroup>
   <ItemGroup>
     <Page Update="AdminPage_Parham\AdminPage\AdminPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ChangeMenu_Parham\ChangeMenu\ChangeMenu.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="CustomerMainPage_Parham\CustomerMainPage\CustomerMainPage.xaml">
