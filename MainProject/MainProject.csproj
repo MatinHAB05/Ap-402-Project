@@ -9,94 +9,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="CSVtext\**" />
-    <Compile Remove="Finish-forNow-DirectoryWrong\AddRestunts_AdminPanel_Matin - Copy\**" />
-    <Compile Remove="Finish-forNow-DirectoryWrong\Follow_RegisterComplaints_Matin\**" />
-    <Compile Remove="Finish-forNow-DirectoryWrong\LoginForm_Matin\**" />
-    <Compile Remove="Finish-forNow-DirectoryWrong\OrderHistoryPage_Matin\**" />
-    <Compile Remove="Finish-forNow-DirectoryWrong\Review_Search_OrderAndReservation_ResturantsPanel_Matin\**" />
-    <Compile Remove="Finish-forNow-DirectoryWrong\Search_complaints_PageADMIN_Matin\**" />
-    <Compile Remove="Finish-forNow-DirectoryWrong\SetPassWordPage_Matin\**" />
-    <Compile Remove="Finish-forNow-DirectoryWrong\SignInPage_Matin\**" />
-    <Compile Remove="SigInPage_Matin\**" />
-    <EmbeddedResource Remove="CSVtext\**" />
-    <EmbeddedResource Remove="Finish-forNow-DirectoryWrong\AddRestunts_AdminPanel_Matin - Copy\**" />
-    <EmbeddedResource Remove="Finish-forNow-DirectoryWrong\Follow_RegisterComplaints_Matin\**" />
-    <EmbeddedResource Remove="Finish-forNow-DirectoryWrong\LoginForm_Matin\**" />
-    <EmbeddedResource Remove="Finish-forNow-DirectoryWrong\OrderHistoryPage_Matin\**" />
-    <EmbeddedResource Remove="Finish-forNow-DirectoryWrong\Review_Search_OrderAndReservation_ResturantsPanel_Matin\**" />
-    <EmbeddedResource Remove="Finish-forNow-DirectoryWrong\Search_complaints_PageADMIN_Matin\**" />
-    <EmbeddedResource Remove="Finish-forNow-DirectoryWrong\SetPassWordPage_Matin\**" />
-    <EmbeddedResource Remove="Finish-forNow-DirectoryWrong\SignInPage_Matin\**" />
-    <EmbeddedResource Remove="SigInPage_Matin\**" />
-    <None Remove="CSVtext\**" />
-    <None Remove="Finish-forNow-DirectoryWrong\AddRestunts_AdminPanel_Matin - Copy\**" />
-    <None Remove="Finish-forNow-DirectoryWrong\Follow_RegisterComplaints_Matin\**" />
-    <None Remove="Finish-forNow-DirectoryWrong\LoginForm_Matin\**" />
-    <None Remove="Finish-forNow-DirectoryWrong\OrderHistoryPage_Matin\**" />
-    <None Remove="Finish-forNow-DirectoryWrong\Review_Search_OrderAndReservation_ResturantsPanel_Matin\**" />
-    <None Remove="Finish-forNow-DirectoryWrong\Search_complaints_PageADMIN_Matin\**" />
-    <None Remove="Finish-forNow-DirectoryWrong\SetPassWordPage_Matin\**" />
-    <None Remove="Finish-forNow-DirectoryWrong\SignInPage_Matin\**" />
-    <None Remove="SigInPage_Matin\**" />
-    <Page Remove="CSVtext\**" />
-    <Page Remove="Finish-forNow-DirectoryWrong\AddRestunts_AdminPanel_Matin - Copy\**" />
-    <Page Remove="Finish-forNow-DirectoryWrong\Follow_RegisterComplaints_Matin\**" />
-    <Page Remove="Finish-forNow-DirectoryWrong\LoginForm_Matin\**" />
-    <Page Remove="Finish-forNow-DirectoryWrong\OrderHistoryPage_Matin\**" />
-    <Page Remove="Finish-forNow-DirectoryWrong\Review_Search_OrderAndReservation_ResturantsPanel_Matin\**" />
-    <Page Remove="Finish-forNow-DirectoryWrong\Search_complaints_PageADMIN_Matin\**" />
-    <Page Remove="Finish-forNow-DirectoryWrong\SetPassWordPage_Matin\**" />
-    <Page Remove="Finish-forNow-DirectoryWrong\SignInPage_Matin\**" />
-    <Page Remove="SigInPage_Matin\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Remove="AddRestunts_AdminPanel_Matin\Images\woodBack.jpg" />
-    <None Remove="Follow_RegisterComplaints_Matin\Images\addIcon.png" />
-    <None Remove="Follow_RegisterComplaints_Matin\Images\edit.png" />
-    <None Remove="Follow_RegisterComplaints_Matin\Images\IconAdd_.png" />
-    <None Remove="Follow_RegisterComplaints_Matin\Images\save.png" />
-    <None Remove="LoginForm_Matin\images\background1.jpg" />
-    <None Remove="LoginForm_Matin\images\res1.jpg" />
-    <None Remove="LoginForm_Matin\images\res2.jpg" />
-    <None Remove="OrderHistoryPage_Matin\Images\edit.png" />
-    <None Remove="OrderHistoryPage_Matin\Images\save.png" />
-    <None Remove="reserrveORorderFoods_CustomerPage_Matin\Images\add.png" />
-    <None Remove="reserrveORorderFoods_CustomerPage_Matin\Images\comment.png" />
-    <None Remove="reserrveORorderFoods_CustomerPage_Matin\Images\demo.png" />
-    <None Remove="reserrveORorderFoods_CustomerPage_Matin\Images\remove.png" />
-    <None Remove="ReviewAndEditUnreviewedComplaints_Matin\Images\edit.png" />
-    <None Remove="ReviewAndEditUnreviewedComplaints_Matin\Images\save.png" />
-    <None Remove="Review_Search_OrderAndReservation_ResturantsPanel_Matin\Images\s1.jpg" />
-    <None Remove="Review_Search_OrderAndReservation_ResturantsPanel_Matin\Images\s2.jpg" />
-    <None Remove="Search_complaints_PageADMIN_Matin\Images\s1.jpg" />
-    <None Remove="Search_complaints_PageADMIN_Matin\Images\s2.jpg" />
-    <None Remove="Search_Restuant_PageADMIN_Matin\Images\s1.jpg" />
-    <None Remove="Search_Restuant_PageADMIN_Matin\Images\s2.jpg" />
-    <None Remove="SetPassWordPage_Matin\images\hide.png" />
-    <None Remove="SetPassWordPage_Matin\images\lock_background.jpg" />
-    <None Remove="SetPassWordPage_Matin\images\show.png" />
-    <None Remove="SignInPage_Matin\images\backGround2.jpg" />
-    <None Remove="SignInPage_Matin\images\icons8-email-64.jpg" />
-    <None Remove="SignInPage_Matin\images\icons8-name-tag-64.jpg" />
-    <None Remove="SignInPage_Matin\images\icons8-phone-64.jpg" />
-    <None Remove="SignInPage_Matin\images\user.jpg" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Resource Include="Follow_RegisterComplaints_Matin\Images\save.png" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="CsvHelper" Version="33.0.1" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Resource Include="AddRestunts_AdminPanel_Matin\Images\woodBack.jpg" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Resource Include="Follow_RegisterComplaints_Matin\Images\addIcon.png" />
     <Resource Include="Follow_RegisterComplaints_Matin\Images\edit.png" />
     <Resource Include="Follow_RegisterComplaints_Matin\Images\IconAdd_.png" />
@@ -108,9 +22,6 @@
     <Resource Include="reserrveORorderFoods_CustomerPage_Matin\Images\add.png" />
     <Resource Include="reserrveORorderFoods_CustomerPage_Matin\Images\comment.png" />
     <Resource Include="reserrveORorderFoods_CustomerPage_Matin\Images\demo.png" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Resource Include="reserrveORorderFoods_CustomerPage_Matin\Images\remove.png" />
     <Resource Include="ReviewAndEditUnreviewedComplaints_Matin\Images\edit.png" />
     <Resource Include="ReviewAndEditUnreviewedComplaints_Matin\Images\save.png" />
@@ -131,7 +42,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Finish-forNow-DirectoryWrong\" />
+    <PackageReference Include="CsvHelper" Version="33.0.1" />
   </ItemGroup>
 
 </Project>
