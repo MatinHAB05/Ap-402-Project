@@ -1,4 +1,5 @@
-﻿using MainProject.LoginForm_Matin;
+﻿using MainProject.CustomerMainPage_Parham.CustomerMainPage;
+using MainProject.LoginForm_Matin;
 using MainProject.SignInPage_Matin;
 using System.Text;
 using System.Windows;
@@ -21,10 +22,12 @@ namespace MainProject
         public MainWindow()
         {
             InitializeComponent();
-            //LoginPage loginPage = new LoginPage();
-            //loginPage.Show();
-            LoginPage login = new LoginPage();
-            login.Show();
+            LoginPage loginPage = new LoginPage();
+            loginPage.Show();
+            //LoginPage login = new LoginPage();
+            //login.Show();
+            //CustomerMainPage customerMainPage = new CustomerMainPage();
+            //customerMainPage.Show();
             this.Close();
         }
     }

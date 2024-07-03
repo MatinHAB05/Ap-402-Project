@@ -82,7 +82,7 @@ namespace MainProject.SetPassWordPage_Matin
                 string path = @"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\MainProject\JsonFiles\User\All_Users.json";
                 File.WriteAllText(path,json_save);
                 //end Save USer
-
+                MessageBox.Show("Done!", "GoodNews", MessageBoxButton.OK, MessageBoxImage.Information);
                 LoginPage loginPage = new LoginPage();
                 loginPage.Show();
                 clodeAUTO++;
