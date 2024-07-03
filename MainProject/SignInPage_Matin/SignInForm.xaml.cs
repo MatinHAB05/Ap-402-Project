@@ -23,9 +23,9 @@ namespace MainProject.SignInPage_Matin
         {
             InitializeComponent();
             //mamad.Width = 200;
-            mamad.ImageVAr.Width = 38;
+            FirstNametxt.ImageVAr.Width = 38;
             //mamad.RecaVar.Width = 60;
-            mamad.txtBox.Width = 176;
+            FirstNametxt.txtBox.Width = 176;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

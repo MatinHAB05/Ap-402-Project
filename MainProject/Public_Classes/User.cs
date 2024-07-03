@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -18,7 +18,7 @@ namespace MainProject.Public_Classes
         public string Phone {  get; set; }
         public string Address {  get; set; }
         public Gender Gender { get; set; }
-        public List<Food_Point> PointsList { get; set; }
+        public List<Food_Point>? PointsList { get; set; }
 
 
         public User(string UserName ,int UserID , string  Name , string LastName , string Email_Unique , string Password , string Phone , string Address , Gender Gender)
@@ -32,6 +32,7 @@ namespace MainProject.Public_Classes
             this.Phone = Phone;
             this.Address = Address;
             this.Gender = Gender;
+            this.PointsList = null;
         }
 
 
