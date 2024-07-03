@@ -40,6 +40,7 @@
     <Resource Include="SignInPage_Matin\images\icons8-phone-64.jpg" />
     <Resource Include="SignInPage_Matin\images\user.jpg" />
     <Folder Include="AdminPage_Parham\images\" />
+    <Folder Include="ChangeFoodInventory_Parham\Images\" />
     <Folder Include="ChangeMenu_Parham\Images\" />
     <Folder Include="CustomerMainPage_Parham\Images\" />
     <Folder Include="ProfilePage_Parham\images\" />

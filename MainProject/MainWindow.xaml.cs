@@ -11,6 +11,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MainProject.RestaurantPanel_Parham.RestaurantPanel;
+using MainProject.Public_Classes;
 
 namespace MainProject
 {
@@ -21,10 +23,9 @@ namespace MainProject
     {
         public MainWindow()
         {
+            
             InitializeComponent();
-            LoginPage loginPage = new LoginPage();
-            loginPage.Show();
-            this.Close();
+
         }
     }
 }
