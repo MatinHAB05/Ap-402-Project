@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MainProject.Public_Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -17,7 +18,7 @@ namespace MainProject.CustomerMainPage_Parham.CustomerMainPage
 {
     public partial class CustomerMainPage : Window, INotifyPropertyChanged
     {
-        public CustomerMainPage()
+        internal CustomerMainPage(User user)
         {
             InitializeComponent();
             //SearchList.ItemsSource = names;

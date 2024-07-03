@@ -1,16 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MailKit.Net.Smtp;
+using MainProject.Public_Classes;
+using MainProject.SetPassWordPage_Matin;
+using MimeKit;
+using System.Text.RegularExpressions;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace MainProject.SignInPage_Matin
 {
@@ -19,17 +12,120 @@ namespace MainProject.SignInPage_Matin
     /// </summary>
     public partial class SignInForm : Window
     {
-        public SignInForm()
+        internal List<User> All_Users;
+        internal SignInForm(List<User> All_Us)
         {
             InitializeComponent();
             //mamad.Width = 200;
-            mamad.ImageVAr.Width = 38;
+            FirstNametxt.ImageVAr.Width = 38;
             //mamad.RecaVar.Width = 60;
-            mamad.txtBox.Width = 176;
+            FirstNametxt.txtBox.Width = 176;
+            All_Users= All_Us;
         }
+        private void SendEmail(string emailMabda , string NameSender , string NameReciver,string emailMaghsad,string Subject,string ContentTExt,string passwordEmailMabda)
+        {
+            var email = new MimeMessage();
 
+            email.From.Add(new MailboxAddress(NameSender, emailMabda));
+            email.To.Add(new MailboxAddress(NameReciver, emailMaghsad));
+
+            email.Subject = Subject;
+            email.Body = new TextPart(MimeKit.Text.TextFormat.Html)
+            {
+                Text = ContentTExt  //Text = "<b>Hello all the way from the land of C#</b>"
+            };
+
+            using (var smtp = new SmtpClient())
+            {
+                smtp.Connect("smtp.gmail.com", 587, false);
+
+                // Note: only needed if the SMTP server requires authentication
+                smtp.Authenticate(emailMabda, passwordEmailMabda); //"ddoduwbsvufdspse"
+
+                smtp.Send(email);
+                smtp.Disconnect(true);
+            }
+        }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            string username = UserNametxt.txtBox.Text.Trim();
+            string firstName = FirstNametxt.txtBox.Text.Trim();
+            string LastName = LastNametxt.Text.Trim();
+            string Email = emailtxt.txtBox.Text.Trim();
+            string phone = phonetxt.txtBox.Text.Trim();
+            string FULLname = firstName + " " + LastName;
+            string Error = "";
+            bool Isphone = true;
+            bool IsUserName = true;
+            string Rule = "";
+            if(!Regex.IsMatch(username, @"^[A-Za-z0-9]{3,}$") )
+            {
+                Error += "نام کاربری فقط شامل اعداد و حروف کوچک و بزرگ انگلیسی متشکل از حداقل 3 حرف باید باشد" + "\n";
+                IsUserName = false;
+            }
+
+            if(!Regex.IsMatch(FULLname, @"^[A-Za-z]{3,32} [A-Za-z]{3,32}$"))
+            {
+                Error += "اسم باید شامل حداقل 3 و حداکثر 32 حرف باشد و اعداد و کارکتر های نگارشی مورد قبول نیست"+"\n";
+            }
+        
+            if(!Regex.IsMatch(Email, @"^[A-Z0-9a-z_]{3,32}\@[A-Za-z]{3,32}\.[A-Za-z]{2,3}$"))
+            {
+                Error += "ادرس ایمیل شما ناشناخته میباشد" + "\n";
+
+            }
+
+            if (!Regex.IsMatch(phone, @"^09\d{9}$"))
+            {
+                Error += "فقط شماره های تلفنی شناخته شده در ایران مورد قبول میباشد" + "\n";
+                Isphone = false;
+            }
+
+            foreach (User u in All_Users)
+            {
+                if (u.Phone == phone && Isphone==true) 
+                {
+                    Error += "این شماره موبایل ثبت شده است" + "\n";
+                }
+                if (u.UserName == username & IsUserName==true) 
+                {
+                    Error += "این نام کاربری ثبت شده است" + "\n";
+                }
+            }
+
+            if (Error == "")
+            {
+                //write
+                User user = new User(username, firstName, LastName, Email, phone);
+                //end write
+
+                //send email code
+                int emailCode = new Random().Next(100000, 999999);
+
+                string TEXTemailDemo = "Hi This is \"MatinOOParham\".<br>"+$"{FULLname} recently signed up for our program!!<br>To confirm your registration, just enter the code below along with the appropriate password in the designated places in the open form...<br>Hope you enjoy our program<br><b>Email Code : "+emailCode+" </b>";
+
+                SendEmail("demobazi72@gmail.com", "The MatinOOParham Restaurant", FULLname, Email, "Confrim SignUp", TEXTemailDemo, "ddoduwbsvufdspse");
+
+                //end send email code
+
+                SetPassWordForm form = new SetPassWordForm(user, this, emailCode);
+                form.Show();
+
+                //LoginPage login = new LoginPage();
+                //login.Show();
+
+                this.Hide();
+                return;
+            }
+            else
+            {
+            matinLabel:
+                MessageBoxResult a = MessageBox.Show(Error+"ردیفه؟", "UNVALID INPUT", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+                if (a == MessageBoxResult.Yes) { return; }
+                if (a == MessageBoxResult.No) { goto matinLabel ; }
+            }
         }
+
     }
 }

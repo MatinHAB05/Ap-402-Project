@@ -12,7 +12,7 @@ namespace MainProject.Public_Classes
         public int RequestID {  get; set; }
         public Restaurant Restaurant { get; set; }
         public User User { get; set; }
-
+        public FoodRequest() { }
         public FoodRequest(RequestType RequestType,Restaurant Restaurant, User user,int RequestID)
         {
             this.RequestType = RequestType;

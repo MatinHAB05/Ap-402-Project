@@ -15,6 +15,7 @@ namespace MainProject.Public_Classes
         public FoodClass food { get; set; }
         public User User { get; set; }
         Comment? Reply;
+        public Comment() { }
          public Comment(string title, string content, int commentID, Comment? reply,User user , Restaurant restaurant , FoodClass food) 
         {
             Title = title;
