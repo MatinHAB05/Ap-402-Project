@@ -1,4 +1,5 @@
 ﻿using MainProject.LoginForm_Matin;
+using MainProject.SignInPage_Matin;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -20,8 +21,10 @@ namespace MainProject
         public MainWindow()
         {
             InitializeComponent();
-            LoginPage loginPage = new LoginPage();
-            loginPage.Show();
+            //LoginPage loginPage = new LoginPage();
+            //loginPage.Show();
+            LoginPage login = new LoginPage();
+            login.Show();
             this.Close();
         }
     }

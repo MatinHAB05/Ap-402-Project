@@ -118,7 +118,7 @@ namespace MainProject.LoginForm_Matin
 
     private void SignBut(object sender, RoutedEventArgs e)
         {
-            SignInForm signIn = new SignInForm();
+            SignInForm signIn = new SignInForm(AllUser_List);
             signIn.Show();
             this.Close();
         }

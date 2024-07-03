@@ -11,6 +11,7 @@ namespace MainProject.Public_Classes
         public string UserName { get; set; }
         public string Password { get; set; }
 
+        public Admin() { }
         public Admin(string userName, string password)
         {
             UserName = userName;
