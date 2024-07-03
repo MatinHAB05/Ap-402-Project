@@ -9,6 +9,7 @@ namespace MainProject.Public_Classes
 {
     internal class User
     {
+        public CustomerType customerType = CustomerType.Bronze;
         public string UserName {  get; set; }
         public int UserID {  get; set; }
         public string Name {  get; set; }
@@ -21,7 +22,7 @@ namespace MainProject.Public_Classes
         public List<Food_Point>? PointsList { get; set; }
 
         public User() { }
-        public User(string UserName ,int UserID , string  Name , string LastName , string Email_Unique , string Password , string Phone , string Address , Gender Gender)
+        public User(string UserName ,int UserID , string  Name , string LastName , string Email_Unique , string Password , string Phone , string Address , Gender Gender,CustomerType customerType)
         {
             this.UserName = UserName;
             this.UserID = UserID;
@@ -32,6 +33,7 @@ namespace MainProject.Public_Classes
             this.Phone = Phone;
             this.Address = Address;
             this.Gender = Gender;
+            this.customerType = customerType;
             this.PointsList = null;
         }
         public User(string UserName, string Name, string LastName, string Email_Unique, string Phone)
