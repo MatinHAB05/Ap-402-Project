@@ -10,7 +10,7 @@ namespace MainProject.Public_Classes
     {
         public string Name { get; set; }
         public List<FoodClass> Foods { get; set; }
-
+        public Category() { }   
         public Category(string name, List<FoodClass> foods)
         {
             Name = name;

@@ -1,4 +1,7 @@
-﻿using System.Text;
+﻿using MainProject.CustomerMainPage_Parham.CustomerMainPage;
+using MainProject.LoginForm_Matin;
+using MainProject.SignInPage_Matin;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -20,18 +23,8 @@ namespace MainProject
     {
         public MainWindow()
         {
-            List<Category> categories = new List<Category>();
-            List<FoodClass> foods = new List<FoodClass>();
-            List<Comment> comments = new List<Comment>();
-            List<string> rawmar = new List<string>();
-            foods.Add(new FoodClass("dariaie", "mahi sefid", 1, 10000, rawmar, 10, comments, "sadpla"));
-            categories.Add(new Category("mahi", foods));
-            ReceptionType receptionType = ReceptionType.Dine_In;
-            Restaurant m = new Restaurant("res" , 12 , "asda" , "asd", "asd" , true, categories , receptionType);
+            
             InitializeComponent();
-            RestaurantPanel restauraPanel = new RestaurantPanel( m );
-            this.Close();
-            restauraPanel.Show();
 
         }
     }

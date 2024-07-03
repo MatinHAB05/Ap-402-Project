@@ -19,8 +19,8 @@ namespace MainProject.Public_Classes
 
         public bool IsCanReserve=false;
         public List<Category> Menu { get; set; }
-
-        public Restaurant(string UserName ,int UserID, string RestaurantName, string PassWord , string CityName , bool IsCanReserve, List<Category> Menu , ReceptionType receptionType)
+        public Restaurant() { }
+        public Restaurant(string UserName ,int UserID, string RestaurantName, string PassWord , string CityName , bool IsCanReserve, List<Category> Menu, ReceptionType receptionType)
         {
             this.UserName = UserName;
             this.UserID = UserID;

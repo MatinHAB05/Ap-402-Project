@@ -18,7 +18,7 @@
             <UserCont111:txtBoxControl  x:Name="UserName" Height="19.96" Margin="5"/>
             <Label Content="Password" FontSize="15"/>
             <UserCont111:txtBoxControl  x:Name="PassWord" Height="19.96" Margin="5"/>
-            <Button Foreground="WhiteSmoke" FontSize="18" Width="488"  Height="40" Margin="5,10,5,5" Click="LoginBut">
+            <Button Foreground="WhiteSmoke" x:Name="LOGbut" FontSize="18" Width="488"  Height="40" Margin="5,10,5,5" Click="LoginBut">
                 <Button.Background>
                     <SolidColorBrush Color="#EE1B24"/>
                 </Button.Background>
@@ -27,7 +27,7 @@
                 </Button.Content>
             </Button>
             <Label Content="OR" HorizontalAlignment="Center" FontSize="12"/>
-            <Button Foreground="WhiteSmoke" FontSize="18" Width="488"  Height="40" Margin="5" Click="SignBut">
+            <Button Foreground="WhiteSmoke" x:Name="SIGNbut" FontSize="18" Width="488"  Height="40" Margin="5" Click="SignBut">
                 <Button.Background>
                     <SolidColorBrush Color="#3B82F6"/>
                 </Button.Background>

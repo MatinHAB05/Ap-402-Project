@@ -13,7 +13,7 @@ namespace MainProject.Public_Classes
         public double Point {  get; set; }
         public string UserName { get; set; }
         public int UserID { get; set; }
-
+        public Food_Point() { }
         public Food_Point(int FoodID, int ResturantID , double Point , string UserName , int UserID)
         {
             this.FoodID = FoodID;

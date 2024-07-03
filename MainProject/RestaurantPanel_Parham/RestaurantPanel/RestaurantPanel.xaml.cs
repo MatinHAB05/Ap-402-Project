@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MainProject.Public_Classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,6 +22,7 @@ namespace MainProject.RestaurantPanel_Parham.RestaurantPanel
     public partial class RestaurantPanel : Window
     {
         Restaurant restauranT;
+
         internal RestaurantPanel(Restaurant restaurant)
         {
             restauranT = restaurant;
