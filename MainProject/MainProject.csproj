@@ -9,6 +9,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="CustomerMainPage_Parham\Images\history symbol.png" />
+    <None Remove="CustomerMainPage_Parham\Images\letter-symbol.png" />
+    <None Remove="CustomerMainPage_Parham\Images\magnifier.png" />
+    <None Remove="CustomerMainPage_Parham\Images\user Sysmbol .png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="CustomerMainPage_Parham\Images\history symbol.png" />
+    <Resource Include="CustomerMainPage_Parham\Images\letter-symbol.png" />
+    <Resource Include="CustomerMainPage_Parham\Images\magnifier.png" />
+    <Resource Include="CustomerMainPage_Parham\Images\user Sysmbol .png" />
     <Resource Include="Follow_RegisterComplaints_Matin\Images\save.png" />
     <Resource Include="AddRestunts_AdminPanel_Matin\Images\woodBack.jpg" />
     <Resource Include="Follow_RegisterComplaints_Matin\Images\addIcon.png" />
@@ -41,7 +52,6 @@
     <Resource Include="SignInPage_Matin\images\user.jpg" />
     <Folder Include="AdminPage_Parham\images\" />
     <Folder Include="ChangeMenu_Parham\Images\" />
-    <Folder Include="CustomerMainPage_Parham\Images\" />
     <Folder Include="ProfilePage_Parham\images\" />
     <Folder Include="RestaurantPanel_Parham\images\" />
   </ItemGroup>

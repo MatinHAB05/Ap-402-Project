@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MainProject.Public_Classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -39,7 +40,7 @@ namespace MainProject.Follow_RegisterComplaints_Matin
                 this.Response = response;
             }
         }
-        public Follow_RegisterComplaints_CustomerPanel()
+        internal Follow_RegisterComplaints_CustomerPanel(User user)
         {
             InitializeComponent();
             this.DataContext = this;

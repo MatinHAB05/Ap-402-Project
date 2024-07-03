@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MainProject.Public_Classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -40,7 +41,7 @@ namespace MainProject.OrderHistoryPage_Matin
                 this.rate = rate;
             }
         }
-        public OrderHistoryPage_CustomerPanel()
+        internal OrderHistoryPage_CustomerPanel(User user)
         {
             InitializeComponent();
             this.DataContext = this;

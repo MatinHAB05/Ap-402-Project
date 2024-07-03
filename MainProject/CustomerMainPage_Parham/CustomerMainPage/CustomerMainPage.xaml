@@ -21,9 +21,9 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <TextBlock Text="Customer Main Page" Grid.ColumnSpan="3" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30"/>
-        <Button Grid.Column="0" Grid.Row="1" Background="LightSkyBlue" BorderBrush="LightSkyBlue" Content="Profile" FontSize="15" Width="100" Height="30"/>
-        <Button Grid.Column="1" Grid.Row="1" Margin="-40,0,0,0" Background="LightSkyBlue" BorderBrush="LightSkyBlue" Content="Order History" FontSize="15" Width="100" Height="40"/>
-        <Button Grid.Column="2" Grid.Row="1"  Margin="-30,0,0,0" Background="LightSkyBlue" BorderBrush="LightSkyBlue" Content="Follow up and register complaints" FontSize="12" Width="200" Height="40"/>
+        <Button Grid.Column="0" Grid.Row="1" Background="LightSkyBlue" BorderBrush="LightSkyBlue" Content="Profile" FontSize="15" Width="100" Height="30" Click="GoProfilePage"/>
+        <Button Grid.Column="1" Grid.Row="1" Margin="-40,0,0,0" Background="LightSkyBlue" BorderBrush="LightSkyBlue" Content="Order History" FontSize="15" Width="100" Height="40" Click="GotoOrderHistoy"/>
+        <Button Grid.Column="2" Grid.Row="1"  Margin="-30,0,0,0" Background="LightSkyBlue" BorderBrush="LightSkyBlue" Content="Follow up and register complaints" FontSize="12" Width="200" Height="40" Click="GotoFollow_up_and_register_complaints"/>
         <Image Grid.Column="1" Grid.Row="1"  Margin="110,0,0,0" Source="/CustomerMainPage_Parham/Images/history symbol.png" Stretch="Fill" Width="40" Height="40"/>
         <Image Grid.Column="2" Margin="200,0,0,0" Grid.Row="1" Source="/CustomerMainPage_Parham/Images/letter-symbol.png" Stretch="Fill" Height="40" Width="40"/>
         <Image Margin="100,0,0,0" Grid.Row="1" Grid.Column="0" Source="/CustomerMainPage_Parham/Images/user Sysmbol .png" Stretch="Fill" Height="40" Width="40"/>
@@ -32,29 +32,31 @@
                 <DataGridTemplateColumn Header="Restaurants">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Content="must be completed after logic" Click="Button_Click"/>
+                            <Button Content="{Binding RestaurantName}" Click="Button_Click"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
                 <DataGridTemplateColumn Header="Address">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <TextBlock/>
+                            <TextBlock Text="{Binding Address}"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <TextBlock Grid.Row="2" Grid.Column="2" Text="Choose your filter" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
-        <TextBox Grid.Row="3" Grid.Column="2" Margin="-50,-50,0,0" Text="enter Name" Width="150" Height="20" Foreground="LightGray"/>
-        <TextBox Grid.Row="3" Grid.Column="2" Margin="-50,30,0,0" Text="enter City" Width="150" Height="20" Foreground="LightGray"/>
-        <TextBox Grid.Row="3" Grid.Column="2" Grid.RowSpan="2" Margin="-50,0,0,0" Text="enter how many rating" Width="150" Height="20" Foreground="LightGray"/>
-        <Button Grid.Row="3" Grid.Column="2" Margin="200,-50,0,0" Background="White" Width="32" Height="30" Content="Press" Click="SearchByName"/>
-        <Button Grid.Row="3" Grid.Column="2" Margin="200,30,0,0" Background="White" Width="32" Height="30" Content="Press" Click="SearchByCity"/>
-        <Button Grid.Row="3" Grid.Column="2" Grid.RowSpan="2" Margin="200,0,0,0" Background="White" Width="32" Height="30" Content="Press" Click="SearchByStars"/>
+        <TextBlock  Grid.Row="2" Grid.Column="2" Text="Choose your filter" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+        <TextBox x:Name="Nametxt"  Grid.Row="3" Grid.Column="2" Margin="-50,-50,0,0" Text="enter Name" Width="150" Height="20" Foreground="LightGray"/>
+        <TextBox  x:Name="Citytxt" Grid.Row="3" Grid.Column="2" Margin="-50,30,0,0" Text="enter City" Width="150" Height="20" Foreground="LightGray"/>
+        <TextBox  x:Name="Ratetxt" Grid.Row="3" Grid.Column="2" Grid.RowSpan="2" Margin="-50,0,0,0" Text="enter how many rating" Width="150" Height="20" Foreground="LightGray"/>
+
+        <Button Grid.Row="3" Grid.Column="2" Margin="200,-50,0,0" Background="White" Width="32" Height="30" Content="Press" Click="SearchAllFilter"/>
+        <Button Grid.Row="3" Grid.Column="2" Margin="200,30,0,0" Background="White" Width="32" Height="30" Content="Press" Click="SearchAllFilter"/>
+        <Button Grid.Row="3" Grid.Column="2" Grid.RowSpan="2" Margin="200,0,0,0" Background="White" Width="32" Height="30" Content="Press" Click="SearchAllFilter"/>
+        <TextBlock  x:Name="TYPEstatus" Grid.Row="4" Grid.Column="2" FontSize="10" Width="44" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left"  Margin="5,0,0,0"/>
         <TextBlock Grid.Row="4" Grid.Column="3" Margin="170,0,0,0" Text="type of admission" Background="LightSkyBlue"  Width="100" Height="30"/>
         <Button Grid.Row="4" Grid.Column="3" Width="50" Height="30" Margin="-120,-10,0,0" Content="Delivery In" FontSize="9" Click="Delivery_In"/>
         <Button Grid.Row="4" Grid.Column="3" Width="50" Height="30" Margin="0,-10,0,0" Content="Dine-In" FontSize="9" Click="Dine_In"/>
-        <Button Grid.Row="4" Grid.Column="3" Width="50" Height="30" Margin="170,70,0,0" Content="Clear" FontSize="9" Click="Clear"/>
+        <Button Grid.Row="4" x:Name="XClear" Grid.Column="3" Width="50" Height="30" Margin="170,70,0,0" Content="Clear" FontSize="9" Click="Clear"/>
     </Grid>
 </Window>

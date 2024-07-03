@@ -22,5 +22,17 @@
     "Address": null,
     "Gender": 0,
     "PointsList": null
+  },
+  {
+    "UserName": "Demo_UserName",
+    "UserID": 0,
+    "Name": "Demo_Name",
+    "LastName": "Demo_LastName",
+    "Email_Unique": "Demo_Email@gmail.com",
+    "PassWord": "Matin123123",
+    "Phone": "09123456789",
+    "Address": "This is a Address",
+    "Gender": 1,
+    "PointsList": null
   }
 ]
