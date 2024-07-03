@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MainProject.OrderHistoryPage_Matin"
         mc:Ignorable="d"
-        Title="OrderHistoryPage_CustomerPanel" Height="750" Width="1200" Background="PeachPuff">
+        Title="OrderHistoryPage_CustomerPanel" Height="750" Width="1200" Background="PeachPuff" Closing="Window_Closing">
 
     <Grid>
         <Grid.RowDefinitions>

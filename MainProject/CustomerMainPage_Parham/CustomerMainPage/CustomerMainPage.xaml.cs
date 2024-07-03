@@ -27,8 +27,8 @@ namespace MainProject.CustomerMainPage_Parham.CustomerMainPage
 {
     public partial class CustomerMainPage : Window, INotifyPropertyChanged
     {
-        User CurrentUser;
-        List<Restaurant>? restaurants;
+        internal User CurrentUser;
+        internal List<Restaurant>? restaurants;
         internal CustomerMainPage(User user)
         {
             InitializeComponent();
@@ -129,21 +129,21 @@ namespace MainProject.CustomerMainPage_Parham.CustomerMainPage
 
         private void GoProfilePage(object sender, RoutedEventArgs e)
         {
-            ProfilePage profile = new ProfilePage(CurrentUser);
+            ProfilePage profile = new ProfilePage(this);
             profile.Show();
             this.Close();
         }
 
         private void GotoOrderHistoy(object sender, RoutedEventArgs e)
         {
-            OrderHistoryPage_CustomerPanel orderHistoryPage = new OrderHistoryPage_CustomerPanel(CurrentUser);
+            OrderHistoryPage_CustomerPanel orderHistoryPage = new OrderHistoryPage_CustomerPanel(this);
             orderHistoryPage.Show();
             this.Close();
         }
 
         private void GotoFollow_up_and_register_complaints(object sender, RoutedEventArgs e)
         {
-            Follow_RegisterComplaints_CustomerPanel follow_RegisterComplaints_CustomerPanel = new Follow_RegisterComplaints_CustomerPanel(CurrentUser);
+            Follow_RegisterComplaints_CustomerPanel follow_RegisterComplaints_CustomerPanel = new Follow_RegisterComplaints_CustomerPanel(this);
             follow_RegisterComplaints_CustomerPanel.Show();
             this.Close();
         }

@@ -1,4 +1,5 @@
-﻿using MainProject.Public_Classes;
+﻿using MainProject.CustomerMainPage_Parham.CustomerMainPage;
+using MainProject.Public_Classes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,9 @@ namespace MainProject.Follow_RegisterComplaints_Matin
     /// </summary>
     public partial class Follow_RegisterComplaints_CustomerPanel : Window
     {
+        internal User CurrentUser { get; set; }
+        public CustomerMainPage PreviousPage { get; set; }
+
         public class complaints_User_FORNOW
         {
             public string name { get; set; }
@@ -40,10 +44,12 @@ namespace MainProject.Follow_RegisterComplaints_Matin
                 this.Response = response;
             }
         }
-        internal Follow_RegisterComplaints_CustomerPanel(User user)
+        internal Follow_RegisterComplaints_CustomerPanel(CustomerMainPage prepage)
         {
             InitializeComponent();
             this.DataContext = this;
+            this.PreviousPage = prepage;
+            CurrentUser = prepage.CurrentUser;
 
 
             //EditBut.Visibility = Visibility.Visible;
@@ -117,6 +123,12 @@ namespace MainProject.Follow_RegisterComplaints_Matin
             user3.txtBox.VerticalContentAlignment = VerticalAlignment.Top;
             user3.txtBox.HorizontalContentAlignment = HorizontalAlignment.Left;
             user3.txtBox.TextWrapping = TextWrapping.Wrap;
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            CustomerMainPage customerMainPage = new CustomerMainPage(CurrentUser);
+            customerMainPage.Show();
         }
 
         //private void EditEvent(object sender, RoutedEventArgs e)

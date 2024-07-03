@@ -1,4 +1,5 @@
-﻿using MainProject.Public_Classes;
+﻿using MainProject.CustomerMainPage_Parham.CustomerMainPage;
+using MainProject.Public_Classes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,8 +22,11 @@ namespace MainProject.OrderHistoryPage_Matin
     public partial class OrderHistoryPage_CustomerPanel : Window
     {
 
+        internal User CurrentUser { get; set; }
+        public CustomerMainPage PreviousPage { get; set; }
         public class OrderHistory
         {
+
             public string name { get; set; }
             public string LastName { get; set; }
             public string UserName { get; set; }
@@ -41,10 +45,13 @@ namespace MainProject.OrderHistoryPage_Matin
                 this.rate = rate;
             }
         }
-        internal OrderHistoryPage_CustomerPanel(User user)
+        internal OrderHistoryPage_CustomerPanel(CustomerMainPage prepage)
         {
             InitializeComponent();
             this.DataContext = this;
+            this.PreviousPage = prepage;
+            CurrentUser = prepage.CurrentUser;
+
             EditBut.Visibility = Visibility.Visible;
             SaveBut.Visibility = Visibility.Hidden;
             //For Now 
@@ -122,6 +129,12 @@ namespace MainProject.OrderHistoryPage_Matin
             EditBut.Visibility = Visibility.Visible;
             SaveBut.Visibility = Visibility.Hidden;
 
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            CustomerMainPage customerMainPage = new CustomerMainPage(CurrentUser);
+            customerMainPage.Show();
         }
     }
 }

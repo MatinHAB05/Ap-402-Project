@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:MainProject.ProfilePage_Parham.ProfilePage"
         mc:Ignorable="d"
         Background="LightSkyBlue"
-        Title="ProfilePage" Height="450" Width="800">
+        Title="ProfilePage" Height="450" Width="800" Closing="Window_Closing">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>

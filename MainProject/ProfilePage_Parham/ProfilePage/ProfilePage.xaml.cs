@@ -1,4 +1,5 @@
-﻿using MainProject.Public_Classes;
+﻿using MainProject.CustomerMainPage_Parham.CustomerMainPage;
+using MainProject.Public_Classes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,9 +18,13 @@ namespace MainProject.ProfilePage_Parham.ProfilePage
 {
     public partial class ProfilePage : Window
     {
-        internal ProfilePage(User user)
+        internal User CurrentUser {  get; set; }
+        public CustomerMainPage PreviousPage {  get; set; }
+        internal ProfilePage(CustomerMainPage prepage)
         {
             InitializeComponent();
+            this.PreviousPage = prepage;
+            CurrentUser = prepage.CurrentUser;
             //UserName.Text = userName;
             //Email.Text = email;
             //Address.Text = address;
@@ -40,6 +45,13 @@ namespace MainProject.ProfilePage_Parham.ProfilePage
         private void Change_CustomerType_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            CustomerMainPage customerMainPage = new CustomerMainPage(CurrentUser);
+            customerMainPage.Show();
         }
     }
 }
