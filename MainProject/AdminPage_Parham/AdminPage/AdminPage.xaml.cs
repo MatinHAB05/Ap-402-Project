@@ -11,12 +11,13 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MainProject.Public_Classes;
 
 namespace MainProject.AdminPage_Parham.AdminPage
 {
     public partial class AdminPage : Window
     {
-        public AdminPage()
+        internal AdminPage(Admin admin)
         {
             InitializeComponent();
         }

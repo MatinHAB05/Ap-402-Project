@@ -10,14 +10,17 @@ namespace MainProject.Public_Classes
     {
         public string UserName {  get; set; }
         public int UserID {  get; set; }
+
+        public int Rating { get; set; }
         public string PassWord {  get; set; }
         public string CityName {  get; set; }
         public string RestaurantName {  get; set; }
         public ReceptionType receptionType { get; set; }
+
         public bool IsCanReserve=false;
         public List<Category> Menu { get; set; }
 
-        public Restaurant(string UserName ,int UserID, string RestaurantName, string PassWord , string CityName , bool IsCanReserve, List<Category> Menu, ReceptionType receptionType)
+        public Restaurant(string UserName ,int UserID, string RestaurantName, string PassWord , string CityName , bool IsCanReserve, List<Category> Menu , ReceptionType receptionType)
         {
             this.UserName = UserName;
             this.UserID = UserID;
@@ -27,6 +30,20 @@ namespace MainProject.Public_Classes
             this.IsCanReserve = IsCanReserve;
             this.Menu = Menu;
             this.receptionType = receptionType;
+            this.Rating = 0;
+        }
+        public void Calculate()
+        {
+            double sum = 0;
+            int NumberOfFoodsCounter = 0;
+            foreach(Category c in Menu)
+            {
+                foreach(FoodClass f in c.Foods)
+                {
+                    NumberOfFoodsCounter += 1;
+                    sum += f.xBar;
+                }
+            }
         }
     }
 }

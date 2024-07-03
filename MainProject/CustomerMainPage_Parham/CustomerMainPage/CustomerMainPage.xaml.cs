@@ -12,12 +12,13 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MainProject.Public_Classes;
 
 namespace MainProject.CustomerMainPage_Parham.CustomerMainPage
 {
     public partial class CustomerMainPage : Window, INotifyPropertyChanged
     {
-        public CustomerMainPage()
+        internal CustomerMainPage(User user)
         {
             InitializeComponent();
             //SearchList.ItemsSource = names;
