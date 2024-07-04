@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,19 +8,19 @@ namespace MainProject.Public_Classes
 {
     internal class Restaurant
     {
-        public string UserName {  get; set; }
-        public int UserID {  get; set; }
+        public string UserName { get; set; }
+        public int UserID { get; set; }
 
-        public int Rating { get; set; }
-        public string PassWord {  get; set; }
-        public string CityName {  get; set; }
-        public string RestaurantName {  get; set; }
+        public double Rating { get; set; }
+        public string PassWord { get; set; }
+        public string CityName { get; set; }
+        public string RestaurantName { get; set; }
         public ReceptionType receptionType { get; set; }
 
-        public bool IsCanReserve=false;
+        public bool IsCanReserve = false;
         public List<Category> Menu { get; set; }
         public Restaurant() { }
-        public Restaurant(string UserName ,int UserID, string RestaurantName, string PassWord , string CityName , bool IsCanReserve, List<Category> Menu, ReceptionType receptionType)
+        public Restaurant(string UserName, int UserID, string RestaurantName, string PassWord, string CityName, bool IsCanReserve, List<Category> Menu, ReceptionType receptionType)
         {
             this.UserName = UserName;
             this.UserID = UserID;
@@ -36,9 +36,9 @@ namespace MainProject.Public_Classes
         {
             double sum = 0;
             int NumberOfFoodsCounter = 0;
-            foreach(Category c in Menu)
+            foreach (Category c in Menu)
             {
-                foreach(FoodClass f in c.Foods)
+                foreach (FoodClass f in c.Foods)
                 {
                     NumberOfFoodsCounter += 1;
                     sum += f.xBar;
