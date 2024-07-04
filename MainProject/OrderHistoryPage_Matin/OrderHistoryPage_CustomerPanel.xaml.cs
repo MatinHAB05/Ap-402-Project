@@ -1,7 +1,9 @@
 ﻿using MainProject.CustomerMainPage_Parham.CustomerMainPage;
 using MainProject.Public_Classes;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,27 +26,19 @@ namespace MainProject.OrderHistoryPage_Matin
 
         internal User CurrentUser { get; set; }
         public CustomerMainPage PreviousPage { get; set; }
-        public class OrderHistory
-        {
+        public List<OrderHistoryClass_Demo> Orders { get; set; }
 
-            public string name { get; set; }
-            public string LastName { get; set; }
-            public string UserName { get; set; }
-            public int Id { get; set; }
-            public string NameRes { get; set; }
-            public double rate { get; set; }
-            public string comment { get; set; }
-            public OrderHistory(string Name, string lastanme, string Username, int Id, string NameRes, double rate, string comment)
+        public class OrderHistoryClass_Demo
+        {
+            FoodRequest FoodRequest { get; set; }
+            double Rate {  get; set; }
+            internal OrderHistoryClass_Demo(FoodRequest foodRequest,double rate)
             {
-                this.name = Name;
-                this.LastName = lastanme;
-                this.UserName = Username;
-                this.Id = Id;
-                this.comment = comment;
-                this.NameRes = NameRes;
-                this.rate = rate;
+                FoodRequest = foodRequest;
+                Rate = rate;
             }
         }
+
         internal OrderHistoryPage_CustomerPanel(CustomerMainPage prepage)
         {
             InitializeComponent();
@@ -54,54 +48,9 @@ namespace MainProject.OrderHistoryPage_Matin
 
             EditBut.Visibility = Visibility.Visible;
             SaveBut.Visibility = Visibility.Hidden;
-            //For Now 
-            List<OrderHistory> demo = new List<OrderHistory>
-            {
-                new  OrderHistory("Matin","HasanaaliBaki","UserName",12345,"ResName",4.23,"This is Comment"),
-                new  OrderHistory("Matin","HasanaaliBaki","UserName",12345,"ResName",4.23,"This is Comment"),
-                new  OrderHistory("Matin","HasanaaliBaki","UserName",12345,"ResName",4.23,"This is Comment"),
-                new  OrderHistory("Matin","HasanaaliBaki","UserName",12345,"ResName",4.23,"This is Comment"),
-                new  OrderHistory("Matin","HasanaaliBaki","UserName",12345,"ResName",4.23,"This is Comment"),
-                new  OrderHistory("Matin","HasanaaliBaki","UserName",12345,"ResName",4.23,"This is Comment"),
-                new  OrderHistory("Matin","HasanaaliBaki","UserName",12345,"ResName",4.23,"This is Comment"),
-                new  OrderHistory("Matin","HasanaaliBaki","UserName",12345,"ResName",4.23,"This is Comment"),
-                new  OrderHistory("Matin","HasanaaliBaki","UserName",12345,"ResName",4.23,"This is Comment"),
-                new  OrderHistory("Matin","HasanaaliBaki","UserName",12345,"ResName",4.23,"This is Comment"),
-                new  OrderHistory("Matin","HasanaaliBaki","UserName",12345,"ResName",4.23,"This is Comment"),
-                new  OrderHistory("Matin","HasanaaliBaki","UserName",12345,"ResName",4.23,"This is Comment"),
-                new  OrderHistory("Matin","HasanaaliBaki","UserName",12345,"ResName",4.23,"This is Comment"),
-                new  OrderHistory("Matin","HasanaaliBaki","UserName",12345,"ResName",4.23,"This is Comment"),
-                new  OrderHistory("Matin","HasanaaliBaki","UserName",12345,"ResName",4.23,"This is Comment"),
-                new  OrderHistory("Matin","HasanaaliBaki","UserName",12345,"ResName",4.23,"This is Comment"),
-                new  OrderHistory("Matin","HasanaaliBaki","UserName",12345,"ResName",4.23,"This is Comment"),
-                new  OrderHistory("Matin","HasanaaliBaki","UserName",12345,"ResName",4.23,"This is Comment"),
-                new  OrderHistory("Matin","HasanaaliBaki","UserName",12345,"ResName",4.23,"This is Comment"),
-                new  OrderHistory("Matin","HasanaaliBaki","UserName",12345,"ResName",4.23,"This is Comment"),
-                new  OrderHistory("Matin","HasanaaliBaki","UserName",12345,"ResName",4.23,"This is Comment"),
-                new  OrderHistory("Matin","HasanaaliBaki","UserName",12345,"ResName",4.23,"This is Comment"),
-                new  OrderHistory("Matin","HasanaaliBaki","UserName",12345,"ResName",4.23,"This is Comment"),
-                new  OrderHistory("Matin","HasanaaliBaki","UserName",12345,"ResName",4.23,"This is Comment"),
-                new  OrderHistory("Matin","HasanaaliBaki","UserName",12345,"ResName",4.23,"This is Comment"),
-                new  OrderHistory("Matin","HasanaaliBaki","UserName",12345,"ResName",4.23,"This is Comment"),
-                new  OrderHistory("Matin","HasanaaliBaki","UserName",12345,"ResName",4.23,"This is Comment"),
-                new  OrderHistory("Matin","HasanaaliBaki","UserName",12345,"ResName",4.23,"This is Comment"),
-                new  OrderHistory("Matin","HasanaaliBaki","UserName",12345,"ResName",4.23,"This is Comment"),
-                new  OrderHistory("Matin","HasanaaliBaki","UserName",12345,"ResName",4.23,"This is Comment"),
-                new  OrderHistory("Matin","HasanaaliBaki","UserName",12345,"ResName",4.23,"This is Comment"),
-                new  OrderHistory("Matin","HasanaaliBaki","UserName",12345,"ResName",4.23,"This is Comment"),
-                new  OrderHistory("Matin","HasanaaliBaki","UserName",12345,"ResName",4.23,"This is Comment"),
-                new  OrderHistory("Matin","HasanaaliBaki","UserName",12345,"ResName",4.23,"This is Comment"),
-                new  OrderHistory("Matin","HasanaaliBaki","UserName",12345,"ResName",4.23,"This is Comment"),
-                new  OrderHistory("Matin","HasanaaliBaki","UserName",12345,"ResName",4.23,"This is Comment"),
-                new  OrderHistory("Matin","HasanaaliBaki","UserName",12345,"ResName",4.23,"This is Comment"),
-                new  OrderHistory("Matin","HasanaaliBaki","UserName",12345,"ResName",4.23,"This is Comment"),
-                new  OrderHistory("Matin","HasanaaliBaki","UserName",12345,"ResName",4.23,"This is Comment"),
-                new  OrderHistory("Matin","HasanaaliBaki","UserName",12345,"ResName",4.23,"This is Comment"),
-                new  OrderHistory("Matin","HasanaaliBaki","UserName",12345,"ResName",4.23,"This is Comment"),
-                new  OrderHistory("Matin","HasanaaliBaki","UserName",12345,"ResName",4.23,"This is Comment")
-
-            };
-            DataGridResault.ItemsSource = demo;
+            
+            Orders=GetOrderHistoryClasses(CurrentUser);
+            DataGridResault.ItemsSource = Orders;
 
         }
 
@@ -135,6 +84,29 @@ namespace MainProject.OrderHistoryPage_Matin
         {
             CustomerMainPage customerMainPage = new CustomerMainPage(CurrentUser);
             customerMainPage.Show();
+        }
+
+        private List<FoodRequest> GetFoodRequests_From_Json_For_CurrentUser(User currentUser, string path)
+        {
+            string jsonRead = File.ReadAllText(path);
+            List<FoodRequest>? AllFoods = JsonConvert.DeserializeObject<List<FoodRequest>>(jsonRead);
+            List<FoodRequest>? XfoodRequest = AllFoods.Where(fr => fr.User.UserName== currentUser.UserName).ToList();
+            return XfoodRequest;
+        }
+        private List<Food_Point> GetFoodPoints_From_Json_For_CurrentUser(User currentUser, string path)
+        {
+            string jsonRead = File.ReadAllText(path);
+            List<Food_Point>? AllFoodsPoint = JsonConvert.DeserializeObject<List<Food_Point>>(jsonRead);
+            List<Food_Point>? XfoodPoint = AllFoodsPoint.Where(fp => fp.UserName == currentUser.UserName).ToList();
+            return XfoodPoint;
+        }
+
+        private List<OrderHistoryClass_Demo> GetOrderHistoryClasses(User CurrenUser)
+        {
+            List<FoodRequest> foodRequests = GetFoodRequests_From_Json_For_CurrentUser(CurrentUser, @"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\MainProject\JsonFiles\FoodRequest\All_FoodRequest.json");
+            List<Food_Point> food_Points = GetFoodPoints_From_Json_For_CurrentUser(CurrentUser, @"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\MainProject\JsonFiles\Points\All_Points.json");
+            List<OrderHistoryClass_Demo> DEMO = foodRequests.Join(food_Points,fr=>fr.FoodClass.FoodID,fp=>fp.FoodID,(fr,fp)=>new OrderHistoryClass_Demo(fr,fp.Point)).ToList();
+            return DEMO;
         }
     }
 }

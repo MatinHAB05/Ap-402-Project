@@ -19,8 +19,6 @@ namespace MainProject.Public_Classes
         public string Phone {  get; set; }
         public string Address {  get; set; }
         public Gender Gender { get; set; }
-        public List<Food_Point>? PointsList { get; set; }
-
         public User() { }
         public User(string UserName ,int UserID , string  Name , string LastName , string Email_Unique , string Password , string Phone , string Address , Gender Gender,CustomerType customerType)
         {
@@ -34,7 +32,6 @@ namespace MainProject.Public_Classes
             this.Address = Address;
             this.Gender = Gender;
             this.customerType = customerType;
-            this.PointsList = null;
         }
         public User(string UserName, string Name, string LastName, string Email_Unique, string Phone)
         {//Matin

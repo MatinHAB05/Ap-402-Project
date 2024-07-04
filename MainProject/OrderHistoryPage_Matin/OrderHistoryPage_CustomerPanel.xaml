@@ -29,12 +29,12 @@
             <ScrollViewer >
                 <DataGrid x:Name="DataGridResault" Margin="5" AutoGenerateColumns="False">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Name" Binding="{Binding name}" x:Name="ColName"  IsReadOnly="True"/>
-                        <DataGridTextColumn Header="LastName" Binding="{Binding LastName}" x:Name="ColLastName"  IsReadOnly="True"/>
-                        <DataGridTextColumn Header="UserName" Binding="{Binding UserName}" x:Name="ColUserName"  IsReadOnly="True"/>
-                        <DataGridTextColumn Header="Id" Binding="{Binding Id}" x:Name="ColId"  IsReadOnly="True"/>
-                        <DataGridTextColumn Header="NameRes" Binding="{Binding NameRes}" x:Name="ColNameRes"  IsReadOnly="True"/>
-                        <DataGridTextColumn Header="Rate" Binding="{Binding rate}" x:Name="ColRate"  IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Name" Binding="{Binding FoodRequest.User.Name}" x:Name="ColName"  IsReadOnly="True"/>
+                        <DataGridTextColumn Header="LastName" Binding="{Binding FoodRequest.User.LastName}" x:Name="ColLastName"  IsReadOnly="True"/>
+                        <DataGridTextColumn Header="UserName" Binding="{Binding FoodRequest.User.UserName}" x:Name="ColUserName"  IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Request Id" Binding="{Binding FoodRequest.RequestID}" x:Name="ColId"  IsReadOnly="True"/>
+                        <DataGridTextColumn Header="NameRes" Binding="{Binding FoodRequest.Restaurant.RestaurantName}" x:Name="ColNameRes"  IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Rate" Binding="{Binding Rate}" x:Name="ColRate"  IsReadOnly="True"/>
 
 
                         <DataGridTextColumn Header="Comment" Binding="{Binding comment}" x:Name="ColComment"  IsReadOnly="True"/>

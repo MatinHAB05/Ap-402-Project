@@ -10,15 +10,17 @@ namespace MainProject.Public_Classes
     {
         public RequestType RequestType;
         public int RequestID {  get; set; }
-        public Restaurant Restaurant { get; set; }
-        public User User { get; set; }
+        public string RestaurantUserName { get; set; }
+        public string User_UserName { get; set; }
+        public int FoodID { get; set; }
+
         public FoodRequest() { }
-        public FoodRequest(RequestType RequestType,Restaurant Restaurant, User user,int RequestID)
+        public FoodRequest(RequestType RequestType,string RestaurantUserName, string User_UserName,int RequestID)
         {
             this.RequestType = RequestType;
             this.RequestID = RequestID;
-            this.Restaurant = Restaurant;
-            this.User = user;
+            this.RestaurantUserName = RestaurantUserName;
+            this.User_UserName = User_UserName;
 
         }
     }
