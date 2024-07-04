@@ -3,14 +3,15 @@
     "IsCanReserve": false,
     "UserName": "UserNameRes1",
     "UserID": 452,
-    "Rating" : 6 ,
+    "Rating": 6,
     "PassWord": "123123",
     "CityName": "Tehran",
     "RestaurantName": "ResName1",
+    "AddreesOfRestaurant": "Add1",
     "receptionType": 0,
     "Menu": [
       {
-        "Name" : "C1",
+        "Name": "C1",
         "Foods": [
           {
             "Name": "FName",
@@ -43,16 +44,18 @@
         ]
       }
     ]
-  } , 
+  } ,
 
   {
     "IsCanReserve": true,
     "UserName": "UserNameRes2",
     "UserID": 999,
-    "Rating" : 6 ,
+    "Rating": 6,
     "PassWord": "123123",
     "CityName": "Tehran",
     "RestaurantName": "ResName2",
+    "AddreesOfRestaurant": "Add2",
+
     "receptionType": 1,
     "Menu": [
       {
@@ -89,15 +92,17 @@
         ]
       }
     ]
-  } , 
+  } ,
   {
     "IsCanReserve": false,
     "UserName": "UserNameRes3",
     "UserID": 888,
-    "Rating" : 6 ,
+    "Rating": 6,
     "PassWord": "123123",
     "CityName": "Tehran",
     "RestaurantName": "ResName3",
+    "AddreesOfRestaurant": "Add3",
+
     "receptionType": 1,
     "Menu": [
       {
@@ -134,16 +139,18 @@
         ]
       }
     ]
-  } , 
+  } ,
   {
     "IsCanReserve": false,
     "UserName": "UserNameRes4",
     "UserID": 777,
-    "Rating" : 6 ,
+    "Rating": 6,
     "PassWord": "123123",
     "CityName": "Tehran",
     "RestaurantName": "ResName4",
     "receptionType": 0,
+    "AddreesOfRestaurant": "Add4",
+
     "Menu": [
       {
         "Name": "C1",
@@ -179,15 +186,17 @@
         ]
       }
     ]
-  } , 
+  } ,
   {
     "IsCanReserve": false,
     "UserName": "UserNameRes5",
     "UserID": 666,
-    "Rating" : 6 ,
+    "Rating": 6,
     "PassWord": "123123",
     "CityName": "Tehran",
     "RestaurantName": "ResName5",
+    "AddreesOfRestaurant": "Add5",
+
     "receptionType": 1,
     "Menu": [
       {
@@ -216,12 +225,8 @@
                 }
               }
             ],
-              "FoodCategory"
-              :
-              "C1",
-              "Image_Path"
-              :
-              ""
+            "FoodCategory": "C1",
+            "Image_Path": ""
           }
         ]
       }

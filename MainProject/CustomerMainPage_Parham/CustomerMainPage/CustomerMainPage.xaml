@@ -39,7 +39,7 @@
                 <DataGridTemplateColumn Header="Address">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <TextBlock Text="{Binding Address}"/>
+                            <TextBlock Text="{Binding AddreesOfRestaurant}"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>

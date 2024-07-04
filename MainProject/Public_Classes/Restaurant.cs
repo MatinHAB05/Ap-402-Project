@@ -18,6 +18,7 @@ namespace MainProject.Public_Classes
         public string CityName { get; set; }
         public string RestaurantName { get; set; }
         public ReceptionType receptionType { get; set; }
+        public string AddreesOfRestaurant {  get; set; }
 
         public bool IsCanReserve = false;
         public List<Category> Menu { get; set; }
