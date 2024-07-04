@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:MainProject.ProfilePage_Parham.ProfilePage"
         mc:Ignorable="d"
         Background="LightSkyBlue"
-        Title="ProfilePage" Height="450" Width="800">
+        Title="ProfilePage" Height="450" Width="800" Closing="Window_Closing">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -24,10 +24,20 @@
         <TextBlock Grid.Row="2" x:Name="LastName" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Width="250" Height="30"/>
         <TextBlock Grid.Row="3" x:Name="Phone" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Width="250" Height="30"/>
         <TextBlock Grid.Row="4" x:Name="UserName" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Width="250" Height="30"/>
-        <TextBlock Grid.Row="5" x:Name="Email" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Width="250" Height="30"/>
-        <TextBlock Grid.Row="6" x:Name="Address" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Width="250" Height="30"/>
+        <TextBlock Grid.Row="5" x:Name="EmailBlock" Text="{Binding EEmail , UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Width="250" Height="30"/>
+        <TextBox Grid.Row="5" x:Name="EmailEdit" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="MediumPurple" Background="GreenYellow" FontSize="20" Width="150" Height="30" Margin="-450,0,0,0"/>
+
+        <TextBlock Grid.Row="6" x:Name="AddressBlock"  Text="{Binding Local_Address , UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Width="250" Height="30"/>
+        <TextBox Grid.Row="6" x:Name="AddressBox" HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="Red" Background="GreenYellow" FontSize="20" Width="150" Height="30" Margin="-450,0,0,0"/>
+
         <TextBlock Grid.Row="7" x:Name="Gender" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Width="250" Height="30"/>
-        <TextBlock Grid.Row="8" x:Name="CustomerType" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" />
+
+        
+        <TextBlock    Grid.Row="8" x:Name="CustomerTypeBlock" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" />
+        <RadioButton x:Name="r1" Grid.Row="8" VerticalAlignment="Center" Content="Bronze" GroupName="typeG" Margin="20,0,0,0"/>
+        <RadioButton x:Name="r2" Grid.Row="8"  VerticalAlignment="Center" Content="Silver" GroupName="typeG" Margin="98,0,0,0"/>
+        <RadioButton x:Name="r3" Grid.Row="8" VerticalAlignment="Center" Content="Gold" GroupName="typeG"  Margin="170,0,0,0"/>
+
         <Image Margin="300,0,0,0" Grid.Row="0" Source="/ProfilePage_Parham/images/User Symbol .png" Stretch="Fill" Width="60" Height="50"/>
         <Button Grid.Row="5" Margin="500,0,0,0" Content="Change" Background="White" Foreground="LightGray" BorderBrush="LightSkyBlue" Width="50" Height="40" Click="Change_Email_Click"/>
         <Button Grid.Row="6" Margin="500,0,0,0" Content="Change" Background="White" Foreground="LightGray" BorderBrush="LightSkyBlue" Width="50" Height="40" Click="Change_Address_Click"/>

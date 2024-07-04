@@ -1,21 +1,18 @@
 [
   {
-    "FoodID": "145",
-    "RestuantID": 452,
+    "RequestID": 112,
     "Point": 9,
     "UserName": "Demo_UserName",
     "UserID": 0
   },
   {
-    "FoodID": 149,
-    "RestuantID": 999,
+    "RequestID": 114,
     "Point": 7,
     "UserName": "Demo_UserName",
     "UserID": 0
   },
   {
-    "FoodID": 155,
-    "RestuantID": 888,
+    "RequestID": 117,
     "Point": 3,
     "UserName": "Demo_UserName",
     "UserID": 0

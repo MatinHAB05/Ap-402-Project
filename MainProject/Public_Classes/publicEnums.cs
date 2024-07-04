@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace MainProject.Public_Classes    
 {
-    internal enum CustomerType { Bronze , Silver , Gold}
-    internal enum Gender { Male , Female }
-    internal enum RequestType { Cash_Order , Cash_Reserve , Online_Order , Online_Reserve }
-    internal enum ReceptionType { Delivery , Dine_In}
+    public enum CustomerType { Bronze , Silver , Gold}
+    public enum Gender { Male , Female }
+    public enum RequestType { Cash_Order , Cash_Reserve , Online_Order , Online_Reserve }
+    public enum ReceptionType { Delivery , Dine_In}
 }

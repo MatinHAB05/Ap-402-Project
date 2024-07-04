@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,20 +11,16 @@ namespace MainProject.Public_Classes
         public string Title {  get; set; }
         public string Content { get; set; }
         public int CommentID {  get; set; }
-        public Restaurant Restaurant { get; set; }
-        public FoodClass food { get; set; }
-        public User User { get; set; }
+        public string User_UserName { get; set; }
         Comment? Reply;
         public Comment() { }
-         public Comment(string title, string content, int commentID, Comment? reply,User user , Restaurant restaurant , FoodClass food) 
+         public Comment(string title, string content, int commentID, Comment? reply,string User_UserName) 
         {
             Title = title;
             Content = content;
             CommentID = commentID;
             Reply = reply;
-            User = user;
-            Restaurant = restaurant;
-            User = user;
+            this.User_UserName = User_UserName;
         }
     }
 }

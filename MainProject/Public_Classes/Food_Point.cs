@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -6,7 +6,7 @@ using System.Text;
 
 namespace MainProject.Public_Classes
 {
-    internal class Food_Point
+    public class Food_Point
     {
         public int FoodID { get; set; }
         public int RestuantID {  get; set; }

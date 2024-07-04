@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MainProject.Public_Classes
 {
-    internal class Category
+    public class Category
     {
         public string Name { get; set; }
         public List<FoodClass> Foods { get; set; }
