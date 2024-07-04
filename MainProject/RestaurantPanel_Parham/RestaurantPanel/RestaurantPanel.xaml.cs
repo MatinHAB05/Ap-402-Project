@@ -31,21 +31,28 @@ namespace MainProject.RestaurantPanel_Parham.RestaurantPanel
         }
         private void Change_Menu(object sender, RoutedEventArgs e)
         {
-            ChangeMenu changeMenu = new ChangeMenu();
+            ChangeMenu changeMenu = new ChangeMenu(restauranT);
             this.Close();
             changeMenu.Show();
         }
         private void Change_food_inventory(object sender, RoutedEventArgs e)
         {
-            ChangeFoodInverntory changeFoodInventoryPage = new ChangeFoodInverntory(restauranT);
-            this.Close();
-            changeFoodInventoryPage.Show();
+            if(restauranT.Menu != null)
+            {
+                ChangeFoodInverntory changeFoodInventoryPage = new ChangeFoodInverntory(restauranT);
+                this.Close();
+                changeFoodInventoryPage.Show();
+            }
+            else
+            {
+                MessageBox.Show("your menu is empty, please enter a food first", "empty menu", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
         private void Activate_the_reservation_service(object sender, RoutedEventArgs e)
         {
             if(restauranT.Rating >= 4.5)
             {
-                restauranT.IsCanReserve = !restauranT.IsCanReserve;
+                restauranT.ActiveReservatio();
             }
             else
             {
