@@ -13,7 +13,7 @@
 
     </Window.Background>
     <Grid>
-        <StackPanel Height="470" Width="500"  VerticalAlignment="Center" HorizontalAlignment="Center" Background="White">
+        <StackPanel Height="480" Width="500"  VerticalAlignment="Center" HorizontalAlignment="Center" Background="White">
             <Label Content="Username" FontSize="15"/>
             <UserCont111:txtBoxControl  x:Name="UserName" Height="19.96" Margin="5"/>
             <Label Content="Password(or New Password)" FontSize="15"/>
@@ -30,8 +30,8 @@
             <TextBox  x:Name="Addres" Height="19.96" Margin="5"/>
 
             <StackPanel Orientation="Horizontal" Margin="5,13,5,5">
-               <RadioButton GroupName="Type" Content="Dine-in"/>
-              <RadioButton GroupName="Type" Content="Delivery" Margin="15,0,0,0"/>
+               <RadioButton x:Name="ra1" GroupName="Type" Content="Dine-in"/>
+              <RadioButton  x:Name="ra2" GroupName="Type" Content="Delivery" Margin="15,0,0,0"/>
             </StackPanel>
             
             <Button Foreground="WhiteSmoke" FontSize="18" Width="488"  Height="40" Margin="5,10,5,5" Click="AddResturnatsBut">
