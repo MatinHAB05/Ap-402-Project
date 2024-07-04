@@ -9,6 +9,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="CustomerMainPage_Parham\Images\history symbol.png" />
+    <None Remove="CustomerMainPage_Parham\Images\letter-symbol.png" />
+    <None Remove="CustomerMainPage_Parham\Images\magnifier.png" />
+    <None Remove="CustomerMainPage_Parham\Images\user Sysmbol .png" />
+    <None Remove="JsonFiles\Complaint\All_ReceptionComment.json" />
+    <None Remove="OrderHistoryPage_Matin\Images\reset.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="CustomerMainPage_Parham\Images\history symbol.png" />
+    <Resource Include="CustomerMainPage_Parham\Images\letter-symbol.png" />
+    <Resource Include="CustomerMainPage_Parham\Images\magnifier.png" />
+    <Resource Include="CustomerMainPage_Parham\Images\user Sysmbol .png" />
     <Resource Include="Follow_RegisterComplaints_Matin\Images\save.png" />
     <Resource Include="AddRestunts_AdminPanel_Matin\Images\woodBack.jpg" />
     <Resource Include="Follow_RegisterComplaints_Matin\Images\addIcon.png" />
@@ -18,6 +31,7 @@
     <Resource Include="LoginForm_Matin\images\res1.jpg" />
     <Resource Include="LoginForm_Matin\images\res2.jpg" />
     <Resource Include="OrderHistoryPage_Matin\Images\edit.png" />
+    <Resource Include="OrderHistoryPage_Matin\Images\reset.png" />
     <Resource Include="OrderHistoryPage_Matin\Images\save.png" />
     <Resource Include="reserrveORorderFoods_CustomerPage_Matin\Images\add.png" />
     <Resource Include="reserrveORorderFoods_CustomerPage_Matin\Images\comment.png" />
@@ -42,7 +56,6 @@
     <Folder Include="AdminPage_Parham\images\" />
     <Folder Include="ChangeFoodInventory_Parham\Images\" />
     <Folder Include="ChangeMenu_Parham\Images\" />
-    <Folder Include="CustomerMainPage_Parham\Images\" />
     <Folder Include="ProfilePage_Parham\images\" />
     <Folder Include="RestaurantPanel_Parham\images\" />
   </ItemGroup>

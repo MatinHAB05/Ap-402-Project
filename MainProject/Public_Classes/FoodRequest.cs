@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MainProject.Public_Classes
 {
-    internal class FoodRequest
+    public class FoodRequest
     {
         public RequestType RequestType;
         public int RequestID {  get; set; }

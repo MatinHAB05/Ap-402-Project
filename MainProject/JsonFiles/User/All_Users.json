@@ -1,6 +1,7 @@
 [
   {
     "customerType": 0,
+    "customerType": 0,
     "UserName": "UserNameDemo",
     "UserID": 123,
     "Name": "Matin",
@@ -10,8 +11,11 @@
     "Phone": "09165307304",
     "Address": "This is Address",
     "Gender": 0
+    "Gender": 0
   },
   {
+    "customerType": 0,
+    "UserName": "C",
     "customerType": 0,
     "UserName": "C",
     "UserID": 0,
@@ -32,7 +36,7 @@
     "Email_Unique": "Demo_Email@gmail.com",
     "PassWord": null,
     "Phone": "09123456789",
-    "Address": "This is Address",
+    "Address": "This is a Address",
     "Gender": 1
   }
 ]

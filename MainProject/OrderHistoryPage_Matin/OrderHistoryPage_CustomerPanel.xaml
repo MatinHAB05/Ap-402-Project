@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MainProject.OrderHistoryPage_Matin"
         mc:Ignorable="d"
-        Title="OrderHistoryPage_CustomerPanel" Height="750" Width="1200" Background="PeachPuff">
+        Title="OrderHistoryPage_CustomerPanel" Height="750" Width="1200" Background="PeachPuff" Closing="Window_Closing">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -16,6 +16,9 @@
         <Grid Grid.Row="0"  Margin="20,5,15,0" >
             <Button x:Name="SaveBut" Click="SaveEvent" Background="Transparent" BorderThickness="0" Height="60" HorizontalAlignment="Left" ToolTip="Save edits!" >
                 <Image Source="/OrderHistoryPage_Matin/Images/save.png" />
+            </Button>
+            <Button x:Name="ResetBut" Click="ResetEvent" Background="Transparent" BorderThickness="0" Height="60" HorizontalAlignment="Left" ToolTip="Save edits!" Margin="80,0,0,0" >
+                <Image Source="/OrderHistoryPage_Matin/Images/reset.png" />
 
             </Button>
             <Button  x:Name="EditBut" Click="EditEvent" Margin="10,0,0,0" Height="50"   BorderThickness="0" Background="Transparent" HorizontalAlignment="Left" ToolTip="Turn on Edit Mode!" >
@@ -27,17 +30,15 @@
         <Grid Grid.Row="1"  Margin="15,5,15,30" >
 
             <ScrollViewer >
-                <DataGrid x:Name="DataGridResault" Margin="5" AutoGenerateColumns="False">
+                <DataGrid ItemsSource="{Binding Orders, Mode=TwoWay}" x:Name="DataGridResault" Margin="5" AutoGenerateColumns="False">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Name" Binding="{Binding name}" x:Name="ColName"  IsReadOnly="True"/>
-                        <DataGridTextColumn Header="LastName" Binding="{Binding LastName}" x:Name="ColLastName"  IsReadOnly="True"/>
-                        <DataGridTextColumn Header="UserName" Binding="{Binding UserName}" x:Name="ColUserName"  IsReadOnly="True"/>
-                        <DataGridTextColumn Header="Id" Binding="{Binding Id}" x:Name="ColId"  IsReadOnly="True"/>
-                        <DataGridTextColumn Header="NameRes" Binding="{Binding NameRes}" x:Name="ColNameRes"  IsReadOnly="True"/>
-                        <DataGridTextColumn Header="Rate" Binding="{Binding rate}" x:Name="ColRate"  IsReadOnly="True"/>
-
-
-                        <DataGridTextColumn Header="Comment" Binding="{Binding comment}" x:Name="ColComment"  IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Name" Binding="{Binding NameCur}" x:Name="ColName"  IsReadOnly="True"/>
+                        <DataGridTextColumn Header="LastName" Binding="{Binding LastNameCur}" x:Name="ColLastName"  IsReadOnly="True"/>
+                        <DataGridTextColumn Header="UserName" Binding="{Binding FoodRequest.User_UserName}" x:Name="ColUserName"  IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Request_Id" Binding="{Binding FoodRequest.RequestID}" x:Name="ColId"  IsReadOnly="True"/>
+                        <DataGridTextColumn Header="NameRes" Binding="{Binding FoodRequest.RestaurantUserName}" x:Name="ColNameRes"  IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Rate" Binding="{Binding Rate , Mode=TwoWay}" x:Name="ColRate"  IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Comment" Binding="{Binding NewComments.Content , Mode=TwoWay}" x:Name="ColComment"  IsReadOnly="True"/>
 
                     </DataGrid.Columns>
                 </DataGrid>

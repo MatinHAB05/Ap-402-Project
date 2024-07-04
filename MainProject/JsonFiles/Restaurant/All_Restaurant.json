@@ -3,213 +3,233 @@
     "IsCanReserve": false,
     "UserName": "UserNameRes1",
     "UserID": 452,
-    "Rating" : 6 ,
+    "Rating": 6,
     "PassWord": "123123",
     "CityName": "Tehran",
     "RestaurantName": "ResName1",
+    "AddreesOfRestaurant": "Add1",
     "receptionType": 0,
-    "Menu": 
-    {
-      "Name" : "C1",
-      "Foods" : 
+    "Menu": [
       {
-          "Name" : "FName",
-          "FoodID" : 145 ,
-          "price" : 97 ,
-          "Raw_Materials" : {} ,
-          "xBar" : 7.2 ,
-          "RemNumber" : 4 ,
-          "comments_IN_ORDER" : 
+        "Name": "C1",
+        "Foods": [
           {
-            "Title" : "This is Title from Json" , 
-            "Content" : "This is Content from Json" ,
-            "CommentID" : "111" ,
-            "UserName": "MatinBaki",
-            "Reply" :
-            {
-              "Title" : "This is Reply Title from Json" , 
-              "Content" : "This is Reply Content from Json" ,
-              "CommentID" : "113" ,
-              "UserName": "MatinBaki",
-              "Reply" : null
-            }
+            "Name": "FName",
+            "FoodID": 145,
+            "price": 97,
+            "Raw_Materials": [],
+            "xBar": 7.2,
+            "RemNumber": 4,
+            "comments_IN_ORDER": [
+              {
+                "Title": "This is Title from Json",
+                "Content": "This is Content from Json",
+                "CommentID": "111",
+                "UserName": "MatinBaki",
+                "Reply": {
+                  "Title": "This is Reply Title from Json",
+                  "Content": "This is Reply Content from Json",
+                  "CommentID": "113",
+                  "UserName": "MatinBaki",
+                  "Reply": null
+                }
 
 
-          } ,
-          "FoodCategory" : "C1" ,
-          "Image_Path" : ""
+              }
+            ],
+            "FoodCategory": "C1",
+            "Image_Path": ""
 
+          }
+        ]
       }
-    }
-  } , 
+    ]
+  } ,
 
   {
     "IsCanReserve": true,
     "UserName": "UserNameRes2",
     "UserID": 999,
-    "Rating" : 6 ,
+    "Rating": 6,
     "PassWord": "123123",
     "CityName": "Tehran",
     "RestaurantName": "ResName2",
-    "receptionType": 0,
-    "Menu": 
-    {
-      "Name" : "C1",
-      "Foods" : 
+    "AddreesOfRestaurant": "Add2",
+
+    "receptionType": 1,
+    "Menu": [
       {
-          "Name" : "FName",
-          "FoodID" : 149 ,
-          "price" : 97 ,
-          "Raw_Materials" : {} ,
-          "xBar" : 7.2 ,
-          "RemNumber" : 4 ,
-          "comments_IN_ORDER" : 
+        "Name": "C1",
+        "Foods": [
           {
-            "Title" : "This is Title from Json" , 
-            "Content" : "This is Content from Json" ,
-            "CommentID" : "115" ,
-            "UserName": "MatinBaki",
-            "Reply" :
-            {
-              "Title" : "This is Reply Title from Json" , 
-              "Content" : "This is Reply Content from Json" ,
-              "CommentID" : "119" ,
-              "UserName": "MatinBaki" ,
-              "Reply" : null
-            }
+            "Name": "FName",
+            "FoodID": 149,
+            "price": 97,
+            "Raw_Materials": [],
+            "xBar": 7.2,
+            "RemNumber": 4,
+            "comments_IN_ORDER": [
+              {
+                "Title": "This is Title from Json",
+                "Content": "This is Content from Json",
+                "CommentID": "115",
+                "UserName": "MatinBaki",
+                "Reply": {
+                  "Title": "This is Reply Title from Json",
+                  "Content": "This is Reply Content from Json",
+                  "CommentID": "119",
+                  "UserName": "MatinBaki",
+                  "Reply": null
+                }
 
 
-          } ,
-          "FoodCategory" : "C1" ,
-          "Image_Path" : ""
+              }
+            ],
+            "FoodCategory": "C1",
+            "Image_Path": ""
 
+          }
+        ]
       }
-    }
-  } , 
+    ]
+  } ,
   {
     "IsCanReserve": false,
     "UserName": "UserNameRes3",
     "UserID": 888,
-    "Rating" : 6 ,
+    "Rating": 6,
     "PassWord": "123123",
     "CityName": "Tehran",
     "RestaurantName": "ResName3",
-    "receptionType": 0,
-    "Menu": 
-    {
-      "Name" : "C1",
-      "Foods" : 
+    "AddreesOfRestaurant": "Add3",
+
+    "receptionType": 1,
+    "Menu": [
       {
-          "Name" : "FName",
-          "FoodID" : 155 ,
-          "price" : 97 ,
-          "Raw_Materials" : {} ,
-          "xBar" : 7.2 ,
-          "RemNumber" : 4 ,
-          "comments_IN_ORDER" : 
+        "Name": "C1",
+        "Foods": [
           {
-            "Title" : "This is Title from Json" , 
-            "Content" : "This is Content from Json" ,
-            "CommentID" : "453" ,
-            "UserName": "MatinBaki",
-            "Reply" :
-            {
-              "Title" : "This is Reply Title from Json" , 
-              "Content" : "This is Reply Content from Json" ,
-              "CommentID" : "222" ,
-              "UserName": "MatinBaki",
-              "Reply" : null
-            }
+            "Name": "FName",
+            "FoodID": 155,
+            "price": 97,
+            "Raw_Materials": [],
+            "xBar": 7.2,
+            "RemNumber": 4,
+            "comments_IN_ORDER": [
+              {
+                "Title": "This is Title from Json",
+                "Content": "This is Content from Json",
+                "CommentID": "453",
+                "UserName": "MatinBaki",
+                "Reply": {
+                  "Title": "This is Reply Title from Json",
+                  "Content": "This is Reply Content from Json",
+                  "CommentID": "222",
+                  "UserName": "MatinBaki",
+                  "Reply": null
+                }
 
 
-          } ,
-          "FoodCategory" : "C1" ,
-          "Image_Path" : ""
+              }
+            ],
+            "FoodCategory": "C1",
+            "Image_Path": ""
 
+          }
+        ]
       }
-    }
-  } , 
+    ]
+  } ,
   {
     "IsCanReserve": false,
     "UserName": "UserNameRes4",
     "UserID": 777,
-    "Rating" : 6 ,
+    "Rating": 6,
     "PassWord": "123123",
     "CityName": "Tehran",
     "RestaurantName": "ResName4",
     "receptionType": 0,
-    "Menu": 
-    {
-      "Name" : "C1",
-      "Foods" : 
+    "AddreesOfRestaurant": "Add4",
+
+    "Menu": [
       {
-          "Name" : "FName",
-          "FoodID" : 785 ,
-          "price" : 97 ,
-          "Raw_Materials" : {} ,
-          "xBar" : 7.2 ,
-          "RemNumber" : 4 ,
-          "comments_IN_ORDER" : 
+        "Name": "C1",
+        "Foods": [
           {
-            "Title" : "This is Title from Json" , 
-            "Content" : "This is Content from Json" ,
-            "CommentID" : "109" ,
-            "UserName": "MatinBaki",
-            "Reply" :
-            {
-              "Title" : "This is Reply Title from Json" , 
-              "Content" : "This is Reply Content from Json" ,
-              "CommentID" : "491" ,
-              "UserName": "MatinBaki",
-              "Reply" : null
-            }
+            "Name": "FName",
+            "FoodID": 785,
+            "price": 97,
+            "Raw_Materials": [],
+            "xBar": 7.2,
+            "RemNumber": 4,
+            "comments_IN_ORDER": [
+              {
+                "Title": "This is Title from Json",
+                "Content": "This is Content from Json",
+                "CommentID": "109",
+                "UserName": "MatinBaki",
+                "Reply": {
+                  "Title": "This is Reply Title from Json",
+                  "Content": "This is Reply Content from Json",
+                  "CommentID": "491",
+                  "UserName": "MatinBaki",
+                  "Reply": null
+                }
 
 
-          } ,
-          "FoodCategory" : "C1" ,
-          "Image_Path" : ""
+              }
+            ],
+            "FoodCategory": "C1",
+            "Image_Path": ""
 
+          }
+        ]
       }
-    }
-  } , 
+    ]
+  } ,
   {
     "IsCanReserve": false,
     "UserName": "UserNameRes5",
     "UserID": 666,
-    "Rating" : 6 ,
+    "Rating": 6,
     "PassWord": "123123",
     "CityName": "Tehran",
     "RestaurantName": "ResName5",
-    "receptionType": 0,
-    "Menu": 
-    {
-      "Name" : "C1",
-      "Foods" : 
+    "AddreesOfRestaurant": "Add5",
+
+    "receptionType": 1,
+    "Menu": [
       {
-          "Name" : "FName",
-          "FoodID" : 450 ,
-          "price" : 97 ,
-          "Raw_Materials" : {} ,
-          "xBar" : 7.2 ,
-          "RemNumber" : 4 ,
-          "comments_IN_ORDER" : 
+
+        "Name": "C1",
+        "Foods": [
           {
-            "Title" : "This is Title from Json" , 
-            "Content" : "This is Content from Json" ,
-            "CommentID" : "788" ,
-            "UserName": "MatinBaki",
-            "Reply" :
-            {
-              "Title" : "This is Reply Title from Json" , 
-              "Content" : "This is Reply Content from Json" ,
-              "CommentID" : "894" ,
-              "UserName": "MatinBaki",
-              "Reply" : null
-            }
-          } ,
-          "FoodCategory" : "C1" ,
-          "Image_Path" : ""
+            "Name": "FName",
+            "FoodID": 450,
+            "price": 97,
+            "Raw_Materials": [],
+            "xBar": 7.2,
+            "RemNumber": 4,
+            "comments_IN_ORDER": [
+              {
+                "Title": "This is Title from Json",
+                "Content": "This is Content from Json",
+                "CommentID": "788",
+                "UserName": "MatinBaki",
+                "Reply": {
+                  "Title": "This is Reply Title from Json",
+                  "Content": "This is Reply Content from Json",
+                  "CommentID": "894",
+                  "UserName": "MatinBaki",
+                  "Reply": null
+                }
+              }
+            ],
+            "FoodCategory": "C1",
+            "Image_Path": ""
+          }
+        ]
       }
-    }
+    ]
   }
 ]

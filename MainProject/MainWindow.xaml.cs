@@ -1,11 +1,13 @@
 ﻿using MainProject.CustomerMainPage_Parham.CustomerMainPage;
 using MainProject.LoginForm_Matin;
+using MainProject.Public_Classes;
 using MainProject.SignInPage_Matin;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Ink;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;

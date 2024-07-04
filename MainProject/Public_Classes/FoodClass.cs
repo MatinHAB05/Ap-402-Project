@@ -6,20 +6,20 @@ using System.Threading.Tasks;
 
 namespace MainProject.Public_Classes
 {
-    internal class FoodClass
+    public class FoodClass
     {
         public string Name { get; set; }
         public int FoodID { get; set; }
         public double price { get; set; }
-        List<string> Raw_Materials { get; set; }
+        public List<string> Raw_Materials { get; set; }
         public double xBar { get; set; }
         public int RemNumber { get; set; }
-        public List<Comment> comments_IN_ORDER { get; set; }
+        public List<FoodComment> comments_IN_ORDER { get; set; }
         public string FoodCategory {  get; set; }
         public string Image_Path { get; set; }
 
         public FoodClass() { }
-        public FoodClass(string FoodCategory,string Name ,int FoodID ,double price, List<string> Raw_Materials , double xBar , int  RemNumber , List<Comment> comments_IN_Order , string image_Path)
+        public FoodClass(string FoodCategory,string Name ,int FoodID ,double price, List<string> Raw_Materials , double xBar , int  RemNumber , List<FoodComment> comments_IN_Order , string image_Path)
         {
             this.FoodCategory = FoodCategory;
             this.Name = Name;

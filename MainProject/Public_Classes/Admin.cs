@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MainProject.Public_Classes
 {
-    internal class Admin
+    public class Admin
     {
         public string UserName { get; set; }
         public string Password { get; set; }
