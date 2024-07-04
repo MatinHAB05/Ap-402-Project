@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MainProject.ReviewComplaints_Matin"
         mc:Ignorable="d"
-        Title="ReviewComplaints_Page" Height="750" Width="1200" Background="Black">
+        Title="ReviewComplaints_Page" Height="750" Width="1200" Background="Black" Closing="Window_Closing">
 
     <Grid>
         <Grid.ColumnDefinitions>

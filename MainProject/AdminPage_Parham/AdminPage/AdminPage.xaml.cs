@@ -13,38 +13,57 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using MainProject.Public_Classes;
+using MainProject.AddRestunts_AdminPanel_Matin;
+using MainProject.Search_Restuant_PageADMIN_Matin;
+using MainProject.Search_complaints_PageADMIN_Matin;
+using MainProject.ReviewAndEditUnreviewedComplaints_Matin;
+using MainProject.ReviewComplaints_Matin;
 
 namespace MainProject.AdminPage_Parham.AdminPage
 {
     public partial class AdminPage : Window
     {
+        public Admin admin {  get; set; }
         internal AdminPage(Admin admin)
         {
             InitializeComponent();
+            this.admin = admin;
         }
         private void Restaurant_Registration_Click(object sender, RoutedEventArgs e)
         {
-
+            AddRestunts_AdminPanel_Page addRestunts_Admin = new AddRestunts_AdminPanel_Page(this.admin);
+            addRestunts_Admin.Show();
+            this.Close();
         }
         private void Search_ON_Restaurants_Click(object sender, RoutedEventArgs e)
         {
-
+            Search_Res_AdminPageForm search_Res_AdminPageForm = new Search_Res_AdminPageForm(this.admin);
+            search_Res_AdminPageForm.Show();
+            this.Close();
         }
         private void Search_ON_Complaints_Click(object sender, RoutedEventArgs e)
         {
-
+            Search_complaints_AdminPageForm search_Complaints_Admin = new Search_complaints_AdminPageForm(this.admin);
+            search_Complaints_Admin.Show();
+            this.Close();
         }
         private void Last_Unread_Complaints_Click(object sender, RoutedEventArgs e)
         {
-
+            ReviewAndEditUnreviewedComplaints_Page reviewAndEditUnreviewedComplaints_Page = new ReviewAndEditUnreviewedComplaints_Page(this.admin);
+            reviewAndEditUnreviewedComplaints_Page.Show();
+            this.Close();
         }
         private void Answer_Last_Unread_Complaints_Click(object sender, RoutedEventArgs e)
         {
-
+            ReviewAndEditUnreviewedComplaints_Page reviewAndEditUnreviewedComplaints_Page = new ReviewAndEditUnreviewedComplaints_Page(this.admin);
+            reviewAndEditUnreviewedComplaints_Page.Show();
+            this.Close();
         }
         private void All_Complaints_Click(Object sender, RoutedEventArgs e)
         {
-
+            ReviewComplaints_Page reviewComplaints = new ReviewComplaints_Page(this.admin);
+            reviewComplaints.Show();
+            this.Close();
         }
     }
 }

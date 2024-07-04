@@ -9,6 +9,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="AdminPage_Parham\images\!-symbol.png" />
+    <None Remove="AdminPage_Parham\images\answer-symbol.png" />
+    <None Remove="AdminPage_Parham\images\letter-symbol.png" />
+    <None Remove="AdminPage_Parham\images\magnifier.png" />
+    <None Remove="AdminPage_Parham\images\retaurant4.jpg" />
     <None Remove="CustomerMainPage_Parham\Images\history symbol.png" />
     <None Remove="CustomerMainPage_Parham\Images\letter-symbol.png" />
     <None Remove="CustomerMainPage_Parham\Images\magnifier.png" />
@@ -18,6 +23,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="AdminPage_Parham\images\!-symbol.png" />
+    <Resource Include="AdminPage_Parham\images\answer-symbol.png" />
+    <Resource Include="AdminPage_Parham\images\letter-symbol.png" />
+    <Resource Include="AdminPage_Parham\images\magnifier.png" />
+    <Resource Include="AdminPage_Parham\images\retaurant4.jpg" />
     <Resource Include="CustomerMainPage_Parham\Images\history symbol.png" />
     <Resource Include="CustomerMainPage_Parham\Images\letter-symbol.png" />
     <Resource Include="CustomerMainPage_Parham\Images\magnifier.png" />
@@ -53,7 +63,6 @@
     <Resource Include="SignInPage_Matin\images\icons8-name-tag-64.jpg" />
     <Resource Include="SignInPage_Matin\images\icons8-phone-64.jpg" />
     <Resource Include="SignInPage_Matin\images\user.jpg" />
-    <Folder Include="AdminPage_Parham\images\" />
     <Folder Include="ChangeFoodInventory_Parham\Images\" />
     <Folder Include="ChangeMenu_Parham\Images\" />
     <Folder Include="ProfilePage_Parham\images\" />

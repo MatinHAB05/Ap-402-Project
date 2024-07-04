@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MainProject.ReviewAndEditUnreviewedComplaints_Matin"
         mc:Ignorable="d"
-        Title="ReviewAndEditUnreviewedComplaints_Page" Height="750" Width="1200" Background="PeachPuff">
+        Title="ReviewAndEditUnreviewedComplaints_Page" Height="750" Width="1200" Background="PeachPuff" Closing="Window_Closing">
 
     <Grid>
         <Grid.RowDefinitions>

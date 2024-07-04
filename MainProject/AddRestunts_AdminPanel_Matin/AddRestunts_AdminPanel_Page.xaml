@@ -4,20 +4,36 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MainProject.AddRestunts_AdminPanel_Matin"
-        xmlns:UserCont111="clr-namespace:MainProject.SetPassWordPage_Matin.userControl_SetPassword"
+        xmlns:UserCont111="clr-namespace:MainProject.SetPassWordPage_Matin.userControl_SetPassword" Closing="Window_Closing"
         
         mc:Ignorable="d"
-        Title="AddRestunts_AdminPanel_Page" Height="450" Width="800">
+        Title="AddRestunts_AdminPanel_Page" Height="710" Width="800">
     <Window.Background>
         <ImageBrush ImageSource="/AddRestunts_AdminPanel_Matin/Images/woodBack.jpg" Stretch="Fill"/>
 
     </Window.Background>
     <Grid>
-        <StackPanel Height="260" Width="500"  VerticalAlignment="Center" HorizontalAlignment="Center" Background="White">
+        <StackPanel Height="470" Width="500"  VerticalAlignment="Center" HorizontalAlignment="Center" Background="White">
             <Label Content="Username" FontSize="15"/>
             <UserCont111:txtBoxControl  x:Name="UserName" Height="19.96" Margin="5"/>
             <Label Content="Password(or New Password)" FontSize="15"/>
             <UserCont111:txtBoxControl  x:Name="PassWord" Height="19.96" Margin="5"/>
+            
+            <Label Content="Restaurant Name" FontSize="15"/>
+            <TextBox  x:Name="Restuanname" Height="19.96" Margin="5"/>
+
+            <Label Content="City" FontSize="15"/>
+            <TextBox  x:Name="City" Height="19.96" Margin="5"/>
+            
+            
+            <Label Content="Addres" FontSize="15"/>
+            <TextBox  x:Name="Addres" Height="19.96" Margin="5"/>
+
+            <StackPanel Orientation="Horizontal" Margin="5,13,5,5">
+               <RadioButton GroupName="Type" Content="Dine-in"/>
+              <RadioButton GroupName="Type" Content="Delivery" Margin="15,0,0,0"/>
+            </StackPanel>
+            
             <Button Foreground="WhiteSmoke" FontSize="18" Width="488"  Height="40" Margin="5,10,5,5" Click="AddResturnatsBut">
                 <Button.Background>
                     <SolidColorBrush Color="#33b249"/>
@@ -25,6 +41,9 @@
                 <Button.Content>
                     <TextBlock FontWeight="Bold" Text="Add Resturants"/>
                 </Button.Content>
+                <Button.ToolTip>
+                    برای ثبت رستوران کافیست نام کاربری و نام رستوران و نام شهر و ادرس رستوران را در حل مناسب قرار داده و این دکمه زده شود
+                </Button.ToolTip>
             </Button>
             <Label Content="OR" HorizontalAlignment="Center" FontSize="12"/>
             <Button Foreground="WhiteSmoke" FontSize="18" Width="488"  Height="40" Margin="5" Click="EditPassBut">
@@ -34,6 +53,9 @@
                 <Button.Content>
                     <TextBlock FontWeight="Bold" Text="Edit The Password" />
                 </Button.Content>
+                <Button.ToolTip >
+                    برای ادیت رمز عبور کافیست نام کاربری رستوران را وارد کرده تا رمز جدید را بسازید
+                </Button.ToolTip>
             </Button>
         </StackPanel>
     </Grid>

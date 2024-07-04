@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MainProject.AdminPage_Parham.AdminPage;
+using MainProject.Public_Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -20,6 +22,7 @@ namespace MainProject.Search_Restuant_PageADMIN_Matin
     /// </summary>
     public partial class Search_Res_AdminPageForm : Window, INotifyPropertyChanged
     {
+        public Admin admin {  get; set; }
         private double _MinPointsSearch;
         public double MinPointsSearch
         {
@@ -48,8 +51,9 @@ namespace MainProject.Search_Restuant_PageADMIN_Matin
                 this.point = point;
             }
         }
-        public Search_Res_AdminPageForm()
+        public Search_Res_AdminPageForm(Admin admin)
         {
+            this.admin=admin;
             InitializeComponent();
             this.DataContext = this;
             //For Now 
@@ -160,6 +164,10 @@ namespace MainProject.Search_Restuant_PageADMIN_Matin
              }
     }
 
-
+        private void Window_Closing(object sender, CancelEventArgs e)
+        {
+            AdminPage Pre = new AdminPage(admin);
+            Pre.Show();
+        }
     }
 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MainProject.AdminPage_Parham.AdminPage;
+using MainProject.Public_Classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,6 +21,7 @@ namespace MainProject.ReviewAndEditUnreviewedComplaints_Matin
     /// </summary>
     public partial class ReviewAndEditUnreviewedComplaints_Page : Window
     {
+        public Admin admin { get; set; }
 
         public class complaints_User_FORNOW
         {
@@ -40,9 +43,10 @@ namespace MainProject.ReviewAndEditUnreviewedComplaints_Matin
                 this.Response = response;
             }
         }
-        public ReviewAndEditUnreviewedComplaints_Page()
+        public ReviewAndEditUnreviewedComplaints_Page(Admin admin)
         {
             InitializeComponent();
+            this.admin = admin;
             this.DataContext = this;
             EditBut.Visibility = Visibility.Visible;
             SaveBut.Visibility = Visibility.Hidden;
@@ -118,6 +122,13 @@ namespace MainProject.ReviewAndEditUnreviewedComplaints_Matin
             EditBut.Visibility = Visibility.Visible;
             SaveBut.Visibility = Visibility.Hidden;
             
+        }
+
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            AdminPage Pre = new AdminPage(admin);
+            Pre.Show();
         }
     }
 }

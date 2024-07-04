@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:MainProject.Search_Restuant_PageADMIN_Matin"
         xmlns:USEcon="clr-namespace:MainProject.Search_Restuant_PageADMIN_Matin.UserControls"
         mc:Ignorable="d"
-        Title="Search_Res_AdminPageForm" Height="824" Width="1500" Background="#FFF5EE" PreviewMouseDown="Window_MouseDown" >
+        Title="Search_Res_AdminPageForm" Height="824" Width="1500" Background="#FFF5EE" PreviewMouseDown="Window_MouseDown" Closing="Window_Closing" >
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>

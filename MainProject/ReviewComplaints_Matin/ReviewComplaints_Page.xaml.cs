@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MainProject.AdminPage_Parham.AdminPage;
+using MainProject.Public_Classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,6 +21,7 @@ namespace MainProject.ReviewComplaints_Matin
     /// </summary>
     public partial class ReviewComplaints_Page : Window
     {
+        public Admin admin {  get; set; }
         public class complaints_User_FORNOW
         {
             public string name { get; set; }
@@ -37,9 +40,10 @@ namespace MainProject.ReviewComplaints_Matin
                 this.UserName = username;
             }
         }
-        public ReviewComplaints_Page()
+        public ReviewComplaints_Page(Admin admin)
         {
             InitializeComponent();
+            this.admin = admin;
             this.DataContext = this;
             //For Now 
             List<complaints_User_FORNOW> demo = new List<complaints_User_FORNOW>
@@ -90,6 +94,12 @@ namespace MainProject.ReviewComplaints_Matin
             };
             DataGridResault.ItemsSource = demo;
 
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            AdminPage Pre = new AdminPage(admin);
+            Pre.Show();
         }
     }
 }
