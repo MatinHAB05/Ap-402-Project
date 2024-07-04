@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace MainProject.Public_Classes
 {
@@ -37,7 +38,7 @@ namespace MainProject.Public_Classes
         }
         static public Restaurant? GetFromUserName(string UserName)
         {
-            string json = File.ReadAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\MainProject\JsonFiles\Restaurant\All_Restaurant.json");
+            string json = File.ReadAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\Restaurant\All_Restaurant.json");
             List<Restaurant> restaurants=JsonConvert.DeserializeObject<List<Restaurant>>(json);
             int i = 0;
             int j = 0;
@@ -52,11 +53,12 @@ namespace MainProject.Public_Classes
             }
             if(j==1)
             return restaurants[i];
+            MessageBox.Show(UserName);
             return null;
         }
         static public Restaurant? GetFromname(string Name)
         {
-            string json = File.ReadAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\MainProject\JsonFiles\Restaurant\All_Restaurant.json");
+            string json = File.ReadAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\Restaurant\All_Restaurant.json");
             List<Restaurant> restaurants = JsonConvert.DeserializeObject<List<Restaurant>>(json);
             int i = 0;
             int j = 0;

@@ -44,7 +44,7 @@
         ]
       }
     ]
-  } ,
+  },
 
   {
     "IsCanReserve": true,
@@ -92,7 +92,7 @@
         ]
       }
     ]
-  } ,
+  },
   {
     "IsCanReserve": false,
     "UserName": "UserNameRes3",
@@ -139,7 +139,7 @@
         ]
       }
     ]
-  } ,
+  },
   {
     "IsCanReserve": false,
     "UserName": "UserNameRes4",
@@ -186,7 +186,7 @@
         ]
       }
     ]
-  } ,
+  },
   {
     "IsCanReserve": false,
     "UserName": "UserNameRes5",

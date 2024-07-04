@@ -174,8 +174,8 @@ namespace MainProject.OrderHistoryPage_Matin
 
         private BindingList<OrderHistoryClass_Demo> GetOrderHistoryClasses(User CurrenUser)
         {
-            List<FoodRequest> foodRequests = GetFoodRequests_From_Json_For_CurrentUser(CurrentUser, @"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\MainProject\JsonFiles\FoodRequest\All_FoodRequest.json");
-            List<Reception_Point> reception_point = GetReceptionPoints_From_Json_For_CurrentUser(CurrentUser, @"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\MainProject\JsonFiles\Points\All_ReceptionPoint.json");
+            List<FoodRequest> foodRequests = GetFoodRequests_From_Json_For_CurrentUser(CurrentUser, @"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\FoodRequest\All_FoodRequest.json");
+            List<Reception_Point> reception_point = GetReceptionPoints_From_Json_For_CurrentUser(CurrentUser, @"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\Points\All_ReceptionPoint.json");
             IEnumerable<OrderHistoryClass_Demo> DEMO = foodRequests.Join(reception_point, fr => fr.RequestID, rp => rp.RequestID, (fr, rp) => new OrderHistoryClass_Demo(fr, rp.Point, CurrentUser.Name, CurrentUser.LastName));
             return new BindingList<OrderHistoryClass_Demo>(DEMO.ToList());
         }

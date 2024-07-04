@@ -16,6 +16,7 @@ using MainProject.Public_Classes;
 using MainProject.ChangeMenu_Parham.ChangeMenu;
 using MainProject.OrderHistoryPage_Matin;
 using MainProject.ChangeFoodInventory_Parham.ChangeFoodINverntory;
+using MainProject.CustomerMainPage_Parham.CustomerMainPage;
 
 namespace MainProject.RestaurantPanel_Parham.RestaurantPanel
 {
@@ -53,7 +54,7 @@ namespace MainProject.RestaurantPanel_Parham.RestaurantPanel
         }
         private void Order_and_reservation_history(object sender, RoutedEventArgs e)
         {
-            OrderHistoryPage_CustomerPanel orderHistoryPage = new OrderHistoryPage_CustomerPanel();
+            OrderHistoryPage_CustomerPanel orderHistoryPage = new OrderHistoryPage_CustomerPanel(new CustomerMainPage(new User()));
             this.Close();
             orderHistoryPage.Show();
         }

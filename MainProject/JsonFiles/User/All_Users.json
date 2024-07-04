@@ -1,7 +1,6 @@
 [
   {
     "customerType": 0,
-    "customerType": 0,
     "UserName": "UserNameDemo",
     "UserID": 123,
     "Name": "Matin",
@@ -11,11 +10,8 @@
     "Phone": "09165307304",
     "Address": "This is Address",
     "Gender": 0
-    "Gender": 0
   },
   {
-    "customerType": 0,
-    "UserName": "C",
     "customerType": 0,
     "UserName": "C",
     "UserID": 0,

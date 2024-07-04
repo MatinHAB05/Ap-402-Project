@@ -56,9 +56,9 @@ namespace MainProject.Follow_RegisterComplaints_Matin
             this.PreviousPage = prepage;
             CurrentUser = prepage.CurrentUser;
 
-            string jsonCom = File.ReadAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\MainProject\JsonFiles\Complaint\All_Complaints.json");
+            string jsonCom = File.ReadAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\Complaint\All_Complaints.json");
             List<Complaint> Demo = JsonConvert.DeserializeObject<List<Complaint>>(jsonCom);
-            Demo = (Demo.Where(cm => cm.User_UserName == CurrentUser.UserName)).ToList();
+            Demo = (Demo.Where(cm => cm.User_UserName == CurrentUser.UserName && cm!=null)).ToList();
             complaints_CurrentUser = new ObservableCollection<complaints_User_FORNOW>(Demo.Select(c => new complaints_User_FORNOW(c.User_UserName, c.ComplaintTitile, Restaurant.GetFromUserName(c.RestaurantUserName.Trim()).RestaurantName, c.IsChecked, c.Response)).ToList());
             //complaints_CurrentUser =
 
@@ -84,19 +84,19 @@ namespace MainProject.Follow_RegisterComplaints_Matin
             CollectionChanged?.Invoke(this, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Add));
             MessageBox.Show("Added","Info",MessageBoxButton.OK, MessageBoxImage.Information);
 
-            string jsonCom = File.ReadAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\MainProject\JsonFiles\Complaint\All_Complaints.json");
+            string jsonCom = File.ReadAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\Complaint\All_Complaints.json");
             List<Complaint> Demo = JsonConvert.DeserializeObject<List<Complaint>>(jsonCom);
             Complaint Y = new Complaint();
             Y.ComplainText=user3.txtBox.Text;
             Y.Response = "";
             Y.IsChecked = false;
-            Y.RestaurantUserName = X.NameRes;
+            Y.RestaurantUserName = Restaurant.GetFromname( X.NameRes).UserName;
             Y.User_UserName = X.UserName;
             Y.ComplaintTitile = X.Title;
             Y.User_UserName=X.UserName;
             Y.ComplainID = Complaint.ComPlaintIDGenrator();
             Demo.Add(Y);
-            File.WriteAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\MainProject\JsonFiles\Complaint\All_Complaints.json",
+            File.WriteAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\Complaint\All_Complaints.json",
                 JsonConvert.SerializeObject(Demo,Formatting.Indented));
 
         }
