@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -10,6 +10,13 @@ namespace MainProject.Public_Classes
 {
     public class Restaurant
     {
+        public string UserName { get; set; }
+        public int UserID { get; set; }
+
+        public double Rating { get; set; }
+        public string PassWord { get; set; }
+        public string CityName { get; set; }
+        public string RestaurantName { get; set; }
         public string UserName { get; set; }
         public int UserID { get; set; }
 

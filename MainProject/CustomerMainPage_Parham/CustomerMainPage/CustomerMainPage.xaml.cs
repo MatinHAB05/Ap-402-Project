@@ -22,7 +22,6 @@ using System.Linq;
 using System.Windows.Media.Animation;
 using MainProject.OrderHistoryPage_Matin;
 using MainProject.Follow_RegisterComplaints_Matin;
-
 namespace MainProject.CustomerMainPage_Parham.CustomerMainPage
 {
     public partial class CustomerMainPage : Window, INotifyPropertyChanged

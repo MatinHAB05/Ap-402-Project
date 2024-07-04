@@ -13,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MainProject.RestaurantPanel_Parham.RestaurantPanel;
+using MainProject.Public_Classes;
 
 namespace MainProject
 {
@@ -23,20 +25,9 @@ namespace MainProject
     {
         public MainWindow()
         {
+            
             InitializeComponent();
-            //LoginPage loginPage = new LoginPage();
-            //loginPage.Show();
-            User user = new User();
-            user.Name = "Demo_Name";
-            user.LastName = "Demo_LastName";
-            user.Address = "This is a Address";
-            user.Email_Unique = "Demo_Email@gmail.com";
-            user.Gender = Gender.Female;
-            user.Phone = "09123456789";
-            user.UserName = "Demo_UserName";
-            CustomerMainPage page = new CustomerMainPage(user);
-            page.Show();
-            this.Close();
+
         }
     }
 }
