@@ -37,9 +37,7 @@
             <ScrollViewer >
                 <DataGrid x:Name="DataGridResault" Margin="5" AutoGenerateColumns="False">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Name" Binding="{Binding name}" x:Name="ColName"  IsReadOnly="True"/>
-                        <DataGridTextColumn Header="LastName" Binding="{Binding LastName}" x:Name="ColLastName"  IsReadOnly="True"/>
-                        <DataGridTextColumn Header="UserName" Binding="{Binding UserName}" x:Name="ColUserName"  IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Name" Binding="{Binding UserName}" x:Name="ColName"  IsReadOnly="True"/>
                         <DataGridTextColumn Header="Title" Binding="{Binding Title}" x:Name="ColTitle"  IsReadOnly="True"/>
                         <DataGridTextColumn Header="NameRes" Binding="{Binding NameRes}" x:Name="ColNameRes"  IsReadOnly="True"/>
                         <DataGridTemplateColumn Header="IsChecked">
