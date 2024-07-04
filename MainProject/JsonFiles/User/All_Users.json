@@ -1,5 +1,6 @@
 [
   {
+    "customerType": 0,
     "UserName": "UserNameDemo",
     "UserID": 123,
     "Name": "Matin",
@@ -8,11 +9,11 @@
     "PassWord": "123123",
     "Phone": "09165307304",
     "Address": "This is Address",
-    "Gender": 0,
-    "PointsList": null
+    "Gender": 0
   },
   {
-    "UserName": "MatinBaki",
+    "customerType": 0,
+    "UserName": "C",
     "UserID": 0,
     "Name": "matin",
     "LastName": "baki",
@@ -20,7 +21,18 @@
     "PassWord": "Matin123123",
     "Phone": "09123456789",
     "Address": null,
-    "Gender": 0,
-    "PointsList": null
+    "Gender": 0
+  },
+  {
+    "customerType": 0,
+    "UserName": "Demo_UserName",
+    "UserID": 0,
+    "Name": "Demo_Name",
+    "LastName": "Demo_LastName",
+    "Email_Unique": "Demo_Email@gmail.com",
+    "PassWord": null,
+    "Phone": "09123456789",
+    "Address": "This is Address",
+    "Gender": 1
   }
 ]
