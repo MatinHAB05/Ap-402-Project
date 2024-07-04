@@ -13,6 +13,8 @@
     <None Remove="CustomerMainPage_Parham\Images\letter-symbol.png" />
     <None Remove="CustomerMainPage_Parham\Images\magnifier.png" />
     <None Remove="CustomerMainPage_Parham\Images\user Sysmbol .png" />
+    <None Remove="JsonFiles\Complaint\All_ReceptionComment.json" />
+    <None Remove="OrderHistoryPage_Matin\Images\reset.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -29,6 +31,7 @@
     <Resource Include="LoginForm_Matin\images\res1.jpg" />
     <Resource Include="LoginForm_Matin\images\res2.jpg" />
     <Resource Include="OrderHistoryPage_Matin\Images\edit.png" />
+    <Resource Include="OrderHistoryPage_Matin\Images\reset.png" />
     <Resource Include="OrderHistoryPage_Matin\Images\save.png" />
     <Resource Include="reserrveORorderFoods_CustomerPage_Matin\Images\add.png" />
     <Resource Include="reserrveORorderFoods_CustomerPage_Matin\Images\comment.png" />

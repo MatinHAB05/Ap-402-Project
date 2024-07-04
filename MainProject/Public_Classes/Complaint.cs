@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MainProject.Public_Classes
 {
-    internal class Complaint
+    public class Complaint
     {
         public int ComplainID {  get; set; }
         public string ComplainText { get; set; }

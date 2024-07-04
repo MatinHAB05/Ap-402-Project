@@ -27,9 +27,9 @@ namespace MainProject.CustomerMainPage_Parham.CustomerMainPage
 {
     public partial class CustomerMainPage : Window, INotifyPropertyChanged
     {
-        internal User CurrentUser;
-        internal List<Restaurant>? restaurants;
-        internal CustomerMainPage(User user)
+        public User CurrentUser;
+        public List<Restaurant>? restaurants;
+        public CustomerMainPage(User user)
         {
             InitializeComponent();
             CurrentUser = user;
@@ -81,7 +81,7 @@ namespace MainProject.CustomerMainPage_Parham.CustomerMainPage
             if (city == "" && name == "")
             {
                 SearchList.ItemsSource = restaurants.Select(res => { res.Calculate(); return res; })
-                    .Where(res => (res.Rating >= rate))
+                    .Where(res => (res.Rating >= rate) &&(res.receptionType== Filter_receptionType) )
                     .ToList<Restaurant>();
 
 
@@ -91,7 +91,7 @@ namespace MainProject.CustomerMainPage_Parham.CustomerMainPage
                 if (name == "")
                 {
                     SearchList.ItemsSource = restaurants.Select(res => { res.Calculate(); return res; })
-                       .Where(res => (res.Rating >= rate) && (res.CityName == city))
+                       .Where(res => (res.Rating >= rate) && (res.CityName.Contains(city) == true) && (res.receptionType == Filter_receptionType))
                        .ToList<Restaurant>();
 
 
@@ -100,14 +100,14 @@ namespace MainProject.CustomerMainPage_Parham.CustomerMainPage
                 else if (city == "")
                 {
                     SearchList.ItemsSource = restaurants.Select(res => { res.Calculate(); return res; })
-                                                 .Where(res => (res.Rating >= rate) && (res.RestaurantName == city))
+                                                 .Where(res => (res.Rating >= rate) && (res.RestaurantName.Contains(name) == true) && (res.receptionType == Filter_receptionType))
                                                  .ToList<Restaurant>();
 
                 }
                 else
                 {
                     SearchList.ItemsSource = restaurants.Select(res => { res.Calculate(); return res; })
-                             .Where(res => (res.Rating >= rate) && (res.RestaurantName == city) && (res.CityName==city) )
+                             .Where(res => (res.Rating >= rate) && (res.RestaurantName.Contains(name) == true) && (res.CityName.Contains(city)==true) && (res.receptionType == Filter_receptionType))
                              .ToList<Restaurant>();
                 }
             }

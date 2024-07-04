@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MainProject.Public_Classes
 {
-    internal class User
+    public class User
     {
         public CustomerType customerType = CustomerType.Bronze;
         public string UserName {  get; set; }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MainProject.Public_Classes
 {
-    internal class Restaurant
+    public class Restaurant
     {
         public string UserName { get; set; }
         public int UserID { get; set; }
