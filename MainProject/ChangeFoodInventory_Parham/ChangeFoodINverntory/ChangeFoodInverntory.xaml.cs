@@ -19,8 +19,10 @@ namespace MainProject.ChangeFoodInventory_Parham.ChangeFoodINverntory
     public partial class ChangeFoodInverntory : Window
     {
         List<FoodClass> foodList;
+        Restaurant restauranT;
         internal ChangeFoodInverntory(Restaurant restaurant)
         {
+            restauranT = restaurant;
             List<FoodClass> foodList = new List<FoodClass>();
             InitializeComponent();
             foreach(var i in restaurant.Menu)
@@ -35,7 +37,26 @@ namespace MainProject.ChangeFoodInventory_Parham.ChangeFoodINverntory
         }
         private void Change_Food_Inventory_Button(object sender, RoutedEventArgs e)
         {
-
+            Button btn = sender as Button;
+            FoodClass food = btn.DataContext as FoodClass;
+            int number = 0;
+            bool ContinueOrNot = true;
+            try
+            {
+                number = Convert.ToInt32(Change_Rem.Text);
+            }
+            catch
+            {
+                MessageBox.Show("yout entered number was not right", "Number wrong", MessageBoxButton.OK, MessageBoxImage.Error);
+                ContinueOrNot = false;
+            }
+            if (food.RemNumber >= number)
+            {
+                if (ContinueOrNot)
+                {
+                    restauranT.RestaurantOverRide_ChangeRem_InJsonFile(food, number);
+                }
+            }
         }
     }
 }
