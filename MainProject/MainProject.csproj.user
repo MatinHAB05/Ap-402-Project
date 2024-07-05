@@ -10,12 +10,18 @@
     <Compile Update="ChangeFoodInventory_Parham\ChangeFoodINverntory\ChangeFoodInverntory.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="ReviewUNREAD_AdminPanel_Matin\ReviewUNREAD_AdminPanel.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="ChangeFoodInventory_Parham\ChangeFoodINverntory\ChangeFoodInverntory.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ReviewUNREAD_AdminPanel_Matin\ReviewUNREAD_AdminPanel.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

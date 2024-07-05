@@ -1,5 +1,6 @@
 ﻿using MainProject.AdminPage_Parham.AdminPage;
 using MainProject.Public_Classes;
+using MainProject.ReviewUNREAD_AdminPanel_Matin;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -17,16 +18,16 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace MainProject.ReviewComplaints_Matin
+namespace MainProject.ReviewUNREAD_AdminPanel_Matin
 {
     /// <summary>
-    /// Interaction logic for ReviewUnreviewedComplaints_Page.xaml
+    /// Interaction logic for ReviewUNREAD_AdminPanel.xaml
     /// </summary>
-    public partial class ReviewComplaints_Page : Window
+    public partial class ReviewUNREAD_AdminPanel : Window
     {
         public ObservableCollection<complaints_User_FORNOW> comes { get; set; }
 
-        public Admin admin {  get; set; }
+        public Admin admin { get; set; }
         public class complaints_User_FORNOW
         {
             public string name { get; set; }
@@ -57,13 +58,14 @@ namespace MainProject.ReviewComplaints_Matin
                 return demo;
             }
         }
-        public ReviewComplaints_Page(Admin admin)
+        public ReviewUNREAD_AdminPanel(Admin admin)
         {
             InitializeComponent();
             this.admin = admin;
             this.DataContext = this;
             //For Now 
-            List<Complaint> complaints = JsonConvert.DeserializeObject<List<Complaint>>(File.ReadAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\Complaint\All_Complaints.json"));
+            List<Complaint> complaints = JsonConvert.DeserializeObject<List<Complaint>>(File.ReadAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\Complaint\All_Complaints.json")).
+                                            Where(cm=>cm.IsChecked==false).ToList();
 
             comes = new ObservableCollection<complaints_User_FORNOW>
                 (

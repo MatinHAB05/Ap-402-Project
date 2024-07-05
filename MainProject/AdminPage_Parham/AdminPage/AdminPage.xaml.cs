@@ -18,6 +18,7 @@ using MainProject.Search_Restuant_PageADMIN_Matin;
 using MainProject.Search_complaints_PageADMIN_Matin;
 using MainProject.ReviewAndEditUnreviewedComplaints_Matin;
 using MainProject.ReviewComplaints_Matin;
+using MainProject.ReviewUNREAD_AdminPanel_Matin;
 
 namespace MainProject.AdminPage_Parham.AdminPage
 {
@@ -49,8 +50,8 @@ namespace MainProject.AdminPage_Parham.AdminPage
         }
         private void Last_Unread_Complaints_Click(object sender, RoutedEventArgs e)
         {
-            ReviewAndEditUnreviewedComplaints_Page reviewAndEditUnreviewedComplaints_Page = new ReviewAndEditUnreviewedComplaints_Page(this.admin);
-            reviewAndEditUnreviewedComplaints_Page.Show();
+            ReviewUNREAD_AdminPanel UnreviewedComplaints_Page = new ReviewUNREAD_AdminPanel(this.admin);
+            UnreviewedComplaints_Page.Show();
             this.Close();
         }
         private void Answer_Last_Unread_Complaints_Click(object sender, RoutedEventArgs e)
