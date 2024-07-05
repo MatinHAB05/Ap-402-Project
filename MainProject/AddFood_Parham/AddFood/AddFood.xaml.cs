@@ -63,7 +63,7 @@ namespace MainProject.AddFood_Parham.AddFood
                     this.FoodName = Food_Name.Text;
                     this.FoodMaterial = Materials.Text.Split(',').ToList<string>();
                     FoodClass food = new FoodClass(this.CategoryName, this.FoodName, this.price , this.FoodMaterial, this.foodRemNumber);
-                    //this.restauranT.RestaurantOverRide_AddFood_InJsonFile(food, new Category(this.CategoryName, null));
+                    this.restauranT.RestaurantOverRide_AddFood_InJsonFile(food, new Category(this.CategoryName, null));
                 }
             }
             else
