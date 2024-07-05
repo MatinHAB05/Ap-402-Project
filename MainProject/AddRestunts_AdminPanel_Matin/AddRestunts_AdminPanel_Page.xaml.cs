@@ -98,6 +98,11 @@ namespace MainProject.AddRestunts_AdminPanel_Matin
                         return;
 
                     }
+                    if (r.RestaurantName == resName)
+                    {
+                        MessageBox.Show("این نام برای رستوران ثبت شده است", "Unvalid Inputs", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return;
+                    }
                 }
 
                 foreach (Admin a in admins)
