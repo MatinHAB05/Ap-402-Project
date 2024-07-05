@@ -1,6 +1,8 @@
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -40,8 +42,36 @@ namespace MainProject.Public_Classes
             this.LastName = LastName;   
             this.Name = Name;   this.Phone = Phone; 
         }
+        static public string? GetFIRSTNAMEfromjson(string UserName) 
+        {
+            List<User> users = JsonConvert.DeserializeObject<List<User>>(File.ReadAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\User\All_Users.json"));
+            
+            foreach(User u in users)
+            {
+                if(u.UserName == UserName)
+                {
+                    return u.Name;
+                }
+            }
+            return null;
+        
+        
+        }
+        static public string? GetLASTNAMEfromjson(string UserName)
+        {
+            List<User> users = JsonConvert.DeserializeObject<List<User>>(File.ReadAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\User\All_Users.json"));
+
+            foreach (User u in users)
+            {
+                if (u.UserName == UserName)
+                {
+                    return u.LastName;
+                }
+            }
+            return null;
 
 
+        }
 
     }
 }

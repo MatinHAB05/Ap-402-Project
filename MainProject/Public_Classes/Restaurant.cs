@@ -54,6 +54,8 @@ namespace MainProject.Public_Classes
             if(j==1)
             return restaurants[i];
             MessageBox.Show(UserName);
+            //MessageBox.Show((UserName=="").ToString());
+
             return null;
         }
         static public Restaurant? GetFromname(string Name)
