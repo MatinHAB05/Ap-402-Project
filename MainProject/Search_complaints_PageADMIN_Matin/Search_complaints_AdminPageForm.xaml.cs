@@ -53,7 +53,9 @@ namespace MainProject.Search_complaints_PageADMIN_Matin
             public string Title { get; set; }
             public string NameRes {  get; set; }
             public bool IsChecked {  get; set; }
-            public complaints_User_FORNOW(string name , string lastname,string username,string  title , string nameRes , bool isChecked)
+            public string Response {  get; set; }
+            public int ComplaintID {  get; set; }
+            public complaints_User_FORNOW(string name , string lastname,string username,string  title , string nameRes , bool isChecked,string response , int ComplainID)
             {
                 this.name = name;
                 this.Title = title;
@@ -61,6 +63,8 @@ namespace MainProject.Search_complaints_PageADMIN_Matin
                 this.IsChecked = isChecked;
                 this.NameRes= nameRes;
                 this.UserName = username;
+                this.Response = response;
+                this.ComplaintID = ComplainID;
             }
             public complaints_User_FORNOW() { }
             public complaints_User_FORNOW cClone()
@@ -72,6 +76,8 @@ namespace MainProject.Search_complaints_PageADMIN_Matin
                 demo.Title = this.Title;
                 demo.NameRes = this.NameRes;
                 demo.IsChecked = this.IsChecked;
+                demo.Response = this.Response;
+                demo.ComplaintID= this.ComplaintID;
                 return demo;
             }
         }
@@ -92,7 +98,9 @@ namespace MainProject.Search_complaints_PageADMIN_Matin
                     name=User.GetFIRSTNAMEfromjson(com.User_UserName),
                     LastName=User.GetLASTNAMEfromjson(com.User_UserName),
                     UserName = com.User_UserName,
-                    NameRes=Restaurant.GetFromUserName(com.RestaurantUserName).RestaurantName
+                    NameRes=Restaurant.GetFromUserName(com.RestaurantUserName).RestaurantName,
+                    Response=com.Response,
+                    ComplaintID=com.ComplainID
                 }
                 ).ToList());
             begin = new ObservableCollection<complaints_User_FORNOW>();

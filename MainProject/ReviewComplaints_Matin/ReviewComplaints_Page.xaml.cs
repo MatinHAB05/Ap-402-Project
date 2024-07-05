@@ -35,7 +35,9 @@ namespace MainProject.ReviewComplaints_Matin
             public string Title { get; set; }
             public string NameRes { get; set; }
             public bool IsChecked { get; set; }
-            public complaints_User_FORNOW(string name, string lastname, string username, string title, string nameRes, bool isChecked)
+            public string response {  get; set; }
+            public int ComplaintID {  get; set; }
+            public complaints_User_FORNOW(string name, string lastname, string username, string title, string nameRes, bool isChecked, string response, int complaintID)
             {
                 this.name = name;
                 this.Title = title;
@@ -43,6 +45,8 @@ namespace MainProject.ReviewComplaints_Matin
                 this.IsChecked = isChecked;
                 this.NameRes = nameRes;
                 this.UserName = username;
+                this.response = response;
+                ComplaintID = complaintID;
             }
             public complaints_User_FORNOW() { }
             public complaints_User_FORNOW cClone()
@@ -54,6 +58,8 @@ namespace MainProject.ReviewComplaints_Matin
                 demo.Title = this.Title;
                 demo.NameRes = this.NameRes;
                 demo.IsChecked = this.IsChecked;
+                demo.response = this.response;
+                demo.ComplaintID = this.ComplaintID;
                 return demo;
             }
         }
@@ -74,7 +80,9 @@ namespace MainProject.ReviewComplaints_Matin
                     name = User.GetFIRSTNAMEfromjson(com.User_UserName),
                     LastName = User.GetLASTNAMEfromjson(com.User_UserName),
                     UserName = com.User_UserName,
-                    NameRes = Restaurant.GetFromUserName(com.RestaurantUserName).RestaurantName
+                    NameRes = Restaurant.GetFromUserName(com.RestaurantUserName).RestaurantName , 
+                    response = com.Response , 
+                    ComplaintID = com.ComplainID
                 }
                 ).ToList());
             DataGridResault.ItemsSource = comes;

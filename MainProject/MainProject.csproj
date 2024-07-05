@@ -20,6 +20,7 @@
     <None Remove="CustomerMainPage_Parham\Images\user Sysmbol .png" />
     <None Remove="JsonFiles\Complaint\All_ReceptionComment.json" />
     <None Remove="OrderHistoryPage_Matin\Images\reset.png" />
+    <None Remove="ReviewAndEditUnreviewedComplaints_Matin\Images\reset.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -48,6 +49,7 @@
     <Resource Include="reserrveORorderFoods_CustomerPage_Matin\Images\demo.png" />
     <Resource Include="reserrveORorderFoods_CustomerPage_Matin\Images\remove.png" />
     <Resource Include="ReviewAndEditUnreviewedComplaints_Matin\Images\edit.png" />
+    <Resource Include="ReviewAndEditUnreviewedComplaints_Matin\Images\reset.png" />
     <Resource Include="ReviewAndEditUnreviewedComplaints_Matin\Images\save.png" />
     <Resource Include="Review_Search_OrderAndReservation_ResturantsPanel_Matin\Images\s1.jpg" />
     <Resource Include="Review_Search_OrderAndReservation_ResturantsPanel_Matin\Images\s2.jpg" />

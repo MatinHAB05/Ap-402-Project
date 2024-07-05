@@ -12,7 +12,26 @@
         </Grid.ColumnDefinitions>
         <ScrollViewer >
             <Grid Grid.Column="0"  Margin="30,30,30,30" >
-                <DataGrid x:Name="DataGridResault" IsReadOnly="True" Margin="5"/>
+                <DataGrid x:Name="DataGridResault" Margin="5" AutoGenerateColumns="False " IsReadOnly="True">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Complaint ID" Binding="{Binding ComplaintID}" x:Name="ColComID" />
+                        <DataGridTextColumn Header="Name" Binding="{Binding name}" x:Name="ColName" />
+                        <DataGridTextColumn Header="LastName" Binding="{Binding LastName}" x:Name="ColLastName"  />
+                        <DataGridTextColumn Header="UserName" Binding="{Binding UserName}" x:Name="ColUserName"  />
+                        <DataGridTextColumn Header="Title" Binding="{Binding Title}" x:Name="ColTitle"  />
+                        <DataGridTextColumn Header="NameRes" Binding="{Binding NameRes}" x:Name="ColNameRes"  />
+                        <DataGridTemplateColumn Header="IsChecked">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <CheckBox x:Name="IsCheced"  IsChecked="{Binding IsChecked}" IsHitTestVisible="False" Focusable="False"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTextColumn Header="Response" Binding="{Binding Response}" x:Name="ColResponse"  IsReadOnly="True"/>
+
+                    </DataGrid.Columns>
+                </DataGrid>
             </Grid>
         </ScrollViewer>
 
