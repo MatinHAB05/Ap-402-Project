@@ -17,7 +17,7 @@
                 <Button x:Name="SaveBut" Click="SaveEvent" Background="Transparent" BorderThickness="0" Height="60" HorizontalAlignment="Left" ToolTip="Save edits!" >
                 <Image Source="/ReviewAndEditUnreviewedComplaints_Matin/Images/save.png" />
             </Button>
-            <Button x:Name="ResetBut" Click="ResetEvent" Background="Transparent" BorderThickness="0" Height="60" HorizontalAlignment="Left" ToolTip="Save edits!" Margin="80,0,0,0" >
+            <Button x:Name="ResetBut" Click="ResetEvent" Background="Transparent" BorderThickness="0" Height="60" HorizontalAlignment="Left" ToolTip="Reset edits!" Margin="80,0,0,0" >
                 <Image Source="/ReviewAndEditUnreviewedComplaints_Matin/Images/reset.png" />
             </Button>
             <Button  x:Name="EditBut" Click="EditEvent" Margin="10,0,0,0" Height="50"   BorderThickness="0" Background="Transparent" HorizontalAlignment="Left" ToolTip="Turn on Edit Mode!" >

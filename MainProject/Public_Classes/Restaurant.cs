@@ -39,6 +39,34 @@ namespace MainProject.Public_Classes
             this.receptionType = receptionType;
             this.Rating = 0;
         }
+        static public FoodClass? Get_Food_FromFoodID(int foodId,Restaurant Res)
+        {
+            string json = File.ReadAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\Restaurant\All_Restaurant.json");
+            List<Restaurant> restaurants=JsonConvert.DeserializeObject<List<Restaurant>>(json);
+            int i = 0;
+            if (Res.Menu == null)
+            {
+                return null;
+            }
+            foreach(Category cat in Res.Menu)
+            {
+                
+                foreach(FoodClass fc in cat.Foods)
+                {
+                    if(fc.FoodID == foodId)
+                    {
+                        return fc;
+                    }
+                }
+                i++; ;
+            }
+
+            //MessageBox.Show(foodId.ToString());
+            //MessageBox.Show((foodId==null).ToString());
+
+            return null;
+        }
+
         static public Restaurant? GetFromUserName(string UserName)
         {
             string json = File.ReadAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\Restaurant\All_Restaurant.json");
