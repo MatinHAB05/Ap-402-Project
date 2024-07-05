@@ -26,24 +26,7 @@ namespace MainProject
     {
         public MainWindow()
         {
-            //User user = new User();
-            //user.Name = "Demo_Name";
-            //user.LastName = "Demo_LastName";
-            //user.Address = "This is a Address";
-            //user.Email_Unique = "Demo_Email@gmail.com";
-            //user.Gender = Gender.Female;
-            //user.Phone = "09123456789";
-            //user.UserName = "Demo_UserName";
-            //CustomerMainPage page = new CustomerMainPage(user);
-            //page.Show();
-
             InitializeComponent();
-            //LoginPage loginPage = new LoginPage();
-            //loginPage.Show();
-
-            AdminPage adminPage = new AdminPage(new Admin("UserName3","123123"));
-            adminPage.Show();
-            this.Close();
         }
     }
 }
