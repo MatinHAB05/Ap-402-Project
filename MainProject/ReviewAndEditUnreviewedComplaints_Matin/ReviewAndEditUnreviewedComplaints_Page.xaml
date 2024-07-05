@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MainProject.ReviewAndEditUnreviewedComplaints_Matin"
         mc:Ignorable="d"
-        Title="ReviewAndEditUnreviewedComplaints_Page" Height="750" Width="1200" Background="PeachPuff">
+        Title="ReviewAndEditUnreviewedComplaints_Page" Height="750" Width="1200" Background="PeachPuff" Closing="Window_Closing">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -17,9 +17,13 @@
                 <Button x:Name="SaveBut" Click="SaveEvent" Background="Transparent" BorderThickness="0" Height="60" HorizontalAlignment="Left" ToolTip="Save edits!" >
                 <Image Source="/ReviewAndEditUnreviewedComplaints_Matin/Images/save.png" />
             </Button>
+            <Button x:Name="ResetBut" Click="ResetEvent" Background="Transparent" BorderThickness="0" Height="60" HorizontalAlignment="Left" ToolTip="Save edits!" Margin="80,0,0,0" >
+                <Image Source="/ReviewAndEditUnreviewedComplaints_Matin/Images/reset.png" />
+            </Button>
             <Button  x:Name="EditBut" Click="EditEvent" Margin="10,0,0,0" Height="50"   BorderThickness="0" Background="Transparent" HorizontalAlignment="Left" ToolTip="Turn on Edit Mode!" >
                 <Image Source="/ReviewAndEditUnreviewedComplaints_Matin/Images/edit.png" />
             </Button>
+            
 
         </Grid>
         
@@ -28,6 +32,7 @@
             <ScrollViewer >
                 <DataGrid x:Name="DataGridResault" Margin="5" AutoGenerateColumns="False">
                     <DataGrid.Columns>
+                        <DataGridTextColumn Header="Complaint ID" Binding="{Binding ComplaintID}" x:Name="ColComID"  IsReadOnly="True"/>
                         <DataGridTextColumn Header="Name" Binding="{Binding name}" x:Name="ColName"  IsReadOnly="True"/>
                         <DataGridTextColumn Header="LastName" Binding="{Binding LastName}" x:Name="ColLastName"  IsReadOnly="True"/>
                         <DataGridTextColumn Header="UserName" Binding="{Binding UserName}" x:Name="ColUserName"  IsReadOnly="True"/>

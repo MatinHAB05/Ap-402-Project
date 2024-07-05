@@ -5,8 +5,8 @@
     "ComplaintTitile": "This is ComplaintTitile",
     "User_UserName": "Demo_UserName",
     "RestaurantUserName": "UserNameRes1",
-    "IsChecked": false,
-    "Response": ""
+    "IsChecked": true,
+    "Response": "AAAAAAAAA"
   },
   {
     "ComplainID": 101,
@@ -79,6 +79,5 @@
     "RestaurantUserName": "UserNameRes2",
     "IsChecked": false,
     "Response": ""
-  },
-
+  }
 ]

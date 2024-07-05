@@ -2,6 +2,8 @@
 using MainProject.Public_Classes;
 using MainProject.SetPassWordPage_Matin;
 using MimeKit;
+using Newtonsoft.Json;
+using System.IO;
 using System.Text.RegularExpressions;
 using System.Windows;
 
@@ -13,9 +15,14 @@ namespace MainProject.SignInPage_Matin
     public partial class SignInForm : Window
     {
         internal List<User> All_Users;
-        internal SignInForm(List<User> All_Us)
+        internal List<Admin> All_Admin;
+        internal List<Restaurant> All_Restaurants;
+        internal SignInForm(List<User> All_Us , List<Restaurant> restaurants , List<Admin> admins )
         {
             InitializeComponent();
+            All_Users = All_Us;
+            All_Admin = admins;
+            All_Restaurants = restaurants;
             //mamad.Width = 200;
             FirstNametxt.ImageVAr.Width = 38;
             //mamad.RecaVar.Width = 60;
@@ -58,18 +65,18 @@ namespace MainProject.SignInPage_Matin
             bool Isphone = true;
             bool IsUserName = true;
             string Rule = "";
-            if(!Regex.IsMatch(username, @"^[A-Za-z0-9]{3,}$") )
+            if (!Regex.IsMatch(username, @"^[A-Za-z0-9]{3,}$"))
             {
                 Error += "نام کاربری فقط شامل اعداد و حروف کوچک و بزرگ انگلیسی متشکل از حداقل 3 حرف باید باشد" + "\n";
                 IsUserName = false;
             }
 
-            if(!Regex.IsMatch(FULLname, @"^[A-Za-z]{3,32} [A-Za-z]{3,32}$"))
+            if (!Regex.IsMatch(FULLname, @"^[A-Za-z]{3,32} [A-Za-z]{3,32}$"))
             {
-                Error += "اسم باید شامل حداقل 3 و حداکثر 32 حرف باشد و اعداد و کارکتر های نگارشی مورد قبول نیست"+"\n";
+                Error += "اسم باید شامل حداقل 3 و حداکثر 32 حرف باشد و اعداد و کارکتر های نگارشی مورد قبول نیست" + "\n";
             }
-        
-            if(!Regex.IsMatch(Email, @"^[A-Z0-9a-z_]{3,32}\@[A-Za-z]{3,32}\.[A-Za-z]{2,3}$"))
+
+            if (!Regex.IsMatch(Email, @"^[A-Z0-9a-z_]{3,32}\@[A-Za-z]{3,32}\.[A-Za-z]{2,3}$"))
             {
                 Error += "ادرس ایمیل شما ناشناخته میباشد" + "\n";
 
@@ -80,18 +87,49 @@ namespace MainProject.SignInPage_Matin
                 Error += "فقط شماره های تلفنی شناخته شده در ایران مورد قبول میباشد" + "\n";
                 Isphone = false;
             }
-
+            //***************************
+            bool isKharab = false;
             foreach (User u in All_Users)
             {
-                if (u.Phone == phone && Isphone==true) 
+                if (u.Phone == phone && Isphone == true)
                 {
                     Error += "این شماره موبایل ثبت شده است" + "\n";
+                    isKharab = true;
                 }
-                if (u.UserName == username & IsUserName==true) 
+                if (u.UserName == username & IsUserName == true)
                 {
                     Error += "این نام کاربری ثبت شده است" + "\n";
+                    isKharab = true;
+
                 }
             }
+
+            if (!isKharab)
+            {
+                foreach (Restaurant r in All_Restaurants)
+                {
+
+                    if (r.UserName == username & IsUserName == true)
+                    {
+                        Error += "این نام کاربری ثبت شده است" + "\n";
+                        isKharab = true;
+
+                    }
+                }
+            }
+            if (!isKharab) { 
+            foreach (Admin a in All_Admin)
+            {
+
+                if (a.UserName == username & IsUserName == true)
+                {
+                    Error += "این نام کاربری ثبت شده است" + "\n";
+                    isKharab = true;
+
+                }
+            }
+        }
+            //***************************
 
             if (Error == "")
             {
@@ -125,6 +163,21 @@ namespace MainProject.SignInPage_Matin
                 if (a == MessageBoxResult.Yes) { return; }
                 if (a == MessageBoxResult.No) { goto matinLabel ; }
             }
+        }
+
+
+
+        private List<Restaurant>? GetAllRes(string path)
+        {
+            return JsonConvert.DeserializeObject<List<Restaurant>>(File.ReadAllText(path));
+        }
+        private List<User>? GetAllUser(string path)
+        {
+            return JsonConvert.DeserializeObject<List<User>>(File.ReadAllText(path));
+        }
+        private List<Admin>? GetAllAdmin(string path)
+        {
+            return JsonConvert.DeserializeObject<List<Admin>>(File.ReadAllText(path));
         }
 
     }
