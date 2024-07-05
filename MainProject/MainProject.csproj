@@ -20,6 +20,8 @@
     <None Remove="CustomerMainPage_Parham\Images\user Sysmbol .png" />
     <None Remove="JsonFiles\Complaint\All_ReceptionComment.json" />
     <None Remove="OrderHistoryPage_Matin\Images\reset.png" />
+    <None Remove="reserrveORorderFoods_CustomerPage_Matin\Images\imgICon.png" />
+    <None Remove="reserrveORorderFoods_CustomerPage_Matin\Images\NoIMG.png" />
     <None Remove="ReviewAndEditUnreviewedComplaints_Matin\Images\reset.png" />
   </ItemGroup>
 
@@ -47,6 +49,8 @@
     <Resource Include="reserrveORorderFoods_CustomerPage_Matin\Images\add.png" />
     <Resource Include="reserrveORorderFoods_CustomerPage_Matin\Images\comment.png" />
     <Resource Include="reserrveORorderFoods_CustomerPage_Matin\Images\demo.png" />
+    <Resource Include="reserrveORorderFoods_CustomerPage_Matin\Images\imgICon.png" />
+    <Resource Include="reserrveORorderFoods_CustomerPage_Matin\Images\NoIMG.png" />
     <Resource Include="reserrveORorderFoods_CustomerPage_Matin\Images\remove.png" />
     <Resource Include="ReviewAndEditUnreviewedComplaints_Matin\Images\edit.png" />
     <Resource Include="ReviewAndEditUnreviewedComplaints_Matin\Images\reset.png" />

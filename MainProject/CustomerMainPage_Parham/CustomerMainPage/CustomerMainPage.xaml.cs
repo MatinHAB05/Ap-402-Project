@@ -22,10 +22,14 @@ using System.Linq;
 using System.Windows.Media.Animation;
 using MainProject.OrderHistoryPage_Matin;
 using MainProject.Follow_RegisterComplaints_Matin;
+using MainProject.reserrveORorderFoods_CustomerPage_Matin;
 namespace MainProject.CustomerMainPage_Parham.CustomerMainPage
 {
+    //chatgpt == Icommand else....
     public partial class CustomerMainPage : Window, INotifyPropertyChanged
     {
+        public ICommand ButtonCommand { get; set; }
+
         public User CurrentUser;
         public List<Restaurant>? restaurants;
         public CustomerMainPage(User user)
@@ -37,13 +41,19 @@ namespace MainProject.CustomerMainPage_Parham.CustomerMainPage
             restaurants = JsonConvert.DeserializeObject<List<Restaurant>>(jsonRes);
             SearchList.ItemsSource = restaurants;
             //SearchList.ItemsSource = names;
+            ButtonCommand = new RelayCommand<Restaurant>(OnButtonClicked);
+            this.DataContext = this;
+
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;
-
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void OnButtonClicked(Restaurant restaurant)
         {
-
+            // Handle button click for the restaurant
+            //MessageBox.Show($"Button clicked for {restaurant.RestaurantName}");
+            reserrveORorderFoods_CustomerPage reserrveORorderFoods_CustomerPage = new reserrveORorderFoods_CustomerPage(CurrentUser,restaurant);
+            reserrveORorderFoods_CustomerPage.Show();
+            this.Close();
         }
         private void Clear(object sender, RoutedEventArgs e)
         {
@@ -145,6 +155,38 @@ namespace MainProject.CustomerMainPage_Parham.CustomerMainPage
             Follow_RegisterComplaints_CustomerPanel follow_RegisterComplaints_CustomerPanel = new Follow_RegisterComplaints_CustomerPanel(this);
             follow_RegisterComplaints_CustomerPanel.Show();
             this.Close();
+        }
+    }
+    public class RelayCommand<T> : ICommand
+    {
+        private readonly Action<T> _execute;
+        private readonly Predicate<T> _canExecute;
+
+        public RelayCommand(Action<T> execute) : this(execute, null) { }
+
+        public RelayCommand(Action<T> execute, Predicate<T> canExecute)
+        {
+            if (execute == null)
+                throw new ArgumentNullException(nameof(execute));
+
+            _execute = execute;
+            _canExecute = canExecute;
+        }
+
+        public bool CanExecute(object parameter)
+        {
+            return _canExecute == null || _canExecute((T)parameter);
+        }
+
+        public void Execute(object parameter)
+        {
+            _execute((T)parameter);
+        }
+
+        public event EventHandler CanExecuteChanged
+        {
+            add { CommandManager.RequerySuggested += value; }
+            remove { CommandManager.RequerySuggested -= value; }
         }
     }
 }

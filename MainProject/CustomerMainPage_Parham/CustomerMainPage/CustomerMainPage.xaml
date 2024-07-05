@@ -32,7 +32,7 @@
                 <DataGridTemplateColumn Header="Restaurants">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Content="{Binding RestaurantName}" Click="Button_Click"/>
+                            <Button Content="{Binding RestaurantName}" Command="{Binding DataContext.ButtonCommand, RelativeSource={RelativeSource AncestorType=Window}}" CommandParameter="{Binding}" />
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>

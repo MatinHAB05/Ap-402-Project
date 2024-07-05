@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MainProject.reserrveORorderFoods_CustomerPage_Matin"
         mc:Ignorable="d"
-        Title="reserrveORorderFoods_CustomerPage" Height="470" Width="1000">
+        Title="reserrveORorderFoods_CustomerPage" Height="470" Width="1000" Closing="Window_Closing">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
@@ -14,7 +14,7 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="0">
             <ScrollViewer VerticalScrollBarVisibility="Auto">
-                <ListView x:Name="CategoryLIST_VIEW" ItemsSource="{Binding Categories}" Margin="15">
+                <ListView x:Name="CategoryLIST_VIEW"  Margin="15">
                     <ListView.ItemContainerStyle>
                         <Style TargetType="ListViewItem">
                             <Setter Property="Template">
@@ -30,7 +30,7 @@
                     </ListView.ItemContainerStyle>
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <Expander Header="{Binding CategoryName}">
+                            <Expander Header="{Binding Name}">
                                 <ListView ItemsSource="{Binding Foods}">
                                     <ListView.ItemContainerStyle>
                                         <Style TargetType="ListViewItem">
@@ -55,15 +55,19 @@
                                                          CommandParameter="{Binding}">
                                                     <Image Source="/reserrveORorderFoods_CustomerPage_Matin/Images/comment.png"  Height="20" Width="20"  VerticalAlignment="Top" Margin="0,0,0,0" />
                                                 </Button>
-                                                <TextBlock Text="{Binding Name}" Margin="5"/>
-                                                <TextBlock Text="{Binding price}" Margin="5"/>
-                                                <TextBlock Text="{Binding Raw_materials}" Margin="5"/>
-                                                <TextBlock Text="{Binding xBar}" Margin="5"/>
-                                                <TextBlock Text="{Binding RemNumber}" Margin="5"/>
-                                                <Button Background="Transparent" VerticalAlignment="Top" BorderThickness="0"
+                                                <TextBlock Text="{Binding Name}" Margin="5" ToolTip="Food Name"/>
+                                                <TextBlock Text="{Binding price}" Margin="5" ToolTip="Food Price"/>
+                                                <TextBlock Text="{Binding Raw_materials}" Margin="5"  ToolTip="Food Raw_Materials"/>
+                                                <TextBlock Text="{Binding xBar}" Margin="5" ToolTip="Food Rate"/>
+                                                <TextBlock Text="{Binding RemNumber}" Margin="5" ToolTip="Reminder Food Number"/>
+                                                <Button Margin="5" ToolTip="Image Food(IF it has...)" Background="Transparent" BorderThickness="0" Command="{Binding DataContext.FullScreenIMG, RelativeSource={RelativeSource AncestorType=Window}}"
+                                                         CommandParameter="{Binding}" >
+                                                    <Image Source="/reserrveORorderFoods_CustomerPage_Matin/Images/imgICon.png"  Height="20" Width="20" VerticalAlignment="Top" Margin="0,-3,0,0"  />
+                                                </Button>
+                                                <Button  ToolTip="Add in Your Sabad" Background="Transparent" VerticalAlignment="Top" BorderThickness="0" 
                                                          Command="{Binding DataContext.FUN, RelativeSource={RelativeSource AncestorType=Window}}"
                                                          CommandParameter="{Binding}">
-                                                    <Image Source="/reserrveORorderFoods_CustomerPage_Matin/Images/add.png" Height="20" Width="20" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,2,0,0" />
+                                                    <Image Source="/reserrveORorderFoods_CustomerPage_Matin/Images/add.png" Height="20" Width="20"  VerticalAlignment="Top" Margin="0,0,0,0"  />
                                                 </Button>
                                             </StackPanel>
                                         </DataTemplate>

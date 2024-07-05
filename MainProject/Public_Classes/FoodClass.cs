@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace MainProject.Public_Classes
 {
@@ -11,10 +12,10 @@ namespace MainProject.Public_Classes
         public string Name { get; set; }
         public int FoodID { get; set; }
         public double price { get; set; }
-        public List<string> Raw_Materials { get; set; }
+        public List<string>? Raw_Materials { get; set; }
         public double xBar { get; set; }
         public int RemNumber { get; set; }
-        public List<FoodComment> comments_IN_ORDER { get; set; }
+        public List<FoodComment>? comments_IN_ORDER { get; set; }
         public string FoodCategory {  get; set; }
         public string Image_Path { get; set; }
 
@@ -41,6 +42,27 @@ namespace MainProject.Public_Classes
             this.xBar = 0;
             this.RemNumber = RemNumber;
             this.comments_IN_ORDER = new List<FoodComment>();
+        }
+
+        public FoodClass cClone()
+        {
+            FoodClass c = new FoodClass();
+            c.comments_IN_ORDER = new List<FoodComment>();
+            c.Name = this.Name;
+            c.FoodID = this.FoodID;
+            c.price = this.price;
+            c.xBar = this.xBar;
+            c.RemNumber = this.RemNumber;
+            c.FoodCategory = this.FoodCategory;
+            c.Image_Path = this.Image_Path;
+            if (Raw_Materials == null) { c.Raw_Materials = null; }
+            else { 
+            foreach (string X in Raw_Materials) { c.Raw_Materials.Add(X); }
+                }
+            //MessageBox.Show(this.comments_IN_ORDER.Count.ToString() + "asdadas");
+            foreach (FoodComment fc in this.comments_IN_ORDER) { c.comments_IN_ORDER.Add(fc.cCloneComment()); }
+
+            return c;
         }
 
 

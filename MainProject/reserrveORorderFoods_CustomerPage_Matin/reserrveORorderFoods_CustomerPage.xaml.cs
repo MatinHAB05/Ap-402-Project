@@ -1,23 +1,9 @@
-﻿
-
-
-using System;
-using System.Collections.Generic;
+﻿using MainProject.CustomerMainPage_Parham.CustomerMainPage;
+using MainProject.Public_Classes;
 using System.Collections.ObjectModel;
-using System.Collections.Specialized;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using static MainProject.reserrveORorderFoods_CustomerPage_Matin.reserrveORorderFoods_CustomerPage;
 
 namespace MainProject.reserrveORorderFoods_CustomerPage_Matin
 {
@@ -26,91 +12,40 @@ namespace MainProject.reserrveORorderFoods_CustomerPage_Matin
     /// </summary>
     public partial class reserrveORorderFoods_CustomerPage : Window, INotifyPropertyChanged
     {
-        public ObservableCollection<Food_Category> _categories { get; set; }
+        public User CurrentUser { get; set; }
+        public Restaurant CurrentREStaurant { get; set; }
+        public ObservableCollection<Category> _categories { get; set; }
         public ObservableCollection<FoodClass> _selectedFoods { get; set; }
         public ICommand RemoveFoodCommand { get; private set; }
         public ICommand CommentFUN { get; private set; }
+        public ICommand FullScreenIMG { get; private set; }
+
 
         public ICommand FUN { get; private set; }
-        public ObservableCollection<Food_Category> Categories
+        public ObservableCollection<Category> Categories
         {
             get { return _categories; }
             set { _categories = value; PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Categories")); }
         }
+        public ObservableCollection<Category> First {  get; set; }
+        public ObservableCollection<Category> Demo { get; set; }
+
         public ObservableCollection<FoodClass> SelectedFoods
         {
             get { return _selectedFoods; }
             set { _selectedFoods = value; PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SelectedFoods")); }
         }
         //public
-        public reserrveORorderFoods_CustomerPage()
+        public reserrveORorderFoods_CustomerPage(User CurUser , Restaurant CurRes)
         {
             InitializeComponent();
             this.DataContext = this;
             MainListView.Visibility = Visibility.Hidden;
-
+            CurrentUser = CurUser;
+            CurrentREStaurant= CurRes;
             //if(resturants has OK)
             //radioButton1.Visibility = Visibility.Hidden;
-
-            Categories = new ObservableCollection<Food_Category>
-            {
-                  new Food_Category
-                  {
-                      CategoryName="Cat1",
-                      Foods = new ObservableCollection<FoodClass>
-                                    {
-                            new FoodClass{Name="FoodNam1" , price=159 , xBar=4.23 , Raw_materials=CommaMethod("abc,def,geh") ,RemNumber=5 },
-                            new FoodClass{Name="FoodNam2" , price=159 , xBar=4.23 , Raw_materials=CommaMethod("abc,def,geh") ,RemNumber=5 },
-                            new FoodClass{Name="FoodNam3" , price=159 , xBar=4.23 , Raw_materials=CommaMethod("abc,def,geh"),RemNumber=5  }
-                                    }
-                  } ,
-
-                  new Food_Category
-                  {
-                      CategoryName="Cat2",
-                      Foods = new ObservableCollection<FoodClass>
-                                    {
-                            new FoodClass{Name="FoodNam1" , price=159 , xBar=4.23 , Raw_materials=CommaMethod("abc,def,geh"),RemNumber=5  },
-                            new FoodClass{Name="FoodNam2" , price=159 , xBar=4.23 , Raw_materials=CommaMethod("abc,def,geh"),RemNumber=5  },
-                            new FoodClass{Name="FoodNam3" , price=159 , xBar=4.23 , Raw_materials=CommaMethod("abc,def,geh") , RemNumber = 5}
-                                    }
-                  } ,
-
-                  new Food_Category
-                  {
-                      CategoryName="Cat3",
-                      Foods = new ObservableCollection<FoodClass>
-                                    {
-                            new FoodClass{Name="FoodNam1" , price=159 , xBar=4.23 , Raw_materials=CommaMethod("abc,def,geh"),RemNumber=5  },
-                            new FoodClass{Name="FoodNam2" , price=159 , xBar=4.23 , Raw_materials=CommaMethod("abc,def,geh"),RemNumber=5  },
-                            new FoodClass{Name="FoodNam3" , price=159 , xBar=4.23 , Raw_materials=CommaMethod("abc,def,geh") , RemNumber = 5}
-                                    }
-                  } ,
-
-
-                  new Food_Category
-                  {
-                      CategoryName="Cat4",
-                      Foods = new ObservableCollection<FoodClass>
-                                    {
-                            new FoodClass{Name="FoodNam1" , price=159 , xBar=4.23 , Raw_materials=CommaMethod("abc,def,geh"),RemNumber=5  },
-                            new FoodClass{Name="FoodNam2" , price=159 , xBar=4.23 , Raw_materials=CommaMethod("abc,def,geh"),RemNumber=5  },
-                            new FoodClass{Name="FoodNam3" , price=159 , xBar=4.23 , Raw_materials=CommaMethod("abc,def,geh") , RemNumber = 5}
-                                    }
-                  } ,
-
-                  new Food_Category
-                  {
-                      CategoryName="Cat5",
-                      Foods = new ObservableCollection<FoodClass>
-                                    {
-                            new FoodClass{Name="FoodNam1" , price=159 , xBar=4.23 , Raw_materials=CommaMethod("abc,def,geh") },
-                            new FoodClass{Name="FoodNam2" , price=159 , xBar=4.23 , Raw_materials=CommaMethod("abc,def,geh") },
-                            new FoodClass{Name="FoodNam3" , price=159 , xBar=4.23 , Raw_materials=CommaMethod("abc,def,geh") }
-                                    }
-                  } ,
-
-            };
+            Categories = new ObservableCollection<Category>( CurRes.Menu);
 
             SelectedFoods = new ObservableCollection<FoodClass>();
 
@@ -119,24 +54,68 @@ namespace MainProject.reserrveORorderFoods_CustomerPage_Matin
             CommentFUN=new RelayCommand<FoodClass>(CommnetSection);
 
             RemoveFoodCommand = new RelayCommand<FoodClass>(RemoveFromSelectedFoods);
+            FullScreenIMG = new RelayCommand<FoodClass>(FullIMAGE);
 
+            First = new ObservableCollection<Category>();
+            foreach(Category c in Categories) { First.Add(c.cClone());}
 
+            Demo = new ObservableCollection<Category>();
+            foreach (Category c in Categories) { Demo.Add(c.cClone()); }
 
-
+            CategoryLIST_VIEW.ItemsSource = Categories;
         }
         private void AddToSelectedFoods(FoodClass food)
         {
             if (food.RemNumber <= 0) { MessageBox.Show($"{food.Name} is over!","Attention",MessageBoxButton.OK,MessageBoxImage.Warning); return; }
             SelectedFoods.Add(food);
             food.RemNumber--;
+
+            Demo = new ObservableCollection<Category>();
+            foreach (Category c in Categories) { Demo.Add(c.cClone()); }
+            Categories.Clear();
+            foreach (Category c in Demo) { Categories.Add(c.cClone()); }
+            
+            CategoryLIST_VIEW.ItemsSource = Categories;
+            
+
             MainListView.Visibility = Visibility.Visible;
 
         }
+        private void FullIMAGE(FoodClass food)
+        {
+            bool HaveImage=true;
+            if(food.Image_Path == null || food.Image_Path=="") { HaveImage = false; }
+           Window1 demo = new Window1(food.Image_Path,HaveImage); demo.Show();
 
+
+        }
         private void RemoveFromSelectedFoods(FoodClass food)
         {
             SelectedFoods.Remove(food);
-            food.RemNumber++;
+            //food.RemNumber++;
+            foreach(Category Cat in Categories)
+            {
+                if (Cat.Name == food.FoodCategory)
+                {
+                    foreach(FoodClass fc in Cat.Foods)
+                    {
+                        if(fc.Name == food.Name && fc.FoodID == food.FoodID)
+                        {
+                            fc.RemNumber++;
+                            break;
+                        }
+                    }
+                    break;
+                }
+            }
+
+            Demo = new ObservableCollection<Category>();
+            foreach (Category c in Categories) { Demo.Add(c.cClone()); }
+            Categories.Clear();
+            foreach (Category c in Demo) { Categories.Add(c.cClone()); }
+
+            CategoryLIST_VIEW.ItemsSource = Categories;
+
 
             if (MainListView.Items.Count == 0)
             {
@@ -160,34 +139,7 @@ namespace MainProject.reserrveORorderFoods_CustomerPage_Matin
 
         }
 
-        public class FoodClass
-        {
-            public string Name { get; set; }
-            public string Raw_materials { get; set; }
-            public double price { get; set; }
-            //public imag???
-            public double xBar { get; set; }
-            public int RemNumber { get; set; }
 
-            //public FoodClass(string name, string raw_materials, double price, double xBar)
-            //{
-            //    Name = name;
-            //    Raw_materials = raw_materials;
-            //    this.price = price;
-            //    this.xBar = xBar;
-            //}
-        }
-
-        public class Food_Category
-        {
-            public string CategoryName { get; set; }
-            public ObservableCollection<FoodClass> Foods { get; set; }
-            //public Food_Category(string categoryName, ObservableCollection<FoodClass> foods)
-            //{
-            //    CategoryName = categoryName;
-            //    Foods = foods;
-            //}
-        }
         private void AddToList(FoodClass food)
         {
             MessageBox.Show($"{food.Name},{food.price}.{food.xBar}");
@@ -200,6 +152,14 @@ namespace MainProject.reserrveORorderFoods_CustomerPage_Matin
 
         private void Pay_Button(object sender, RoutedEventArgs e)
         {
+            this.Close();
+
+        }
+
+        private void Window_Closing(object sender, CancelEventArgs e)
+        {
+            CustomerMainPage customerMainPage = new CustomerMainPage(CurrentUser);
+            customerMainPage.Show();
 
         }
     }

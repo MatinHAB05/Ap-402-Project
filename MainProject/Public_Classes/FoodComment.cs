@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace MainProject.Public_Classes
 {
@@ -24,20 +25,28 @@ namespace MainProject.Public_Classes
         }
         public FoodComment cCloneComment()
         {
+            
             FoodComment comment = new FoodComment();
-            comment.Title = Title;
-            comment.Content = Content;
-            comment.CommentID = CommentID;
-            comment.User_UserName= User_UserName;
-            if (Reply != null)
+            comment.Title = this.Title;
+            comment.Content = this.Content;
+            comment.CommentID = this.CommentID;
+            comment.User_UserName= this.User_UserName;
+            if (this.Reply != null)
             {
-                comment.Reply = Reply.cCloneComment();
+                //MessageBox.Show("3333");
+
+                comment.Reply = this.Reply.cCloneComment();
             }
             else
             {
+                //MessageBox.Show("asdad");
+
                 comment.Reply= null;
             }
+            //MessageBox.Show("sss");
+            //MessageBox.Show ( (comment==null).ToString() );
             return comment;
+
         }
     }
 
