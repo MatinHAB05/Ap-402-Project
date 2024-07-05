@@ -29,7 +29,7 @@ namespace MainProject.Public_Classes
             this.Raw_Materials = Raw_Materials;
             this.xBar = 0;
             this.RemNumber = RemNumber;
-            this.comments_IN_ORDER = new List<Comment>();
+            this.comments_IN_ORDER = new List<FoodComment>();
             this.Image_Path = image_Path;
         }
         public FoodClass(string FoodCategory, string Name, double price, List<string> Raw_Materials, int RemNumber)
@@ -40,7 +40,7 @@ namespace MainProject.Public_Classes
             this.Raw_Materials = Raw_Materials;
             this.xBar = 0;
             this.RemNumber = RemNumber;
-            this.comments_IN_ORDER = new List<Comment>();
+            this.comments_IN_ORDER = new List<FoodComment>();
         }
 
 

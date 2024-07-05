@@ -27,7 +27,7 @@
         <Image Grid.Column="1" Grid.Row="1"  Margin="110,0,0,0" Source="/CustomerMainPage_Parham/Images/history symbol.png" Stretch="Fill" Width="40" Height="40"/>
         <Image Grid.Column="2" Margin="200,0,0,0" Grid.Row="1" Source="/CustomerMainPage_Parham/Images/letter-symbol.png" Stretch="Fill" Height="40" Width="40"/>
         <Image Margin="100,0,0,0" Grid.Row="1" Grid.Column="0" Source="/CustomerMainPage_Parham/Images/user Sysmbol .png" Stretch="Fill" Height="40" Width="40"/>
-        <DataGrid x:Name="SearchList" Grid.Row="2" Grid.RowSpan="3" Grid.ColumnSpan="2" Background="LightSkyBlue" AutoGenerateColumns="False">
+        <DataGrid x:Name="SearchList" Grid.Row="2" Grid.RowSpan="3" Grid.ColumnSpan="2" Background="LightSkyBlue" AutoGenerateColumns="False" IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTemplateColumn Header="Restaurants">
                     <DataGridTemplateColumn.CellTemplate>
@@ -40,6 +40,34 @@
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding AddreesOfRestaurant}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="City Name">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding CityName}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Rating">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Rating}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="IsCanReserve">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <CheckBox IsChecked="{Binding IsCanReserve}" IsHitTestVisible="False" Focusable="False"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Reception Type">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding receptionType}"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
