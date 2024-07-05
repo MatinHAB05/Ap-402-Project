@@ -17,7 +17,7 @@
             <Button x:Name="SaveBut" Click="SaveEvent" Background="Transparent" BorderThickness="0" Height="60" HorizontalAlignment="Left" ToolTip="Save edits!" >
                 <Image Source="/OrderHistoryPage_Matin/Images/save.png" />
             </Button>
-            <Button x:Name="ResetBut" Click="ResetEvent" Background="Transparent" BorderThickness="0" Height="60" HorizontalAlignment="Left" ToolTip="Save edits!" Margin="80,0,0,0" >
+            <Button x:Name="ResetBut" Click="ResetEvent" Background="Transparent" BorderThickness="0" Height="60" HorizontalAlignment="Left" ToolTip="Reset edits!" Margin="80,0,0,0" >
                 <Image Source="/OrderHistoryPage_Matin/Images/reset.png" />
 
             </Button>
@@ -30,15 +30,18 @@
         <Grid Grid.Row="1"  Margin="15,5,15,30" >
 
             <ScrollViewer >
-                <DataGrid ItemsSource="{Binding Orders, Mode=TwoWay}" x:Name="DataGridResault" Margin="5" AutoGenerateColumns="False">
+                <DataGrid x:Name="DataGridResault" Margin="5" AutoGenerateColumns="False" CanUserAddRows="False">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Name" Binding="{Binding NameCur}" x:Name="ColName"  IsReadOnly="True"/>
-                        <DataGridTextColumn Header="LastName" Binding="{Binding LastNameCur}" x:Name="ColLastName"  IsReadOnly="True"/>
-                        <DataGridTextColumn Header="UserName" Binding="{Binding FoodRequest.User_UserName}" x:Name="ColUserName"  IsReadOnly="True"/>
-                        <DataGridTextColumn Header="Request_Id" Binding="{Binding FoodRequest.RequestID}" x:Name="ColId"  IsReadOnly="True"/>
-                        <DataGridTextColumn Header="NameRes" Binding="{Binding FoodRequest.RestaurantUserName}" x:Name="ColNameRes"  IsReadOnly="True"/>
-                        <DataGridTextColumn Header="Rate" Binding="{Binding Rate , Mode=TwoWay}" x:Name="ColRate"  IsReadOnly="True"/>
-                        <DataGridTextColumn Header="Comment" Binding="{Binding NewComments.Content , Mode=TwoWay}" x:Name="ColComment"  IsReadOnly="True"/>
+                        <DataGridTextColumn Header="User Name" Binding="{Binding User_UserName}" x:Name="ColUserName"  IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Request ID" Binding="{Binding ReqID}" x:Name="ColName"  IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Full Name" Binding="{Binding FullCustomerName}" x:Name="ColFullName"  IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Resturaunt Name" Binding="{Binding ResturauantName}" x:Name="ColResturauantName"  IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Request Type" Binding="{Binding RequestType}" x:Name="ColRequestType"  IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Food Name" Binding="{Binding FoodName}" x:Name="ColFoodName"  IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Price" Binding="{Binding price}" x:Name="Colprice"  IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Food ID" Binding="{Binding FoodID}" x:Name="ColFoodID"  IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Request Rate" Binding="{Binding ReqRATE}" x:Name="ColReqRATE"  IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Add New Comment" Binding="{Binding Content }" x:Name="ColComment"  IsReadOnly="True"/>
 
                     </DataGrid.Columns>
                 </DataGrid>

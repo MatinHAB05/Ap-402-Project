@@ -18,61 +18,103 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using static MainProject.Search_complaints_PageADMIN_Matin.Search_complaints_AdminPageForm;
 
 namespace MainProject.OrderHistoryPage_Matin
 {
     /// <summary>
     /// Interaction logic for ReviewUnreviewedComplaints_Page.xaml
     /// </summary>
-    public partial class OrderHistoryPage_CustomerPanel : Window , INotifyCollectionChanged
+    public partial class OrderHistoryPage_CustomerPanel : Window
     {
+        public ObservableCollection<OrderHistoryClass_FORNOW> oriori;
+        public ObservableCollection<OrderHistoryClass_FORNOW> OLD;
+        public List<FoodRequest> foodRequests;
 
         public User CurrentUser { get; set; }
-        public CustomerMainPage PreviousPage { get; set; }
 
-        public event NotifyCollectionChangedEventHandler? CollectionChanged;
 
-        public BindingList<OrderHistoryClass_Demo> Orders { get; set; }
-        public BindingList<OrderHistoryClass_Demo> OldOrders { get; set; }
-        public class OrderHistoryClass_Demo
+        public class OrderHistoryClass_FORNOW
         {
-            public FoodRequest FoodRequest { get; set; }
-            public double Rate {  get; set; }
-            public List<ReceptionComment> NewComments { get; set; }
-            public string NameCur {  get; set; }
-            public string LastNameCur {  get; set; }
-            public OrderHistoryClass_Demo() { }
-            public OrderHistoryClass_Demo(FoodRequest foodRequest,double rate,string Name , string Last)
+            public string ResturauantName {  get; set; }
+            public string FullCustomerName { get; set; }
+            public string User_UserName {  get; set; }
+            public int ReqID {  get; set; }
+            public RequestType RequestType { get; set; }
+            public string ReqRATE {  get; set; }
+            public int FoodID {  get; set; }
+            public string FoodName {  get; set; }
+            public double price {  get; set; }
+            public string Content {  get; set; }
+
+            public OrderHistoryClass_FORNOW() { }
+            public OrderHistoryClass_FORNOW cClone()
             {
-                FoodRequest = foodRequest;
-                Rate = rate;
-                NameCur = Name;
-                LastNameCur = Last;
-                NewComments = new List<ReceptionComment>();
+                OrderHistoryClass_FORNOW dem = new OrderHistoryClass_FORNOW();
+                dem.ReqID = ReqID;
+                dem.ReqRATE = ReqRATE;
+                dem.FullCustomerName = FullCustomerName;
+                dem.User_UserName = User_UserName;
+                dem.FoodName = FoodName;
+                dem.FoodID = FoodID;
+                dem.price= price;
+                dem.RequestType = RequestType;
+                dem.ResturauantName = ResturauantName;
+                return dem;
             }
         }
 
         public OrderHistoryPage_CustomerPanel(CustomerMainPage prepage)
         {
             InitializeComponent();
-            this.PreviousPage = prepage;
             CurrentUser = prepage.CurrentUser;
             EditBut.Visibility = Visibility.Visible;
             SaveBut.Visibility = Visibility.Hidden;
             ResetBut.Visibility = Visibility.Hidden;
-            
-            Orders=GetOrderHistoryClasses(CurrentUser);
-            OldOrders =cClone( Orders);
-            //DataGridResault.ItemsSource = Orders;
+            foodRequests = JsonConvert.DeserializeObject<List<FoodRequest>>(File.ReadAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\FoodRequest\All_FoodRequest.json"));
+
+            oriori = new ObservableCollection<OrderHistoryClass_FORNOW>(foodRequests.Select(fr => new OrderHistoryClass_FORNOW
+            {
+                ResturauantName=Restaurant.GetFromUserName(fr.RestaurantUserName).RestaurantName ,
+                FullCustomerName = User.GetFIRSTNAMEfromjson(fr.User_UserName) + User.GetLASTNAMEfromjson(fr.User_UserName) ,
+                User_UserName=fr.User_UserName,
+                ReqID=fr.RequestID,
+                RequestType=fr.RequestType,
+                FoodID=fr.FoodID,
+                FoodName = Restaurant.Get_Food_FromFoodID(fr.FoodID, Restaurant.GetFromUserName(fr.RestaurantUserName)).Name ,
+                price = Restaurant.Get_Food_FromFoodID(fr.FoodID, Restaurant.GetFromUserName(fr.RestaurantUserName)).price,
+                Content="",
+                ReqRATE=""
+                
+            }
+            )
+                .ToList());
+            int i = 0;
+            foreach(OrderHistoryClass_FORNOW o in oriori)
+            {
+                Reception_Point? rec = Reception_Point.GetFromjson(o.ReqID);
+                if ( rec!= null)
+                {
+                    if (rec.Point == null) oriori[i].ReqRATE = "";
+                    else { oriori[i].ReqRATE = rec.Point.ToString(); }
+                }
+                i++;
+            }
+
+            OLD = new ObservableCollection<OrderHistoryClass_FORNOW>();
+            foreach(OrderHistoryClass_FORNOW a in oriori)
+            {
+                OLD.Add(a.cClone());
+            }
+            DataGridResault.ItemsSource = oriori.Where(ori=>ori.User_UserName==CurrentUser.UserName).ToList();
             this.DataContext = this;
 
         }
 
         private void EditEvent(object sender, RoutedEventArgs e)
         {
-            ColRate.IsReadOnly = false;
+            ColReqRATE.IsReadOnly = false;
             ColComment.IsReadOnly = false;
-
             //MessageBox.Show("Edit Method is ON");
 
             EditBut.Visibility = Visibility.Hidden;
@@ -82,72 +124,111 @@ namespace MainProject.OrderHistoryPage_Matin
         }
         private void SaveEvent(object sender, RoutedEventArgs e)
         {
-            ColRate.IsReadOnly = true;
-            ColComment.IsReadOnly = true;
-            //MessageBox.Show("Save Method is ON");
-
-            //Saved the Edits in Logic Code!!!
-
-
-            EditBut.Visibility = Visibility.Visible;
-            SaveBut.Visibility = Visibility.Hidden;
-            ResetBut.Visibility = Visibility.Hidden;
-
-            //MessageBox.Show(Orders[2].Rate.ToString());
-            int flag = 0;
-
-            foreach(var o in Orders)
+            //MessageBox.Show((oriori[1].ReqRATE==null).ToString());
+            //Save comment
+            List<ReceptionComment> list = JsonConvert.DeserializeObject<List<ReceptionComment>>(File.ReadAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\ReceptionComment\All_ReceptionComment.json"));
+            int i = 0;
+            foreach (OrderHistoryClass_FORNOW com in oriori)
             {
-                if(o.Rate<0 || o.Rate > 10)
+                if (com.Content.Trim() != "")
                 {
-                    flag++;
+                    int flag;
+                    int random;
+                    do
+                    {
+                        flag = 0;
+                        random = (new Random()).Next(100, 1000000);
+                        foreach (ReceptionComment rc in list)
+                        {
+                            if (rc.CommentID == random)
+                            {
+                                flag = 1; break;
+                            }
+                        }
+                    } while (flag == 1);
+                    list.Add(new ReceptionComment($"Complaint from *{CurrentUser.UserName}*", oriori[i].Content, random, CurrentUser.UserName, oriori[i].ReqID));
+                }
+                i++;
+
+            }
+            File.WriteAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\ReceptionComment\All_ReceptionComment.json",JsonConvert.SerializeObject(list,Formatting.Indented));
+            //Save comment [[[end]]]
+
+            //Save Point
+            int flagVALID = 1;
+            List<OrderHistoryClass_FORNOW> ZZ = oriori.Where(OR => OR.User_UserName == CurrentUser.UserName).ToList();
+            List<OrderHistoryClass_FORNOW> Z = OLD.Where(OR => OR.User_UserName == CurrentUser.UserName).ToList();
+
+            foreach (OrderHistoryClass_FORNOW or in ZZ)
+            {
+                try
+                {
+                    double testDemo = double.Parse(or.ReqRATE.Trim());
+                }
+                catch (Exception ex) { MessageBox.Show("You Must Enter Just Number[Request Rate]!", "Error", MessageBoxButton.OK, MessageBoxImage.Error); return; }
+                if (or.ReqRATE.Trim() == "")
+                {
+                    continue;
+                }
+                else if(double.Parse(or.ReqRATE)>10 || double.Parse(or.ReqRATE) < 0)
+                {
+                    flagVALID--;
                     break;
                 }
             }
-            if(flag == 1)
+            if(flagVALID == 1)
             {
-                //Error
-                MessageBox.Show("Rate Must Be in [0,10]!","Error",MessageBoxButton.OK,MessageBoxImage.Error);
-                Orders.Clear();
-                foreach (var item in OldOrders)
+                List<OrderHistoryClass_FORNOW> Filter = new List<OrderHistoryClass_FORNOW>();
+                for (int q = 0; q < ZZ.Count; q++)
                 {
-                    Orders.Add(cCloneDeep(item));
-                }
+                    OrderHistoryClass_FORNOW test=new OrderHistoryClass_FORNOW();
+                    if (ZZ[q].ReqRATE.Trim()==Z[q].ReqRATE.Trim()) { Filter.Add(ZZ[q]); }//add
+                    else if (ZZ[q].ReqRATE.Trim() != "" && Z[q].ReqRATE.Trim() == "") { Filter.Add(ZZ[q]); }//Add
+                    else if (ZZ[q].ReqRATE.Trim() == "" && Z[q].ReqRATE.Trim() != "") {/*Igonre!*/ }//Remove
+                    else if (ZZ[q].ReqRATE.Trim() != Z[q].ReqRATE.Trim()) { test = ZZ[q];test.ReqRATE = ZZ[q].ReqRATE.Trim();  Filter.Add(test); }//Edit
+                 }
+                List<Reception_Point> SaveList = Filter.Select(f => new Reception_Point
+                { RequestID=f.ReqID , Point=IfEmptyReturenNull(f.ReqRATE.Trim()), UserName=f.User_UserName,UserID=0 }
+                ).ToList();
+                List<Reception_Point> RECpoint = JsonConvert.DeserializeObject<List<Reception_Point>>(File.ReadAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\Points\All_ReceptionPoint.json")).
+                                                    Where(r => r.UserName != CurrentUser.UserName).ToList();
+                SaveList.AddRange(RECpoint);
+                File.WriteAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\Points\All_ReceptionPoint.json",JsonConvert.SerializeObject(SaveList,Formatting.Indented));
             }
             else
             {
-                //save in files!
-
-                OldOrders.Clear();
-                foreach (var item in Orders)
-                {
-                    OldOrders.Add(cCloneDeep(item));
-                }
-                MessageBox.Show("Saved!", "Message", MessageBoxButton.OK, MessageBoxImage.Information);
-
+                MessageBox.Show("Point Must BE in [0,10]!", "Warring", MessageBoxButton.OK, MessageBoxImage.Stop);return;
             }
+            MessageBox.Show("Saved!", "Message", MessageBoxButton.OK, MessageBoxImage.Information);
+            OLD.Clear();
+            for (int a=0; a<oriori.Count;a++)
+            {
+                oriori[a].Content = "";
+                OLD.Add(oriori[a].cClone());
+            }
+            DataGridResault.ItemsSource = oriori.Where(OR => OR.User_UserName == CurrentUser.UserName).ToList();
+            //MessageBox.Show(Orders[2].Rate.ToString());
 
 
-
+            //MessageBox.Show(oriori[1].ReqRATE.ToString());
+            ColReqRATE.IsReadOnly = true;
+            ColComment.IsReadOnly = true;
+            EditBut.Visibility = Visibility.Visible;
+            SaveBut.Visibility = Visibility.Hidden;
+            ResetBut.Visibility = Visibility.Hidden;
         }
 
         private void ResetEvent(object sender, RoutedEventArgs e)
         {
-
-            //MessageBox.Show("Save Method is ON");
-
-            //Saved the Edits in Logic Code!!!
+            oriori.Clear();
+            foreach (OrderHistoryClass_FORNOW a in OLD)
+            {
+                oriori.Add(a.cClone());
+            }
+            DataGridResault.ItemsSource = oriori.Where(ori => ori.User_UserName == CurrentUser.UserName).ToList();
 
 
             MessageBox.Show("Reset!", "Message", MessageBoxButton.OK, MessageBoxImage.Warning);
-            Orders.Clear();
-            foreach (var item in OldOrders)
-            {
-                Orders.Add(cCloneDeep(item));
-            }
-
-            // به روز رسانی DataGrid برای نمایش تغییرات
-            DataGridResault.ItemsSource = Orders;
 
         }
 
@@ -157,76 +238,10 @@ namespace MainProject.OrderHistoryPage_Matin
             customerMainPage.Show();
         }
 
-        private List<FoodRequest> GetFoodRequests_From_Json_For_CurrentUser(User currentUser, string path)
+        private double? IfEmptyReturenNull(string a)
         {
-            string jsonRead = File.ReadAllText(path);
-            List<FoodRequest>? AllFoods = JsonConvert.DeserializeObject<List<FoodRequest>>(jsonRead);
-            List<FoodRequest>? XfoodRequest = AllFoods.Where(fr => fr.User_UserName == currentUser.UserName).ToList();
-            return XfoodRequest;
-        }
-        private List<Reception_Point> GetReceptionPoints_From_Json_For_CurrentUser(User currentUser, string path)
-        {
-            string jsonRead = File.ReadAllText(path);
-            List<Reception_Point>? AllReceptionsPoint = JsonConvert.DeserializeObject<List<Reception_Point>>(jsonRead);
-            List<Reception_Point>? XreceptionPoint = AllReceptionsPoint.Where(rp => rp.UserName == currentUser.UserName).ToList();
-            return XreceptionPoint;
-        }
-
-        private BindingList<OrderHistoryClass_Demo> GetOrderHistoryClasses(User CurrenUser)
-        {
-            List<FoodRequest> foodRequests = GetFoodRequests_From_Json_For_CurrentUser(CurrentUser, @"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\FoodRequest\All_FoodRequest.json");
-            List<Reception_Point> reception_point = GetReceptionPoints_From_Json_For_CurrentUser(CurrentUser, @"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\Points\All_ReceptionPoint.json");
-            IEnumerable<OrderHistoryClass_Demo> DEMO = foodRequests.Join(reception_point, fr => fr.RequestID, rp => rp.RequestID, (fr, rp) => new OrderHistoryClass_Demo(fr, rp.Point, CurrentUser.Name, CurrentUser.LastName));
-            return new BindingList<OrderHistoryClass_Demo>(DEMO.ToList());
-        }
-        private BindingList<OrderHistoryClass_Demo> cClone(BindingList<OrderHistoryClass_Demo> X)
-        {
-            BindingList<OrderHistoryClass_Demo> newCollection = new BindingList<OrderHistoryClass_Demo>();
-            foreach (OrderHistoryClass_Demo item in X)
-            {
-                if (item != null)
-                {
-                    // کلون کردن عمیق برای هر آیتم
-                    OrderHistoryClass_Demo clone = cCloneDeep(item);
-                    newCollection.Add(clone);
-                }
-            }
-            return newCollection;
-        }
-
-        private OrderHistoryClass_Demo cCloneDeep(OrderHistoryClass_Demo a)
-        {
-            // ایجاد یک شیء جدید از OrderHistoryClass_Demo
-            OrderHistoryClass_Demo b = new OrderHistoryClass_Demo();
-
-            // کپی کردن ویژگی‌های ساده
-            b.Rate = a.Rate;
-            b.NameCur = a.NameCur;
-            b.LastNameCur= a.LastNameCur;
-            // کپی کردن ویژگی‌های پیچیده (ایجاد یک شیء جدید از FoodRequest)
-            if (a.FoodRequest != null)
-            {
-                b.FoodRequest = new FoodRequest
-                {
-                    RequestType = a.FoodRequest.RequestType,
-                    RestaurantUserName = a.FoodRequest.RestaurantUserName,
-                    FoodID = a.FoodRequest.FoodID,
-                    RequestID = a.FoodRequest.RequestID,
-                    User_UserName = a.FoodRequest.User_UserName
-
-                };
-            }
-            if(b.NewComments != null)
-            {
-                b.NewComments = new List<ReceptionComment>();
-                foreach (ReceptionComment ccc in b.NewComments)
-                {
-                    b.NewComments.Add(ccc.cCloneComment());
-
-
-                }
-            }
-            return b;
+            if(a.Trim()=="")return null;
+            return double.Parse(a.Trim());
         }
 
     }

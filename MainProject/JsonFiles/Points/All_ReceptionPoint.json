@@ -1,19 +1,37 @@
 [
   {
     "RequestID": 112,
-    "Point": 9,
+    "Point": 8.0,
+    "UserName": "Demo_UserName",
+    "UserID": 0
+  },
+  {
+    "RequestID": 113,
+    "Point": 10.0,
     "UserName": "Demo_UserName",
     "UserID": 0
   },
   {
     "RequestID": 114,
-    "Point": 7,
+    "Point": 1.0,
+    "UserName": "Demo_UserName",
+    "UserID": 0
+  },
+  {
+    "RequestID": 115,
+    "Point": 10.0,
+    "UserName": "Demo_UserName",
+    "UserID": 0
+  },
+  {
+    "RequestID": 116,
+    "Point": 10.0,
     "UserName": "Demo_UserName",
     "UserID": 0
   },
   {
     "RequestID": 117,
-    "Point": 3,
+    "Point": 3.0,
     "UserName": "Demo_UserName",
     "UserID": 0
   }

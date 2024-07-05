@@ -52,7 +52,7 @@ namespace MainProject.RestaurantPanel_Parham.RestaurantPanel
         {
             if(restauranT.Rating >= 4.5)
             {
-                restauranT.ActiveReservatio();
+                //restauranT.ActiveReservatio();
             }
             else
             {
