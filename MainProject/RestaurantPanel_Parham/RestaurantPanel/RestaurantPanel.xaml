@@ -17,7 +17,7 @@
         </Grid.RowDefinitions>
         <Border Grid.Row="0" Background="LightBlue"/>
         <TextBlock Grid.Row="0" Text="Restaurant Panel" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="35"/>
-        <Button Grid.Row="1" Content="Change Mneu" Background="LightSkyBlue" BorderBrush="LightSkyBlue" Width="150" Height="40" Click="Change_Menu"/>
+        <Button Grid.Row="1" Content="Change Menu" Background="LightSkyBlue" BorderBrush="LightSkyBlue" Width="150" Height="40" Click="Change_Menu"/>
         <Button Grid.Row="2" Content="Change food inventory" Background="LightSkyBlue" BorderBrush="LightSkyBlue" Width="150" Height="40" Click="Change_food_inventory"/>
         <Button Grid.Row="3" Content="Activate the reservation service" Background="LightSkyBlue" BorderBrush="LightSkyBlue" Width="190" Height="40" Click="Activate_the_reservation_service"/>
         <Button Grid.Row="4" Content="Order and reservation history" Background="LightSkyBlue" BorderBrush="LightSkyBlue" Width="250" Height="40" Click="Order_and_reservation_history"/>

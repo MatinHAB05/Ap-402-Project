@@ -19,12 +19,12 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <TextBlock Grid.ColumnSpan="3" Grid.Row="0" Grid.Column="0" Text="Change Restaurant menu" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30"/>
-        <DataGrid x:Name="FoodSearchList" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2" Grid.Column="0" Background="LightSkyBlue" AutoGenerateColumns="False">
+        <DataGrid x:Name="Menu" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2" Grid.Column="0" Background="LightSkyBlue" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTemplateColumn Header="Foods" Width="250">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Content="must be completed after logic" Click="Food_Button_Click"/>
+                            <Button Name="btn" Content="{Binding Name}" Click="Food_Button_Click"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>

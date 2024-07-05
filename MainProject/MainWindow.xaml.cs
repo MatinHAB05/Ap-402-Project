@@ -15,18 +15,19 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MainProject.RestaurantPanel_Parham.RestaurantPanel;
 using MainProject.Public_Classes;
-using MainProject.AdminPage_Parham.AdminPage;
+using System.IO;
+using System.Text.Json;
+using System.Collections.Generic;
 
 namespace MainProject
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
+
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
         }
+        
     }
 }
