@@ -32,7 +32,7 @@ namespace MainProject
             user.Name = "Demo_Name";
             user.LastName = "Demo_LastName";
             user.Address = "This is a Address";
-            user.Email_Unique = "Demo_Email@gmail.com";
+            user.Email_Unique = "m9652973@gmail.com";
             user.Gender = Gender.Female;
             user.Phone = "09123456789";
             user.UserName = "Demo_UserName";

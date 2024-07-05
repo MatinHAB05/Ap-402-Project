@@ -104,11 +104,10 @@
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="{Binding Name}" Margin="5"/>
-                                    <TextBlock Text="{Binding price}" Margin="5"/>
-                                    <TextBlock Text="{Binding Raw_materials}" Margin="5"/>
-                                    <TextBlock Text="{Binding xBar}" Margin="5"/>
-                                    <TextBlock Text="{Binding RemNumber}" Margin="5"/>
+                                    <TextBlock Text="{Binding Name}" Margin="5" ToolTip="Food Name"/>
+                                        <TextBlock Text="{Binding price}" Margin="5"  ToolTip="Price Food"/>
+                                        <TextBlock Text="{Binding Raw_materials}" Margin="5"  ToolTip="Food Raw_Materials"/>
+                                        <TextBlock Text="{Binding xBar}" Margin="5"  ToolTip="Food Rating"/>
                                     <Button Background="Transparent" VerticalAlignment="Top" BorderThickness="0"
                                     Command="{Binding DataContext.RemoveFoodCommand, RelativeSource={RelativeSource AncestorType=Window}}"
                                     CommandParameter="{Binding}">
@@ -120,11 +119,11 @@
                     </ListView>
 
 
-                    <RadioButton Content="Reserve" x:Name="radioButton1" GroupName="OrderType" Margin="2,0,0,3" />
-                    <RadioButton Content="Order" x:Name="radioButton2" GroupName="OrderType"  Margin="2,0,0,25"/>
+                    <RadioButton Content="Reserve" x:Name="reserve" GroupName="OrderType" Margin="2,0,0,3" />
+                    <RadioButton Content="Order" x:Name="order" GroupName="OrderType"  Margin="2,0,0,25"/>
 
-                    <RadioButton Content="Online" x:Name="radioButton3" GroupName="BuyType" Margin="2,0,0,3" />
-                    <RadioButton Content="Cach" x:Name="radioButton4" GroupName="BuyType"  Margin="2,0,0,25"/>
+                    <RadioButton Content="Online" x:Name="online" GroupName="BuyType" Margin="2,0,0,3" />
+                    <RadioButton Content="Cash" x:Name="cash" GroupName="BuyType"  Margin="2,0,0,25"/>
 
                     <Button Content="PAY" Margin="8" Click="Pay_Button"  Foreground="DarkBlue" Background="Khaki"/>
 

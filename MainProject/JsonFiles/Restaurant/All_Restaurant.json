@@ -3,7 +3,7 @@
     "IsCanReserve": false,
     "UserName": "UserNameRes1",
     "UserID": 452,
-    "Rating": 6.0,
+    "Rating": 3.0,
     "PassWord": "123123",
     "CityName": "Tehran",
     "RestaurantName": "ResName1",
@@ -17,16 +17,15 @@
             "Name": "FName",
             "FoodID": 145,
             "price": 97.0,
-            "Raw_Materials": [],
+            "Raw_Materials": null,
             "xBar": 7.2,
-            "RemNumber": 4,
+            "RemNumber": 1,
             "comments_IN_ORDER": [
               {
                 "Title": "This is Title from Json",
                 "Content": "This is Content from Json",
                 "CommentID": 111,
-                "User_UserName": "Demo_UserName",
-                "Reply": null
+                "User_UserName": "Demo_UserName"
               }
             ],
             "FoodCategory": "C1",
@@ -54,7 +53,7 @@
             "Name": "FName",
             "FoodID": 149,
             "price": 97.0,
-            "Raw_Materials": [],
+            "Raw_Materials": null,
             "xBar": 7.2,
             "RemNumber": 4,
             "comments_IN_ORDER": [
@@ -62,9 +61,7 @@
                 "Title": "This is Title from Json",
                 "Content": "This is Content from Json",
                 "CommentID": 115,
-                "User_UserName": "Demo_UserName",
-                "Reply": null
-
+                "User_UserName": "Demo_UserName"
               }
             ],
             "FoodCategory": "C1",
@@ -100,9 +97,7 @@
                 "Title": "This is Title from Json",
                 "Content": "This is Content from Json",
                 "CommentID": 453,
-                "User_UserName": "Demo_UserName",
-                "Reply": null
-
+                "User_UserName": "Demo_UserName"
               }
             ],
             "FoodCategory": "C1",
@@ -138,9 +133,7 @@
                 "Title": "This is Title from Json",
                 "Content": "This is Content from Json",
                 "CommentID": 109,
-                "User_UserName": "Demo_UserName",
-                "Reply": null
-
+                "User_UserName": "Demo_UserName"
               }
             ],
             "FoodCategory": "C1",
@@ -176,9 +169,7 @@
                 "Title": "This is Title from Json",
                 "Content": "This is Content from Json",
                 "CommentID": 788,
-                "User_UserName": "Demo_UserName",
-                "Reply": null
-
+                "User_UserName": "Demo_UserName"
               }
             ],
             "FoodCategory": "C1",

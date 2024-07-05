@@ -4,6 +4,10 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Input;
+using MimeKit;
+using MailKit.Net.Smtp;
+using Newtonsoft.Json;
+using System.IO;
 
 namespace MainProject.reserrveORorderFoods_CustomerPage_Matin
 {
@@ -63,6 +67,12 @@ namespace MainProject.reserrveORorderFoods_CustomerPage_Matin
             foreach (Category c in Categories) { Demo.Add(c.cClone()); }
 
             CategoryLIST_VIEW.ItemsSource = Categories;
+
+
+            if (CurrentREStaurant.IsCanReserve==false)
+            {
+                reserve.Visibility = Visibility.Hidden;
+            }
         }
         private void AddToSelectedFoods(FoodClass food)
         {
@@ -115,7 +125,7 @@ namespace MainProject.reserrveORorderFoods_CustomerPage_Matin
             foreach (Category c in Demo) { Categories.Add(c.cClone()); }
 
             CategoryLIST_VIEW.ItemsSource = Categories;
-
+            
 
             if (MainListView.Items.Count == 0)
             {
@@ -152,16 +162,165 @@ namespace MainProject.reserrveORorderFoods_CustomerPage_Matin
 
         private void Pay_Button(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            bool IsReserve = false;
+            bool IScash = true;
+            string Error = "";
 
+            if (cash.IsChecked == true) { IScash = true; }
+            else if (cash.IsChecked == false) { IScash = false; }
+            else
+            {
+                Error +="نوع پرداخت هزینه مشخص نشده است" + "\n";
+
+            }
+
+
+            if (reserve.Visibility == Visibility.Hidden) 
+            {
+                if (order.IsChecked==true)
+                {
+                    IsReserve = false;
+                }
+                else
+                {
+                   Error+="نوع درخواست غدا مشخص نشده است" +"\n";
+                }            
+            }
+            else
+            {
+                if (order.IsChecked == true)
+                {
+                    IsReserve = false;
+                }
+                else if (reserve.IsChecked == true)
+                {
+                    IsReserve = true;
+                }
+                else
+                {
+                    Error += "نوع درخواست غدا مشخص نشده است"+"\n";
+                }
+            }
+
+
+            if(Error!="")
+            {
+            matinLabel:
+                MessageBoxResult a = MessageBox.Show(Error + "ردیفه؟", "UNVALID INPUT", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+                if (a == MessageBoxResult.Yes) { return; }
+                if (a == MessageBoxResult.No) { goto matinLabel; }
+            }
+
+            RequestType requestType=RequestType.Cash_Order;
+            if      (IScash && IsReserve) { requestType=RequestType.Cash_Reserve; }
+            else if (IScash && !IsReserve) { requestType = RequestType.Cash_Order; }
+            else if (!IScash && IsReserve) { requestType = RequestType.Online_Reserve; }
+            else if (!IScash && !IsReserve) { requestType = RequestType.Online_Order; }
+
+            //save in File
+            List<FoodRequest> New = SelectedFoods.Select(f => new FoodRequest
+            {
+                FoodID = f.FoodID,
+                RestaurantUserName = CurrentREStaurant.RestaurantName,
+                RequestType = requestType,
+                RequestID = FoodRequest.GetRANDOM()
+            }).ToList();
+            List<FoodRequest> all = JsonConvert.DeserializeObject<List<FoodRequest>>(File.ReadAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\FoodRequest\All_FoodRequest.json"));
+            all.AddRange(New);
+            File.WriteAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\FoodRequest\All_FoodRequest.json", 
+                JsonConvert.SerializeObject(all,Formatting.Indented));
+            //end save in File***
+
+
+            if (requestType == RequestType.Online_Order || requestType == RequestType.Online_Reserve) 
+            {
+
+                //send email
+                string txt = $"Hello, we are {CurrentREStaurant.RestaurantName}<br>You have just placed an order from our restaurant as follows:<br>" +
+
+                  MessageEMAIL(New) +
+
+                    "<br>we hope you enjoy your meal!";
+
+                SendEmail("demobazi72@gmail.com", CurrentREStaurant.RestaurantName, CurrentUser.Name+CurrentUser.LastName, CurrentUser.Email_Unique, "Online Purchase Receipt", txt, "ddoduwbsvufdspse");
+
+                //end send email
+
+
+
+
+            }
+            SelectedFoods.Clear();
+
+        }
+        private string MessageEMAIL(List<FoodRequest> New)
+        {
+            string mess = "";
+            int i = 1;
+            foreach (FoodRequest f in New)
+            {
+                string nnn = "";
+                if (f.RequestType == RequestType.Online_Reserve) nnn = ".Online_Reserve";
+                    if (f.RequestType == RequestType.Online_Order) nnn = "Online_Order";
+                if (f.RequestType == RequestType.Cash_Reserve) nnn = "Cash_Reserve";
+                if (f.RequestType == RequestType.Cash_Order) nnn = "Cash_Order";
+
+                mess += $"<b>{i}-- FoodID : {f.FoodID}  , User Name {CurrentUser.UserName} , Restaurant Name : {Restaurant.GetFromUserName(CurrentREStaurant.UserName).RestaurantName} , Request Type : {nnn} , Request ID : {f.RequestID} , Food Name : {( (FoodClass)Restaurant.Get_Food_FromFoodID(f.FoodID,CurrentREStaurant) ).Name} , Food Price : {Restaurant.Get_Food_FromFoodID(f.FoodID,CurrentREStaurant).price}" + "<br> </b>";
+                i++;
+            }
+            return mess;
         }
 
         private void Window_Closing(object sender, CancelEventArgs e)
         {
+            List<Restaurant> all = JsonConvert.DeserializeObject<List<Restaurant>>(File.ReadAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\Restaurant\All_Restaurant.json"));
+            int d = 0;
+            foreach(Restaurant r in all)
+            {
+                if (r.UserName == CurrentREStaurant.UserName)
+                {
+                    all[d].Menu.Clear();
+                    foreach(Category cat in Categories)
+                    {
+                        all[d].Menu.Add(cat.cClone());
+                    }
+                    break;
+                }
+                    d++;
+            }
+            File.WriteAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\Restaurant\All_Restaurant.json",
+                JsonConvert.SerializeObject(all,Formatting.Indented));
             CustomerMainPage customerMainPage = new CustomerMainPage(CurrentUser);
             customerMainPage.Show();
 
         }
+
+        private void SendEmail(string emailMabda, string NameSender, string NameReciver, string emailMaghsad, string Subject, string ContentTExt, string passwordEmailMabda)
+        {
+            var email = new MimeMessage();
+
+            email.From.Add(new MailboxAddress(NameSender, emailMabda));
+            email.To.Add(new MailboxAddress(NameReciver, emailMaghsad));
+
+            email.Subject = Subject;
+            email.Body = new TextPart(MimeKit.Text.TextFormat.Html)
+            {
+                Text = ContentTExt  //Text = "<b>Hello all the way from the land of C#</b>"
+            };
+
+            using (var smtp = new SmtpClient())
+            {
+                smtp.Connect("smtp.gmail.com", 587, false);
+
+                // Note: only needed if the SMTP server requires authentication
+                smtp.Authenticate(emailMabda, passwordEmailMabda); //"ddoduwbsvufdspse"
+
+                smtp.Send(email);
+                smtp.Disconnect(true);
+            }
+        } 
+
     }
 
 
