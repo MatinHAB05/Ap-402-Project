@@ -52,5 +52,17 @@ namespace MainProject.Public_Classes
             } while (flag == 1);
             return id;
         }
+
+
+        static public int GetNumberISchecked(string resUser,bool ISCHECK)
+        {
+            List<Complaint> list = JsonConvert.DeserializeObject<List<Complaint>>(File.ReadAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\Complaint\All_Complaints.json"));
+            int n = 0;
+            foreach (Complaint c in list)
+            {
+                if (c.RestaurantUserName == resUser && c.IsChecked == ISCHECK) { n++; }
+            }
+            return n;
+        }
     }
 }

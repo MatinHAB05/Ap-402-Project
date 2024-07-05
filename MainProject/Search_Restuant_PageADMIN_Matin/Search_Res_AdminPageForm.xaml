@@ -22,8 +22,8 @@
                             <Hyperlink Click="RemoveFilters" >Remove Filters</Hyperlink>
                         </Label>
                     </StackPanel>
-                    <USEcon:searchBox x:Name="D"  Margin="5,15,5,5"/>
-                    <USEcon:searchBox x:Name="D2"  Margin="5,5,5,15"/>
+                    <USEcon:searchBox x:Name="ResName"  Margin="5,15,5,5" ToolTip="Restaurant Name"/>
+                    <USEcon:searchBox x:Name="CitName"  Margin="5,5,5,15" ToolTip="City Name"/>
 
                     <StackPanel Orientation="Horizontal">
                         <Label Content="Min Points :" FontWeight="Bold" Margin="5,5,5,2" FontSize="15"/>
@@ -36,13 +36,14 @@
                         <Label Content="Max Points :" FontWeight="Bold" Margin="5,5,5,2" FontSize="15"/>
                         <Label x:Name="PointsLabel2" Content="{Binding MaxPointsSearch,UpdateSourceTrigger=PropertyChanged}" VerticalContentAlignment="Center"/>
                     </StackPanel>
-                    <Slider x:Name="sliderPoint2" Maximum="5" Minimum="{Binding MinPointsSearch,UpdateSourceTrigger=PropertyChanged}"   LargeChange="0.5" TickPlacement="BottomRight" TickFrequency="0.1" Value="{Binding MaxPointsSearch,  Mode=OneWayToSource , FallbackValue=5}"    Margin="5,5,5,15" ValueChanged="sliderPoint_ValueChanged"/>
-                    <Label Content="Have an unanswered complaint?" Margin="0,0,0,0"/>
-                    <RadioButton Content="Yes" x:Name="radioButton" GroupName="Complaints" Margin="0,0,0,3" />
-                    <RadioButton Content="No" x:Name="radioButton2" GroupName="Complaints"  Margin="0,0,0,25"/>
+                    <Slider x:Name="sliderPoint2" Maximum="10" Minimum="{Binding MinPointsSearch,UpdateSourceTrigger=PropertyChanged}"   LargeChange="0.5" TickPlacement="BottomRight" TickFrequency="0.1" Value="{Binding MaxPointsSearch,  Mode=OneWayToSource , FallbackValue=5}"    Margin="5,5,5,15" ValueChanged="sliderPoint_ValueChanged"/>
+                    <Label Content="Have an ? complaint." Margin="0,0,0,0"/>
+                    <RadioButton Content="Reviewed" x:Name="radioButton" GroupName="Complaints" Margin="0,0,0,3" />
+                    <RadioButton Content="Unreviewed" x:Name="radioButton2" GroupName="Complaints"  Margin="0,0,0,3"/>
+                    <RadioButton Content="None" x:Name="radioButton3" GroupName="Complaints"  Margin="0,0,0,25"/>
 
 
-                    <Button Content="Search" VerticalAlignment="Center" HorizontalAlignment="Center" Background="DeepSkyBlue" Foreground="White" FontSize="20" Width="100" Height="40"/>
+                    <Button Content="Search" VerticalAlignment="Center" HorizontalAlignment="Center" Background="DeepSkyBlue" Foreground="White" FontSize="20" Width="100" Height="40" Click="SEARCH"/>
                 </StackPanel>
 
 
@@ -56,7 +57,15 @@
             <Border BorderThickness="2" Background="White" BorderBrush="LightGray" Margin="8,10,8,10">
 
                 <Grid Grid.Column="0"  Margin="8,10,8,10">
-                    <DataGrid x:Name="DataGridResault" IsReadOnly="True" />
+                    <DataGrid ItemsSource="{Binding resturants_FORNOWs}" x:Name="DataGridResault" IsReadOnly="True" AutoGenerateColumns="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Name" Binding="{Binding name}"/>
+                            <DataGridTextColumn Header="City" Binding="{Binding city}"/>
+                            <DataGridTextColumn Header="Checked" Binding="{Binding N_Complaints}"/>
+                            <DataGridTextColumn Header="Not Checked" Binding="{Binding N_NotComplaints}"/>
+                            <DataGridTextColumn Header="Point" Binding="{Binding point}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
                 </Grid>
             </Border>
 
