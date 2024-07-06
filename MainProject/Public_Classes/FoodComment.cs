@@ -1,8 +1,11 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
+using System.Text.Json;
 
 namespace MainProject.Public_Classes
 {
@@ -12,9 +15,9 @@ namespace MainProject.Public_Classes
         public string Content { get; set; }
         public int CommentID {  get; set; }
         public string User_UserName { get; set; }
-        FoodComment? Reply;
+        public List<FoodComment?>? Reply;
         public FoodComment() { }
-         public FoodComment(string title, string content, int commentID, FoodComment? reply,string User_UserName) 
+         public FoodComment(string title, string content, int commentID, List<FoodComment?>? reply,string User_UserName) 
         {
             Title = title;
             Content = content;
@@ -22,23 +25,48 @@ namespace MainProject.Public_Classes
             Reply = reply;
             this.User_UserName = User_UserName;
         }
-        public FoodComment cCloneComment()
+        public FoodComment(string title, string content, List<FoodComment?>? reply, string User_UserName)
         {
-            FoodComment comment = new FoodComment();
-            comment.Title = Title;
-            comment.Content = Content;
-            comment.CommentID = CommentID;
-            comment.User_UserName= User_UserName;
-            if (Reply != null)
+            Title = title;
+            Content = content;
+            Reply = reply;
+            this.User_UserName = User_UserName;
+            string json = File.ReadAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\Restaurant\All_Restaurant.json");
+            List<Restaurant> restaurants = JsonConvert.DeserializeObject<List<Restaurant>>(json);
+            int numberOfFoodComments = 0;
+            foreach (Restaurant re in restaurants)
             {
-                comment.Reply = Reply.cCloneComment();
+                foreach (Category category in re.Menu)
+                {
+                    foreach (FoodClass food in category.Foods)
+                    {
+                        foreach(FoodComment fc in food.comments_IN_ORDER)
+                        {
+                            numberOfFoodComments += fc.Reply.Count();
+                            numberOfFoodComments += 1;
+                        }
+                    }
+                }
             }
-            else
-            {
-                comment.Reply= null;
-            }
-            return comment;
+            CommentID = numberOfFoodComments + 1;
         }
+        //public FoodComment cCloneComment()
+        //{
+        //    FoodComment comment = new FoodComment();
+        //    comment.Title = Title;
+        //    comment.Content = Content;
+        //    comment.CommentID = CommentID;
+        //    comment.User_UserName= User_UserName;
+        //    if (Reply != null)
+        //    {
+        //        comment.Reply = Reply.cCloneComment();
+        //    }
+        //    else
+        //    {
+        //        comment.Reply= null;
+        //    }
+        //    return comment;
+        //}
     }
 
 }

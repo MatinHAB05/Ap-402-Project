@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using static System.Net.Mime.MediaTypeNames;
 using System.Windows.Media.Imaging;
+using MainProject.AnswerToFoodComment_RestaurantPanel_Parham.AnswerToFoodComment;
 
 namespace MainProject.ChangeFoodInformation_Parham.ChangeFoodInformation
 {
@@ -40,7 +41,12 @@ namespace MainProject.ChangeFoodInformation_Parham.ChangeFoodInformation
         }
         private void Answer_Comment_Button(object sender, RoutedEventArgs e)
         {
-            //must be completed after meet
+            Button btn = sender as Button;
+            FoodComment foodComment = btn.DataContext as FoodComment;
+            AnswerToFoodComment answerToFoodComment = new AnswerToFoodComment(restauranT, foodComment);
+            this.Close();
+            answerToFoodComment.Show();
+
         }
         private void Done(object sender, RoutedEventArgs e)
         {
