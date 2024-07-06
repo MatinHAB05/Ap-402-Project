@@ -13,6 +13,9 @@
     <Compile Update="ChangeFoodInventory_Parham\ChangeFoodINverntory\ChangeFoodInverntory.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="CommentSection_CustomerPanel_Matin\CommentSection_CustomerPanel.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="reserrveORorderFoods_CustomerPage_Matin\Window1.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -25,6 +28,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="ChangeFoodInventory_Parham\ChangeFoodINverntory\ChangeFoodInverntory.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="CommentSection_CustomerPanel_Matin\CommentSection_CustomerPanel.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">

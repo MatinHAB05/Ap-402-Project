@@ -59,6 +59,7 @@
                                                 <TextBlock Text="{Binding price}" Margin="5" ToolTip="Food Price"/>
                                                 <TextBlock Text="{Binding Raw_materials}" Margin="5"  ToolTip="Food Raw_Materials"/>
                                                 <TextBlock Text="{Binding xBar}" Margin="5" ToolTip="Food Rate"/>
+                                                <TextBlock Text="{Binding FoodID}" Margin="5" ToolTip="Food ID"/>
                                                 <TextBlock Text="{Binding RemNumber}" Margin="5" ToolTip="Reminder Food Number"/>
                                                 <Button Margin="5" ToolTip="Image Food(IF it has...)" Background="Transparent" BorderThickness="0" Command="{Binding DataContext.FullScreenIMG, RelativeSource={RelativeSource AncestorType=Window}}"
                                                          CommandParameter="{Binding}" >
@@ -108,7 +109,9 @@
                                         <TextBlock Text="{Binding price}" Margin="5"  ToolTip="Price Food"/>
                                         <TextBlock Text="{Binding Raw_materials}" Margin="5"  ToolTip="Food Raw_Materials"/>
                                         <TextBlock Text="{Binding xBar}" Margin="5"  ToolTip="Food Rating"/>
-                                    <Button Background="Transparent" VerticalAlignment="Top" BorderThickness="0"
+                                        <TextBlock Text="{Binding FoodID}" Margin="5" ToolTip="Food ID"/>
+
+                                        <Button Background="Transparent" VerticalAlignment="Top" BorderThickness="0"
                                     Command="{Binding DataContext.RemoveFoodCommand, RelativeSource={RelativeSource AncestorType=Window}}"
                                     CommandParameter="{Binding}">
                                         <Image Source="/reserrveORorderFoods_CustomerPage_Matin/Images/remove.png" Height="20" Width="20" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,2,0,0" />

@@ -8,6 +8,7 @@ using MimeKit;
 using MailKit.Net.Smtp;
 using Newtonsoft.Json;
 using System.IO;
+using MainProject.CommentSection_CustomerPanel_Matin;
 
 namespace MainProject.reserrveORorderFoods_CustomerPage_Matin
 {
@@ -136,7 +137,10 @@ namespace MainProject.reserrveORorderFoods_CustomerPage_Matin
 
         private void CommnetSection(FoodClass food)
         {
-            MessageBox.Show("HI MATIN");
+            //MessageBox.Show("HI MATIN");
+            CommentSection_CustomerPanel commentSection_CustomerPanel = new CommentSection_CustomerPanel(food,CurrentREStaurant,CurrentUser);
+            commentSection_CustomerPanel.Show();
+            this.Close();
         }
         public event PropertyChangedEventHandler? PropertyChanged;
         public static string CommaMethod(string s)

@@ -13,9 +13,11 @@ namespace MainProject.Public_Classes
         public string Content { get; set; }
         public int CommentID {  get; set; }
         public string User_UserName { get; set; }
-        FoodComment? Reply;
+        public bool ISedit = false;
+
+        public List<FoodComment?>? Reply;
         public FoodComment() { }
-         public FoodComment(string title, string content, int commentID, FoodComment? reply,string User_UserName) 
+         public FoodComment(string title, string content, int commentID, List<FoodComment>? reply,string User_UserName) 
         {
             Title = title;
             Content = content;
@@ -33,9 +35,13 @@ namespace MainProject.Public_Classes
             comment.User_UserName= this.User_UserName;
             if (this.Reply != null)
             {
+                comment.Reply = new List<FoodComment?>();
                 //MessageBox.Show("3333");
+                foreach(FoodComment r in this.Reply)
+                {
+                    comment.Reply.Add(r.cCloneComment());
 
-                comment.Reply = this.Reply.cCloneComment();
+                }
             }
             else
             {
@@ -48,6 +54,7 @@ namespace MainProject.Public_Classes
             return comment;
 
         }
+
     }
 
 }
