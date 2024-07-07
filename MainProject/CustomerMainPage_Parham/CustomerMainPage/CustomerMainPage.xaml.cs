@@ -41,7 +41,7 @@ namespace MainProject.CustomerMainPage_Parham.CustomerMainPage
             Must_OFF = true;
             CurrentUser = user;
             //edit the details of this user!!!
-            string jsonRes = File.ReadAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\Restaurant\All_Restaurant.json");
+            string jsonRes = File.ReadAllText(MainWindow.Get_Dir_ALL_RESTAURANT_json());
             restaurants = JsonConvert.DeserializeObject<List<Restaurant>>(jsonRes);
             SearchList.ItemsSource = restaurants;
             //SearchList.ItemsSource = names;

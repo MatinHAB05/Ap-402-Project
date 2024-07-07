@@ -44,7 +44,7 @@ namespace MainProject.Public_Classes
         }
         static public string? GetFIRSTNAMEfromjson(string UserName) 
         {
-            List<User> users = JsonConvert.DeserializeObject<List<User>>(File.ReadAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\User\All_Users.json"));
+            List<User> users = JsonConvert.DeserializeObject<List<User>>(File.ReadAllText(MainWindow.Get_Dir_ALL_USERS_json()));
             
             foreach(User u in users)
             {
@@ -59,7 +59,7 @@ namespace MainProject.Public_Classes
         }
         static public string? GetLASTNAMEfromjson(string UserName)
         {
-            List<User> users = JsonConvert.DeserializeObject<List<User>>(File.ReadAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\User\All_Users.json"));
+            List<User> users = JsonConvert.DeserializeObject<List<User>>(File.ReadAllText(MainWindow.Get_Dir_ALL_USERS_json()));
 
             foreach (User u in users)
             {

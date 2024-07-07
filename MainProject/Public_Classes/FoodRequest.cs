@@ -27,7 +27,7 @@ namespace MainProject.Public_Classes
         }
         static public int GetRANDOM()
         {
-            List<FoodRequest> foodRequest = JsonConvert.DeserializeObject<List<FoodRequest>>(File.ReadAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\FoodRequest\All_FoodRequest.json"));
+            List<FoodRequest> foodRequest = JsonConvert.DeserializeObject<List<FoodRequest>>(File.ReadAllText(MainWindow.Get_Dir_ALL_FOOD_REQUEST_json()));
             int flag  , rand;
             do
             {

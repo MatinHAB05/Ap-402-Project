@@ -75,7 +75,7 @@ namespace MainProject.OrderHistoryPage_Matin
             SaveBut.Visibility = Visibility.Hidden;
             ResetBut.Visibility = Visibility.Hidden;
             int bro = 0;
-            foodRequests = JsonConvert.DeserializeObject<List<FoodRequest>>(File.ReadAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\FoodRequest\All_FoodRequest.json"));
+            foodRequests = JsonConvert.DeserializeObject<List<FoodRequest>>(File.ReadAllText(MainWindow.Get_Dir_ALL_FOOD_REQUEST_json()));
 
             oriori = new ObservableCollection<OrderHistoryClass_FORNOW>(foodRequests.Select(fr => { /*MessageBox.Show(bro.ToString());bro++;*/
                 return new OrderHistoryClass_FORNOW
@@ -131,7 +131,7 @@ namespace MainProject.OrderHistoryPage_Matin
         {
             //MessageBox.Show((oriori[1].ReqRATE==null).ToString());
             //Save comment
-            List<ReceptionComment> list = JsonConvert.DeserializeObject<List<ReceptionComment>>(File.ReadAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\ReceptionComment\All_ReceptionComment.json"));
+            List<ReceptionComment> list = JsonConvert.DeserializeObject<List<ReceptionComment>>(File.ReadAllText(MainWindow.Get_Dir_ALL_RECEPTION_COMMENT_json()));
             int i = 0;
             foreach (OrderHistoryClass_FORNOW com in oriori)
             {
@@ -156,7 +156,7 @@ namespace MainProject.OrderHistoryPage_Matin
                 i++;
 
             }
-            File.WriteAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\ReceptionComment\All_ReceptionComment.json",JsonConvert.SerializeObject(list,Formatting.Indented));
+            File.WriteAllText(MainWindow.Get_Dir_ALL_RECEPTION_COMMENT_json(),JsonConvert.SerializeObject(list,Formatting.Indented));
             //Save comment [[[end]]]
 
             //Save Point
@@ -195,10 +195,10 @@ namespace MainProject.OrderHistoryPage_Matin
                 List<Reception_Point> SaveList = Filter.Select(f => new Reception_Point
                 { RequestID=f.ReqID , Point=IfEmptyReturenNull(f.ReqRATE.Trim()), UserName=f.User_UserName,UserID=0 }
                 ).ToList();
-                List<Reception_Point> RECpoint = JsonConvert.DeserializeObject<List<Reception_Point>>(File.ReadAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\Points\All_ReceptionPoint.json")).
+                List<Reception_Point> RECpoint = JsonConvert.DeserializeObject<List<Reception_Point>>(File.ReadAllText(MainWindow.Get_Dir_ALL_RECEPTION_POINT_json())).
                                                     Where(r => r.UserName != CurrentUser.UserName).ToList();
                 SaveList.AddRange(RECpoint);
-                File.WriteAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\Points\All_ReceptionPoint.json",JsonConvert.SerializeObject(SaveList,Formatting.Indented));
+                File.WriteAllText(MainWindow.Get_Dir_ALL_RECEPTION_POINT_json(),JsonConvert.SerializeObject(SaveList,Formatting.Indented));
             }
             else
             {
