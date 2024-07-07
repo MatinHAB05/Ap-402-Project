@@ -22,6 +22,7 @@
     <None Remove="LoginForm_Matin\BackMusic_Matin\Mix_BackMusic2.mp3" />
     <None Remove="LoginForm_Matin\BackMusic_Matin\MusicBack.mp3" />
     <None Remove="matinImages_matin\back.png" />
+    <None Remove="matinImages_matin\NoIMG.png" />
     <None Remove="OrderHistoryPage_Matin\Images\reset.png" />
     <None Remove="reserrveORorderFoods_CustomerPage_Matin\Images\imgICon.png" />
     <None Remove="reserrveORorderFoods_CustomerPage_Matin\Images\NoIMG.png" />
@@ -49,6 +50,7 @@
     <Resource Include="LoginForm_Matin\images\res1.jpg" />
     <Resource Include="LoginForm_Matin\images\res2.jpg" />
     <Resource Include="matinImages_matin\back.png" />
+    <Resource Include="matinImages_matin\NoIMG.png" />
     <Resource Include="OrderHistoryPage_Matin\Images\edit.png" />
     <Resource Include="OrderHistoryPage_Matin\Images\reset.png" />
     <Resource Include="OrderHistoryPage_Matin\Images\save.png" />

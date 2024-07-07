@@ -15,7 +15,7 @@
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0"  Margin="20,5,15,0" >
-            <StackPanel Orientation="Horizontal">
+            <StackPanel>
                 <Button  Click="BackPage" Grid.Column="0" Grid.Row="0" Background="#123456" HorizontalAlignment="Left" Foreground="DarkBlue" Height="30" Width="70">
                     <Image Source="/matinImages_matin/back.png" />
                 </Button>

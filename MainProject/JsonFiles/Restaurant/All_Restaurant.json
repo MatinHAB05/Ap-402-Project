@@ -23,16 +23,7 @@
             "comments_IN_ORDER": [
               {
                 "ISedit": false,
-                "Reply": [
-                  {
-                    "ISedit": false,
-                    "Reply": null,
-                    "Title": "This is Title from Json",
-                    "Content": "This is Content from Json",
-                    "CommentID": 1199,
-                    "User_UserName": "Demo_UserName"
-                  }
-                ],
+                "Reply": [],
                 "Title": "This is Title from Json",
                 "Content": "This is Content from Json",
                 "CommentID": 1144,
@@ -40,25 +31,7 @@
               },
               {
                 "ISedit": false,
-                "Reply": [
-                  {
-                    "ISedit": false,
-                    "Reply": [
-                      {
-                        "ISedit": false,
-                        "Reply": null,
-                        "Title": "This is Title from Json",
-                        "Content": "This is Content from Json",
-                        "CommentID": 9564,
-                        "User_UserName": "Demo_UserName"
-                      }
-                    ],
-                    "Title": "This is Title from Json",
-                    "Content": "This is Content from Json",
-                    "CommentID": 1155,
-                    "User_UserName": "Demo_UserName"
-                  }
-                ],
+                "Reply": [],
                 "Title": "This is Title from Json",
                 "Content": "This is Content from Json",
                 "CommentID": 1155,
@@ -66,24 +39,7 @@
               },
               {
                 "ISedit": false,
-                "Reply": [
-                  {
-                    "ISedit": false,
-                    "Reply": null,
-                    "Title": "This is Title from Json",
-                    "Content": "This is Content from Json",
-                    "CommentID": 744,
-                    "User_UserName": "UserDD"
-                  },
-                  {
-                    "ISedit": false,
-                    "Reply": null,
-                    "Title": "This is Title from Json",
-                    "Content": "This is Content from Json",
-                    "CommentID": 186,
-                    "User_UserName": "Demo_UserName"
-                  }
-                ],
+                "Reply": [],
                 "Title": "This is Title from Json",
                 "Content": "This is Content from Json",
                 "CommentID": 4135,
@@ -259,6 +215,6 @@
     "RestaurantName": "Mamad",
     "receptionType": 0,
     "AddreesOfRestaurant": "Addreesasdadads",
-    "Menu": null
+    "Menu": []
   }
 ]

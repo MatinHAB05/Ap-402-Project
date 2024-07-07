@@ -28,7 +28,7 @@ namespace MainProject.reserrveORorderFoods_CustomerPage_Matin
             }
             else
             {
-                pppp = @"\reserrveORorderFoods_CustomerPage_Matin\Images\NoIMG.png";
+                pppp = "/matinImages_matin/NoIMG.png";
             }
             this.DataContext = this;
         }

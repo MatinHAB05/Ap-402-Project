@@ -138,6 +138,7 @@ namespace MainProject.AddRestunts_AdminPanel_Matin
                 demo.PassWord= (new Random()).Next(10000000, 99999999).ToString();
                 demo.CityName = city;
                 demo.RestaurantName = resName;
+                demo.Menu = new List<Category>();
 
                 demo.receptionType = ReceptionType.Dine_In;
                 if (ra2.IsChecked==true) { demo.receptionType=ReceptionType.Delivery; }

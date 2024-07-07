@@ -6,7 +6,10 @@
         xmlns:local="clr-namespace:MainProject.reserrveORorderFoods_CustomerPage_Matin"
         mc:Ignorable="d"
         Title="Window1" Height="450" Width="800" Closing="Window_Closing">
-    <Window.Background>
-        <ImageBrush x:Name="aaa" ImageSource="{Binding pppp , UpdateSourceTrigger=PropertyChanged}" Stretch="Uniform"/>
-    </Window.Background>
+    <Grid>
+        <Image x:Name="aaa" Source="{Binding pppp , UpdateSourceTrigger=PropertyChanged}" Stretch="Uniform" Width="300" Height="300" ToolTip="No Images!"/>
+
+
+
+    </Grid>
 </Window>

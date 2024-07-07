@@ -99,7 +99,7 @@ namespace MainProject.reserrveORorderFoods_CustomerPage_Matin
         {
             bool HaveImage=true;
             if(food.Image_Path == null || food.Image_Path=="") { HaveImage = false; }
-           Window1 demo = new Window1(food.Image_Path,HaveImage,this); demo.Show();
+           Window1 demo = new Window1(food.Image_Path.Trim(),HaveImage,this); demo.Show();
             this.Hide();
 
         }
