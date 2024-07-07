@@ -25,19 +25,20 @@ namespace MainProject.ChangeFoodInformation_Parham.ChangeFoodInformation
         Restaurant restauranT;
         public ChangeFoodInformation(FoodClass food, Restaurant restaurant)
         {
+            InitializeComponent();
             fooD = food;
             restauranT = restaurant;
             Name.Text = food.Name;
             Price.Text = Convert.ToString(food.price);
             Raw_Materials.Text = string.Join(',', food.Raw_Materials);
             Food_Category.Text = food.FoodCategory;
-            BitmapImage bitmap = new BitmapImage();
-            bitmap.BeginInit();
-            bitmap.UriSource = new Uri(food.Image_Path, UriKind.RelativeOrAbsolute);
-            bitmap.EndInit();
-            Comments.ItemsSource = food.comments_IN_ORDER;
-            Img.Source = bitmap;
-            InitializeComponent();
+            //BitmapImage bitmap = new BitmapImage();
+            //bitmap.BeginInit();
+            //bitmap.UriSource = new Uri(food.Image_Path, UriKind.RelativeOrAbsolute);
+            //bitmap.EndInit();
+            //Comments.ItemsSource = food.comments_IN_ORDER;
+            //Img.Source = bitmap;
+            //we will make it tommorow
         }
         private void Answer_Comment_Button(object sender, RoutedEventArgs e)
         {

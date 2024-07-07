@@ -50,12 +50,9 @@ namespace MainProject.ChangeFoodInventory_Parham.ChangeFoodINverntory
                 MessageBox.Show("yout entered number was not right", "Number wrong", MessageBoxButton.OK, MessageBoxImage.Error);
                 ContinueOrNot = false;
             }
-            if (food.RemNumber >= number)
+            if (ContinueOrNot)
             {
-                if (ContinueOrNot)
-                {
-                    restauranT.RestaurantOverRide_ChangeRem_InJsonFile(food, number);
-                }
+                restauranT.RestaurantOverRide_ChangeRem_InJsonFile(food, number);
             }
         }
     }

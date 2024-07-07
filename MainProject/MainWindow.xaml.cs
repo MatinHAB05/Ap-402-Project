@@ -28,6 +28,11 @@ namespace MainProject
         public MainWindow()
         {
             InitializeComponent();
+            string jsonString = File.ReadAllText("C:\\Users\\ASUS\\Desktop\\All_Restaurant.json");
+            List<Restaurant> restaurantsJsonData = System.Text.Json.JsonSerializer.Deserialize<List<Restaurant>>(jsonString);
+            RestaurantPanel restaurantPanel = new RestaurantPanel(restaurantsJsonData[0]);
+            this.Close();
+            restaurantPanel.Show();
         }
         
     }

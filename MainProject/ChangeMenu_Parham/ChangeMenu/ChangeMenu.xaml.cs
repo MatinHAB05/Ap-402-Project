@@ -46,7 +46,8 @@ namespace MainProject.ChangeMenu_Parham.ChangeMenu
             Button btn = sender as Button;
             FoodClass food = btn.DataContext as FoodClass;
             ChangeFoodInformation changeFoodInformation = new ChangeFoodInformation(food, restauranT);
-
+            this.Close();
+            changeFoodInformation.Show();
         }
         private void Delete_Food_Button(object sender, RoutedEventArgs e)
         {
