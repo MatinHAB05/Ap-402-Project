@@ -154,8 +154,7 @@ namespace MainProject.Search_Restuant_PageADMIN_Matin
 
         private void Window_Closing(object sender, CancelEventArgs e)
         {
-            //AdminPage Pre = new AdminPage(admin);
-            //Pre.Show();
+            SaveBeforeClose();
         }
 
         private void SEARCH(object sender, RoutedEventArgs e)
@@ -192,9 +191,14 @@ namespace MainProject.Search_Restuant_PageADMIN_Matin
 
         private void BackPage(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            SaveBeforeClose();
             AdminPage back = new AdminPage(admin);
             back.Show();
+            this.Close();
+        }
+        private void SaveBeforeClose()
+        {
+
         }
     }
 }

@@ -103,9 +103,23 @@ namespace MainProject.ProfilePage_Parham.ProfilePage
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
+            SaveBeforeSave();
+        }
+
+        private void BackPage(object sender, RoutedEventArgs e)
+        {
+            SaveBeforeSave();
+            CustomerMainPage back = new CustomerMainPage(CurrentUser);
+            back.Show();
+            this.Close();
+
+        }
+        private void SaveBeforeSave()
+        {
+
             //Saved Edits
-            CurrentUser.Email_Unique=EmailBlock.Text;
-            CurrentUser.Address=AddressBlock.Text;
+            CurrentUser.Email_Unique = EmailBlock.Text;
+            CurrentUser.Address = AddressBlock.Text;
             //CustomerMainPage customerMainPage = new CustomerMainPage(CurrentUser);
             //customerMainPage.Show();
             //end Save
@@ -113,24 +127,16 @@ namespace MainProject.ProfilePage_Parham.ProfilePage
             //Save in Json
             string jsonUser = File.ReadAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\User\All_Users.json");
 
-            List<User> AllUsers =  JsonConvert.DeserializeObject<List<User>>(jsonUser);
-            int i =0;
-            foreach(User u in AllUsers)
+            List<User> AllUsers = JsonConvert.DeserializeObject<List<User>>(jsonUser);
+            int i = 0;
+            foreach (User u in AllUsers)
             {
                 if (u.UserName == CurrentUser.UserName) { break; }
                 i++;
             }
             AllUsers[i] = CurrentUser;
-            string jsonEnd = JsonConvert.SerializeObject(AllUsers,Formatting.Indented);
+            string jsonEnd = JsonConvert.SerializeObject(AllUsers, Formatting.Indented);
             File.WriteAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\User\All_Users.json", jsonEnd);
-        }
-
-        private void BackPage(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-            CustomerMainPage back = new CustomerMainPage(CurrentUser);
-            back.Show();
-
         }
     }
 }

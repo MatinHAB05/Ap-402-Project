@@ -72,6 +72,24 @@ namespace MainProject.Public_Classes
 
 
         }
+        public User cClone()
+        {
+            User user = new User
+            {
+                UserID = this.UserID,
+                Address = this.Address,
+                customerType = this.customerType,
+                Email_Unique = this.Email_Unique,
+                Gender = this.Gender,
+                LastName = this.LastName,
+                Name = this.Name,
+                Phone = this.Phone,
+                PassWord = this.PassWord,
+                UserName = this.UserName
+
+            };
+            return user;
+        }
 
     }
 }

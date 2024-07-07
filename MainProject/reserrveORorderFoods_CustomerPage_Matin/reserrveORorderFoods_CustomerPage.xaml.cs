@@ -96,8 +96,8 @@ namespace MainProject.reserrveORorderFoods_CustomerPage_Matin
         {
             bool HaveImage=true;
             if(food.Image_Path == null || food.Image_Path=="") { HaveImage = false; }
-           Window1 demo = new Window1(food.Image_Path,HaveImage); demo.Show();
-
+           Window1 demo = new Window1(food.Image_Path,HaveImage,this); demo.Show();
+            this.Hide();
 
         }
         private void RemoveFromSelectedFoods(FoodClass food)
@@ -226,7 +226,8 @@ namespace MainProject.reserrveORorderFoods_CustomerPage_Matin
             List<FoodRequest> New = SelectedFoods.Select(f => new FoodRequest
             {
                 FoodID = f.FoodID,
-                RestaurantUserName = CurrentREStaurant.RestaurantName,
+                User_UserName=CurrentUser.UserName,
+                RestaurantUserName = CurrentREStaurant.UserName,
                 RequestType = requestType,
                 RequestID = FoodRequest.GetRANDOM()
             }).ToList();
@@ -278,26 +279,7 @@ namespace MainProject.reserrveORorderFoods_CustomerPage_Matin
 
         private void Window_Closing(object sender, CancelEventArgs e)
         {
-            List<Restaurant> all = JsonConvert.DeserializeObject<List<Restaurant>>(File.ReadAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\Restaurant\All_Restaurant.json"));
-            int d = 0;
-            foreach(Restaurant r in all)
-            {
-                if (r.UserName == CurrentREStaurant.UserName)
-                {
-                    all[d].Menu.Clear();
-                    foreach(Category cat in Categories)
-                    {
-                        all[d].Menu.Add(cat.cClone());
-                    }
-                    break;
-                }
-                    d++;
-            }
-            File.WriteAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\Restaurant\All_Restaurant.json",
-                JsonConvert.SerializeObject(all,Formatting.Indented));
-            //CustomerMainPage customerMainPage = new CustomerMainPage(CurrentUser);
-            //customerMainPage.Show();
-
+            SaveBeforeClose();
         }
 
         private void SendEmail(string emailMabda, string NameSender, string NameReciver, string emailMaghsad, string Subject, string ContentTExt, string passwordEmailMabda)
@@ -327,10 +309,33 @@ namespace MainProject.reserrveORorderFoods_CustomerPage_Matin
 
         private void BackPage(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            SaveBeforeClose();
             CustomerMainPage back = new CustomerMainPage(CurrentUser);
             back.Show();
+            this.Close();
 
+        }
+        private void SaveBeforeClose()
+        {
+            List<Restaurant> all = JsonConvert.DeserializeObject<List<Restaurant>>(File.ReadAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\Restaurant\All_Restaurant.json"));
+            int d = 0;
+            foreach (Restaurant r in all)
+            {
+                if (r.UserName == CurrentREStaurant.UserName)
+                {
+                    all[d].Menu.Clear();
+                    foreach (Category cat in Categories)
+                    {
+                        all[d].Menu.Add(cat.cClone());
+                    }
+                    break;
+                }
+                d++;
+            }
+            File.WriteAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\Restaurant\All_Restaurant.json",
+                JsonConvert.SerializeObject(all, Formatting.Indented));
+            //CustomerMainPage customerMainPage = new CustomerMainPage(CurrentUser);
+            //customerMainPage.Show();
         }
     }
 

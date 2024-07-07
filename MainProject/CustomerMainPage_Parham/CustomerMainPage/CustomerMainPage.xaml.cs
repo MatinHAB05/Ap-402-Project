@@ -160,11 +160,21 @@ namespace MainProject.CustomerMainPage_Parham.CustomerMainPage
 
         private void Logout(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            SaveBeforeClose();
             LoginPage loginPage = new LoginPage();
             loginPage.Show();
+            this.Close();
 
 
+        }
+        private void SaveBeforeClose()
+        {
+
+        }
+
+        private void Window_Closing(object sender, CancelEventArgs e)
+        {
+            SaveBeforeClose();
         }
     }
     public class RelayCommand<T> : ICommand

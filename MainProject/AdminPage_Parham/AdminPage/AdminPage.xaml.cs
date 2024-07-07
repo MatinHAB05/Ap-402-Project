@@ -70,12 +70,18 @@ namespace MainProject.AdminPage_Parham.AdminPage
 
         private void Logout(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            SaveBeforeClose();
             LoginPage loginPage = new LoginPage();
-            loginPage.Show();
+            loginPage.Show();    
+            this.Close();
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            SaveBeforeClose();
+        }
+
+        private void SaveBeforeClose()
         {
 
         }

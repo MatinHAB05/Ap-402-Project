@@ -153,7 +153,7 @@
             "Name": "FName",
             "FoodID": 155,
             "price": 97.0,
-            "Raw_Materials": [],
+            "Raw_Materials": null,
             "xBar": 7.2,
             "RemNumber": 4,
             "comments_IN_ORDER": [
@@ -229,7 +229,7 @@
             "Name": "FName",
             "FoodID": 450,
             "price": 97.0,
-            "Raw_Materials": [],
+            "Raw_Materials": null,
             "xBar": 7.2,
             "RemNumber": 4,
             "comments_IN_ORDER": [

@@ -142,40 +142,7 @@ namespace MainProject.CommentSection_CustomerPanel_Matin
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-
-            //all hich
-
-
-            //food commnet cuuren food
-            List<Restaurant> allres = JsonConvert.DeserializeObject<List<Restaurant>>(File.ReadAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\Restaurant\All_Restaurant.json"));
-            for (int i = 0; i < allres.Count; i++)
-            {
-                if (allres[i].UserName == CurrentRestaurant.UserName)
-                {
-                    for (int j = 0;  j < allres[i].Menu.Count;  j++)
-                    {
-                        if (allres[i].Menu[j].Name == CurrentFood.FoodCategory)
-                        {
-                            for (int k = 0;k < allres[i].Menu[j].Foods.Count; k++)
-                            {
-                                if (allres[i].Menu[j].Foods[k].FoodID == CurrentFood.FoodID)
-                                {
-                                    allres[i].Menu[j].Foods[k].comments_IN_ORDER.Clear();
-                                    allres[i].Menu[j].Foods[k].comments_IN_ORDER = CommentForNow.CAST_CLONE(CommentTree);
-
-                                }
-                                break;
-                            }
-                        }
-                        break;
-                    }
-                }
-                break;
-             }
-            File.WriteAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\Restaurant\All_Restaurant.json",
-                JsonConvert.SerializeObject(allres, Formatting.Indented));
-            //reserrveORorderFoods_CustomerPage reserrveORorderFoods_CustomerPage = new reserrveORorderFoods_CustomerPage(this.CurrentUser,this.CurrentRestaurant);
-            //reserrveORorderFoods_CustomerPage.Show();
+            SaveBeforeClose();
         }
 
         private void REPbbb(object sender, RoutedEventArgs e)
@@ -405,10 +372,49 @@ namespace MainProject.CommentSection_CustomerPanel_Matin
 
         private void BackPage(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            SaveBeforeClose();
             reserrveORorderFoods_CustomerPage reserrveORorderFoods_CustomerPage = new reserrveORorderFoods_CustomerPage(this.CurrentUser, this.CurrentRestaurant);
             reserrveORorderFoods_CustomerPage.Show();
-            MessageBox.Show(CurrentUser.UserName);
+            //MessageBox.Show(CurrentUser.UserName);   
+            this.Close();
+
+        }
+        private void SaveBeforeClose()
+        {
+
+            //all hich
+
+
+            //food commnet cuuren food
+            List<Restaurant> allres = JsonConvert.DeserializeObject<List<Restaurant>>(File.ReadAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\Restaurant\All_Restaurant.json"));
+            for (int i = 0; i < allres.Count; i++)
+            {
+                if (allres[i].UserName == CurrentRestaurant.UserName)
+                {
+                    for (int j = 0; j < allres[i].Menu.Count; j++)
+                    {
+                        if (allres[i].Menu[j].Name == CurrentFood.FoodCategory)
+                        {
+                            for (int k = 0; k < allres[i].Menu[j].Foods.Count; k++)
+                            {
+                                if (allres[i].Menu[j].Foods[k].FoodID == CurrentFood.FoodID)
+                                {
+                                    allres[i].Menu[j].Foods[k].comments_IN_ORDER.Clear();
+                                    allres[i].Menu[j].Foods[k].comments_IN_ORDER = CommentForNow.CAST_CLONE(CommentTree);
+
+                                }
+                                break;
+                            }
+                        }
+                        break;
+                    }
+                }
+                break;
+            }
+            File.WriteAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\Restaurant\All_Restaurant.json",
+                JsonConvert.SerializeObject(allres, Formatting.Indented));
+            //reserrveORorderFoods_CustomerPage reserrveORorderFoods_CustomerPage = new reserrveORorderFoods_CustomerPage(this.CurrentUser,this.CurrentRestaurant);
+            //reserrveORorderFoods_CustomerPage.Show();
         }
     }
 }

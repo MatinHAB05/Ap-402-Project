@@ -157,8 +157,7 @@ namespace MainProject.ReviewAndEditUnreviewedComplaints_Matin
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            //AdminPage Pre = new AdminPage(admin);
-            //Pre.Show();
+            SaveBeforeClose();
         }
         private void ResetEvent(object sender, RoutedEventArgs e)
         {
@@ -171,9 +170,15 @@ namespace MainProject.ReviewAndEditUnreviewedComplaints_Matin
 
         private void BackPage(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            SaveBeforeClose();
             AdminPage back = new AdminPage(admin);  
             back.Show();
+            this.Close();
+
+
+        }
+        private void SaveBeforeClose()
+        {
 
         }
     }

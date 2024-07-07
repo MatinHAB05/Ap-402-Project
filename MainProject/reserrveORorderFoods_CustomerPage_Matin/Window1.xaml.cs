@@ -16,10 +16,11 @@ namespace MainProject.reserrveORorderFoods_CustomerPage_Matin
                 OnPropertyChanged(nameof(pppp));
             }
         }
-
-        public Window1(string path, bool haveImage)
+        public reserrveORorderFoods_CustomerPage Preee {  get; set; }
+        public Window1(string path, bool haveImage,reserrveORorderFoods_CustomerPage Pre)
         {
             InitializeComponent();
+            Preee= Pre;
             if (haveImage)
             {
                 pppp = path;
@@ -36,6 +37,11 @@ namespace MainProject.reserrveORorderFoods_CustomerPage_Matin
         protected void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        private void Window_Closing(object sender, CancelEventArgs e)
+        {
+            this.Preee.Show();
         }
     }
 }

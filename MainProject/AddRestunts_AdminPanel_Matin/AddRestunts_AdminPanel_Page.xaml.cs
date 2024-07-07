@@ -208,8 +208,7 @@ namespace MainProject.AddRestunts_AdminPanel_Matin
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            //AdminPage Pre = new AdminPage(admin);
-            //Pre.Show();
+            SaveBeforeClose();
         }
 
         private List<Restaurant>? GetAllRes(string path)
@@ -227,8 +226,14 @@ namespace MainProject.AddRestunts_AdminPanel_Matin
 
         private void BackPage(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            SaveBeforeClose();
             AdminPage BACK = new AdminPage(admin);
+            this.Close();
+
+        }
+        private void SaveBeforeClose()
+        {
+
         }
     }
 }

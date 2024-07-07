@@ -93,15 +93,20 @@ namespace MainProject.ReviewUNREAD_AdminPanel_Matin
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            //AdminPage Pre = new AdminPage(admin);
-            //Pre.Show();
+           SaveBEforeClose();
         }
 
         private void BackPage(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            SaveBEforeClose();
             AdminPage back = new AdminPage(admin);
             back.Show();
+            this.Close();
+
+        }
+        private void SaveBEforeClose()
+        {
+
         }
     }
 }

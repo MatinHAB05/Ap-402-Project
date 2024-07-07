@@ -71,21 +71,23 @@ namespace MainProject.OrderHistoryPage_Matin
             EditBut.Visibility = Visibility.Visible;
             SaveBut.Visibility = Visibility.Hidden;
             ResetBut.Visibility = Visibility.Hidden;
+            int bro = 0;
             foodRequests = JsonConvert.DeserializeObject<List<FoodRequest>>(File.ReadAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\FoodRequest\All_FoodRequest.json"));
 
-            oriori = new ObservableCollection<OrderHistoryClass_FORNOW>(foodRequests.Select(fr => new OrderHistoryClass_FORNOW
+            oriori = new ObservableCollection<OrderHistoryClass_FORNOW>(foodRequests.Select(fr => { /*MessageBox.Show(bro.ToString());bro++;*/
+                return new OrderHistoryClass_FORNOW
             {
-                ResturauantName=Restaurant.GetFromUserName(fr.RestaurantUserName).RestaurantName ,
-                FullCustomerName = User.GetFIRSTNAMEfromjson(fr.User_UserName) + User.GetLASTNAMEfromjson(fr.User_UserName) ,
-                User_UserName=fr.User_UserName,
-                ReqID=fr.RequestID,
-                RequestType=fr.RequestType,
-                FoodID=fr.FoodID,
-                FoodName = Restaurant.Get_Food_FromFoodID(fr.FoodID, Restaurant.GetFromUserName(fr.RestaurantUserName)).Name ,
+                ResturauantName = Restaurant.GetFromUserName(fr.RestaurantUserName).RestaurantName,
+                FullCustomerName = User.GetFIRSTNAMEfromjson(fr.User_UserName) + User.GetLASTNAMEfromjson(fr.User_UserName),
+                User_UserName = fr.User_UserName,
+                ReqID = fr.RequestID,
+                RequestType = fr.RequestType,
+                FoodID = fr.FoodID,
+                FoodName = Restaurant.Get_Food_FromFoodID(fr.FoodID, Restaurant.GetFromUserName(fr.RestaurantUserName)).Name,
                 price = Restaurant.Get_Food_FromFoodID(fr.FoodID, Restaurant.GetFromUserName(fr.RestaurantUserName)).price,
-                Content="",
-                ReqRATE=""
-                
+                Content = "",
+                ReqRATE = ""
+            };
             }
             )
                 .ToList());
@@ -234,8 +236,7 @@ namespace MainProject.OrderHistoryPage_Matin
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            //CustomerMainPage customerMainPage = new CustomerMainPage(CurrentUser);
-            //customerMainPage.Show();
+            SaveBeforeClose();
         }
 
         private double? IfEmptyReturenNull(string a)
@@ -246,9 +247,15 @@ namespace MainProject.OrderHistoryPage_Matin
 
         private void BackPage(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            SaveBeforeClose();
             CustomerMainPage back = new CustomerMainPage(CurrentUser);
             back.Show();
+            this.Close();
+
+        }
+        private void SaveBeforeClose()
+        {
+
         }
     }
 }
