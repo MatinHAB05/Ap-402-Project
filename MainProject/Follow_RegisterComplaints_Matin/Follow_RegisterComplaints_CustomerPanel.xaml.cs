@@ -25,6 +25,8 @@ namespace MainProject.Follow_RegisterComplaints_Matin
     /// </summary>
     public partial class Follow_RegisterComplaints_CustomerPanel : Window, INotifyCollectionChanged
     {
+        bool Must_OFF;
+
         internal User CurrentUser { get; set; }
         public CustomerMainPage PreviousPage { get; set; }
         private ObservableCollection<complaints_User_FORNOW> _complaints_CurrentUser;
@@ -53,6 +55,7 @@ namespace MainProject.Follow_RegisterComplaints_Matin
         public Follow_RegisterComplaints_CustomerPanel(CustomerMainPage prepage)
         {
             InitializeComponent();
+            Must_OFF = true;
             this.PreviousPage = prepage;
             CurrentUser = prepage.CurrentUser;
 
@@ -118,8 +121,24 @@ namespace MainProject.Follow_RegisterComplaints_Matin
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            CustomerMainPage customerMainPage = new CustomerMainPage(CurrentUser);
-            customerMainPage.Show();
+            SaveBeforeClose();
+           if(Must_OFF) Application.Current.Shutdown();
+
+
+        }
+
+        private void BackPage(object sender, RoutedEventArgs e)
+        {
+            SaveBeforeClose();
+            CustomerMainPage back = new CustomerMainPage(CurrentUser);
+            back.Show();
+            Must_OFF = false;
+            this.Close();
+
+        }
+        private void SaveBeforeClose()
+        {
+
         }
 
         //private void EditEvent(object sender, RoutedEventArgs e)

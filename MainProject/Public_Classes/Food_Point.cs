@@ -1,3 +1,4 @@
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -22,6 +23,19 @@ namespace MainProject.Public_Classes
             this.UserName = UserName;
             this.UserID = UserID;
         } 
+
+        public static Food_Point? FindFoodPointFromJSON(int foodID ,string userNName)
+        {
+            List<Food_Point> All = JsonConvert.DeserializeObject<List<Food_Point>>(File.ReadAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\Points\All_Points.json"));
+            foreach(Food_Point fff in All)
+            {
+                if(fff.FoodID == foodID && fff.UserName==userNName)
+                {
+                    return fff;
+                }
+            }
+            return null;
+        }
 
     }
 }

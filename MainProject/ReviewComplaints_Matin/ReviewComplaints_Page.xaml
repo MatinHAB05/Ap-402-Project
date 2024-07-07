@@ -8,10 +8,21 @@
         Title="ReviewComplaints_Page" Height="750" Width="1200" Background="Black" Closing="Window_Closing">
 
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <ScrollViewer >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Button  Click="BackPage" Grid.Column="0" Grid.Row="0" Background="#123456" HorizontalAlignment="Left" Foreground="DarkBlue" Height="30" Width="70">
+                <Image Source="/matinImages_matin/back.png" />
+            </Button>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <ScrollViewer >
             <Grid Grid.Column="0"  Margin="30,30,30,30" >
                 <DataGrid x:Name="DataGridResault" Margin="5" AutoGenerateColumns="False " IsReadOnly="True">
                     <DataGrid.Columns>
@@ -37,4 +48,6 @@
         </ScrollViewer>
 
     </Grid>
+    </Grid>
+
 </Window>

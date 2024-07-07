@@ -19,6 +19,15 @@
     <Compile Update="ChangeFoodInventory_Parham\ChangeFoodINverntory\ChangeFoodInverntory.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="CommentSection_CustomerPanel_Matin\CommentSection_CustomerPanel.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="LoginForm_Matin\MusicWindowHIDE.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="reserrveORorderFoods_CustomerPage_Matin\Window1.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="ReviewUNREAD_AdminPanel_Matin\ReviewUNREAD_AdminPanel.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -36,7 +45,16 @@
     <Page Update="ChangeFoodInventory_Parham\ChangeFoodINverntory\ChangeFoodInverntory.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="CommentSection_CustomerPanel_Matin\CommentSection_CustomerPanel.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="LoginForm_Matin\MusicWindowHIDE.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="reserrveORorderFoods_CustomerPage_Matin\Window1.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="ReviewUNREAD_AdminPanel_Matin\ReviewUNREAD_AdminPanel.xaml">

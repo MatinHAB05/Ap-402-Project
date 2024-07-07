@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.IO;
 using System.Text.Json;
 
@@ -15,9 +16,13 @@ namespace MainProject.Public_Classes
         public string Content { get; set; }
         public int CommentID {  get; set; }
         public string User_UserName { get; set; }
+      
+      
+        public bool ISedit = false;
+
         public List<FoodComment?>? Reply;
         public FoodComment() { }
-         public FoodComment(string title, string content, int commentID, List<FoodComment?>? reply,string User_UserName) 
+         public FoodComment(string title, string content, int commentID, List<FoodComment>? reply,string User_UserName) 
         {
             Title = title;
             Content = content;
@@ -50,23 +55,23 @@ namespace MainProject.Public_Classes
             }
             CommentID = numberOfFoodComments + 1;
         }
-        //public FoodComment cCloneComment()
-        //{
-        //    FoodComment comment = new FoodComment();
-        //    comment.Title = Title;
-        //    comment.Content = Content;
-        //    comment.CommentID = CommentID;
-        //    comment.User_UserName= User_UserName;
-        //    if (Reply != null)
-        //    {
-        //        comment.Reply = Reply.cCloneComment();
-        //    }
-        //    else
-        //    {
-        //        comment.Reply= null;
-        //    }
-        //    return comment;
-        //}
+        public FoodComment cCloneComment()
+        {
+           FoodComment comment = new FoodComment();
+           comment.Title = Title;
+           comment.Content = Content;
+           comment.CommentID = CommentID;
+           comment.User_UserName= User_UserName;
+           if (Reply != null)
+           {
+               comment.Reply = Reply.cCloneComment();
+           }
+           else
+           {
+               comment.Reply= null;
+           }
+           return comment;
+        }
     }
 
 }

@@ -8,11 +8,18 @@
         mc:Ignorable="d"
         Title="Search_Res_AdminPageForm" Height="824" Width="1500" Background="#FFF5EE" PreviewMouseDown="Window_MouseDown" Closing="Window_Closing" >
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition Width="220" />
-        </Grid.ColumnDefinitions>
-
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Button  Click="BackPage" Grid.Column="0" Grid.Row="0" Background="#123456" HorizontalAlignment="Left" Foreground="DarkBlue" Height="30" Width="70">
+                <Image Source="/matinImages_matin/back.png" />
+            </Button>
+        </Grid>
+        
+        
+        <Grid Grid.Row="1">
         <Grid Grid.Column="1">
             <Border BorderThickness="2" Background="White" BorderBrush="LightGray" Margin="8,10,8,10">
                 <StackPanel Margin="5,5,5,5">
@@ -70,6 +77,6 @@
             </Border>
 
         </ScrollViewer>
-
+        </Grid>
     </Grid>
 </Window> 

@@ -80,7 +80,7 @@ namespace MainProject.Public_Classes
                     j++;
                     break;
                 }
-                i++; ;
+                i++; 
             }
             if(j==1)
             return restaurants[i];

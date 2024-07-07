@@ -22,7 +22,9 @@ using System.Windows.Shapes;
 namespace MainProject.ProfilePage_Parham.ProfilePage
 {
     public partial class ProfilePage : Window , INotifyPropertyChanged
-    {    
+    {
+        bool Must_OFF;
+
         public event PropertyChangedEventHandler? PropertyChanged;
 
         private string _address;
@@ -37,6 +39,7 @@ namespace MainProject.ProfilePage_Parham.ProfilePage
         internal ProfilePage(CustomerMainPage prepage)
         {
             InitializeComponent();
+            Must_OFF = true;
             this.PreviousPage = prepage;
             CurrentUser = prepage.CurrentUser;
             UserName.Text = CurrentUser.UserName;
@@ -103,25 +106,42 @@ namespace MainProject.ProfilePage_Parham.ProfilePage
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
+            SaveBeforeSave();
+           if(Must_OFF) Application.Current.Shutdown();
+
+        }
+
+        private void BackPage(object sender, RoutedEventArgs e)
+        {
+            SaveBeforeSave();
+            CustomerMainPage back = new CustomerMainPage(CurrentUser);
+            back.Show();
+            Must_OFF = false;
+            this.Close();
+
+        }
+        private void SaveBeforeSave()
+        {
+
             //Saved Edits
-            CurrentUser.Email_Unique=EmailBlock.Text;
-            CurrentUser.Address=AddressBlock.Text;
-            CustomerMainPage customerMainPage = new CustomerMainPage(CurrentUser);
-            customerMainPage.Show();
+            CurrentUser.Email_Unique = EmailBlock.Text;
+            CurrentUser.Address = AddressBlock.Text;
+            //CustomerMainPage customerMainPage = new CustomerMainPage(CurrentUser);
+            //customerMainPage.Show();
             //end Save
 
             //Save in Json
             string jsonUser = File.ReadAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\User\All_Users.json");
 
-            List<User> AllUsers =  JsonConvert.DeserializeObject<List<User>>(jsonUser);
-            int i =0;
-            foreach(User u in AllUsers)
+            List<User> AllUsers = JsonConvert.DeserializeObject<List<User>>(jsonUser);
+            int i = 0;
+            foreach (User u in AllUsers)
             {
                 if (u.UserName == CurrentUser.UserName) { break; }
                 i++;
             }
             AllUsers[i] = CurrentUser;
-            string jsonEnd = JsonConvert.SerializeObject(AllUsers,Formatting.Indented);
+            string jsonEnd = JsonConvert.SerializeObject(AllUsers, Formatting.Indented);
             File.WriteAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\User\All_Users.json", jsonEnd);
         }
     }

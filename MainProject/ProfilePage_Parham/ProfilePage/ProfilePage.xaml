@@ -19,6 +19,10 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
+        <Button  Click="BackPage" Grid.Column="0" Grid.Row="0" Background="#123456" HorizontalAlignment="Left" Foreground="DarkBlue" Height="30" Width="70">
+            <Image Source="/matinImages_matin/back.png" />
+        </Button>
+
         <TextBlock Grid.Row="0" Text="Profile Page" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="35"/>
         <TextBlock Grid.Row="1" x:Name="Name" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Width="250" Height="30"/>
         <TextBlock Grid.Row="2" x:Name="LastName" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Width="250" Height="30"/>
@@ -28,9 +32,9 @@
         <TextBox Grid.Row="5" x:Name="EmailEdit" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="MediumPurple" Background="GreenYellow" FontSize="20" Width="150" Height="30" Margin="-450,0,0,0"/>
 
         <TextBlock Grid.Row="6" x:Name="AddressBlock"  Text="{Binding Local_Address , UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Width="250" Height="30"/>
-        <TextBox Grid.Row="6" x:Name="AddressBox" HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="Red" Background="GreenYellow" FontSize="20" Width="150" Height="30" Margin="-450,0,0,0"/>
+        <TextBox Grid.Row="6" x:Name="AddressBox" HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="Red" Background="GreenYellow" FontSize="20" Width="150" Height="30" Margin="-450,0,0,0" ToolTip="New Address"/>
 
-        <TextBlock Grid.Row="7" x:Name="Gender" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Width="250" Height="30"/>
+        <TextBlock Grid.Row="7" x:Name="Gender" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Width="250" Height="30" ToolTip="Address"/>
 
         
         <TextBlock    Grid.Row="8" x:Name="CustomerTypeBlock" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" />

@@ -25,6 +25,8 @@ namespace MainProject.Search_Restuant_PageADMIN_Matin
     /// </summary>
     public partial class Search_Res_AdminPageForm : Window, INotifyPropertyChanged
     {
+        bool Must_OFF;
+
         public ObservableCollection<Resturants_FORNOW> resturants_FORNOWs;
         public ObservableCollection<Resturants_FORNOW> begin;
 
@@ -78,6 +80,7 @@ namespace MainProject.Search_Restuant_PageADMIN_Matin
         public Search_Res_AdminPageForm(Admin admin)
         {
             this.admin = admin;
+            Must_OFF = true;
             InitializeComponent();
             //Data
             restaurants = JsonConvert.DeserializeObject<List<Restaurant>>(File.ReadAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\Restaurant\All_Restaurant.json"));
@@ -154,8 +157,9 @@ namespace MainProject.Search_Restuant_PageADMIN_Matin
 
         private void Window_Closing(object sender, CancelEventArgs e)
         {
-            AdminPage Pre = new AdminPage(admin);
-            Pre.Show();
+            SaveBeforeClose();
+           if(Must_OFF) Application.Current.Shutdown();
+
         }
 
         private void SEARCH(object sender, RoutedEventArgs e)
@@ -187,6 +191,19 @@ namespace MainProject.Search_Restuant_PageADMIN_Matin
 
             //resturants_FORNOWs = demo;
             //MessageBox.Show(resturants_FORNOWs.Count.ToString());
+
+        }
+
+        private void BackPage(object sender, RoutedEventArgs e)
+        {
+            SaveBeforeClose();
+            AdminPage back = new AdminPage(admin);
+            back.Show();
+            Must_OFF = false;
+            this.Close();
+        }
+        private void SaveBeforeClose()
+        {
 
         }
     }

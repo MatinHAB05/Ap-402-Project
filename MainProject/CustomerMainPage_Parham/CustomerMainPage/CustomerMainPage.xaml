@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:MainProject.CustomerMainPage_Parham.CustomerMainPage"
         mc:Ignorable="d"
         Background="LightSkyBlue"
-        Title="CustomerMainPage" Height="450" Width="800">
+        Title="CustomerMainPage" Height="450" Width="800" Closing="Window_Closing">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
@@ -20,6 +20,9 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
+        <Button Content="Log Out" Click="Logout" Grid.Column="0" Grid.Row="0" Background="Red" HorizontalAlignment="Left" Foreground="DarkBlue" Height="30" Width="70"/>
+
+
         <TextBlock Text="Customer Main Page" Grid.ColumnSpan="3" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30"/>
         <Button Grid.Column="0" Grid.Row="1" Background="LightSkyBlue" BorderBrush="LightSkyBlue" Content="Profile" FontSize="15" Width="100" Height="30" Click="GoProfilePage"/>
         <Button Grid.Column="1" Grid.Row="1" Margin="-40,0,0,0" Background="LightSkyBlue" BorderBrush="LightSkyBlue" Content="Order History" FontSize="15" Width="100" Height="40" Click="GotoOrderHistoy"/>
@@ -32,7 +35,7 @@
                 <DataGridTemplateColumn Header="Restaurants">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Content="{Binding RestaurantName}" Click="Button_Click"/>
+                            <Button Content="{Binding RestaurantName}" Command="{Binding DataContext.ButtonCommand, RelativeSource={RelativeSource AncestorType=Window}}" CommandParameter="{Binding}" />
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>

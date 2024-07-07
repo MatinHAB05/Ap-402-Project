@@ -24,6 +24,8 @@ namespace MainProject.ReviewComplaints_Matin
     /// </summary>
     public partial class ReviewComplaints_Page : Window
     {
+        bool Must_OFF;
+
         public ObservableCollection<complaints_User_FORNOW> comes { get; set; }
 
         public Admin admin {  get; set; }
@@ -66,6 +68,7 @@ namespace MainProject.ReviewComplaints_Matin
         public ReviewComplaints_Page(Admin admin)
         {
             InitializeComponent();
+            Must_OFF = true;
             this.admin = admin;
             this.DataContext = this;
             //For Now 
@@ -91,8 +94,23 @@ namespace MainProject.ReviewComplaints_Matin
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            AdminPage Pre = new AdminPage(admin);
-            Pre.Show();
+            SaveBeforeClose();
+          if(Must_OFF)  Application.Current.Shutdown();
+
+        }
+
+        private void BackPage(object sender, RoutedEventArgs e)
+        {
+            SaveBeforeClose();
+            AdminPage back =new AdminPage(admin);
+            back.Show();
+            Must_OFF = false;
+            this.Close();
+
+        }
+        private void SaveBeforeClose()
+        {
+
         }
     }
 }

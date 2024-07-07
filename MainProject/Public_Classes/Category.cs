@@ -16,5 +16,17 @@ namespace MainProject.Public_Classes
             Name = name;
             Foods = foods;
         }
+        public Category cClone()
+        {
+            Category c = new Category();
+            c.Foods = new List<FoodClass>();
+            c.Name = Name;
+            foreach (FoodClass food in Foods)
+            {
+                c.Foods.Add(food.cClone());
+
+            }
+            return c;
+        }
     }
 }

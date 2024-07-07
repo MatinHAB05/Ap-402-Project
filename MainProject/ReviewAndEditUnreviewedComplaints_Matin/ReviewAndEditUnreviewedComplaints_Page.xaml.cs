@@ -26,6 +26,8 @@ namespace MainProject.ReviewAndEditUnreviewedComplaints_Matin
     /// </summary>
     public partial class ReviewAndEditUnreviewedComplaints_Page : Window
     {
+        bool Must_OFF;
+
         public Admin admin { get; set; }
         public List<complaints_User_FORNOW> comes { get; set; }
 
@@ -75,6 +77,7 @@ namespace MainProject.ReviewAndEditUnreviewedComplaints_Matin
         public ReviewAndEditUnreviewedComplaints_Page(Admin admin)
         {
             InitializeComponent();
+            Must_OFF = true;
             this.admin = admin;
             this.DataContext = this;
             EditBut.Visibility = Visibility.Visible;
@@ -157,8 +160,9 @@ namespace MainProject.ReviewAndEditUnreviewedComplaints_Matin
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            AdminPage Pre = new AdminPage(admin);
-            Pre.Show();
+            SaveBeforeClose();
+           if(Must_OFF) Application.Current.Shutdown();
+
         }
         private void ResetEvent(object sender, RoutedEventArgs e)
         {
@@ -166,6 +170,21 @@ namespace MainProject.ReviewAndEditUnreviewedComplaints_Matin
             foreach (complaints_User_FORNOW a in old) {  comes.Add(a.cClone()); }
             DataGridResault.ItemsSource = comes.Where(cm => cm.IsChecked == false).ToList(); ;
 
+
+        }
+
+        private void BackPage(object sender, RoutedEventArgs e)
+        {
+            SaveBeforeClose();
+            AdminPage back = new AdminPage(admin);  
+            back.Show();
+            Must_OFF = false;
+            this.Close();
+
+
+        }
+        private void SaveBeforeClose()
+        {
 
         }
     }

@@ -26,6 +26,8 @@ namespace MainProject.Search_complaints_PageADMIN_Matin
     /// </summary>
     public partial class Search_complaints_AdminPageForm : Window, INotifyPropertyChanged
     {
+        bool Must_OFF;
+
         public ObservableCollection<complaints_User_FORNOW> begin {  get; set; }
         public ObservableCollection<complaints_User_FORNOW> comes { get; set; }
 
@@ -84,6 +86,7 @@ namespace MainProject.Search_complaints_PageADMIN_Matin
         public Search_complaints_AdminPageForm(Admin admin)
         {
             InitializeComponent();
+            Must_OFF = true;
             this.admin = admin;
             this.DataContext = this;
             radioButton3.IsChecked = true;
@@ -219,8 +222,23 @@ namespace MainProject.Search_complaints_PageADMIN_Matin
         }
         private void Window_Closing(object sender, CancelEventArgs e)
          {
-        AdminPage Pre = new AdminPage(admin);
-        Pre.Show();
+                SaveBeforeClose();
+        if(Must_OFF)   Application.Current.Shutdown();
+
+        }
+
+        private void BackPage(object sender, RoutedEventArgs e)
+        {
+            SaveBeforeClose();
+            AdminPage back = new AdminPage(admin);
+            back.Show();
+            Must_OFF = false;
+            this.Close();
+
+        }
+        private void SaveBeforeClose()
+        {
+
         }
     }
 }

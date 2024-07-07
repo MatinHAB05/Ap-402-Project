@@ -53,7 +53,7 @@ namespace MainProject.ChangeMenu_Parham.ChangeMenu
         {
             Button btn = sender as Button;
             FoodClass food = btn.DataContext as FoodClass;
-            restauranT.RestaurantOverRide_DeletFood_InJsonFile(food);
+            //restauranT.RestaurantOverRide_DeletFood_InJsonFile(food);
             MessageBox.Show("the food is deleted", "Done", MessageBoxButton.OK, MessageBoxImage.Information);
 
         }
