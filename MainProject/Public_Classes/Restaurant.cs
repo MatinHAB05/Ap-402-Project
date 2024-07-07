@@ -139,36 +139,45 @@ namespace MainProject.Public_Classes
             }
             string jsonString = File.ReadAllText("C:\\Users\\ASUS\\Desktop\\All_Restaurant.json");
             List<Restaurant> restaurantsJsonData = System.Text.Json.JsonSerializer.Deserialize<List<Restaurant>>(jsonString);
-            foreach (Restaurant r in restaurantsJsonData)
+            List<Restaurant> restaurantsExceptOurs = restaurantsJsonData.Where(x => x.RestaurantName != this.RestaurantName).ToList();
+            List<Restaurant> OurRestaurant = restaurantsJsonData.Where(x => x.RestaurantName == this.RestaurantName && x.UserName == this.UserName).ToList();
+            if (OurRestaurant[0].Menu != null)
             {
-                if (r.RestaurantName == this.RestaurantName)
+                bool HappendOrNot = true;
+                foreach (Category c in OurRestaurant[0].Menu)
                 {
-                    if (r.Menu != null)
+                    if (c.Name == category.Name)
                     {
-                        MessageBox.Show("yes", "yes", MessageBoxButton.YesNo, MessageBoxImage.Question);
-                        foreach (Category c in r.Menu)
-                        {
-                            if (c.Name == category.Name)
-                            {
-                                c.Foods.Add(food);
-                            }
-                        }
+                        c.Foods.Add(food);
+                        HappendOrNot = false;
                     }
-                    else
+                }
+                if (HappendOrNot)
+                {
+                    bool happendeOrNot2 = true;
+                    List<FoodClass> foods = new List<FoodClass>();
+                    OurRestaurant[0].Menu.Add(new Category(category.Name, foods));
+                    foreach (Category c in OurRestaurant[0].Menu)
                     {
-                        bool happendeOrNot = true;
-                        r.Menu = new List<Category>();
-                        List<FoodClass> foods = new List<FoodClass>();
-                        r.Menu.Add(new Category(category.Name, foods));
-                        foreach (Category c in r.Menu)
-                        {
-                            c.Foods.Add(food);
-                            happendeOrNot = false;
-                        }
+                        c.Foods.Add(food);
+                        happendeOrNot2 = false;
                     }
                 }
             }
-            jsonString = System.Text.Json.JsonSerializer.Serialize(restaurantsJsonData, new JsonSerializerOptions
+            else
+            {
+                bool happendeOrNot = true;
+                OurRestaurant[0].Menu = new List<Category>();
+                List<FoodClass> foods = new List<FoodClass>();
+                OurRestaurant[0].Menu.Add(new Category(category.Name, foods));
+                foreach (Category c in OurRestaurant[0].Menu)
+                {
+                    c.Foods.Add(food);
+                    happendeOrNot = false;
+                }
+            }
+            restaurantsExceptOurs.AddRange(OurRestaurant);
+            jsonString = System.Text.Json.JsonSerializer.Serialize(restaurantsExceptOurs, new JsonSerializerOptions
             {
                 WriteIndented = true
             });
@@ -188,24 +197,20 @@ namespace MainProject.Public_Classes
             }
             string jsonString = File.ReadAllText("C:\\Users\\ASUS\\Desktop\\All_Restaurant.json");
             List<Restaurant> restaurantsJsonData = System.Text.Json.JsonSerializer.Deserialize<List<Restaurant>>(jsonString);
-            foreach (Restaurant r in restaurantsJsonData)
+            List<Restaurant> restaurantsExceptOurs = restaurantsJsonData.Where(x => x.RestaurantName != this.RestaurantName).ToList();
+            List<Restaurant> OurRestaurant = restaurantsJsonData.Where(x => x.RestaurantName == this.RestaurantName && x.UserName == this.UserName).ToList();
+            foreach (Category c in OurRestaurant[0].Menu)
             {
-                if (r.RestaurantName == this.RestaurantName)
+                for (int i = 0; i < c.Foods.Count; i++)
                 {
-                    foreach (Category c in r.Menu)
+                    if ((c.Foods[i].Name == food.Name) && (c.Foods[i].price == food.price))
                     {
-                        for (int i = 0; i < c.Foods.Count; i++)
-                        {
-                            if ((c.Foods[i].Name == food.Name) && (c.Foods[i].price == food.price))
-                            {
-                                MessageBox.Show("yes", "yes", MessageBoxButton.YesNo, MessageBoxImage.Question);
-                                c.Foods.Remove(c.Foods[i]);
-                            }
-                        }
+                        c.Foods.Remove(c.Foods[i]);
                     }
                 }
             }
-            jsonString = System.Text.Json.JsonSerializer.Serialize(restaurantsJsonData, new JsonSerializerOptions
+            restaurantsExceptOurs.AddRange(OurRestaurant);
+            jsonString = System.Text.Json.JsonSerializer.Serialize(restaurantsExceptOurs, new JsonSerializerOptions
             {
                 WriteIndented = true
             });
@@ -225,23 +230,20 @@ namespace MainProject.Public_Classes
             }
             string jsonString = File.ReadAllText("C:\\Users\\ASUS\\Desktop\\All_Restaurant.json");
             List<Restaurant> restaurantsJsonData = System.Text.Json.JsonSerializer.Deserialize<List<Restaurant>>(jsonString);
-            foreach (Restaurant r in restaurantsJsonData)
+            List<Restaurant> restaurantsExceptOurs = restaurantsJsonData.Where(x => x.RestaurantName != this.RestaurantName).ToList();
+            List<Restaurant> OurRestaurant = restaurantsJsonData.Where(x => x.RestaurantName == this.RestaurantName && x.UserName == this.UserName).ToList();
+            foreach (Category c in OurRestaurant[0].Menu)
             {
-                if (r.RestaurantName == this.RestaurantName)
+                for (int i = 0; i < c.Foods.Count; i++)
                 {
-                    foreach (Category c in r.Menu)
+                    if ((c.Foods[i].Name == food.Name) && (c.Foods[i].price == food.price))
                     {
-                        for (int i = 0; i < c.Foods.Count; i++)
-                        {
-                            if ((c.Foods[i].Name == food.Name) && (c.Foods[i].price == food.price))
-                            {
-                                c.Foods[i].RemNumber = Remaining;
-                            }
-                        }
+                        c.Foods[i].RemNumber = Remaining;
                     }
                 }
             }
-            jsonString = System.Text.Json.JsonSerializer.Serialize(restaurantsJsonData, new JsonSerializerOptions
+            restaurantsExceptOurs.AddRange(OurRestaurant);
+            jsonString = System.Text.Json.JsonSerializer.Serialize(restaurantsExceptOurs, new JsonSerializerOptions
             {
                 WriteIndented = true
             });
@@ -251,14 +253,11 @@ namespace MainProject.Public_Classes
         {
             string jsonString = File.ReadAllText("C:\\Users\\ASUS\\Desktop\\All_Restaurant.json");
             List<Restaurant> restaurantsJsonData = System.Text.Json.JsonSerializer.Deserialize<List<Restaurant>>(jsonString);
-            foreach (Restaurant r in restaurantsJsonData)
-            {
-                if (r.RestaurantName == this.RestaurantName)
-                {
-                    r.IsCanReserve = !r.IsCanReserve;
-                }
-            }
-            jsonString = System.Text.Json.JsonSerializer.Serialize(restaurantsJsonData, new JsonSerializerOptions
+            List<Restaurant> restaurantsExceptOurs = restaurantsJsonData.Where(x => x.RestaurantName != this.RestaurantName).ToList();
+            List<Restaurant> OurRestaurant = restaurantsJsonData.Where(x => x.RestaurantName == this.RestaurantName && x.UserName == this.UserName).ToList();
+            OurRestaurant[0].IsCanReserve = !OurRestaurant[0].IsCanReserve;
+            restaurantsExceptOurs.AddRange(OurRestaurant);
+            jsonString = System.Text.Json.JsonSerializer.Serialize(restaurantsExceptOurs, new JsonSerializerOptions
             {
                 WriteIndented = true
             });
