@@ -164,7 +164,7 @@ namespace MainProject.CommentSection_CustomerPanel_Matin
                     CCC.Title= TitleComment.Text.Trim();
                     CCC.Reply = null;
                     CCC.Content= ContentComment.Text.Trim();
-                    //forNow.CommnetID=METHOD;
+                    CCC.CommentID = FoodComment.CommentIDgenerator_matin() ;
                     CCC.ISedit = false;
                     CCC.User_UserName = CurrentUser.UserName;
                     //CCC.TitleUI = $"UserName : {SelectedComment.userName} *** Title : {SelectedComment.Title}";
@@ -312,7 +312,7 @@ namespace MainProject.CommentSection_CustomerPanel_Matin
                     CCC.Title = TitleComment.Text.Trim();
                     CCC.Reply = new List<FoodComment?>();
                     CCC.Content = ContentComment.Text.Trim();
-                    //forNow.CommnetID=METHOD;
+                      CCC.CommentID = FoodComment.CommentIDgenerator_matin();
                     CCC.ISedit = false;
                     CCC.User_UserName = CurrentUser.UserName;
                     //CCC.TitleUI = $"UserName : {SelectedComment.userName} *** Title : {SelectedComment.Title}";

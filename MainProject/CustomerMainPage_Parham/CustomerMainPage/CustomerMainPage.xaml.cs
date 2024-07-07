@@ -91,39 +91,79 @@ namespace MainProject.CustomerMainPage_Parham.CustomerMainPage
             }
             if (TYPEstatus.Text == "Delivery-In") Filter_receptionType = ReceptionType.Delivery;
             else if (TYPEstatus.Text == "Dine-In") Filter_receptionType = ReceptionType.Dine_In;
+            else if (TYPEstatus.Text == "Both") Filter_receptionType = ReceptionType.Both;
             else { MessageBox.Show("UnKnown Reception Type!","Error", MessageBoxButton.OK, MessageBoxImage.Error); return; }
 
-            if (city == "" && name == "")
+            if (Filter_receptionType != ReceptionType.Both)
             {
-                SearchList.ItemsSource = restaurants.Select(res => { res.Calculate(); return res; })
-                    .Where(res => (res.Rating >= rate) &&(res.receptionType== Filter_receptionType) )
-                    .ToList<Restaurant>();
-
-
-            }
-            else
-            {
-                if (name == "")
+                if (city == "" && name == "")
                 {
                     SearchList.ItemsSource = restaurants.Select(res => { res.Calculate(); return res; })
-                       .Where(res => (res.Rating >= rate) && (res.CityName.Contains(city) == true) && (res.receptionType == Filter_receptionType))
-                       .ToList<Restaurant>();
+                        .Where(res => (res.Rating >= rate) && (res.receptionType == Filter_receptionType))
+                        .ToList<Restaurant>();
 
-
-
-                }
-                else if (city == "")
-                {
-                    SearchList.ItemsSource = restaurants.Select(res => { res.Calculate(); return res; })
-                                                 .Where(res => (res.Rating >= rate) && (res.RestaurantName.Contains(name) == true) && (res.receptionType == Filter_receptionType))
-                                                 .ToList<Restaurant>();
 
                 }
                 else
                 {
+                    if (name == "")
+                    {
+                        SearchList.ItemsSource = restaurants.Select(res => { res.Calculate(); return res; })
+                           .Where(res => (res.Rating >= rate) && (res.CityName.Contains(city) == true) && (res.receptionType == Filter_receptionType))
+                           .ToList<Restaurant>();
+
+
+
+                    }
+                    else if (city == "")
+                    {
+                        SearchList.ItemsSource = restaurants.Select(res => { res.Calculate(); return res; })
+                                                     .Where(res => (res.Rating >= rate) && (res.RestaurantName.Contains(name) == true) && (res.receptionType == Filter_receptionType))
+                                                     .ToList<Restaurant>();
+
+                    }
+                    else
+                    {
+                        SearchList.ItemsSource = restaurants.Select(res => { res.Calculate(); return res; })
+                                 .Where(res => (res.Rating >= rate) && (res.RestaurantName.Contains(name) == true) && (res.CityName.Contains(city) == true) && (res.receptionType == Filter_receptionType))
+                                 .ToList<Restaurant>();
+                    }
+                }
+            }
+            else
+            {
+                if (city == "" && name == "")
+                {
                     SearchList.ItemsSource = restaurants.Select(res => { res.Calculate(); return res; })
-                             .Where(res => (res.Rating >= rate) && (res.RestaurantName.Contains(name) == true) && (res.CityName.Contains(city)==true) && (res.receptionType == Filter_receptionType))
-                             .ToList<Restaurant>();
+                        .Where(res => (res.Rating >= rate) )
+                        .ToList<Restaurant>();
+
+
+                }
+                else
+                {
+                    if (name == "")
+                    {
+                        SearchList.ItemsSource = restaurants.Select(res => { res.Calculate(); return res; })
+                           .Where(res => (res.Rating >= rate) && (res.CityName.Contains(city) == true))
+                           .ToList<Restaurant>();
+
+
+
+                    }
+                    else if (city == "")
+                    {
+                        SearchList.ItemsSource = restaurants.Select(res => { res.Calculate(); return res; })
+                                                     .Where(res => (res.Rating >= rate) && (res.RestaurantName.Contains(name) == true))
+                                                     .ToList<Restaurant>();
+
+                    }
+                    else
+                    {
+                        SearchList.ItemsSource = restaurants.Select(res => { res.Calculate(); return res; })
+                                 .Where(res => (res.Rating >= rate) && (res.RestaurantName.Contains(name) == true) && (res.CityName.Contains(city) == true))
+                                 .ToList<Restaurant>();
+                    }
                 }
             }
 
@@ -139,6 +179,12 @@ namespace MainProject.CustomerMainPage_Parham.CustomerMainPage
         {
             TYPEstatus.Text = "Delivery-In";
             TYPEstatus.FontSize = 8;
+
+        }
+        private void BothTYPE(object sender, RoutedEventArgs e)
+        {
+            TYPEstatus.Text = "Both";
+            TYPEstatus.FontSize = 10;
 
         }
 
@@ -190,6 +236,8 @@ namespace MainProject.CustomerMainPage_Parham.CustomerMainPage
            if(Must_OFF) Application.Current.Shutdown();
 
         }
+
+
     }
     public class RelayCommand<T> : ICommand
     {

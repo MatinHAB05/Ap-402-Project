@@ -9,6 +9,7 @@ using MailKit.Net.Smtp;
 using Newtonsoft.Json;
 using System.IO;
 using MainProject.CommentSection_CustomerPanel_Matin;
+using System.Windows.Controls;
 
 namespace MainProject.reserrveORorderFoods_CustomerPage_Matin
 {
@@ -51,8 +52,13 @@ namespace MainProject.reserrveORorderFoods_CustomerPage_Matin
             MainListView.Visibility = Visibility.Hidden;
             CurrentUser = CurUser;
             CurrentREStaurant= CurRes;
-            //if(resturants has OK)
-            //radioButton1.Visibility = Visibility.Hidden;
+            CurrentREStaurant.Calculate();
+            if (CurrentREStaurant.Rating < 4.5)
+            {
+                CurrentREStaurant.IsCanReserve = false;
+            }
+            if (!CurrentREStaurant.IsCanReserve) reserve.Visibility = Visibility.Hidden;
+
             Categories = new ObservableCollection<Category>( CurRes.Menu);
 
             SelectedFoods = new ObservableCollection<FoodClass>();
