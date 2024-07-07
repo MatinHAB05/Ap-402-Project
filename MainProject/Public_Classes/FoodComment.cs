@@ -57,20 +57,32 @@ namespace MainProject.Public_Classes
         }
         public FoodComment cCloneComment()
         {
-           FoodComment comment = new FoodComment();
-           comment.Title = Title;
-           comment.Content = Content;
-           comment.CommentID = CommentID;
-           comment.User_UserName= User_UserName;
-           if (Reply != null)
-           {
-               comment.Reply = Reply.cCloneComment();
-           }
-           else
-           {
-               comment.Reply= null;
-           }
-           return comment;
+
+            FoodComment comment = new FoodComment();
+            comment.Title = this.Title;
+            comment.Content = this.Content;
+            comment.CommentID = this.CommentID;
+            comment.User_UserName = this.User_UserName;
+            if (this.Reply != null)
+            {
+                comment.Reply = new List<FoodComment?>();
+                //MessageBox.Show("3333");
+                foreach (FoodComment r in this.Reply)
+                {
+                    comment.Reply.Add(r.cCloneComment());
+
+                }
+            }
+            else
+            {
+                //MessageBox.Show("asdad");
+
+                comment.Reply = null;
+            }
+            //MessageBox.Show("sss");
+            //MessageBox.Show ( (comment==null).ToString() );
+            return comment;
+
         }
     }
 

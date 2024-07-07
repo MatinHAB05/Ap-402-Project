@@ -17,11 +17,16 @@
                 <Image Source="/matinImages_matin/back.png" />
             </Button>
         </Grid>
-        
-        
+
+
         <Grid Grid.Row="1">
-        <Grid Grid.Column="1">
-            <Border BorderThickness="2" Background="White" BorderBrush="LightGray" Margin="8,10,8,10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="220" />
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="1">
+
+                <Border BorderThickness="2" Background="White" BorderBrush="LightGray" Margin="8,10,8,10">
                 <StackPanel Margin="5,5,5,5">
                     <StackPanel Orientation="Horizontal">
                         <Label Content="Filters" FontSize="20" Foreground="Black"  VerticalAlignment="Center" HorizontalAlignment="Left"/>
@@ -60,23 +65,25 @@
 
 
         </Grid>
-        <ScrollViewer >
-            <Border BorderThickness="2" Background="White" BorderBrush="LightGray" Margin="8,10,8,10">
+            <Grid Grid.Column="0">
+                <ScrollViewer >
+                    <Border BorderThickness="2" Background="White" BorderBrush="LightGray" Margin="8,10,8,10">
 
-                <Grid Grid.Column="0"  Margin="8,10,8,10">
-                    <DataGrid ItemsSource="{Binding resturants_FORNOWs}" x:Name="DataGridResault" IsReadOnly="True" AutoGenerateColumns="False">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Header="Name" Binding="{Binding name}"/>
-                            <DataGridTextColumn Header="City" Binding="{Binding city}"/>
-                            <DataGridTextColumn Header="Checked" Binding="{Binding N_Complaints}"/>
-                            <DataGridTextColumn Header="Not Checked" Binding="{Binding N_NotComplaints}"/>
-                            <DataGridTextColumn Header="Point" Binding="{Binding point}"/>
-                        </DataGrid.Columns>
-                    </DataGrid>
-                </Grid>
-            </Border>
+                        <Grid Grid.Column="0"  Margin="8,10,8,10">
+                            <DataGrid ItemsSource="{Binding resturants_FORNOWs}" x:Name="DataGridResault" IsReadOnly="True" AutoGenerateColumns="False">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="Name" Binding="{Binding name}"/>
+                                    <DataGridTextColumn Header="City" Binding="{Binding city}"/>
+                                    <DataGridTextColumn Header="Checked" Binding="{Binding N_Complaints}"/>
+                                    <DataGridTextColumn Header="Not Checked" Binding="{Binding N_NotComplaints}"/>
+                                    <DataGridTextColumn Header="Point" Binding="{Binding point}"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </Grid>
+                    </Border>
 
-        </ScrollViewer>
+                </ScrollViewer>
+            </Grid>
         </Grid>
     </Grid>
 </Window> 

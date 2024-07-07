@@ -58,5 +58,17 @@
     "Phone": "09999666333",
     "Address": null,
     "Gender": 0
+  },
+  {
+    "customerType": 2,
+    "UserName": "azaz",
+    "UserID": 0,
+    "Name": "azaz",
+    "LastName": "azazzzz",
+    "Email_Unique": "alijasemi2112@gmail.com",
+    "PassWord": "Paspas123",
+    "Phone": "09145236987",
+    "Address": "",
+    "Gender": 0
   }
 ]

@@ -241,7 +241,7 @@ namespace MainProject.reserrveORorderFoods_CustomerPage_Matin
                 JsonConvert.SerializeObject(all,Formatting.Indented));
             //end save in File***
 
-
+            MessageBox.Show(New.Count().ToString());
             if (requestType == RequestType.Online_Order || requestType == RequestType.Online_Reserve) 
             {
 

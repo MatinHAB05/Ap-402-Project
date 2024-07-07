@@ -43,14 +43,13 @@
 
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="44*"/>
-                <ColumnDefinition Width="705*"/>
-                <ColumnDefinition Width="301*"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="20"/>
+
             </Grid.ColumnDefinitions>
 
-
-
-            <TreeView x:Name="CommentTreeView" SelectedItemChanged="CommentTreeView_SelectedItemChanged" Grid.ColumnSpan="3" >
+            <Grid Grid.Column="0">
+                <TreeView x:Name="CommentTreeView" SelectedItemChanged="CommentTreeView_SelectedItemChanged" Grid.ColumnSpan="3" >
                 <TreeView.Resources>
                     <HierarchicalDataTemplate DataType="{x:Type local:CommentForNow}" ItemsSource="{Binding Reply}">
                         <StackPanel Orientation="Horizontal">
@@ -68,7 +67,10 @@
             </TreeView>
 
 
-
+            </Grid>
+            <Grid Grid.Column="1">
+                <ScrollViewer />
+            </Grid>
 
 
         </Grid>

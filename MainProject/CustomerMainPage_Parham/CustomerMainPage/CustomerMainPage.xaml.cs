@@ -66,6 +66,7 @@ namespace MainProject.CustomerMainPage_Parham.CustomerMainPage
             Nametxt.Text = "enter Name";
             Citytxt.Text = "enter City";
             Ratetxt.Text = "enter how many rating";
+            SearchList.ItemsSource = SearchList.ItemsSource = restaurants.Select(res => { res.Calculate(); return res; });
             XClear.Focus();
         }
         private void SearchAllFilter(object sender, RoutedEventArgs e)
