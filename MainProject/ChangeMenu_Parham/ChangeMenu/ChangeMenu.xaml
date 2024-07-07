@@ -19,7 +19,7 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <TextBlock Grid.ColumnSpan="3" Grid.Row="0" Grid.Column="0" Text="Change Restaurant menu" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30"/>
-        <DataGrid x:Name="Menu" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2" Grid.Column="0" Background="LightSkyBlue" AutoGenerateColumns="False">
+        <DataGrid x:Name="Menu" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2" Grid.Column="0" Background="LightSkyBlue" AutoGenerateColumns="False" CanUserAddRows="False">
             <DataGrid.Columns>
                 <DataGridTemplateColumn Header="Foods" Width="250">
                     <DataGridTemplateColumn.CellTemplate>
@@ -47,5 +47,8 @@
         <Image Grid.Column="2" Grid.Row="0" Margin="-100,0,0,0" Source="/ChangeMenu_Parham/Images/menu-symbol.jpg" Stretch="Fill" Width="40" Height="40"/>
         <Image Grid.Column="0" Grid.Row="0" Margin="100,0,0,0" Source="/ChangeMenu_Parham/Images/menu-symbol.jpg" Stretch="Fill" Width="40" Height="40"/>
         <Button Grid.Row="1" Grid.Column="2" Content="Add a food" VerticalAlignment="Center" HorizontalAlignment="Center" Width="150" Height="40" Click="Add_A_Food_Button"/>
+        <Button  Click="BackPage" Grid.Column="0" Grid.Row="0" Background="#123456" HorizontalAlignment="Left" Foreground="DarkBlue" Height="30" Width="70">
+            <Image Source="/matinImages_matin/back.png" />
+        </Button>
     </Grid>
 </Window>

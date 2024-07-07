@@ -32,28 +32,14 @@ namespace MainProject.Public_Classes
         }
         public FoodComment(string title, string content, List<FoodComment?>? reply, string User_UserName)
         {
-            Title = title;
-            Content = content;
-            Reply = reply;
+            this.Title = title;
+            this.Content = content;
+            this.Reply = reply;
             this.User_UserName = User_UserName;
-            string json = File.ReadAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\Restaurant\All_Restaurant.json");
+            string json = File.ReadAllText("C:\\Users\\ASUS\\Desktop\\All_Restaurant.json");
             List<Restaurant> restaurants = JsonConvert.DeserializeObject<List<Restaurant>>(json);
             int numberOfFoodComments = 0;
-            foreach (Restaurant re in restaurants)
-            {
-                foreach (Category category in re.Menu)
-                {
-                    foreach (FoodClass food in category.Foods)
-                    {
-                        foreach(FoodComment fc in food.comments_IN_ORDER)
-                        {
-                            numberOfFoodComments += fc.Reply.Count();
-                            numberOfFoodComments += 1;
-                        }
-                    }
-                }
-            }
-            CommentID = numberOfFoodComments + 1;
+            this.CommentID = 572;
         }
         public FoodComment cCloneComment()
         {

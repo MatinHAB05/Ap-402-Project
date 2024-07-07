@@ -52,16 +52,21 @@ namespace MainProject.RestaurantPanel_Parham.RestaurantPanel
         {
             if(restauranT.Rating >= 4.5)
             {
-                //restauranT.ActiveReservatio();
+                restauranT.ActiveReservation();
             }
             else
             {
                 MessageBox.Show("Your rating is under 4.5.", "Rating Notification", MessageBoxButton.OK, MessageBoxImage.Information);
             }
+            MessageBox.Show("reservation status changed","successfully changed",MessageBoxButton.OK, MessageBoxImage.Information);
         }
         private void Order_and_reservation_history(object sender, RoutedEventArgs e)
         {
 
+        }
+        private void BackPage(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }

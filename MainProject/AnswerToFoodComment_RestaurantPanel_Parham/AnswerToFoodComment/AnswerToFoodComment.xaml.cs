@@ -15,6 +15,8 @@ using MainProject.Public_Classes;
 using Newtonsoft.Json;
 using System.IO;
 using System.Text.Json;
+using MainProject.ChangeFoodInformation_Parham.ChangeFoodInformation;
+using MainProject.ChangeMenu_Parham.ChangeMenu;
 
 namespace MainProject.AnswerToFoodComment_RestaurantPanel_Parham.AnswerToFoodComment
 {
@@ -22,41 +24,65 @@ namespace MainProject.AnswerToFoodComment_RestaurantPanel_Parham.AnswerToFoodCom
     {
         FoodComment food_Comment;
         Restaurant restauranT;
-        public AnswerToFoodComment(Restaurant restaurant, FoodComment foodComment)
+        FoodClass fooD;
+        public AnswerToFoodComment(Restaurant restaurant, FoodComment foodComment, FoodClass food)
         {
+            InitializeComponent();
+            fooD = food;
             this.food_Comment = foodComment;
             this.restauranT = restaurant;   
             UserTitle.Text = foodComment.Title;
             UserText.Text = foodComment.Content;
-            AnswerFormIntro.Text = "Answering" + foodComment.User_UserName + "Comment";
-            InitializeComponent();
+            AnswerFormIntro.Text = "Answering " + foodComment.User_UserName + " Comment";
+
         }
         private void Answer_Completed(object sender, RoutedEventArgs e)
         {
-            FoodComment? foodComment = new FoodComment(food_Comment.Title + "Reply", AnswerText.Text, null, restauranT.UserName);
-            string json = File.ReadAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\Restaurant\All_Restaurant.json");
+            FoodComment foodComment = new FoodComment(food_Comment.Title + " Reply", AnswerText.Text, null, restauranT.UserName);
+            MessageBox.Show(AnswerText.Text + " Reply", "hai", MessageBoxButton.OK, MessageBoxImage.Error);
+            string json = File.ReadAllText("C:\\Users\\ASUS\\Desktop\\All_Restaurant.json");
             List<Restaurant> restaurants = JsonConvert.DeserializeObject<List<Restaurant>>(json);
             List<Restaurant> restaurantsExceptOurs = restaurants.Where(x => x.RestaurantName != restauranT.RestaurantName).ToList();
             List<Restaurant> OurRestaurant = restaurants.Where(x => x.RestaurantName == restauranT.RestaurantName && x.UserName == restauranT.UserName).ToList();
+
             foreach(Category c in OurRestaurant[0].Menu)
             {
                 foreach(FoodClass f in c.Foods)
                 {
-                    foreach(FoodComment fc in f.comments_IN_ORDER)
+                    bool HappendOrNot = true;
+                    foreach (FoodComment fc in f.comments_IN_ORDER)
                     {
-                        if(fc.User_UserName == food_Comment.User_UserName)
+                        if(HappendOrNot)
                         {
-                            fc.Reply.Add(foodComment);
+                            if (fc.Title == food_Comment.Title  && fc.CommentID == food_Comment.CommentID)
+                            {
+                                
+                                if (fc.Reply != null)
+                                {
+
+                                    fc.Reply.Add(foodComment);
+                                }
+                                else
+                                {
+                                    fc.Reply = new List<FoodComment?>();
+                                    fc.Reply.Add(foodComment);
+                                }
+                                HappendOrNot = false;
+                            }
                         }
                     }
                 }
             }
             restaurantsExceptOurs.AddRange(OurRestaurant);
-            string jsonString = System.Text.Json.JsonSerializer.Serialize(restaurantsExceptOurs, new JsonSerializerOptions
-            {
-                WriteIndented = true
-            });
+            string jsonString = JsonConvert.SerializeObject(restaurantsExceptOurs, Formatting.Indented);
             File.WriteAllText("C:\\Users\\ASUS\\Desktop\\All_Restaurant.json", jsonString);
         }
+        private void BackPage(object sender, RoutedEventArgs e)
+        {
+            ChangeFoodInformation changeFoodInformation = new ChangeFoodInformation(fooD, restauranT);
+            this.Close();
+            changeFoodInformation.Show();
+        }
+
     }
 }

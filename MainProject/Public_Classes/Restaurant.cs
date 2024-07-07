@@ -112,7 +112,7 @@ namespace MainProject.Public_Classes
         {
             double sum = 0;
             int NumberOfFoodsCounter = 0;
-            foreach (Category c in Menu)
+            foreach (Category c in this.Menu)
             {
                 foreach (FoodClass f in c.Foods)
                 {
@@ -120,22 +120,45 @@ namespace MainProject.Public_Classes
                     sum += f.xBar;
                 }
             }
+            double ReqSum = 0;
+            int numberOfFoodRequests = 0;
+            string jsonString = File.ReadAllText("C:\\Users\\ASUS\\Desktop\\All_FoodRequests.json");
+            List<FoodRequest> foodCommentsJsonData = System.Text.Json.JsonSerializer.Deserialize<List<FoodRequest>>(jsonString);
+            foreach(FoodRequest fR in foodCommentsJsonData)
+            {
+                if(fR.RestaurantUserName == this.UserName)
+                {
+                    ReqSum += 1;
+                    numberOfFoodRequests += 1;
+                }
+            }
+            this.Rating = (ReqSum + sum) / (NumberOfFoodsCounter + numberOfFoodRequests);
         }
         public void RestaurantOverRide_AddFood_InJsonFile(FoodClass food, Category category)
         {
             if (this.Menu != null)
             {
-                foreach (Category c in this.Menu)
+                bool happendeOrNot = true;
+                for (int i = 0; i < this.Menu.Count(); i++)
                 {
-                    if (c.Name == category.Name)
+                    if (this.Menu[i].Name == category.Name)
                     {
-                        c.Foods.Add(food);
+                        this.Menu[i].Foods.Add(food);
+                        happendeOrNot = false;
+                        break;
                     }
+                }
+                if (happendeOrNot)
+                {
+                    List<FoodClass> foods = new List<FoodClass>();
+                    this.Menu.Add(new Category(category.Name, foods));
+                    this.Menu[this.Menu.Count()-1].Foods.Add(food);
                 }
             }
             else
             {
                 this.Menu = new List<Category>();
+                this.Menu[0].Foods.Add(food);
             }
             string jsonString = File.ReadAllText("C:\\Users\\ASUS\\Desktop\\All_Restaurant.json");
             List<Restaurant> restaurantsJsonData = System.Text.Json.JsonSerializer.Deserialize<List<Restaurant>>(jsonString);
@@ -159,8 +182,11 @@ namespace MainProject.Public_Classes
                     OurRestaurant[0].Menu.Add(new Category(category.Name, foods));
                     foreach (Category c in OurRestaurant[0].Menu)
                     {
-                        c.Foods.Add(food);
-                        happendeOrNot2 = false;
+                        if(c.Name == category.Name)
+                        {
+                            c.Foods.Add(food);
+                            happendeOrNot2 = false;
+                        }
                     }
                 }
             }
@@ -177,10 +203,7 @@ namespace MainProject.Public_Classes
                 }
             }
             restaurantsExceptOurs.AddRange(OurRestaurant);
-            jsonString = System.Text.Json.JsonSerializer.Serialize(restaurantsExceptOurs, new JsonSerializerOptions
-            {
-                WriteIndented = true
-            });
+            jsonString = JsonConvert.SerializeObject(restaurantsExceptOurs, Formatting.Indented);
             File.WriteAllText("C:\\Users\\ASUS\\Desktop\\All_Restaurant.json", jsonString);
         }
         public void RestaurantOverRide_DeletFood_InJsonFile(FoodClass food)
@@ -210,14 +233,12 @@ namespace MainProject.Public_Classes
                 }
             }
             restaurantsExceptOurs.AddRange(OurRestaurant);
-            jsonString = System.Text.Json.JsonSerializer.Serialize(restaurantsExceptOurs, new JsonSerializerOptions
-            {
-                WriteIndented = true
-            });
+            jsonString = JsonConvert.SerializeObject(restaurantsExceptOurs, Formatting.Indented);
             File.WriteAllText("C:\\Users\\ASUS\\Desktop\\All_Restaurant.json", jsonString);
         }
         public void RestaurantOverRide_ChangeRem_InJsonFile(FoodClass food, int Remaining)
         {
+            bool happendOrNot = true;
             foreach (Category c in this.Menu)
             {
                 for (int i = 0; i < c.Foods.Count; i++)
@@ -225,6 +246,8 @@ namespace MainProject.Public_Classes
                     if ((c.Foods[i].Name == food.Name) && (c.Foods[i].price == food.price))
                     {
                         c.Foods[i].RemNumber = Remaining;
+                        happendOrNot = false;
+                        break;
                     }
                 }
             }
@@ -243,24 +266,29 @@ namespace MainProject.Public_Classes
                 }
             }
             restaurantsExceptOurs.AddRange(OurRestaurant);
-            jsonString = System.Text.Json.JsonSerializer.Serialize(restaurantsExceptOurs, new JsonSerializerOptions
-            {
-                WriteIndented = true
-            });
+            jsonString = JsonConvert.SerializeObject(restaurantsExceptOurs, Formatting.Indented);
             File.WriteAllText("C:\\Users\\ASUS\\Desktop\\All_Restaurant.json", jsonString);
         }
-        public void ActiveReservatio()
+        public void ActiveReservation()
         {
             string jsonString = File.ReadAllText("C:\\Users\\ASUS\\Desktop\\All_Restaurant.json");
             List<Restaurant> restaurantsJsonData = System.Text.Json.JsonSerializer.Deserialize<List<Restaurant>>(jsonString);
             List<Restaurant> restaurantsExceptOurs = restaurantsJsonData.Where(x => x.RestaurantName != this.RestaurantName).ToList();
             List<Restaurant> OurRestaurant = restaurantsJsonData.Where(x => x.RestaurantName == this.RestaurantName && x.UserName == this.UserName).ToList();
-            OurRestaurant[0].IsCanReserve = !OurRestaurant[0].IsCanReserve;
-            restaurantsExceptOurs.AddRange(OurRestaurant);
-            jsonString = System.Text.Json.JsonSerializer.Serialize(restaurantsExceptOurs, new JsonSerializerOptions
+            bool happendOrNot = true;
+            if (OurRestaurant.Any())
             {
-                WriteIndented = true
-            });
+                if (OurRestaurant[0].IsCanReserve && happendOrNot)
+                {
+                    OurRestaurant[0].IsCanReserve = false;
+                }
+                else if (!OurRestaurant[0].IsCanReserve && happendOrNot)
+                {
+                    OurRestaurant[0].IsCanReserve = true;
+                }
+            }
+            restaurantsExceptOurs.AddRange(OurRestaurant);
+            jsonString = JsonConvert.SerializeObject(restaurantsExceptOurs, Formatting.Indented);
             File.WriteAllText("C:\\Users\\ASUS\\Desktop\\All_Restaurant.json", jsonString);
         }
     }

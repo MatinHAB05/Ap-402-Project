@@ -14,17 +14,19 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using MainProject.AddFood_Parham.AddFood;
 using MainProject.ChangeFoodInformation_Parham.ChangeFoodInformation;
+using MainProject.RestaurantPanel_Parham.RestaurantPanel;
 
 namespace MainProject.ChangeMenu_Parham.ChangeMenu
 {
     public partial class ChangeMenu : Window
     {
         Restaurant restauranT;
+        List<FoodClass> menu;
         internal ChangeMenu(Restaurant restaurant)
         {
             InitializeComponent();
             restauranT = restaurant;
-            List<FoodClass> menu = new List<FoodClass>();
+             menu = new List<FoodClass>();
             if(restauranT.Menu != null)
             {
                 foreach (Category c in restaurant.Menu)
@@ -53,15 +55,26 @@ namespace MainProject.ChangeMenu_Parham.ChangeMenu
         {
             Button btn = sender as Button;
             FoodClass food = btn.DataContext as FoodClass;
-            //restauranT.RestaurantOverRide_DeletFood_InJsonFile(food);
+            menu.Remove(food);
+            Menu.ItemsSource = menu;
+            restauranT.RestaurantOverRide_DeletFood_InJsonFile(food);
             MessageBox.Show("the food is deleted", "Done", MessageBoxButton.OK, MessageBoxImage.Information);
-
+            ChangeMenu changeMenu = new ChangeMenu(restauranT);
+            changeMenu.Show();
+            this.Close();
         }
         private void Add_A_Food_Button(Object sender, RoutedEventArgs e)
         {
             AddFood addFood = new AddFood(restauranT);
             this.Close();
             addFood.Show();
+        }
+        private void BackPage(object sender, RoutedEventArgs e)
+        {
+            
+            RestaurantPanel restaurantPanel = new RestaurantPanel(restauranT);
+            this.Close();
+            restaurantPanel.Show();
         }
     }
 }

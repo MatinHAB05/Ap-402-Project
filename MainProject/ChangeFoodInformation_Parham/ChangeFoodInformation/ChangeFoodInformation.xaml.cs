@@ -15,6 +15,8 @@ using System.Windows.Shapes;
 using static System.Net.Mime.MediaTypeNames;
 using System.Windows.Media.Imaging;
 using MainProject.AnswerToFoodComment_RestaurantPanel_Parham.AnswerToFoodComment;
+using MainProject.RestaurantPanel_Parham.RestaurantPanel;
+using MainProject.ChangeMenu_Parham.ChangeMenu;
 
 namespace MainProject.ChangeFoodInformation_Parham.ChangeFoodInformation
 {
@@ -30,8 +32,16 @@ namespace MainProject.ChangeFoodInformation_Parham.ChangeFoodInformation
             restauranT = restaurant;
             Name.Text = food.Name;
             Price.Text = Convert.ToString(food.price);
-            Raw_Materials.Text = string.Join(',', food.Raw_Materials);
+            if(food.Raw_Materials !=  null)
+            {
+                Raw_Materials.Text = string.Join(',', food.Raw_Materials);
+            }
+            else
+            {
+                Raw_Materials.Text = "khali";
+            }
             Food_Category.Text = food.FoodCategory;
+            Comments.ItemsSource = food.comments_IN_ORDER;
             //BitmapImage bitmap = new BitmapImage();
             //bitmap.BeginInit();
             //bitmap.UriSource = new Uri(food.Image_Path, UriKind.RelativeOrAbsolute);
@@ -44,7 +54,7 @@ namespace MainProject.ChangeFoodInformation_Parham.ChangeFoodInformation
         {
             Button btn = sender as Button;
             FoodComment foodComment = btn.DataContext as FoodComment;
-            AnswerToFoodComment answerToFoodComment = new AnswerToFoodComment(restauranT, foodComment);
+            AnswerToFoodComment answerToFoodComment = new AnswerToFoodComment(restauranT, foodComment, fooD);
             this.Close();
             answerToFoodComment.Show();
 
@@ -69,6 +79,14 @@ namespace MainProject.ChangeFoodInformation_Parham.ChangeFoodInformation
                 restauranT.RestaurantOverRide_DeletFood_InJsonFile(fooD);
                 restauranT.RestaurantOverRide_AddFood_InJsonFile(Food, new Category(Food_Category.Text, null));
             }
+            MessageBox.Show("changes have been saved","saved",MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+        private void BackPage(object sender, RoutedEventArgs e)
+        {
+            
+            ChangeMenu changeMenu = new ChangeMenu(restauranT);
+            this.Close();
+            changeMenu.Show();
         }
     }
 }
