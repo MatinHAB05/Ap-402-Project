@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using MainProject.AddFood_Parham.AddFood;
+using MainProject.ChangeFoodInformation_Parham.ChangeFoodInformation;
 
 namespace MainProject.ChangeMenu_Parham.ChangeMenu
 {
@@ -42,7 +43,11 @@ namespace MainProject.ChangeMenu_Parham.ChangeMenu
         }
         private void Food_Button_Click(object sender, RoutedEventArgs e)
         {
-            //we are aiting for food panel
+            Button btn = sender as Button;
+            FoodClass food = btn.DataContext as FoodClass;
+            ChangeFoodInformation changeFoodInformation = new ChangeFoodInformation(food, restauranT);
+            this.Close();
+            changeFoodInformation.Show();
         }
         private void Delete_Food_Button(object sender, RoutedEventArgs e)
         {

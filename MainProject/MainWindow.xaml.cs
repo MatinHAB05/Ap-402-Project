@@ -28,6 +28,8 @@ namespace MainProject
         public MainWindow()
         {
             InitializeComponent();
+            
+            //matin start
             User user = new User();
             user.Name = "Demo_Name";
             user.LastName = "Demo_LastName";
@@ -46,9 +48,18 @@ namespace MainProject
             MusicWindowHIDE musicWindowHIDE = new MusicWindowHIDE(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\LoginForm_Matin\BackMusic_Matin\Mix_BackMusic2.mp3");
             musicWindowHIDE.Show();
             musicWindowHIDE.Hide();
-
-
             this.Close();
+            //matin end
+            
+            
+            
+            //parham start
+            string jsonString = File.ReadAllText("C:\\Users\\ASUS\\Desktop\\All_Restaurant.json");
+            List<Restaurant> restaurantsJsonData = System.Text.Json.JsonSerializer.Deserialize<List<Restaurant>>(jsonString);
+            RestaurantPanel restaurantPanel = new RestaurantPanel(restaurantsJsonData[0]);
+            this.Close();
+            restaurantPanel.Show();
+            //parham end
         }
         
     }

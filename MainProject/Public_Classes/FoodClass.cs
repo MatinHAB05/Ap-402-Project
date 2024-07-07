@@ -1,9 +1,12 @@
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.IO;
+using System.Text.Json;
 
 namespace MainProject.Public_Classes
 {
@@ -42,6 +45,17 @@ namespace MainProject.Public_Classes
             this.xBar = 0;
             this.RemNumber = RemNumber;
             this.comments_IN_ORDER = new List<FoodComment>();
+            string json = File.ReadAllText("C:\\Users\\ASUS\\Desktop\\All_Restaurant.json");
+            List<Restaurant> restaurants = JsonConvert.DeserializeObject<List<Restaurant>>(json);
+            int numberOfFoods = 0;
+            foreach (Restaurant re in restaurants)
+            {
+                foreach (Category category in re.Menu)
+                {
+                    numberOfFoods += category.Foods.Count();
+                }
+            }
+            FoodID = numberOfFoods + 1;
         }
 
         public FoodClass cClone()
