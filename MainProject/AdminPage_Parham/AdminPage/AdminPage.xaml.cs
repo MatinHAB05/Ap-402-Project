@@ -79,6 +79,8 @@ namespace MainProject.AdminPage_Parham.AdminPage
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             SaveBeforeClose();
+            Application.Current.Shutdown();
+
         }
 
         private void SaveBeforeClose()

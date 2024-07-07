@@ -119,6 +119,8 @@ namespace MainProject.Follow_RegisterComplaints_Matin
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             SaveBeforeClose();
+            Application.Current.Shutdown();
+
 
         }
 

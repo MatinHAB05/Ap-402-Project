@@ -220,6 +220,8 @@ namespace MainProject.Search_complaints_PageADMIN_Matin
         private void Window_Closing(object sender, CancelEventArgs e)
          {
                 SaveBeforeClose();
+            Application.Current.Shutdown();
+
         }
 
         private void BackPage(object sender, RoutedEventArgs e)

@@ -209,6 +209,8 @@ namespace MainProject.AddRestunts_AdminPanel_Matin
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             SaveBeforeClose();
+            Application.Current.Shutdown();
+
         }
 
         private List<Restaurant>? GetAllRes(string path)

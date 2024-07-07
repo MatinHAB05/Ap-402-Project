@@ -92,6 +92,8 @@ namespace MainProject.ReviewComplaints_Matin
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             SaveBeforeClose();
+            Application.Current.Shutdown();
+
         }
 
         private void BackPage(object sender, RoutedEventArgs e)

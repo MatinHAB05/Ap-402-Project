@@ -19,6 +19,8 @@
     <None Remove="CustomerMainPage_Parham\Images\magnifier.png" />
     <None Remove="CustomerMainPage_Parham\Images\user Sysmbol .png" />
     <None Remove="JsonFiles\Complaint\All_ReceptionComment.json" />
+    <None Remove="LoginForm_Matin\BackMusic_Matin\Mix_BackMusic2.mp3" />
+    <None Remove="LoginForm_Matin\BackMusic_Matin\MusicBack.mp3" />
     <None Remove="matinImages_matin\back.png" />
     <None Remove="OrderHistoryPage_Matin\Images\reset.png" />
     <None Remove="reserrveORorderFoods_CustomerPage_Matin\Images\imgICon.png" />
@@ -41,6 +43,8 @@
     <Resource Include="Follow_RegisterComplaints_Matin\Images\addIcon.png" />
     <Resource Include="Follow_RegisterComplaints_Matin\Images\edit.png" />
     <Resource Include="Follow_RegisterComplaints_Matin\Images\IconAdd_.png" />
+    <Resource Include="LoginForm_Matin\BackMusic_Matin\Mix_BackMusic2.mp3" />
+    <Resource Include="LoginForm_Matin\BackMusic_Matin\MusicBack.mp3" />
     <Resource Include="LoginForm_Matin\images\background1.jpg" />
     <Resource Include="LoginForm_Matin\images\res1.jpg" />
     <Resource Include="LoginForm_Matin\images\res2.jpg" />

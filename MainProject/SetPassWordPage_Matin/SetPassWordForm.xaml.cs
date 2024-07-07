@@ -107,6 +107,8 @@ namespace MainProject.SetPassWordPage_Matin
             {
                 this.PerviousForm.Show();
             }
+            //Application.Current.Shutdown();
+
         }
     }
 }

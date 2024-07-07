@@ -280,6 +280,8 @@ namespace MainProject.reserrveORorderFoods_CustomerPage_Matin
         private void Window_Closing(object sender, CancelEventArgs e)
         {
             SaveBeforeClose();
+            Application.Current.Shutdown();
+
         }
 
         private void SendEmail(string emailMabda, string NameSender, string NameReciver, string emailMaghsad, string Subject, string ContentTExt, string passwordEmailMabda)

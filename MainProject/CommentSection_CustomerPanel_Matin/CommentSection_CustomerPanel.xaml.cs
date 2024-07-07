@@ -143,6 +143,8 @@ namespace MainProject.CommentSection_CustomerPanel_Matin
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             SaveBeforeClose();
+            Application.Current.Shutdown();
+
         }
 
         private void REPbbb(object sender, RoutedEventArgs e)

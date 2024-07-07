@@ -237,6 +237,8 @@ namespace MainProject.OrderHistoryPage_Matin
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             SaveBeforeClose();
+            Application.Current.Shutdown();
+
         }
 
         private double? IfEmptyReturenNull(string a)

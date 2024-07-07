@@ -28,16 +28,26 @@ namespace MainProject
         public MainWindow()
         {
             InitializeComponent();
-            User user = new User();
-            user.Name = "Demo_Name";
-            user.LastName = "Demo_LastName";
-            user.Address = "This is a Address";
-            user.Email_Unique = "m9652973@gmail.com";
-            user.Gender = Gender.Female;
-            user.Phone = "09123456789";
-            user.UserName = "Demo_UserName";
-            CustomerMainPage page = new CustomerMainPage(user);
-            page.Show();
+            //User user = new User();
+            //user.Name = "Demo_Name";
+            //user.LastName = "Demo_LastName";
+            //user.Address = "This is a Address";
+            //user.Email_Unique = "m9652973@gmail.com";
+            //user.Gender = Gender.Female;
+            //user.Phone = "09123456789";
+            //user.UserName = "Demo_UserName";
+            //CustomerMainPage page = new CustomerMainPage(user);
+            //page.Show();
+
+
+            LoginPage loginPage = new LoginPage();
+            loginPage.Show();
+
+            MusicWindowHIDE musicWindowHIDE = new MusicWindowHIDE(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\LoginForm_Matin\BackMusic_Matin\Mix_BackMusic2.mp3");
+            musicWindowHIDE.Show();
+            musicWindowHIDE.Hide();
+
+
             this.Close();
         }
         

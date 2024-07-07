@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:MainProject.SignInPage_Matin"
         xmlns:UserOb="clr-namespace:MainProject.SignInPage_Matin.Usercontrol"
         mc:Ignorable="d"
-        Title="SignInForm" Height="500" Width="800" >
+        Title="SignInForm" Height="500" Width="800" Closing="Window_Closing">
     <Window.Background>
         <ImageBrush ImageSource="/SignInPage_Matin/images/backGround2.jpg" Stretch="Fill"/>
     </Window.Background>

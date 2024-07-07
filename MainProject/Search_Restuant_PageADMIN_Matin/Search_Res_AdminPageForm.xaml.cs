@@ -155,6 +155,8 @@ namespace MainProject.Search_Restuant_PageADMIN_Matin
         private void Window_Closing(object sender, CancelEventArgs e)
         {
             SaveBeforeClose();
+            Application.Current.Shutdown();
+
         }
 
         private void SEARCH(object sender, RoutedEventArgs e)

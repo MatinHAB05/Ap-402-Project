@@ -104,6 +104,8 @@ namespace MainProject.ProfilePage_Parham.ProfilePage
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             SaveBeforeSave();
+            Application.Current.Shutdown();
+
         }
 
         private void BackPage(object sender, RoutedEventArgs e)

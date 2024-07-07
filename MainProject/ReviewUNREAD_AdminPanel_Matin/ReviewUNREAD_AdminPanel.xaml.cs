@@ -94,6 +94,8 @@ namespace MainProject.ReviewUNREAD_AdminPanel_Matin
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
            SaveBEforeClose();
+            Application.Current.Shutdown();
+
         }
 
         private void BackPage(object sender, RoutedEventArgs e)

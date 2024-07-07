@@ -175,6 +175,8 @@ namespace MainProject.CustomerMainPage_Parham.CustomerMainPage
         private void Window_Closing(object sender, CancelEventArgs e)
         {
             SaveBeforeClose();
+            Application.Current.Shutdown();
+
         }
     }
     public class RelayCommand<T> : ICommand

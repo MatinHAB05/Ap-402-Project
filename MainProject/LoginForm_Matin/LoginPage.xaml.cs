@@ -122,5 +122,10 @@ namespace MainProject.LoginForm_Matin
             signIn.Show();
             this.Close();
         }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
     }
 }
