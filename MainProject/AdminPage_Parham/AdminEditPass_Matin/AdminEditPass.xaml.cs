@@ -51,7 +51,7 @@ namespace MainProject.AdminPage_Parham.AdminEditPass_Matin
                 MessageBox.Show(Error); return;
             }
             Admin.Password = nnew;
-            List<Admin> admins = JsonConvert.DeserializeObject<List<Admin>>(File.ReadAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\Admin\All_Admin.json"));
+            List<Admin> admins = JsonConvert.DeserializeObject<List<Admin>>(File.ReadAllText(MainWindow.Get_Dir_ALL_ADMIN_json()));
             int r = 0;
             foreach (Admin a in admins)
             {
@@ -59,7 +59,7 @@ namespace MainProject.AdminPage_Parham.AdminEditPass_Matin
                 r++;
             }
             admins[r].Password = nnew;
-            File.WriteAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\Admin\All_Admin.json",
+            File.WriteAllText(MainWindow.Get_Dir_ALL_ADMIN_json(),
                 JsonConvert.SerializeObject(admins, Formatting.Indented));
             Must_Off = false;
             MessageBox.Show("Done");

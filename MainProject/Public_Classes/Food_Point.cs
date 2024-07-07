@@ -26,7 +26,7 @@ namespace MainProject.Public_Classes
 
         public static Food_Point? FindFoodPointFromJSON(int foodID ,string userNName)
         {
-            List<Food_Point> All = JsonConvert.DeserializeObject<List<Food_Point>>(File.ReadAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\Points\All_Points.json"));
+            List<Food_Point> All = JsonConvert.DeserializeObject<List<Food_Point>>(File.ReadAllText(MainWindow.Get_Dir_ALL_FOOD_POINT_json()));
             foreach(Food_Point fff in All)
             {
                 if(fff.FoodID == foodID && fff.UserName==userNName)

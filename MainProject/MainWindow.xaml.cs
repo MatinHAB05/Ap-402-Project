@@ -68,7 +68,10 @@ namespace MainProject
             LoginPage loginPage = new LoginPage();
             loginPage.Show();
 
-            //MusicWindowHIDE musicWindowHIDE = new MusicWindowHIDE(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\LoginForm_Matin\BackMusic_Matin\Mix_BackMusic2.mp3");
+            //138397
+            //string directory = MainWindow.GetSourceFileDirectory();
+            //directory = System.IO.Path.Combine(directory, @"LoginForm_Matin\BackMusic_Matin\Mix_BackMusic2.mp3");
+            //MusicWindowHIDE musicWindowHIDE = new MusicWindowHIDE(directory);
             //musicWindowHIDE.Show();
             //musicWindowHIDE.Hide();
             this.Close();
@@ -77,7 +80,7 @@ namespace MainProject
 
 
             //parham start
-            //string jsonString = File.ReadAllText("C:\\Users\\ASUS\\Desktop\\All_Restaurant.json");
+            string jsonString = File.ReadAllText(MainWindow.Get_Dir_ALL_RESTAURANT_json());
             //List<Restaurant> restaurantsJsonData = System.Text.Json.JsonSerializer.Deserialize<List<Restaurant>>(jsonString);
             //RestaurantPanel restaurantPanel = new RestaurantPanel(restaurantsJsonData[0]);
             //this.Close();
@@ -93,28 +96,28 @@ namespace MainProject
         }
 
 
-        static string Get_Dir_ALL_RESTAURANT_json()
+        static public string Get_Dir_ALL_RESTAURANT_json()
         {
             string directory = MainWindow.GetSourceFileDirectory();
             string goal = System.IO.Path.Combine(directory, @"JsonFiles\Restaurant\All_Restaurant.json");
             return goal;
         }
 
-        static string Get_Dir_ALL_USERS_json()
+        static public string Get_Dir_ALL_USERS_json()
         {
             string directory = MainWindow.GetSourceFileDirectory();
             string goal = System.IO.Path.Combine(directory, @"JsonFiles\User\All_Users.json");
             return goal;
         }
 
-        static string Get_Dir_ALL_RECEPTION_COMMENT_json()
+        static public string Get_Dir_ALL_RECEPTION_COMMENT_json()
         {
             string directory = MainWindow.GetSourceFileDirectory();
             string goal = System.IO.Path.Combine(directory, @"JsonFiles\ReceptionComment\All_ReceptionComment.json");
             return goal;
         }
 
-        static string Get_Dir_ALL_FOOD_POINT_json()
+        static public string Get_Dir_ALL_FOOD_POINT_json()
         {
             string directory = MainWindow.GetSourceFileDirectory();
             string goal = System.IO.Path.Combine(directory, @"JsonFiles\Points\All_Points.json");
@@ -122,28 +125,28 @@ namespace MainProject
         }
 
 
-        static string Get_Dir_ALL_RECEPTION_POINT_json()
+        static public string Get_Dir_ALL_RECEPTION_POINT_json()
         {
             string directory = MainWindow.GetSourceFileDirectory();
             string goal = System.IO.Path.Combine(directory, @"JsonFiles\Points\All_ReceptionPoint.json");
             return goal;
         }
 
-        static string Get_Dir_ALL_FOOD_REQUEST_json()
+        static public string Get_Dir_ALL_FOOD_REQUEST_json()
         {
             string directory = MainWindow.GetSourceFileDirectory();
             string goal = System.IO.Path.Combine(directory, @"JsonFiles\FoodRequest\All_FoodRequest.json");
             return goal;
         }
 
-        static string Get_Dir_ALL_COMPLAINTS_json()
+        static public string Get_Dir_ALL_COMPLAINTS_json()
         {
             string directory = MainWindow.GetSourceFileDirectory();
             string goal = System.IO.Path.Combine(directory, @"JsonFiles\Complaint\All_Complaints.json");
             return goal;
         }
 
-        static string Get_Dir_ALL_ADMIN_json()
+        static public string Get_Dir_ALL_ADMIN_json()
         {
             string directory = MainWindow.GetSourceFileDirectory();
             string goal = System.IO.Path.Combine(directory, @"JsonFiles\Admin\All_Admin.json");

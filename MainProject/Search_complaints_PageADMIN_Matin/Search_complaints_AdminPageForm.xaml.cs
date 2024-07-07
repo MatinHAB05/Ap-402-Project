@@ -90,7 +90,7 @@ namespace MainProject.Search_complaints_PageADMIN_Matin
             this.admin = admin;
             this.DataContext = this;
             radioButton3.IsChecked = true;
-            List<Complaint> complaints = JsonConvert.DeserializeObject<List<Complaint>>(File.ReadAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\Complaint\All_Complaints.json"));
+            List<Complaint> complaints = JsonConvert.DeserializeObject<List<Complaint>>(File.ReadAllText(MainWindow.Get_Dir_ALL_COMPLAINTS_json()));
 
             comes = new ObservableCollection<complaints_User_FORNOW>
                 (

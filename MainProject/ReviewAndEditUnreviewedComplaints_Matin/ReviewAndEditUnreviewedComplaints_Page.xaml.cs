@@ -84,7 +84,7 @@ namespace MainProject.ReviewAndEditUnreviewedComplaints_Matin
             SaveBut.Visibility = Visibility.Hidden;
             ResetBut.Visibility = Visibility.Hidden;
             //For Now 
-            all_complaints = JsonConvert.DeserializeObject<List<Complaint>>(File.ReadAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\Complaint\All_Complaints.json"));
+            all_complaints = JsonConvert.DeserializeObject<List<Complaint>>(File.ReadAllText(MainWindow.Get_Dir_ALL_COMPLAINTS_json()));
             comes = all_complaints.Select(com => new complaints_User_FORNOW
                          {
                              IsChecked = com.IsChecked,
@@ -141,7 +141,7 @@ namespace MainProject.ReviewAndEditUnreviewedComplaints_Matin
                 ComplainText=cm.ComplaintText
             }).ToList();
 
-            File.WriteAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\Complaint\All_Complaints.json",
+            File.WriteAllText(MainWindow.Get_Dir_ALL_COMPLAINTS_json(),
                 JsonConvert.SerializeObject(SaveList, Formatting.Indented));
             //Saved IN grid!!!
             old.Clear();

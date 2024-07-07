@@ -131,7 +131,7 @@ namespace MainProject.ProfilePage_Parham.ProfilePage
             //end Save
 
             //Save in Json
-            string jsonUser = File.ReadAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\User\All_Users.json");
+            string jsonUser = File.ReadAllText(MainWindow.Get_Dir_ALL_USERS_json());
 
             List<User> AllUsers = JsonConvert.DeserializeObject<List<User>>(jsonUser);
             int i = 0;
@@ -142,7 +142,7 @@ namespace MainProject.ProfilePage_Parham.ProfilePage
             }
             AllUsers[i] = CurrentUser;
             string jsonEnd = JsonConvert.SerializeObject(AllUsers, Formatting.Indented);
-            File.WriteAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\User\All_Users.json", jsonEnd);
+            File.WriteAllText(MainWindow.Get_Dir_ALL_USERS_json(), jsonEnd);
         }
     }
 }

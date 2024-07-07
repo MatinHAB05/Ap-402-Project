@@ -45,7 +45,7 @@ namespace MainProject.Public_Classes
             this.xBar = 0;
             this.RemNumber = RemNumber;
             this.comments_IN_ORDER = new List<FoodComment>();
-            string json = File.ReadAllText("C:\\Users\\ASUS\\3D Objects\\Project-Ap\\SecondLayout\\MainProject\\Ap-402-Project\\MainProject\\JsonFiles\\Restaurant\\All_Restaurant.json");
+            string json = File.ReadAllText(MainWindow.Get_Dir_ALL_RESTAURANT_json());
             List<Restaurant> restaurants = JsonConvert.DeserializeObject<List<Restaurant>>(json);
             int numberOfFoods = 0;
             foreach (Restaurant re in restaurants)

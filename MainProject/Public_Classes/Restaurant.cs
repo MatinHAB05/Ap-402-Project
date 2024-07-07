@@ -41,7 +41,7 @@ namespace MainProject.Public_Classes
         }
         static public FoodClass? Get_Food_FromFoodID(int foodId,Restaurant Res)
         {
-            string json = File.ReadAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\Restaurant\All_Restaurant.json");
+            string json = File.ReadAllText(MainWindow.Get_Dir_ALL_RESTAURANT_json());
             List<Restaurant> restaurants=JsonConvert.DeserializeObject<List<Restaurant>>(json);
             int i = 0;
             if (Res.Menu == null)
@@ -69,7 +69,7 @@ namespace MainProject.Public_Classes
 
         static public Restaurant? GetFromUserName(string UserName)
         {
-            string json = File.ReadAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\Restaurant\All_Restaurant.json");
+            string json = File.ReadAllText(MainWindow.Get_Dir_ALL_RESTAURANT_json());
             List<Restaurant> restaurants=JsonConvert.DeserializeObject<List<Restaurant>>(json);
             int i = 0;
             int j = 0;
@@ -91,7 +91,7 @@ namespace MainProject.Public_Classes
         }
         static public Restaurant? GetFromname(string Name)
         {
-            string json = File.ReadAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\Restaurant\All_Restaurant.json");
+            string json = File.ReadAllText(MainWindow.Get_Dir_ALL_RESTAURANT_json());
             List<Restaurant> restaurants = JsonConvert.DeserializeObject<List<Restaurant>>(json);
             int i = 0;
             int j = 0;
@@ -122,7 +122,7 @@ namespace MainProject.Public_Classes
             }
             double ReqSum = 0;
             int numberOfFoodRequests = 0;
-            string jsonString = File.ReadAllText("C:\\Users\\ASUS\\3D Objects\\Project-Ap\\SecondLayout\\MainProject\\Ap-402-Project\\MainProject\\JsonFiles\\FoodRequest\\All_FoodRequest.json");
+            string jsonString = File.ReadAllText(MainWindow.Get_Dir_ALL_FOOD_REQUEST_json());
             List<FoodRequest> foodCommentsJsonData = System.Text.Json.JsonSerializer.Deserialize<List<FoodRequest>>(jsonString);
             foreach(FoodRequest fR in foodCommentsJsonData)
             {
@@ -160,7 +160,7 @@ namespace MainProject.Public_Classes
                 this.Menu = new List<Category>();
                 this.Menu[0].Foods.Add(food);
             }
-            string jsonString = File.ReadAllText("C:\\Users\\ASUS\\3D Objects\\Project-Ap\\SecondLayout\\MainProject\\Ap-402-Project\\MainProject\\JsonFiles\\Restaurant\\All_Restaurant.json");
+            string jsonString = File.ReadAllText(MainWindow.Get_Dir_ALL_RESTAURANT_json());
             List<Restaurant> restaurantsJsonData = System.Text.Json.JsonSerializer.Deserialize<List<Restaurant>>(jsonString);
             List<Restaurant> restaurantsExceptOurs = restaurantsJsonData.Where(x => x.RestaurantName != this.RestaurantName).ToList();
             List<Restaurant> OurRestaurant = restaurantsJsonData.Where(x => x.RestaurantName == this.RestaurantName && x.UserName == this.UserName).ToList();
@@ -204,7 +204,7 @@ namespace MainProject.Public_Classes
             }
             restaurantsExceptOurs.AddRange(OurRestaurant);
             jsonString = JsonConvert.SerializeObject(restaurantsExceptOurs, Formatting.Indented);
-            File.WriteAllText("C:\\Users\\ASUS\\3D Objects\\Project-Ap\\SecondLayout\\MainProject\\Ap-402-Project\\MainProject\\JsonFiles\\Restaurant\\All_Restaurant.json", jsonString);
+            File.WriteAllText(MainWindow.Get_Dir_ALL_RESTAURANT_json(), jsonString);
         }
         public void RestaurantOverRide_DeletFood_InJsonFile(FoodClass food)
         {
@@ -218,7 +218,7 @@ namespace MainProject.Public_Classes
                     }
                 }
             }
-            string jsonString = File.ReadAllText("C:\\Users\\ASUS\\3D Objects\\Project-Ap\\SecondLayout\\MainProject\\Ap-402-Project\\MainProject\\JsonFiles\\Restaurant\\All_Restaurant.json");
+            string jsonString = File.ReadAllText(MainWindow.Get_Dir_ALL_RESTAURANT_json());
             List<Restaurant> restaurantsJsonData = System.Text.Json.JsonSerializer.Deserialize<List<Restaurant>>(jsonString);
             List<Restaurant> restaurantsExceptOurs = restaurantsJsonData.Where(x => x.RestaurantName != this.RestaurantName).ToList();
             List<Restaurant> OurRestaurant = restaurantsJsonData.Where(x => x.RestaurantName == this.RestaurantName && x.UserName == this.UserName).ToList();
@@ -234,7 +234,7 @@ namespace MainProject.Public_Classes
             }
             restaurantsExceptOurs.AddRange(OurRestaurant);
             jsonString = JsonConvert.SerializeObject(restaurantsExceptOurs, Formatting.Indented);
-            File.WriteAllText("C:\\Users\\ASUS\\3D Objects\\Project-Ap\\SecondLayout\\MainProject\\Ap-402-Project\\MainProject\\JsonFiles\\Restaurant\\All_Restaurant.json", jsonString);
+            File.WriteAllText(MainWindow.Get_Dir_ALL_RESTAURANT_json(), jsonString);
         }
         public void RestaurantOverRide_ChangeRem_InJsonFile(FoodClass food, int Remaining)
         {
@@ -251,7 +251,7 @@ namespace MainProject.Public_Classes
                     }
                 }
             }
-            string jsonString = File.ReadAllText("C:\\Users\\ASUS\\3D Objects\\Project-Ap\\SecondLayout\\MainProject\\Ap-402-Project\\MainProject\\JsonFiles\\Restaurant\\All_Restaurant.json");
+            string jsonString = File.ReadAllText(MainWindow.Get_Dir_ALL_RESTAURANT_json());
             List<Restaurant> restaurantsJsonData = System.Text.Json.JsonSerializer.Deserialize<List<Restaurant>>(jsonString);
             List<Restaurant> restaurantsExceptOurs = restaurantsJsonData.Where(x => x.RestaurantName != this.RestaurantName).ToList();
             List<Restaurant> OurRestaurant = restaurantsJsonData.Where(x => x.RestaurantName == this.RestaurantName && x.UserName == this.UserName).ToList();
@@ -267,11 +267,11 @@ namespace MainProject.Public_Classes
             }
             restaurantsExceptOurs.AddRange(OurRestaurant);
             jsonString = JsonConvert.SerializeObject(restaurantsExceptOurs, Formatting.Indented);
-            File.WriteAllText("C:\\Users\\ASUS\\3D Objects\\Project-Ap\\SecondLayout\\MainProject\\Ap-402-Project\\MainProject\\JsonFiles\\Restaurant\\All_Restaurant.json", jsonString);
+            File.WriteAllText(MainWindow.Get_Dir_ALL_RESTAURANT_json(), jsonString);
         }
         public void ActiveReservation()
         {
-            string jsonString = File.ReadAllText("C:\\Users\\ASUS\\3D Objects\\Project-Ap\\SecondLayout\\MainProject\\Ap-402-Project\\MainProject\\JsonFiles\\Restaurant\\All_Restaurant.json");
+            string jsonString = File.ReadAllText(MainWindow.Get_Dir_ALL_RESTAURANT_json());
             List<Restaurant> restaurantsJsonData = System.Text.Json.JsonSerializer.Deserialize<List<Restaurant>>(jsonString);
             List<Restaurant> restaurantsExceptOurs = restaurantsJsonData.Where(x => x.RestaurantName != this.RestaurantName).ToList();
             List<Restaurant> OurRestaurant = restaurantsJsonData.Where(x => x.RestaurantName == this.RestaurantName && x.UserName == this.UserName).ToList();
@@ -289,7 +289,7 @@ namespace MainProject.Public_Classes
             }
             restaurantsExceptOurs.AddRange(OurRestaurant);
             jsonString = JsonConvert.SerializeObject(restaurantsExceptOurs, Formatting.Indented);
-            File.WriteAllText("C:\\Users\\ASUS\\3D Objects\\Project-Ap\\SecondLayout\\MainProject\\Ap-402-Project\\MainProject\\JsonFiles\\Restaurant\\All_Restaurant.json", jsonString);
+            File.WriteAllText(MainWindow.Get_Dir_ALL_RESTAURANT_json(), jsonString);
         }
     }
 }

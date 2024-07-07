@@ -37,9 +37,9 @@ namespace MainProject.AddRestunts_AdminPanel_Matin
         {
             InitializeComponent();
             Must_OFF = true;
-            restaurants = GetAllRes(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\Restaurant\All_Restaurant.json");
-            users = GetAllUser(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\User\All_Users.json");
-            admins = GetAllAdmin(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\Admin\All_Admin.json");
+            restaurants = GetAllRes(MainWindow.Get_Dir_ALL_RESTAURANT_json());
+            users = GetAllUser(MainWindow.Get_Dir_ALL_USERS_json());
+            admins = GetAllAdmin(MainWindow.Get_Dir_ALL_ADMIN_json());
             this.admin = admin;
         }
         //*****************************************************************************************
@@ -148,7 +148,7 @@ namespace MainProject.AddRestunts_AdminPanel_Matin
 
                 restaurants.Add(demo);
 
-                File.WriteAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\Restaurant\All_Restaurant.json",
+                File.WriteAllText(MainWindow.Get_Dir_ALL_RESTAURANT_json(),
                     JsonConvert.SerializeObject(restaurants,Formatting.Indented));
 
 
@@ -210,7 +210,7 @@ namespace MainProject.AddRestunts_AdminPanel_Matin
                 Must_OFF = false;
 
                 this.Close();
-                File.WriteAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\Restaurant\All_Restaurant.json", JsonConvert.SerializeObject(restaurants,Formatting.Indented));
+                File.WriteAllText(MainWindow.Get_Dir_ALL_RESTAURANT_json(), JsonConvert.SerializeObject(restaurants,Formatting.Indented));
             }
         }
 
