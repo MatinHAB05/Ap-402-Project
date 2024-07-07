@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:MainProject.CustomerMainPage_Parham.CustomerMainPage"
         mc:Ignorable="d"
         Background="LightSkyBlue"
-        Title="CustomerMainPage" Height="450" Width="800" Closing="Window_Closing">
+        Title="CustomerMainPage" Height="450" Width="850" Closing="Window_Closing">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
@@ -85,9 +85,12 @@
         <Button Grid.Row="3" Grid.Column="2" Margin="200,30,0,0" Background="White" Width="32" Height="30" Content="Press" Click="SearchAllFilter"/>
         <Button Grid.Row="3" Grid.Column="2" Grid.RowSpan="2" Margin="200,0,0,0" Background="White" Width="32" Height="30" Content="Press" Click="SearchAllFilter"/>
         <TextBlock  x:Name="TYPEstatus" Grid.Row="4" Grid.Column="2" FontSize="10" Width="44" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left"  Margin="5,0,0,0"/>
-        <TextBlock Grid.Row="4" Grid.Column="3" Margin="170,0,0,0" Text="type of admission" Background="LightSkyBlue"  Width="100" Height="30"/>
+        <TextBlock Grid.Row="4" Grid.Column="2" Margin="229,34,0,40" Text="type of admission" TextWrapping="Wrap" Background="LightSkyBlue"/>
         <Button Grid.Row="4" Grid.Column="3" Width="50" Height="30" Margin="-120,-10,0,0" Content="Delivery In" FontSize="9" Click="Delivery_In"/>
         <Button Grid.Row="4" Grid.Column="3" Width="50" Height="30" Margin="0,-10,0,0" Content="Dine-In" FontSize="9" Click="Dine_In"/>
+        <Button Grid.Row="4" Grid.Column="3" Width="40" Height="20" Margin="171,34,62,44" Content="Both" FontSize="9" Click="BothTYPE"/>
+
         <Button Grid.Row="4" x:Name="XClear" Grid.Column="3" Width="50" Height="30" Margin="170,70,0,0" Content="Clear" FontSize="9" Click="Clear"/>
+
     </Grid>
 </Window>

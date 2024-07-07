@@ -84,6 +84,39 @@ namespace MainProject.Public_Classes
             return comment;
 
         }
+
+        static public int CommentIDgenerator_matin()
+        {
+            int flag;
+            int rand;
+            List<Restaurant> listRES = JsonConvert.DeserializeObject<List<Restaurant>>(File.ReadAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\Restaurant\All_Restaurant.json")).ToList(); 
+            List<FoodComment> list = new List<FoodComment>();
+            foreach(Restaurant r in listRES)
+            {
+                foreach(Category rs in r.Menu)
+                {
+                    foreach(FoodClass rsf in rs.Foods)
+                    {
+                        foreach(FoodComment fCOM in rsf.comments_IN_ORDER)
+                        {
+                            list.Add(fCOM.cCloneComment());
+                        }
+                    }
+                }
+            }
+
+            do
+            {
+                flag = 0;
+                rand = (new Random()).Next(100, 999999999);
+                foreach (FoodComment fCOM in list)
+                {
+                    if (fCOM.CommentID == rand) { flag = 1; break; }
+                }
+
+            } while (flag == 1);
+            return rand;
+        }
     }
 
 }

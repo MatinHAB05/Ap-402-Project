@@ -73,7 +73,7 @@ namespace MainProject.AddRestunts_AdminPanel_Matin
             {
                 Error += "ادرس نمیتواند خالی باشد" + "\n";
             }
-            if(ra2.IsChecked == false && ra1.IsChecked == false)
+            if(ra2.IsChecked == false && ra1.IsChecked == false && ra3.IsChecked==false)
             {
                 Error += "نوع رستوران باید مشخص شود" + "\n";
 
@@ -141,8 +141,11 @@ namespace MainProject.AddRestunts_AdminPanel_Matin
                 demo.Menu = new List<Category>();
 
                 demo.receptionType = ReceptionType.Dine_In;
-                if (ra2.IsChecked==true) { demo.receptionType=ReceptionType.Delivery; }
-                
+                if (ra1.IsChecked==true) { demo.receptionType=ReceptionType.Dine_In; }
+                else if (ra2.IsChecked == true) { demo.receptionType = ReceptionType.Delivery; }
+                else if (ra3.IsChecked == true) { demo.receptionType = ReceptionType.Both; }
+
+
                 restaurants.Add(demo);
 
                 File.WriteAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\Restaurant\All_Restaurant.json",

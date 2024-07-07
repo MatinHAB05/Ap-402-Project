@@ -20,6 +20,7 @@ using MainProject.ReviewAndEditUnreviewedComplaints_Matin;
 using MainProject.ReviewComplaints_Matin;
 using MainProject.ReviewUNREAD_AdminPanel_Matin;
 using MainProject.LoginForm_Matin;
+using MainProject.AdminPage_Parham.AdminEditPass_Matin;
 
 namespace MainProject.AdminPage_Parham.AdminPage
 {
@@ -28,7 +29,7 @@ namespace MainProject.AdminPage_Parham.AdminPage
         bool Must_OFF;
 
         public Admin admin {  get; set; }
-        internal AdminPage(Admin admin)
+        public AdminPage(Admin admin)
         {
             InitializeComponent();
             Must_OFF= true;
@@ -97,6 +98,15 @@ namespace MainProject.AdminPage_Parham.AdminPage
         private void SaveBeforeClose()
         {
 
+        }
+
+        private void EditPPAAASS(object sender, RoutedEventArgs e)
+        {
+            AdminEditPass adminEditPass = new AdminEditPass(admin);
+            adminEditPass.Show();
+            Must_OFF = false;
+
+            this.Close();
         }
     }
 }

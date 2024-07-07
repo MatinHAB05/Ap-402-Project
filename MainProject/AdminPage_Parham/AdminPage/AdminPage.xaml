@@ -19,8 +19,9 @@
         <Border Grid.Row="0" Grid.Column="0" Background="LightBlue">
         </Border>
         <Button  Content="Log Out" Click="Logout"  Grid.Row="0" Background="Red" HorizontalAlignment="Left" Foreground="DarkBlue" Height="30" Width="70"/>
+        <Button  Content="Edit Password" Margin="100,0,0,0" Click="EditPPAAASS"  Grid.Row="0" Background="GreenYellow" HorizontalAlignment="Left" Foreground="DarkBlue" Height="30" Width="90"/>
 
-            <TextBlock Grid.Row="0" Text="Admin Page" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+        <TextBlock Grid.Row="0" Text="Admin Page" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
         <Button Grid.Row="1"
                 x:Name="Restaurant_Registration"
                 Content="Restaurant Registration"

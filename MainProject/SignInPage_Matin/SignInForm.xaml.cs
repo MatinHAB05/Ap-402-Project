@@ -90,6 +90,7 @@ namespace MainProject.SignInPage_Matin
                 Error += "فقط شماره های تلفنی شناخته شده در ایران مورد قبول میباشد" + "\n";
                 Isphone = false;
             }
+
             //***************************
             bool isKharab = false;
             foreach (User u in All_Users)
@@ -137,7 +138,16 @@ namespace MainProject.SignInPage_Matin
             if (Error == "")
             {
                 //write
+
                 User user = new User(username, firstName, LastName, Email, phone);
+                if (MMale.IsChecked==true)
+                {
+                    user.Gender = Gender.Male;
+                }
+                else
+                {
+                    user.Gender=Gender.Female;
+                }
                 //end write
 
                 //send email code
