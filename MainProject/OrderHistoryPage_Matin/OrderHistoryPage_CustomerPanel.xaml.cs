@@ -27,6 +27,8 @@ namespace MainProject.OrderHistoryPage_Matin
     /// </summary>
     public partial class OrderHistoryPage_CustomerPanel : Window
     {
+        bool Must_OFF;
+
         public ObservableCollection<OrderHistoryClass_FORNOW> oriori;
         public ObservableCollection<OrderHistoryClass_FORNOW> OLD;
         public List<FoodRequest> foodRequests;
@@ -67,6 +69,7 @@ namespace MainProject.OrderHistoryPage_Matin
         public OrderHistoryPage_CustomerPanel(CustomerMainPage prepage)
         {
             InitializeComponent();
+            Must_OFF = true;
             CurrentUser = prepage.CurrentUser;
             EditBut.Visibility = Visibility.Visible;
             SaveBut.Visibility = Visibility.Hidden;
@@ -237,7 +240,7 @@ namespace MainProject.OrderHistoryPage_Matin
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             SaveBeforeClose();
-            Application.Current.Shutdown();
+          if(Must_OFF)  Application.Current.Shutdown();
 
         }
 
@@ -252,6 +255,7 @@ namespace MainProject.OrderHistoryPage_Matin
             SaveBeforeClose();
             CustomerMainPage back = new CustomerMainPage(CurrentUser);
             back.Show();
+            Must_OFF = false;
             this.Close();
 
         }

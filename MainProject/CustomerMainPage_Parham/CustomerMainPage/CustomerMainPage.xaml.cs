@@ -29,6 +29,8 @@ namespace MainProject.CustomerMainPage_Parham.CustomerMainPage
     //chatgpt == Icommand else....
     public partial class CustomerMainPage : Window, INotifyPropertyChanged
     {
+        bool Must_OFF;
+
         public ICommand ButtonCommand { get; set; }
 
         public User CurrentUser;
@@ -36,6 +38,7 @@ namespace MainProject.CustomerMainPage_Parham.CustomerMainPage
         public CustomerMainPage(User user)
         {
             InitializeComponent();
+            Must_OFF = true;
             CurrentUser = user;
             //edit the details of this user!!!
             string jsonRes = File.ReadAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\Restaurant\All_Restaurant.json");
@@ -54,6 +57,7 @@ namespace MainProject.CustomerMainPage_Parham.CustomerMainPage
             //MessageBox.Show($"Button clicked for {restaurant.RestaurantName}");
             reserrveORorderFoods_CustomerPage reserrveORorderFoods_CustomerPage = new reserrveORorderFoods_CustomerPage(CurrentUser,restaurant);
             reserrveORorderFoods_CustomerPage.Show();
+            Must_OFF = false;
             this.Close();
         }
         private void Clear(object sender, RoutedEventArgs e)
@@ -141,6 +145,7 @@ namespace MainProject.CustomerMainPage_Parham.CustomerMainPage
         {
             ProfilePage profile = new ProfilePage(this);
             profile.Show();
+            Must_OFF = false;
             this.Close();
         }
 
@@ -148,6 +153,8 @@ namespace MainProject.CustomerMainPage_Parham.CustomerMainPage
         {
             OrderHistoryPage_CustomerPanel orderHistoryPage = new OrderHistoryPage_CustomerPanel(this);
             orderHistoryPage.Show();
+            Must_OFF = false;
+
             this.Close();
         }
 
@@ -155,6 +162,8 @@ namespace MainProject.CustomerMainPage_Parham.CustomerMainPage
         {
             Follow_RegisterComplaints_CustomerPanel follow_RegisterComplaints_CustomerPanel = new Follow_RegisterComplaints_CustomerPanel(this);
             follow_RegisterComplaints_CustomerPanel.Show();
+            Must_OFF = false;
+
             this.Close();
         }
 
@@ -163,6 +172,8 @@ namespace MainProject.CustomerMainPage_Parham.CustomerMainPage
             SaveBeforeClose();
             LoginPage loginPage = new LoginPage();
             loginPage.Show();
+            Must_OFF = false;
+
             this.Close();
 
 
@@ -175,7 +186,7 @@ namespace MainProject.CustomerMainPage_Parham.CustomerMainPage
         private void Window_Closing(object sender, CancelEventArgs e)
         {
             SaveBeforeClose();
-            Application.Current.Shutdown();
+           if(Must_OFF) Application.Current.Shutdown();
 
         }
     }

@@ -14,12 +14,15 @@ namespace MainProject.SignInPage_Matin
     /// </summary>
     public partial class SignInForm : Window
     {
+        bool Must_OFF;
+
         internal List<User> All_Users;
         internal List<Admin> All_Admin;
         internal List<Restaurant> All_Restaurants;
         internal SignInForm(List<User> All_Us , List<Restaurant> restaurants , List<Admin> admins )
         {
             InitializeComponent();
+            Must_OFF= true;
             All_Users = All_Us;
             All_Admin = admins;
             All_Restaurants = restaurants;
@@ -182,7 +185,7 @@ namespace MainProject.SignInPage_Matin
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            Application.Current.Shutdown();
+           if(Must_OFF) Application.Current.Shutdown();
 
         }
     }

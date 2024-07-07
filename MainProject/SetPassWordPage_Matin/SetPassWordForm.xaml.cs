@@ -79,7 +79,7 @@ namespace MainProject.SetPassWordPage_Matin
                 user.PassWord = pass;
                 PerviousForm.All_Users.Add(user);
                 string json_save = JsonConvert.SerializeObject(PerviousForm.All_Users,Formatting.Indented);
-                string path = @"CC:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\User\All_Users.json";
+                string path = @"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\User\All_Users.json";
                 File.WriteAllText(path,json_save);
                 //end Save USer
                 MessageBox.Show("Done!", "GoodNews", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -106,6 +106,7 @@ namespace MainProject.SetPassWordPage_Matin
             if (clodeAUTO == 0)
             {
                 this.PerviousForm.Show();
+                return;
             }
             //Application.Current.Shutdown();
 

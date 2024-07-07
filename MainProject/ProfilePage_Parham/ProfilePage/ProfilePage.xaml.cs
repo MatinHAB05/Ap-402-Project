@@ -22,7 +22,9 @@ using System.Windows.Shapes;
 namespace MainProject.ProfilePage_Parham.ProfilePage
 {
     public partial class ProfilePage : Window , INotifyPropertyChanged
-    {    
+    {
+        bool Must_OFF;
+
         public event PropertyChangedEventHandler? PropertyChanged;
 
         private string _address;
@@ -37,6 +39,7 @@ namespace MainProject.ProfilePage_Parham.ProfilePage
         internal ProfilePage(CustomerMainPage prepage)
         {
             InitializeComponent();
+            Must_OFF = true;
             this.PreviousPage = prepage;
             CurrentUser = prepage.CurrentUser;
             UserName.Text = CurrentUser.UserName;
@@ -104,7 +107,7 @@ namespace MainProject.ProfilePage_Parham.ProfilePage
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             SaveBeforeSave();
-            Application.Current.Shutdown();
+           if(Must_OFF) Application.Current.Shutdown();
 
         }
 
@@ -113,6 +116,7 @@ namespace MainProject.ProfilePage_Parham.ProfilePage
             SaveBeforeSave();
             CustomerMainPage back = new CustomerMainPage(CurrentUser);
             back.Show();
+            Must_OFF = false;
             this.Close();
 
         }

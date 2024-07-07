@@ -28,6 +28,7 @@ namespace MainProject.LoginForm_Matin
     /// </summary>
     public partial class LoginPage : Window
     {
+        bool Must_OFF;
         List<User>? AllUser_List = new List<User>();
         List<Restaurant>? AllRestaurants_List = new List<Restaurant>();
         List<Admin>? AllAdmin_List = new List<Admin>();
@@ -37,7 +38,7 @@ namespace MainProject.LoginForm_Matin
         public LoginPage()
         {
             InitializeComponent();
-
+            Must_OFF = true;
             AllUser_List = null;
             AllRestaurants_List = null;
             AllAdmin_List = null;
@@ -67,15 +68,23 @@ namespace MainProject.LoginForm_Matin
             int i = 0;
             foreach(User user in AllUser_List)
             {
-                if(user.PassWord==password && user.UserName==username)
+                if (user.UserName == username)
                 {
+                    if (user.PassWord == password)
+                    {
 
-                    CustomerMainPage customerMainPage = new CustomerMainPage(AllUser_List[i]);
-                    customerMainPage.Show();
+                        CustomerMainPage customerMainPage = new CustomerMainPage(AllUser_List[i]);
+                        customerMainPage.Show();
 
 
+                        Must_OFF = false;
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Wrong Password", "Attention", MessageBoxButton.OK, MessageBoxImage.Warning);
 
-                    this.Close();
+                    }
                     return;
                 }
                 i++;
@@ -85,11 +94,20 @@ namespace MainProject.LoginForm_Matin
             i = 0;
             foreach (Restaurant res in AllRestaurants_List)
             {
-                if (res.PassWord == password && res.UserName == username)
+                if (res.UserName == username)
                 {
-                    RestaurantPanel restaurantPanel = new RestaurantPanel(AllRestaurants_List[i]);
-                    restaurantPanel.Show();
-                    this.Close();
+                    if (res.PassWord == password && res.UserName == username)
+                    {
+                        RestaurantPanel restaurantPanel = new RestaurantPanel(AllRestaurants_List[i]);
+                        restaurantPanel.Show();
+                        Must_OFF = false;
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Wrong Password", "Attention", MessageBoxButton.OK, MessageBoxImage.Warning);
+
+                    }
                     return;
                 }
                 i++;
@@ -100,13 +118,22 @@ namespace MainProject.LoginForm_Matin
             i = 0;
             foreach (Admin admin in AllAdmin_List)
             {
-                if (admin.Password == password && admin.UserName == username)
+                if (admin.UserName == username)
                 {
-                    AdminPage adminPage = new AdminPage(AllAdmin_List[i]);
-                    adminPage.Show();
+                    if (admin.Password == password && admin.UserName == username)
+                    {
+                        AdminPage adminPage = new AdminPage(AllAdmin_List[i]);
+                        adminPage.Show();
 
+                        Must_OFF = false;
+                        this.Close();
 
-                    this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Wrong Password", "Attention", MessageBoxButton.OK, MessageBoxImage.Warning);
+
+                    }
                     return;
                 }
                 i++;
@@ -116,16 +143,17 @@ namespace MainProject.LoginForm_Matin
             SIGNbut.Focus();
         }
 
-    private void SignBut(object sender, RoutedEventArgs e)
+         private void SignBut(object sender, RoutedEventArgs e)
         {
             SignInForm signIn = new SignInForm(AllUser_List,AllRestaurants_List,AllAdmin_List);
             signIn.Show();
+            Must_OFF = false;
             this.Close();
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            Application.Current.Shutdown();
+            if(Must_OFF)Application.Current.Shutdown();
         }
     }
 }

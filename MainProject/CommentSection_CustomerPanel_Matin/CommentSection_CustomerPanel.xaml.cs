@@ -116,6 +116,7 @@ namespace MainProject.CommentSection_CustomerPanel_Matin
 
     public partial class CommentSection_CustomerPanel : Window
     {
+        bool Must_OFF;
 
         public CommentForNow? SelectedComment {  get; set; }
         public FoodClass CurrentFood {  get; set; }
@@ -128,6 +129,7 @@ namespace MainProject.CommentSection_CustomerPanel_Matin
         public CommentSection_CustomerPanel(FoodClass CurrentFood , Restaurant CurrentRestaurant , User CurrntUser)
         {
             InitializeComponent();
+            Must_OFF = true;
             if (CurrentFood.comments_IN_ORDER == null) CurrentFood.comments_IN_ORDER = new List<FoodComment>();
             this.CurrentFood= CurrentFood;
             this.CurrentRestaurant= CurrentRestaurant;
@@ -143,7 +145,7 @@ namespace MainProject.CommentSection_CustomerPanel_Matin
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             SaveBeforeClose();
-            Application.Current.Shutdown();
+           if(Must_OFF) Application.Current.Shutdown();
 
         }
 
@@ -377,7 +379,8 @@ namespace MainProject.CommentSection_CustomerPanel_Matin
             SaveBeforeClose();
             reserrveORorderFoods_CustomerPage reserrveORorderFoods_CustomerPage = new reserrveORorderFoods_CustomerPage(this.CurrentUser, this.CurrentRestaurant);
             reserrveORorderFoods_CustomerPage.Show();
-            //MessageBox.Show(CurrentUser.UserName);   
+            //MessageBox.Show(CurrentUser.UserName);
+            Must_OFF = false;
             this.Close();
 
         }

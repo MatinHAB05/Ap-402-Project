@@ -26,6 +26,8 @@ namespace MainProject.AddRestunts_AdminPanel_Matin
     /// </summary>
     public partial class AddRestunts_AdminPanel_Page : Window
     {
+        bool Must_OFF ;
+
         public Admin admin {  get; set; }
         public List<Restaurant>? restaurants {  get; set; }
         public List<Admin>? admins { get; set; }
@@ -34,6 +36,7 @@ namespace MainProject.AddRestunts_AdminPanel_Matin
         public AddRestunts_AdminPanel_Page(Admin admin)
         {
             InitializeComponent();
+            Must_OFF = true;
             restaurants = GetAllRes(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\Restaurant\All_Restaurant.json");
             users = GetAllUser(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\User\All_Users.json");
             admins = GetAllAdmin(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\Admin\All_Admin.json");
@@ -200,6 +203,8 @@ namespace MainProject.AddRestunts_AdminPanel_Matin
                 }
                 restaurants[i].PassWord = pass;
                 MessageBox.Show("Done!", "GoodNews", MessageBoxButton.OK, MessageBoxImage.Information);
+                Must_OFF = false;
+
                 this.Close();
                 File.WriteAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\Restaurant\All_Restaurant.json", JsonConvert.SerializeObject(restaurants,Formatting.Indented));
             }
@@ -209,7 +214,7 @@ namespace MainProject.AddRestunts_AdminPanel_Matin
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             SaveBeforeClose();
-            Application.Current.Shutdown();
+          if(Must_OFF)  Application.Current.Shutdown();
 
         }
 
@@ -230,6 +235,9 @@ namespace MainProject.AddRestunts_AdminPanel_Matin
         {
             SaveBeforeClose();
             AdminPage BACK = new AdminPage(admin);
+            BACK.Show();
+            Must_OFF = false;
+
             this.Close();
 
         }

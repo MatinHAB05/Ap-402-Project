@@ -17,6 +17,8 @@ namespace MainProject.reserrveORorderFoods_CustomerPage_Matin
     /// </summary>
     public partial class reserrveORorderFoods_CustomerPage : Window, INotifyPropertyChanged
     {
+        bool Must_OFF;
+
         public User CurrentUser { get; set; }
         public Restaurant CurrentREStaurant { get; set; }
         public ObservableCollection<Category> _categories { get; set; }
@@ -44,6 +46,7 @@ namespace MainProject.reserrveORorderFoods_CustomerPage_Matin
         public reserrveORorderFoods_CustomerPage(User CurUser , Restaurant CurRes)
         {
             InitializeComponent();
+            Must_OFF = true;
             this.DataContext = this;
             MainListView.Visibility = Visibility.Hidden;
             CurrentUser = CurUser;
@@ -140,6 +143,7 @@ namespace MainProject.reserrveORorderFoods_CustomerPage_Matin
             //MessageBox.Show("HI MATIN");
             CommentSection_CustomerPanel commentSection_CustomerPanel = new CommentSection_CustomerPanel(food,CurrentREStaurant,CurrentUser);
             commentSection_CustomerPanel.Show();
+            Must_OFF = false;
             this.Close();
         }
         public event PropertyChangedEventHandler? PropertyChanged;
@@ -280,7 +284,7 @@ namespace MainProject.reserrveORorderFoods_CustomerPage_Matin
         private void Window_Closing(object sender, CancelEventArgs e)
         {
             SaveBeforeClose();
-            Application.Current.Shutdown();
+          if(Must_OFF)  Application.Current.Shutdown();
 
         }
 
@@ -314,6 +318,7 @@ namespace MainProject.reserrveORorderFoods_CustomerPage_Matin
             SaveBeforeClose();
             CustomerMainPage back = new CustomerMainPage(CurrentUser);
             back.Show();
+            Must_OFF = false;
             this.Close();
 
         }

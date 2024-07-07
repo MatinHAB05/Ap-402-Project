@@ -248,5 +248,17 @@
         ]
       }
     ]
+  },
+  {
+    "IsCanReserve": false,
+    "UserName": "NewRes",
+    "UserID": 0,
+    "Rating": 0.0,
+    "PassWord": "40649965",
+    "CityName": "Abadan",
+    "RestaurantName": "Mamad",
+    "receptionType": 0,
+    "AddreesOfRestaurant": "Addreesasdadads",
+    "Menu": null
   }
 ]

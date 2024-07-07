@@ -25,6 +25,8 @@ namespace MainProject.ReviewUNREAD_AdminPanel_Matin
     /// </summary>
     public partial class ReviewUNREAD_AdminPanel : Window
     {
+        bool Must_OFF;
+
         public ObservableCollection<complaints_User_FORNOW> comes { get; set; }
 
         public Admin admin { get; set; }
@@ -66,6 +68,7 @@ namespace MainProject.ReviewUNREAD_AdminPanel_Matin
         }
         public ReviewUNREAD_AdminPanel(Admin admin)
         {
+            Must_OFF = true;
             InitializeComponent();
             this.admin = admin;
             this.DataContext = this;
@@ -94,7 +97,7 @@ namespace MainProject.ReviewUNREAD_AdminPanel_Matin
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
            SaveBEforeClose();
-            Application.Current.Shutdown();
+          if(Must_OFF)  Application.Current.Shutdown();
 
         }
 
@@ -103,6 +106,7 @@ namespace MainProject.ReviewUNREAD_AdminPanel_Matin
             SaveBEforeClose();
             AdminPage back = new AdminPage(admin);
             back.Show();
+            Must_OFF = false;
             this.Close();
 
         }
