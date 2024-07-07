@@ -7,12 +7,23 @@
         mc:Ignorable="d"
         Title="reserrveORorderFoods_CustomerPage" Height="470" Width="1000" Closing="Window_Closing">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-            <ColumnDefinition Width="auto" />
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Button  Click="BackPage" Grid.Column="0" Grid.Row="0" Background="#123456" HorizontalAlignment="Left" Foreground="DarkBlue" Height="30" Width="70">
+                <Image Source="/matinImages_matin/back.png" />
+            </Button>
+        </Grid>
 
-        </Grid.ColumnDefinitions>
-        <Grid Grid.Column="0">
+    <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="auto" />
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
             <ScrollViewer VerticalScrollBarVisibility="Auto">
                 <ListView x:Name="CategoryLIST_VIEW"  Margin="15">
                     <ListView.ItemContainerStyle>
@@ -137,5 +148,6 @@
 
 
         </Grid>
+    </Grid>
     </Grid>
 </Window>

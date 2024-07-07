@@ -174,8 +174,8 @@ namespace MainProject.CommentSection_CustomerPanel_Matin
              }
             File.WriteAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\Restaurant\All_Restaurant.json",
                 JsonConvert.SerializeObject(allres, Formatting.Indented));
-            reserrveORorderFoods_CustomerPage reserrveORorderFoods_CustomerPage = new reserrveORorderFoods_CustomerPage(this.CurrentUser,this.CurrentRestaurant);
-            reserrveORorderFoods_CustomerPage.Show();
+            //reserrveORorderFoods_CustomerPage reserrveORorderFoods_CustomerPage = new reserrveORorderFoods_CustomerPage(this.CurrentUser,this.CurrentRestaurant);
+            //reserrveORorderFoods_CustomerPage.Show();
         }
 
         private void REPbbb(object sender, RoutedEventArgs e)
@@ -401,6 +401,14 @@ namespace MainProject.CommentSection_CustomerPanel_Matin
             this.CommentTree.Clear();
             this.CommentTree = new ObservableCollection<CommentForNow>(CurrentFood.comments_IN_ORDER.Select(c => CommentForNow.CAST(c, this)).ToList());
             CommentTreeView.ItemsSource = this.CommentTree;
+        }
+
+        private void BackPage(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+            reserrveORorderFoods_CustomerPage reserrveORorderFoods_CustomerPage = new reserrveORorderFoods_CustomerPage(this.CurrentUser, this.CurrentRestaurant);
+            reserrveORorderFoods_CustomerPage.Show();
+            MessageBox.Show(CurrentUser.UserName);
         }
     }
 }

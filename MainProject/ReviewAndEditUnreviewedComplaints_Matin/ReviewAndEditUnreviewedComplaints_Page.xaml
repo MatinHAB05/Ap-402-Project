@@ -9,11 +9,19 @@
 
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
             <RowDefinition Height="80"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <Grid Grid.Row="0"  Margin="20,5,15,0" >
+        
+        <Grid Grid.Row="0">
+            <Button  Click="BackPage" Grid.Column="0" Grid.Row="0" Background="#123456" HorizontalAlignment="Left" Foreground="DarkBlue" Height="30" Width="70">
+                <Image Source="/matinImages_matin/back.png" />
+            </Button>
+        </Grid>
+
+        <Grid Grid.Row="1"  Margin="20,5,15,0" >
                 <Button x:Name="SaveBut" Click="SaveEvent" Background="Transparent" BorderThickness="0" Height="60" HorizontalAlignment="Left" ToolTip="Save edits!" >
                 <Image Source="/ReviewAndEditUnreviewedComplaints_Matin/Images/save.png" />
             </Button>
@@ -27,7 +35,7 @@
 
         </Grid>
         
-        <Grid Grid.Row="1"  Margin="15,5,15,30" >
+        <Grid Grid.Row="2"  Margin="15,5,15,30" >
 
             <ScrollViewer >
                 <DataGrid x:Name="DataGridResault" Margin="5" AutoGenerateColumns="False">

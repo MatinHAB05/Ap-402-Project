@@ -91,8 +91,15 @@ namespace MainProject.ReviewComplaints_Matin
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            AdminPage Pre = new AdminPage(admin);
-            Pre.Show();
+            //AdminPage Pre = new AdminPage(admin);
+            //Pre.Show();
+        }
+
+        private void BackPage(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+            AdminPage back =new AdminPage(admin);
+            back.Show();
         }
     }
 }

@@ -19,6 +19,10 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
+        <Button  Click="BackPage" Grid.Column="0" Grid.Row="0" Background="#123456" HorizontalAlignment="Left" Foreground="DarkBlue" Height="30" Width="70">
+            <Image Source="/matinImages_matin/back.png" />
+        </Button>
+
         <TextBlock Grid.Row="0" Text="Profile Page" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="35"/>
         <TextBlock Grid.Row="1" x:Name="Name" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Width="250" Height="30"/>
         <TextBlock Grid.Row="2" x:Name="LastName" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Width="250" Height="30"/>

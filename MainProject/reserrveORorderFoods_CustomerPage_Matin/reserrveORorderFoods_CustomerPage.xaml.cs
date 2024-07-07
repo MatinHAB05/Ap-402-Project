@@ -295,8 +295,8 @@ namespace MainProject.reserrveORorderFoods_CustomerPage_Matin
             }
             File.WriteAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\Restaurant\All_Restaurant.json",
                 JsonConvert.SerializeObject(all,Formatting.Indented));
-            CustomerMainPage customerMainPage = new CustomerMainPage(CurrentUser);
-            customerMainPage.Show();
+            //CustomerMainPage customerMainPage = new CustomerMainPage(CurrentUser);
+            //customerMainPage.Show();
 
         }
 
@@ -323,8 +323,15 @@ namespace MainProject.reserrveORorderFoods_CustomerPage_Matin
                 smtp.Send(email);
                 smtp.Disconnect(true);
             }
-        } 
+        }
 
+        private void BackPage(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+            CustomerMainPage back = new CustomerMainPage(CurrentUser);
+            back.Show();
+
+        }
     }
 
 

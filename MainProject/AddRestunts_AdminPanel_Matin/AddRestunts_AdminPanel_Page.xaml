@@ -13,6 +13,9 @@
 
     </Window.Background>
     <Grid>
+        <Button  Click="BackPage" Grid.Column="0" Grid.Row="0" Background="#123456" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="DarkBlue" Height="30" Width="70">
+            <Image Source="/matinImages_matin/back.png" />
+        </Button>
         <StackPanel Height="480" Width="500"  VerticalAlignment="Center" HorizontalAlignment="Center" Background="White">
             <Label Content="Username" FontSize="15"/>
             <UserCont111:txtBoxControl  x:Name="UserName" Height="19.96" Margin="5"/>

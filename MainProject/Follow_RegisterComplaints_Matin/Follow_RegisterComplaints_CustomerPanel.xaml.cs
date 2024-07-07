@@ -118,8 +118,16 @@ namespace MainProject.Follow_RegisterComplaints_Matin
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            CustomerMainPage customerMainPage = new CustomerMainPage(CurrentUser);
-            customerMainPage.Show();
+            //CustomerMainPage customerMainPage = new CustomerMainPage(CurrentUser);
+            //customerMainPage.Show();
+        }
+
+        private void BackPage(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+
+            CustomerMainPage back = new CustomerMainPage(CurrentUser);
+            back.Show();
         }
 
         //private void EditEvent(object sender, RoutedEventArgs e)

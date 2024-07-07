@@ -208,8 +208,8 @@ namespace MainProject.AddRestunts_AdminPanel_Matin
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            AdminPage Pre = new AdminPage(admin);
-            Pre.Show();
+            //AdminPage Pre = new AdminPage(admin);
+            //Pre.Show();
         }
 
         private List<Restaurant>? GetAllRes(string path)
@@ -223,6 +223,12 @@ namespace MainProject.AddRestunts_AdminPanel_Matin
         private List<Admin>? GetAllAdmin(string path)
         {
             return JsonConvert.DeserializeObject<List<Admin>>(File.ReadAllText(path));
+        }
+
+        private void BackPage(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+            AdminPage BACK = new AdminPage(admin);
         }
     }
 }

@@ -154,8 +154,8 @@ namespace MainProject.Search_Restuant_PageADMIN_Matin
 
         private void Window_Closing(object sender, CancelEventArgs e)
         {
-            AdminPage Pre = new AdminPage(admin);
-            Pre.Show();
+            //AdminPage Pre = new AdminPage(admin);
+            //Pre.Show();
         }
 
         private void SEARCH(object sender, RoutedEventArgs e)
@@ -188,6 +188,13 @@ namespace MainProject.Search_Restuant_PageADMIN_Matin
             //resturants_FORNOWs = demo;
             //MessageBox.Show(resturants_FORNOWs.Count.ToString());
 
+        }
+
+        private void BackPage(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+            AdminPage back = new AdminPage(admin);
+            back.Show();
         }
     }
 }

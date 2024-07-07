@@ -157,8 +157,8 @@ namespace MainProject.ReviewAndEditUnreviewedComplaints_Matin
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            AdminPage Pre = new AdminPage(admin);
-            Pre.Show();
+            //AdminPage Pre = new AdminPage(admin);
+            //Pre.Show();
         }
         private void ResetEvent(object sender, RoutedEventArgs e)
         {
@@ -166,6 +166,14 @@ namespace MainProject.ReviewAndEditUnreviewedComplaints_Matin
             foreach (complaints_User_FORNOW a in old) {  comes.Add(a.cClone()); }
             DataGridResault.ItemsSource = comes.Where(cm => cm.IsChecked == false).ToList(); ;
 
+
+        }
+
+        private void BackPage(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+            AdminPage back = new AdminPage(admin);  
+            back.Show();
 
         }
     }

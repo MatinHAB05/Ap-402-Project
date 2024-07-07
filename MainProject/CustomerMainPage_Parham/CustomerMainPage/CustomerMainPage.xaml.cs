@@ -23,6 +23,7 @@ using System.Windows.Media.Animation;
 using MainProject.OrderHistoryPage_Matin;
 using MainProject.Follow_RegisterComplaints_Matin;
 using MainProject.reserrveORorderFoods_CustomerPage_Matin;
+using MainProject.LoginForm_Matin;
 namespace MainProject.CustomerMainPage_Parham.CustomerMainPage
 {
     //chatgpt == Icommand else....
@@ -155,6 +156,15 @@ namespace MainProject.CustomerMainPage_Parham.CustomerMainPage
             Follow_RegisterComplaints_CustomerPanel follow_RegisterComplaints_CustomerPanel = new Follow_RegisterComplaints_CustomerPanel(this);
             follow_RegisterComplaints_CustomerPanel.Show();
             this.Close();
+        }
+
+        private void Logout(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+            LoginPage loginPage = new LoginPage();
+            loginPage.Show();
+
+
         }
     }
     public class RelayCommand<T> : ICommand

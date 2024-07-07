@@ -106,8 +106,8 @@ namespace MainProject.ProfilePage_Parham.ProfilePage
             //Saved Edits
             CurrentUser.Email_Unique=EmailBlock.Text;
             CurrentUser.Address=AddressBlock.Text;
-            CustomerMainPage customerMainPage = new CustomerMainPage(CurrentUser);
-            customerMainPage.Show();
+            //CustomerMainPage customerMainPage = new CustomerMainPage(CurrentUser);
+            //customerMainPage.Show();
             //end Save
 
             //Save in Json
@@ -123,6 +123,14 @@ namespace MainProject.ProfilePage_Parham.ProfilePage
             AllUsers[i] = CurrentUser;
             string jsonEnd = JsonConvert.SerializeObject(AllUsers,Formatting.Indented);
             File.WriteAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\User\All_Users.json", jsonEnd);
+        }
+
+        private void BackPage(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+            CustomerMainPage back = new CustomerMainPage(CurrentUser);
+            back.Show();
+
         }
     }
 }

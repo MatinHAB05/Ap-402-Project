@@ -8,11 +8,18 @@
         Title="CommentSection_CustomerPanel" Height="600" Width="1320" Closing ="Window_Closing">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
             <RowDefinition Height="50"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Border BorderBrush="Black" BorderThickness="2">
-            <Grid Grid.Row="0">
+        <Grid Grid.Row="0">
+            <Button  Click="BackPage" Grid.Column="0" Grid.Row="0" Background="#123456" HorizontalAlignment="Left" Foreground="DarkBlue" Height="30" Width="70">
+                <Image Source="/matinImages_matin/back.png" />
+            </Button>
+        </Grid>
+        <Grid Grid.Row="1">
+
+            <Border BorderBrush="Black" BorderThickness="0,0,0,2">
                 <StackPanel Orientation="Horizontal">
                     <Button Content="Add New" Margin="15,5,5,5" Width="80" FontSize="18" Background="SkyBlue" Click="ADDbbb"/>
                     <Button Content="Reply" Margin="15,5,5,5" Width="60" FontSize="18" Background="SkyBlue" Click="REPbbb"/>
@@ -30,10 +37,11 @@
 
 
                 </StackPanel>
-            </Grid>
-        </Border>
+            </Border>
 
-        <Grid Grid.Row="1">
+        </Grid>
+
+        <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="44*"/>
                 <ColumnDefinition Width="705*"/>

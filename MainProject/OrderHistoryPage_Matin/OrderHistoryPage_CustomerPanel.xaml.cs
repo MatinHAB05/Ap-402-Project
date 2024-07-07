@@ -234,8 +234,8 @@ namespace MainProject.OrderHistoryPage_Matin
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            CustomerMainPage customerMainPage = new CustomerMainPage(CurrentUser);
-            customerMainPage.Show();
+            //CustomerMainPage customerMainPage = new CustomerMainPage(CurrentUser);
+            //customerMainPage.Show();
         }
 
         private double? IfEmptyReturenNull(string a)
@@ -244,5 +244,11 @@ namespace MainProject.OrderHistoryPage_Matin
             return double.Parse(a.Trim());
         }
 
+        private void BackPage(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+            CustomerMainPage back = new CustomerMainPage(CurrentUser);
+            back.Show();
+        }
     }
 }

@@ -15,7 +15,11 @@
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0"  Margin="20,5,15,0" >
-            <Expander Header="Register New Complaints" IsExpanded="False">
+            <StackPanel Orientation="Horizontal">
+                <Button  Click="BackPage" Grid.Column="0" Grid.Row="0" Background="#123456" HorizontalAlignment="Left" Foreground="DarkBlue" Height="30" Width="70">
+                    <Image Source="/matinImages_matin/back.png" />
+                </Button>
+                <Expander Margin="10,0,0,0" Header="Register New Complaints" IsExpanded="False">
                 <StackPanel>
                     <UseObj:UserControlFollowAndRegisterComplaints_CustomerPanel x:Name="user1" HeightTxtBox="34" LabelContent="Resturants Name : " Margin="0,0,0,5"/>
                     <UseObj:UserControlFollowAndRegisterComplaints_CustomerPanel x:Name="user2" HeightTxtBox="34" LabelContent="Title : " Margin="0,0,0,5"/>
@@ -29,7 +33,7 @@
                     </StackPanel>
                 </StackPanel>
             </Expander>
-
+            </StackPanel>
         </Grid>
 
         <Grid Grid.Row="1"  Margin="15,5,15,30" >

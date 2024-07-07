@@ -19,6 +19,7 @@ using MainProject.Search_complaints_PageADMIN_Matin;
 using MainProject.ReviewAndEditUnreviewedComplaints_Matin;
 using MainProject.ReviewComplaints_Matin;
 using MainProject.ReviewUNREAD_AdminPanel_Matin;
+using MainProject.LoginForm_Matin;
 
 namespace MainProject.AdminPage_Parham.AdminPage
 {
@@ -65,6 +66,18 @@ namespace MainProject.AdminPage_Parham.AdminPage
             ReviewComplaints_Page reviewComplaints = new ReviewComplaints_Page(this.admin);
             reviewComplaints.Show();
             this.Close();
+        }
+
+        private void Logout(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+            LoginPage loginPage = new LoginPage();
+            loginPage.Show();
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+
         }
     }
 }
