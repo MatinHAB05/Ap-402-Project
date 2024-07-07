@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MainProject.ChangeMenu_Parham.ChangeMenu;
 using MainProject.Public_Classes;
 
 namespace MainProject.AddFood_Parham.AddFood
@@ -63,13 +64,20 @@ namespace MainProject.AddFood_Parham.AddFood
                     this.FoodName = Food_Name.Text;
                     this.FoodMaterial = Materials.Text.Split(',').ToList<string>();
                     FoodClass food = new FoodClass(this.CategoryName, this.FoodName, this.price , this.FoodMaterial, this.foodRemNumber);
-                    //this.restauranT.RestaurantOverRide_AddFood_InJsonFile(food, new Category(this.CategoryName, null));
+                    this.restauranT.RestaurantOverRide_AddFood_InJsonFile(food, new Category(this.CategoryName, null));
                 }
             }
             else
             {
                 MessageBox.Show("Please Enter all fields", "You did not enter all fields",  MessageBoxButton.OK , MessageBoxImage.Error);
             }
+            MessageBox.Show("Food Added Successfully", "food added", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+        private void BackPage(object sender, RoutedEventArgs e)
+        {
+            ChangeMenu changeMenu = new ChangeMenu(restauranT);
+            this.Close();
+            changeMenu.Show();
         }
     }
 }

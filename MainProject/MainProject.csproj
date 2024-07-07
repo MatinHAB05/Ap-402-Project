@@ -79,6 +79,7 @@
     <Resource Include="SignInPage_Matin\images\user.jpg" />
     <Folder Include="ChangeFoodInventory_Parham\Images\" />
     <Folder Include="ChangeMenu_Parham\Images\" />
+    <Folder Include="Images\" />
     <Folder Include="ProfilePage_Parham\images\" />
     <Folder Include="RestaurantPanel_Parham\images\" />
   </ItemGroup>

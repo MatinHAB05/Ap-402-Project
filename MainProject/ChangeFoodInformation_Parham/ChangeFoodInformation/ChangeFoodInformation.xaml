@@ -28,7 +28,7 @@
         <TextBlock Grid.Row="3" Grid.Column="1" Margin="0,-60,0,0" Text="Raw Materials" Background="LightSkyBlue" Width="80" Height="20" />
         <TextBox Grid.Row="4" Grid.Column="1" Name="Food_Category" Text="" Width="200" Height="40" Background="White"/>
         <TextBlock Grid.Row="4" Grid.Column="1" Margin="0,-60,0,0" Text="Food Category" Background="LightSkyBlue" Width="83" Height="20" />
-        <DataGrid x:Name="Comments" Grid.Row="1" Grid.RowSpan="5" Grid.ColumnSpan="1" Grid.Column="0" Background="LightSkyBlue" AutoGenerateColumns="False">
+        <DataGrid x:Name="Comments" Grid.Row="1" Grid.RowSpan="5" Grid.ColumnSpan="1" Grid.Column="0" Background="LightSkyBlue" AutoGenerateColumns="False" CanUserAddRows="False">
             <DataGrid.Columns>
                 <DataGridTemplateColumn Header="Title" Width="100">
                     <DataGridTemplateColumn.CellTemplate>
@@ -54,5 +54,8 @@
             </DataGrid.Columns>
         </DataGrid>
         <Button Grid.Column="1" Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Center" Width="100" Height="50" Click="Done" Content="Done"/>
+        <Button  Click="BackPage" Grid.Column="0" Grid.Row="0" Background="#123456" HorizontalAlignment="Left" Foreground="DarkBlue" Height="30" Width="70">
+            <Image Source="/matinImages_matin/back.png" />
+        </Button>
     </Grid>
 </Window>

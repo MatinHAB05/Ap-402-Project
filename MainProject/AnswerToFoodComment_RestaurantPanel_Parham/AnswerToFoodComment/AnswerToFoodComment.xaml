@@ -21,5 +21,8 @@
         <TextBox Name="AnswerText" Grid.Row="4" Width="650" Height="100" VerticalAlignment="Center" HorizontalAlignment="Left" Background="White"/>
         <TextBlock Text="Enter Answer" Grid.Row="3" Margin="700,0,0,0" Width="100" Height="20" VerticalAlignment="Center" Background="LightSkyBlue"/>
         <Button Grid.Row="4" Margin="700,60,0,0" Width="40" Height="40" Content="Done" Click="Answer_Completed"/>
+        <Button  Click="BackPage" Grid.Column="0" Grid.Row="0" Background="#123456" HorizontalAlignment="Left" Foreground="DarkBlue" Height="30" Width="70">
+            <Image Source="/matinImages_matin/back.png" />
+        </Button>
     </Grid>
 </Window>

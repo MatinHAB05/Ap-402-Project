@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Text.Json;
 using MainProject.Public_Classes;
+using MainProject.RestaurantPanel_Parham.RestaurantPanel;
+using MainProject.ChangeMenu_Parham.ChangeMenu;
 
 namespace MainProject.ChangeFoodInventory_Parham.ChangeFoodINverntory
 {
@@ -55,6 +57,15 @@ namespace MainProject.ChangeFoodInventory_Parham.ChangeFoodINverntory
 
                 restauranT.RestaurantOverRide_ChangeRem_InJsonFile(food, number);
             }
+            ChangeFoodInverntory changeFoodInventory = new ChangeFoodInverntory(restauranT);
+            changeFoodInventory.Show();
+            this.Close();
+        }
+        private void BackPage(object sender, RoutedEventArgs e)
+        {
+            RestaurantPanel restaurantPanel = new RestaurantPanel(restauranT);
+            this.Close();
+            restaurantPanel.Show();
         }
     }
 }

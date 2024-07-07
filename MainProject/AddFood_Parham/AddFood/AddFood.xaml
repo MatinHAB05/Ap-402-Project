@@ -29,5 +29,8 @@
         <TextBlock  Grid.Row="4" Margin="-500,0,0,0" Background="LightSkyBlue" Width="100" Height="20"  Text="Materials"/>
         <TextBlock  Grid.Row="4" Margin="510,0,0,0" Background="LightSkyBlue" Width="200" Height="20"  Text="- please put materials between ,"/>
         <TextBlock  Grid.Row="5" Margin="-500,0,0,0" Background="LightSkyBlue" Width="100" Height="20" Text="Remaine Number"/>
+        <Button  Click="BackPage" Grid.Column="0" Grid.Row="0" Background="#123456" HorizontalAlignment="Left" Foreground="DarkBlue" Height="30" Width="70">
+            <Image Source="/matinImages_matin/back.png" />
+        </Button>
     </Grid>
 </Window>
