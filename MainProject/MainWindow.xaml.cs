@@ -34,10 +34,10 @@ namespace MainProject
             InitializeComponent();
 
 
-            //string directory = MainWindow.GetSourceFileDirectory();
-            //MessageBox.Show(directory);
-            //MessageBox.Show(Get_Dir_ALL_RESTAURANT_json());
-
+            string directory = MainWindow.GetSourceFileDirectory();
+            MessageBox.Show(directory);
+            MessageBox.Show(Get_Dir_ALL_RESTAURANT_json());
+            //C:\User\ASUS\Desktop\Ap-402-Project\MainProject
 
             //test
             //List<Restaurant> test = JsonConvert.DeserializeObject<List<Restaurant>>(File.ReadAllText(Get_Dir_ALL_RESTAURANT_json()));
@@ -151,6 +151,14 @@ namespace MainProject
             string directory = MainWindow.GetSourceFileDirectory();
             string goal = System.IO.Path.Combine(directory, @"JsonFiles\Admin\All_Admin.json");
             return goal;
+        }
+        static public string Get_Dir_Images()
+        {
+            //C:\User\ASUS\Desktop\Ap-402-Project\MainProject
+            string directory = MainWindow.GetSourceFileDirectory();
+            string goal = System.IO.Path.Combine(directory, @"\FoodImages\");
+            return goal;
+
         }
 
     }

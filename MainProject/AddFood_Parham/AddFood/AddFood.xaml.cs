@@ -99,7 +99,7 @@ namespace MainProject.AddFood_Parham.AddFood
             OpenFileDialog openFileDialog = new OpenFileDialog
             {
                 Filter = "JPG images | *.jpg|PNG image| *.png",
-                InitialDirectory = "C:\\Users\\ASUS\\Desktop\\Ap-402-Project\\MainProject\\FoodImages\\", // Use absolute path with double backslashes
+                InitialDirectory = MainWindow.Get_Dir_Images(), // Use absolute path with double backslashes
                 Title = "Please pick a food",
                 Multiselect = false
             };
