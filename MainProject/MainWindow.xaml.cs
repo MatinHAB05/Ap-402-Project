@@ -156,7 +156,7 @@ namespace MainProject
         {
             //C:\User\ASUS\Desktop\Ap-402-Project\MainProject
             string directory = MainWindow.GetSourceFileDirectory();
-            string goal = System.IO.Path.Combine(directory, @"\FoodImages\");
+            string goal = System.IO.Path.Combine(directory, @"FoodImages");
             return goal;
 
         }
