@@ -17,6 +17,7 @@ using System.Windows.Media.Imaging;
 using MainProject.AnswerToFoodComment_RestaurantPanel_Parham.AnswerToFoodComment;
 using MainProject.RestaurantPanel_Parham.RestaurantPanel;
 using MainProject.ChangeMenu_Parham.ChangeMenu;
+using Application = System.Windows.Application;
 
 namespace MainProject.ChangeFoodInformation_Parham.ChangeFoodInformation
 {
@@ -25,8 +26,10 @@ namespace MainProject.ChangeFoodInformation_Parham.ChangeFoodInformation
     {
         FoodClass fooD;
         Restaurant restauranT;
+        public bool Window_Event { get; set; }
         public ChangeFoodInformation(FoodClass food, Restaurant restaurant)
         {
+            this.Window_Event = true;
             InitializeComponent();
             fooD = food;
             restauranT = restaurant;
@@ -38,23 +41,23 @@ namespace MainProject.ChangeFoodInformation_Parham.ChangeFoodInformation
             }
             else
             {
-                Raw_Materials.Text = "khali";
+                Raw_Materials.Text = "_";
             }
             Food_Category.Text = food.FoodCategory;
             Comments.ItemsSource = food.comments_IN_ORDER;
-            //BitmapImage bitmap = new BitmapImage();
-            //bitmap.BeginInit();
-            //bitmap.UriSource = new Uri(food.Image_Path, UriKind.RelativeOrAbsolute);
-            //bitmap.EndInit();
-            //Comments.ItemsSource = food.comments_IN_ORDER;
-            //Img.Source = bitmap;
-            //we will make it tommorow
+            BitmapImage bitmap = new BitmapImage();
+            bitmap.BeginInit();
+            bitmap.UriSource = new Uri(food.Image_Path, UriKind.RelativeOrAbsolute);
+            bitmap.EndInit();
+            Comments.ItemsSource = food.comments_IN_ORDER;
+            Img.Source = bitmap;
         }
         private void Answer_Comment_Button(object sender, RoutedEventArgs e)
         {
             Button btn = sender as Button;
             FoodComment foodComment = btn.DataContext as FoodComment;
             AnswerToFoodComment answerToFoodComment = new AnswerToFoodComment(restauranT, foodComment, fooD);
+            this.Window_Event = false;
             this.Close();
             answerToFoodComment.Show();
 
@@ -75,7 +78,7 @@ namespace MainProject.ChangeFoodInformation_Parham.ChangeFoodInformation
             }
             if(isPriceOk)
             {
-                FoodClass Food = new FoodClass(Food_Category.Text, Name.Text, _price, RawMats, fooD.RemNumber);
+                FoodClass Food = new FoodClass(Food_Category.Text, Name.Text, _price, RawMats, fooD.RemNumber, fooD.Image_Path);
                 restauranT.RestaurantOverRide_DeletFood_InJsonFile(fooD);
                 restauranT.RestaurantOverRide_AddFood_InJsonFile(Food, new Category(Food_Category.Text, null));
             }
@@ -85,8 +88,17 @@ namespace MainProject.ChangeFoodInformation_Parham.ChangeFoodInformation
         {
             
             ChangeMenu changeMenu = new ChangeMenu(restauranT);
+            this.Window_Event = false;
             this.Close();
             changeMenu.Show();
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (this.Window_Event)
+            {
+                Application.Current.Shutdown();
+            }
         }
     }
 }

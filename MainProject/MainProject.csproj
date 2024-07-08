@@ -80,6 +80,7 @@
     <Folder Include="ChangeFoodInventory_Parham\Images\" />
     <Folder Include="ChangeMenu_Parham\Images\" />
     <Folder Include="Images\" />
+    <Folder Include="FoodImages\" />
     <Folder Include="ProfilePage_Parham\images\" />
     <Folder Include="RestaurantPanel_Parham\images\" />
   </ItemGroup>

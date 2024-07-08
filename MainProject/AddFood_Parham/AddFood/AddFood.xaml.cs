@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using MainProject.ChangeMenu_Parham.ChangeMenu;
 using MainProject.Public_Classes;
+using Microsoft.Win32;
+using Application = System.Windows.Application;
 
 namespace MainProject.AddFood_Parham.AddFood
 {
@@ -25,8 +27,11 @@ namespace MainProject.AddFood_Parham.AddFood
         string CategoryName;
         double price;
         Restaurant restauranT;
+        string? image_p;
+        public bool Window_Event { get; set; }
         internal AddFood(Restaurant restaurant)
         {
+            this.Window_Event = true;
             restauranT = restaurant;
             InitializeComponent();
         }
@@ -63,21 +68,52 @@ namespace MainProject.AddFood_Parham.AddFood
                     this.CategoryName = Category_Name.Text;
                     this.FoodName = Food_Name.Text;
                     this.FoodMaterial = Materials.Text.Split(',').ToList<string>();
-                    FoodClass food = new FoodClass(this.CategoryName, this.FoodName, this.price , this.FoodMaterial, this.foodRemNumber);
+                    FoodClass food = new FoodClass(this.CategoryName, this.FoodName, this.price , this.FoodMaterial, this.foodRemNumber, this.image_p);
                     this.restauranT.RestaurantOverRide_AddFood_InJsonFile(food, new Category(this.CategoryName, null));
+                    MessageBox.Show("Food Added Successfully", "food added", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             }
             else
             {
                 MessageBox.Show("Please Enter all fields", "You did not enter all fields",  MessageBoxButton.OK , MessageBoxImage.Error);
             }
-            MessageBox.Show("Food Added Successfully", "food added", MessageBoxButton.OK, MessageBoxImage.Information);
+            
         }
         private void BackPage(object sender, RoutedEventArgs e)
         {
             ChangeMenu changeMenu = new ChangeMenu(restauranT);
+            this.Window_Event = false;
             this.Close();
             changeMenu.Show();
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (this.Window_Event)
+            {
+                Application.Current.Shutdown();
+            }
+        }
+        private void Image_Picked(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                Filter = "JPG images | *.jpg|PNG image| *.png",
+                InitialDirectory = "C:\\Users\\ASUS\\Desktop\\Ap-402-Project\\MainProject\\FoodImages\\", // Use absolute path with double backslashes
+                Title = "Please pick a food",
+                Multiselect = false
+            };
+
+            bool? pickedOrNot = openFileDialog.ShowDialog();
+
+            if (pickedOrNot == true)
+            {
+                this.image_p = openFileDialog.FileName;
+            }
+            else
+            {
+                this.image_p = null;
+            }
         }
     }
 }

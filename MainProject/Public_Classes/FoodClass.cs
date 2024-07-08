@@ -20,11 +20,11 @@ namespace MainProject.Public_Classes
         public int RemNumber { get; set; }
         public List<FoodComment>? comments_IN_ORDER { get; set; }
         public string FoodCategory {  get; set; }
-        public string Image_Path { get; set; }
+        public string? Image_Path { get; set; }
 
         public FoodClass() { }
 
-        public FoodClass(string FoodCategory,string Name ,int FoodID ,double price, List<string> Raw_Materials , int  RemNumber , string image_Path)
+        public FoodClass(string FoodCategory,string Name ,int FoodID ,double price, List<string> Raw_Materials , int  RemNumber , string? image_Path)
         {
             this.FoodCategory = FoodCategory;
             this.Name = Name;
@@ -36,7 +36,7 @@ namespace MainProject.Public_Classes
             this.comments_IN_ORDER = new List<FoodComment>();
             this.Image_Path = image_Path;
         }
-        public FoodClass(string FoodCategory, string Name, double price, List<string> Raw_Materials, int RemNumber)
+        public FoodClass(string FoodCategory, string Name, double price, List<string> Raw_Materials, int RemNumber, string? image_path)
         {
             this.FoodCategory = FoodCategory;
             this.Name = Name;
@@ -45,6 +45,7 @@ namespace MainProject.Public_Classes
             this.xBar = 0;
             this.RemNumber = RemNumber;
             this.comments_IN_ORDER = new List<FoodComment>();
+            this.Image_Path = image_path;
             string json = File.ReadAllText("C:\\Users\\ASUS\\Desktop\\All_Restaurant.json");
             List<Restaurant> restaurants = JsonConvert.DeserializeObject<List<Restaurant>>(json);
             int numberOfFoods = 0;
@@ -77,6 +78,22 @@ namespace MainProject.Public_Classes
             foreach (FoodComment fc in this.comments_IN_ORDER) { c.comments_IN_ORDER.Add(fc.cCloneComment()); }
 
             return c;
+        }
+        public void xBarCalculate()
+        {
+            double FPSum = 0;
+            int numberOfFoodPoints = 0;
+            string jsonString = File.ReadAllText("C:\\Users\\ASUS\\Desktop\\All_Points.json");
+            List<Food_Point> foodPointsJsonData = System.Text.Json.JsonSerializer.Deserialize<List<Food_Point>>(jsonString);
+            foreach (Food_Point FP in foodPointsJsonData)
+            {
+                if (FP.FoodID == this.FoodID)
+                {
+                    FPSum += (double)FP.Point;
+                    numberOfFoodPoints += 1;
+                }
+            }
+            this.xBar = FPSum / numberOfFoodPoints;
         }
 
 

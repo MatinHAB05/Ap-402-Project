@@ -116,20 +116,26 @@ namespace MainProject.Public_Classes
             {
                 foreach (FoodClass f in c.Foods)
                 {
+                    f.xBarCalculate();
                     NumberOfFoodsCounter += 1;
                     sum += f.xBar;
                 }
             }
             double ReqSum = 0;
             int numberOfFoodRequests = 0;
-            string jsonString = File.ReadAllText("C:\\Users\\ASUS\\Desktop\\All_FoodRequests.json");
-            List<FoodRequest> foodCommentsJsonData = System.Text.Json.JsonSerializer.Deserialize<List<FoodRequest>>(jsonString);
-            foreach(FoodRequest fR in foodCommentsJsonData)
+            string jsonString = File.ReadAllText("C:\\Users\\ASUS\\Desktop\\All_ReceptionPoint.json");
+            List<Reception_Point> ReceptionPointsJsonData = System.Text.Json.JsonSerializer.Deserialize<List<Reception_Point>>(jsonString);
+            string jsonString2 = File.ReadAllText("C:\\Users\\ASUS\\Desktop\\All_FoodRequest.json");
+            List<FoodRequest> FoodRequestesJsonData = System.Text.Json.JsonSerializer.Deserialize<List<FoodRequest>>(jsonString);
+            foreach (Reception_Point RP in ReceptionPointsJsonData)
             {
-                if(fR.RestaurantUserName == this.UserName)
+                foreach(FoodRequest FR in FoodRequestesJsonData)
                 {
-                    ReqSum += 1;
-                    numberOfFoodRequests += 1;
+                    if(FR.RequestID == RP.RequestID && FR.RestaurantUserName == this.UserName)
+                    {
+                        ReqSum += (double)RP.Point;
+                        numberOfFoodRequests += 1;
+                    }
                 }
             }
             this.Rating = (ReqSum + sum) / (NumberOfFoodsCounter + numberOfFoodRequests);

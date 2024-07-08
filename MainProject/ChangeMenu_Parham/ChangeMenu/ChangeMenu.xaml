@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:MainProject.ChangeMenu_Parham.ChangeMenu"
         mc:Ignorable="d"
         Background="LightSkyBlue"
-        Title="ChangeMenu" Height="450" Width="800">
+        Title="ChangeMenu" Closing="Window_Closing" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="60"/>
