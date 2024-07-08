@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using MainProject.AddFood_Parham.AddFood;
 using MainProject.ChangeFoodInformation_Parham.ChangeFoodInformation;
 using MainProject.RestaurantPanel_Parham.RestaurantPanel;
+using Application = System.Windows.Application;
 
 namespace MainProject.ChangeMenu_Parham.ChangeMenu
 {
@@ -22,8 +23,10 @@ namespace MainProject.ChangeMenu_Parham.ChangeMenu
     {
         Restaurant restauranT;
         List<FoodClass> menu;
+        public bool Window_Event { get; set; }
         internal ChangeMenu(Restaurant restaurant)
         {
+            this.Window_Event = true;
             InitializeComponent();
             restauranT = restaurant;
              menu = new List<FoodClass>();
@@ -48,6 +51,7 @@ namespace MainProject.ChangeMenu_Parham.ChangeMenu
             Button btn = sender as Button;
             FoodClass food = btn.DataContext as FoodClass;
             ChangeFoodInformation changeFoodInformation = new ChangeFoodInformation(food, restauranT);
+            this.Window_Event = false;
             this.Close();
             changeFoodInformation.Show();
         }
@@ -61,11 +65,13 @@ namespace MainProject.ChangeMenu_Parham.ChangeMenu
             MessageBox.Show("the food is deleted", "Done", MessageBoxButton.OK, MessageBoxImage.Information);
             ChangeMenu changeMenu = new ChangeMenu(restauranT);
             changeMenu.Show();
+            this.Window_Event = false;
             this.Close();
         }
         private void Add_A_Food_Button(Object sender, RoutedEventArgs e)
         {
             AddFood addFood = new AddFood(restauranT);
+            this.Window_Event = false;
             this.Close();
             addFood.Show();
         }
@@ -73,8 +79,17 @@ namespace MainProject.ChangeMenu_Parham.ChangeMenu
         {
             
             RestaurantPanel restaurantPanel = new RestaurantPanel(restauranT);
+            this.Window_Event = false;
             this.Close();
             restaurantPanel.Show();
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (this.Window_Event)
+            {
+                Application.Current.Shutdown();
+            }
         }
     }
 }

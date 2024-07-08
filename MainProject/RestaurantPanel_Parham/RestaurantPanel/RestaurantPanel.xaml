@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:MainProject.RestaurantPanel_Parham.RestaurantPanel"
         mc:Ignorable="d"
         Background="LightSkyBlue"
-        Title="RestaurantPanel" Height="450" Width="800">
+        Title="RestaurantPanel" Closing="Window_Closing" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -27,9 +27,7 @@
         <Image Margin="200,0,0,0"  Grid.Row="2" Source="/RestaurantPanel_Parham/images/food-symbol.png" Stretch="Fill" Width="50" Height="50"/>
         <Image Margin="250,0,0,0" Grid.Row="3" Source="/RestaurantPanel_Parham/images/reservation symbol.png" Stretch="Fill" Width="50" Height="50"/>
         <Image Margin="250,0,0,0" Grid.Row="4" Source="/RestaurantPanel_Parham/images/history symbol.png" Stretch="Fill" Width="50" Height="50"/>
-        <Button  Click="BackPage" Grid.Column="0" Grid.Row="0" Background="#123456" HorizontalAlignment="Left" Foreground="DarkBlue" Height="30" Width="70">
-            <Image Source="/matinImages_matin/back.png" />
-        </Button>
+        <Button Content="Log Out" Click="Logout" Grid.Column="0" Grid.Row="0" Background="Red" HorizontalAlignment="Left" Foreground="DarkBlue" Height="30" Width="70"/>
 
     </Grid>
     

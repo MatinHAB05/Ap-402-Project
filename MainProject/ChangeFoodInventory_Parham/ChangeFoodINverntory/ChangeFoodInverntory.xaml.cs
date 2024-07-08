@@ -15,6 +15,7 @@ using System.Text.Json;
 using MainProject.Public_Classes;
 using MainProject.RestaurantPanel_Parham.RestaurantPanel;
 using MainProject.ChangeMenu_Parham.ChangeMenu;
+using Application = System.Windows.Application;
 
 namespace MainProject.ChangeFoodInventory_Parham.ChangeFoodINverntory
 {
@@ -22,8 +23,10 @@ namespace MainProject.ChangeFoodInventory_Parham.ChangeFoodINverntory
     {
         List<FoodClass> foodList;
         Restaurant restauranT;
+        public bool Window_Event { get; set; }
         internal ChangeFoodInverntory(Restaurant restaurant)
         {
+            this.Window_Event = true;
             restauranT = restaurant;
             List<FoodClass> foodList = new List<FoodClass>();
             InitializeComponent();
@@ -59,13 +62,23 @@ namespace MainProject.ChangeFoodInventory_Parham.ChangeFoodINverntory
             }
             ChangeFoodInverntory changeFoodInventory = new ChangeFoodInverntory(restauranT);
             changeFoodInventory.Show();
+            this.Window_Event = false;
             this.Close();
         }
         private void BackPage(object sender, RoutedEventArgs e)
         {
             RestaurantPanel restaurantPanel = new RestaurantPanel(restauranT);
+            this.Window_Event = false;
             this.Close();
             restaurantPanel.Show();
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if(this.Window_Event)
+            {
+                Application.Current.Shutdown();
+            }
         }
     }
 }

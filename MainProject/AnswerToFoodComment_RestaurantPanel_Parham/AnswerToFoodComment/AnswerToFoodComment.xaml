@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:MainProject.AnswerToFoodComment_RestaurantPanel_Parham.AnswerToFoodComment"
         mc:Ignorable="d"
         Background="LightSkyBlue"
-        Title="AnswerToFoodComment" Height="450" Width="800">
+        Title="AnswerToFoodComment" Closing="Window_Closing" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="60"/>

@@ -17,6 +17,7 @@ using System.IO;
 using System.Text.Json;
 using MainProject.ChangeFoodInformation_Parham.ChangeFoodInformation;
 using MainProject.ChangeMenu_Parham.ChangeMenu;
+using Application = System.Windows.Application;
 
 namespace MainProject.AnswerToFoodComment_RestaurantPanel_Parham.AnswerToFoodComment
 {
@@ -25,8 +26,10 @@ namespace MainProject.AnswerToFoodComment_RestaurantPanel_Parham.AnswerToFoodCom
         FoodComment food_Comment;
         Restaurant restauranT;
         FoodClass fooD;
+        public bool Window_Event { get; set; }
         public AnswerToFoodComment(Restaurant restaurant, FoodComment foodComment, FoodClass food)
         {
+            this.Window_Event = true;
             InitializeComponent();
             fooD = food;
             this.food_Comment = foodComment;
@@ -39,7 +42,6 @@ namespace MainProject.AnswerToFoodComment_RestaurantPanel_Parham.AnswerToFoodCom
         private void Answer_Completed(object sender, RoutedEventArgs e)
         {
             FoodComment foodComment = new FoodComment(food_Comment.Title + " Reply", AnswerText.Text, null, restauranT.UserName);
-            MessageBox.Show(AnswerText.Text + " Reply", "hai", MessageBoxButton.OK, MessageBoxImage.Error);
             string json = File.ReadAllText(MainWindow.Get_Dir_ALL_RESTAURANT_json());
             List<Restaurant> restaurants = JsonConvert.DeserializeObject<List<Restaurant>>(json);
             List<Restaurant> restaurantsExceptOurs = restaurants.Where(x => x.RestaurantName != restauranT.RestaurantName).ToList();
@@ -80,9 +82,17 @@ namespace MainProject.AnswerToFoodComment_RestaurantPanel_Parham.AnswerToFoodCom
         private void BackPage(object sender, RoutedEventArgs e)
         {
             ChangeFoodInformation changeFoodInformation = new ChangeFoodInformation(fooD, restauranT);
+            this.Window_Event = false;
             this.Close();
             changeFoodInformation.Show();
         }
 
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (this.Window_Event)
+            {
+                Application.Current.Shutdown();
+            }
+        }
     }
 }
