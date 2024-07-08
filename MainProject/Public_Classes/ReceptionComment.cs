@@ -23,7 +23,7 @@ namespace MainProject.Public_Classes
             Content = content;
             CommentID = commentID;
             this.RequestID = reqId;
-            this.User_UserName = User_UserName;
+            this.User_UserName = User_UserNam;
         }
         public ReceptionComment cCloneComment()
         {
