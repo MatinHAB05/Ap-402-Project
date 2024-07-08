@@ -83,7 +83,7 @@ namespace MainProject.Public_Classes
         {
             double FPSum = 0;
             int numberOfFoodPoints = 0;
-            string jsonString = File.ReadAllText("C:\\Users\\ASUS\\Desktop\\All_Points.json");
+            string jsonString = File.ReadAllText(MainWindow.Get_Dir_ALL_FOOD_POINT_json());
             List<Food_Point> foodPointsJsonData = System.Text.Json.JsonSerializer.Deserialize<List<Food_Point>>(jsonString);
             foreach (Food_Point FP in foodPointsJsonData)
             {
