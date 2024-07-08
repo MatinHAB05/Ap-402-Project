@@ -123,10 +123,9 @@ namespace MainProject.Public_Classes
             }
             double ReqSum = 0;
             int numberOfFoodRequests = 0;
-            string jsonString = File.ReadAllText("C:\\Users\\ASUS\\Desktop\\All_ReceptionPoint.json");
-            //check shavad
+            string jsonString = File.ReadAllText(MainWindow.Get_Dir_ALL_RECEPTION_POINT_json());
             List<Reception_Point> ReceptionPointsJsonData = System.Text.Json.JsonSerializer.Deserialize<List<Reception_Point>>(jsonString);
-            string jsonString = File.ReadAllText(MainWindow.Get_Dir_ALL_FOOD_REQUEST_json());
+            string jsonString2 = File.ReadAllText(MainWindow.Get_Dir_ALL_FOOD_REQUEST_json());
             List<FoodRequest> FoodRequestesJsonData = System.Text.Json.JsonSerializer.Deserialize<List<FoodRequest>>(jsonString);
             foreach (Reception_Point RP in ReceptionPointsJsonData)
             {
