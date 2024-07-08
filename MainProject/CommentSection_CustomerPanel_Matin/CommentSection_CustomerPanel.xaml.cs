@@ -229,7 +229,7 @@ namespace MainProject.CommentSection_CustomerPanel_Matin
                 MessageBox.Show("Type Correct FoodPoint\nFoodPoint MUST BE in [0,10]");return;
             }
 
-            List<Food_Point> All = JsonConvert.DeserializeObject<List<Food_Point>>(File.ReadAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\Points\All_Points.json"));
+            List<Food_Point> All = JsonConvert.DeserializeObject<List<Food_Point>>(File.ReadAllText(MainWindow.Get_Dir_ALL_FOOD_POINT_json()));
             int f = 0;
             int flag = 0;
             foreach (Food_Point fff in All)
@@ -246,7 +246,7 @@ namespace MainProject.CommentSection_CustomerPanel_Matin
             if (flag == 0) { Food_Point matin = new Food_Point();matin.Point = pp;matin.UserName = CurrentUser.UserName;matin.FoodID = CurrentFood.FoodID; All.Add(matin); }
             else { All[f].Point = pp; }
 
-            File.WriteAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\Points\All_Points.json",
+            File.WriteAllText(MainWindow.Get_Dir_ALL_FOOD_POINT_json(),
                 JsonConvert.SerializeObject(All, Formatting.Indented));
 
             PointTTTT.Clear();
@@ -351,7 +351,7 @@ namespace MainProject.CommentSection_CustomerPanel_Matin
         private void DelPPP(object sender, RoutedEventArgs e)
         {
 
-                List<Food_Point> All = JsonConvert.DeserializeObject<List<Food_Point>>(File.ReadAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\Points\All_Points.json"));
+            List<Food_Point> All = JsonConvert.DeserializeObject<List<Food_Point>>(File.ReadAllText(MainWindow.Get_Dir_ALL_FOOD_POINT_json()));
             int f = 0;
             int flag = 0;
             foreach (Food_Point fff in All)
@@ -366,7 +366,7 @@ namespace MainProject.CommentSection_CustomerPanel_Matin
                 }
             if(flag == 0) { MessageBox.Show("You HaveNot Enter FoodPoint YET!");return; }
             All.RemoveAt(f);
-            File.WriteAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\Points\All_Points.json",
+            File.WriteAllText(MainWindow.Get_Dir_ALL_FOOD_POINT_json(),
                 JsonConvert.SerializeObject(All,Formatting.Indented));
             MessageBox.Show("Done");
             this.CommentTree.Clear();
@@ -391,7 +391,7 @@ namespace MainProject.CommentSection_CustomerPanel_Matin
 
 
             //food commnet cuuren food
-            List<Restaurant> allres = JsonConvert.DeserializeObject<List<Restaurant>>(File.ReadAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\Restaurant\All_Restaurant.json"));
+            List<Restaurant> allres = JsonConvert.DeserializeObject<List<Restaurant>>(File.ReadAllText(MainWindow.Get_Dir_ALL_RESTAURANT_json()));
             for (int i = 0; i < allres.Count; i++)
             {
                 if (allres[i].UserName == CurrentRestaurant.UserName)
@@ -416,7 +416,7 @@ namespace MainProject.CommentSection_CustomerPanel_Matin
                 }
                 break;
             }
-            File.WriteAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\Restaurant\All_Restaurant.json",
+            File.WriteAllText(MainWindow.Get_Dir_ALL_RESTAURANT_json(),
                 JsonConvert.SerializeObject(allres, Formatting.Indented));
             //reserrveORorderFoods_CustomerPage reserrveORorderFoods_CustomerPage = new reserrveORorderFoods_CustomerPage(this.CurrentUser,this.CurrentRestaurant);
             //reserrveORorderFoods_CustomerPage.Show();

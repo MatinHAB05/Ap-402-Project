@@ -33,7 +33,7 @@
                 <DataGridTemplateColumn Header="Title" Width="200">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <TextBlock  Text="{Binding title}"/>
+                            <TextBlock  Text="{Binding Title}"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>

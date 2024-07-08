@@ -36,7 +36,7 @@ namespace MainProject.Public_Classes
             this.Content = content;
             this.Reply = reply;
             this.User_UserName = User_UserName;
-            string json = File.ReadAllText("C:\\Users\\ASUS\\Desktop\\All_Restaurant.json");
+            string json = File.ReadAllText(MainWindow.Get_Dir_ALL_RESTAURANT_json());
             List<Restaurant> restaurants = JsonConvert.DeserializeObject<List<Restaurant>>(json);
             int numberOfFoodComments = 0;
             this.CommentID = 572;
@@ -75,7 +75,7 @@ namespace MainProject.Public_Classes
         {
             int flag;
             int rand;
-            List<Restaurant> listRES = JsonConvert.DeserializeObject<List<Restaurant>>(File.ReadAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\Restaurant\All_Restaurant.json")).ToList(); 
+            List<Restaurant> listRES = JsonConvert.DeserializeObject<List<Restaurant>>(File.ReadAllText(MainWindow.Get_Dir_ALL_RESTAURANT_json())).ToList(); 
             List<FoodComment> list = new List<FoodComment>();
             foreach(Restaurant r in listRES)
             {

@@ -83,8 +83,8 @@ namespace MainProject.Search_Restuant_PageADMIN_Matin
             Must_OFF = true;
             InitializeComponent();
             //Data
-            restaurants = JsonConvert.DeserializeObject<List<Restaurant>>(File.ReadAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\Restaurant\All_Restaurant.json"));
-            complaints = JsonConvert.DeserializeObject<List<Complaint>>(File.ReadAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\Complaint\All_Complaints.json"));
+            restaurants = JsonConvert.DeserializeObject<List<Restaurant>>(File.ReadAllText(MainWindow.Get_Dir_ALL_RESTAURANT_json()));
+            complaints = JsonConvert.DeserializeObject<List<Complaint>>(File.ReadAllText(MainWindow.Get_Dir_ALL_COMPLAINTS_json()));
 
             //DataGridResault.ItemsSource = demo;
             resturants_FORNOWs = new ObservableCollection<Resturants_FORNOW>(restaurants.Select(rs => { rs.Calculate(); ; return new Resturants_FORNOW

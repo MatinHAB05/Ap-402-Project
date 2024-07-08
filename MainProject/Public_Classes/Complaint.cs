@@ -30,7 +30,7 @@ namespace MainProject.Public_Classes
         }
         static public int ComPlaintIDGenrator()
         {
-            List<Complaint> list = JsonConvert.DeserializeObject<List<Complaint>>(File.ReadAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\Complaint\All_Complaints.json"));
+            List<Complaint> list = JsonConvert.DeserializeObject<List<Complaint>>(File.ReadAllText(MainWindow.Get_Dir_ALL_COMPLAINTS_json()));
             int flag;
             int id;
             Random random = new Random();
@@ -56,7 +56,7 @@ namespace MainProject.Public_Classes
 
         static public int GetNumberISchecked(string resUser,bool ISCHECK)
         {
-            List<Complaint> list = JsonConvert.DeserializeObject<List<Complaint>>(File.ReadAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\Complaint\All_Complaints.json"));
+            List<Complaint> list = JsonConvert.DeserializeObject<List<Complaint>>(File.ReadAllText(MainWindow.Get_Dir_ALL_COMPLAINTS_json()));
             int n = 0;
             foreach (Complaint c in list)
             {

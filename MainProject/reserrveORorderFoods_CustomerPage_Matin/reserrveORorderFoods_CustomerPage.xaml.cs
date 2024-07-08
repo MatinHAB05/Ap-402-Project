@@ -241,9 +241,9 @@ namespace MainProject.reserrveORorderFoods_CustomerPage_Matin
                 RequestType = requestType,
                 RequestID = FoodRequest.GetRANDOM()
             }).ToList();
-            List<FoodRequest> all = JsonConvert.DeserializeObject<List<FoodRequest>>(File.ReadAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\FoodRequest\All_FoodRequest.json"));
+            List<FoodRequest> all = JsonConvert.DeserializeObject<List<FoodRequest>>(File.ReadAllText(MainWindow.Get_Dir_ALL_FOOD_REQUEST_json()));
             all.AddRange(New);
-            File.WriteAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\FoodRequest\All_FoodRequest.json", 
+            File.WriteAllText(MainWindow.Get_Dir_ALL_FOOD_REQUEST_json(), 
                 JsonConvert.SerializeObject(all,Formatting.Indented));
             //end save in File***
 
@@ -330,7 +330,7 @@ namespace MainProject.reserrveORorderFoods_CustomerPage_Matin
         }
         private void SaveBeforeClose()
         {
-            List<Restaurant> all = JsonConvert.DeserializeObject<List<Restaurant>>(File.ReadAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\Restaurant\All_Restaurant.json"));
+            List<Restaurant> all = JsonConvert.DeserializeObject<List<Restaurant>>(File.ReadAllText(MainWindow.Get_Dir_ALL_RESTAURANT_json()));
             int d = 0;
             foreach (Restaurant r in all)
             {
@@ -345,7 +345,7 @@ namespace MainProject.reserrveORorderFoods_CustomerPage_Matin
                 }
                 d++;
             }
-            File.WriteAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\Restaurant\All_Restaurant.json",
+            File.WriteAllText(MainWindow.Get_Dir_ALL_RESTAURANT_json(),
                 JsonConvert.SerializeObject(all, Formatting.Indented));
             //CustomerMainPage customerMainPage = new CustomerMainPage(CurrentUser);
             //customerMainPage.Show();

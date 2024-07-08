@@ -42,7 +42,7 @@ namespace MainProject.AnswerToFoodComment_RestaurantPanel_Parham.AnswerToFoodCom
         private void Answer_Completed(object sender, RoutedEventArgs e)
         {
             FoodComment foodComment = new FoodComment(food_Comment.Title + " Reply", AnswerText.Text, null, restauranT.UserName);
-            string json = File.ReadAllText("C:\\Users\\ASUS\\Desktop\\All_Restaurant.json");
+            string json = File.ReadAllText(MainWindow.Get_Dir_ALL_RESTAURANT_json());
             List<Restaurant> restaurants = JsonConvert.DeserializeObject<List<Restaurant>>(json);
             List<Restaurant> restaurantsExceptOurs = restaurants.Where(x => x.RestaurantName != restauranT.RestaurantName).ToList();
             List<Restaurant> OurRestaurant = restaurants.Where(x => x.RestaurantName == restauranT.RestaurantName && x.UserName == restauranT.UserName).ToList();
@@ -77,7 +77,7 @@ namespace MainProject.AnswerToFoodComment_RestaurantPanel_Parham.AnswerToFoodCom
             }
             restaurantsExceptOurs.AddRange(OurRestaurant);
             string jsonString = JsonConvert.SerializeObject(restaurantsExceptOurs, Formatting.Indented);
-            File.WriteAllText("C:\\Users\\ASUS\\Desktop\\All_Restaurant.json", jsonString);
+            File.WriteAllText(MainWindow.Get_Dir_ALL_RESTAURANT_json(), jsonString);
         }
         private void BackPage(object sender, RoutedEventArgs e)
         {

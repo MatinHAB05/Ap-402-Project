@@ -38,7 +38,7 @@ namespace MainProject.Public_Classes
         }
         static public int RandomGenrator()
         {
-            List<ReceptionComment> list = JsonConvert.DeserializeObject<List<ReceptionComment>>(File.ReadAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\ReceptionComment\All_ReceptionComment.json"));
+            List<ReceptionComment> list = JsonConvert.DeserializeObject<List<ReceptionComment>>(File.ReadAllText(MainWindow.Get_Dir_ALL_RECEPTION_COMMENT_json()));
             int flag;
             int random;
             do

@@ -26,7 +26,7 @@ namespace MainProject.Public_Classes
         }
         static public Reception_Point? GetFromjson(int reqid)
         {
-            List<Reception_Point>? reception_Points = JsonConvert.DeserializeObject<List<Reception_Point>>(File.ReadAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\Points\All_ReceptionPoint.json"));
+            List<Reception_Point>? reception_Points = JsonConvert.DeserializeObject<List<Reception_Point>>(File.ReadAllText(MainWindow.Get_Dir_ALL_RECEPTION_POINT_json()));
             if (reception_Points == null) { return null; }
             foreach(Reception_Point r in reception_Points)
             {

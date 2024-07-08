@@ -73,7 +73,7 @@ namespace MainProject.ReviewUNREAD_AdminPanel_Matin
             this.admin = admin;
             this.DataContext = this;
             //For Now 
-            List<Complaint> complaints = JsonConvert.DeserializeObject<List<Complaint>>(File.ReadAllText(@"C:\Users\ASUS\3D Objects\Project-Ap\SecondLayout\MainProject\Ap-402-Project\MainProject\JsonFiles\Complaint\All_Complaints.json")).
+            List<Complaint> complaints = JsonConvert.DeserializeObject<List<Complaint>>(File.ReadAllText(MainWindow.Get_Dir_ALL_COMPLAINTS_json())).
                                             Where(cm=>cm.IsChecked==false).ToList();
 
             comes = new ObservableCollection<complaints_User_FORNOW>

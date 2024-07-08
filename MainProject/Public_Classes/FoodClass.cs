@@ -46,7 +46,7 @@ namespace MainProject.Public_Classes
             this.RemNumber = RemNumber;
             this.comments_IN_ORDER = new List<FoodComment>();
             this.Image_Path = image_path;
-            string json = File.ReadAllText("C:\\Users\\ASUS\\Desktop\\All_Restaurant.json");
+            string json = File.ReadAllText(MainWindow.Get_Dir_ALL_RESTAURANT_json());
             List<Restaurant> restaurants = JsonConvert.DeserializeObject<List<Restaurant>>(json);
             int numberOfFoods = 0;
             foreach (Restaurant re in restaurants)
