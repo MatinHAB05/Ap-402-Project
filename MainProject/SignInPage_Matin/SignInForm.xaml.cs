@@ -140,6 +140,7 @@ namespace MainProject.SignInPage_Matin
                 //write
 
                 User user = new User(username, firstName, LastName, Email, phone);
+                user.Address = "";
                 if (MMale.IsChecked==true)
                 {
                     user.Gender = Gender.Male;

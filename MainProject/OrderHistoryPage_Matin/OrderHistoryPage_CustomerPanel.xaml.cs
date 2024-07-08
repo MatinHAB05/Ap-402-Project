@@ -151,7 +151,7 @@ namespace MainProject.OrderHistoryPage_Matin
                             }
                         }
                     } while (flag == 1);
-                    list.Add(new ReceptionComment($"Complaint from *{CurrentUser.UserName}*", oriori[i].Content, random, CurrentUser.UserName, oriori[i].ReqID));
+                    list.Add(new ReceptionComment($"Complaint from ***{CurrentUser.UserName}***", oriori[i].Content, random, CurrentUser.UserName, oriori[i].ReqID));
                 }
                 i++;
 
@@ -168,14 +168,16 @@ namespace MainProject.OrderHistoryPage_Matin
             {
                 try
                 {
+                    if (or.ReqRATE.Trim() == "")
+                    {
+                        continue;
+                    }
                     double testDemo = double.Parse(or.ReqRATE.Trim());
                 }
                 catch (Exception ex) { MessageBox.Show("You Must Enter Just Number[Request Rate]!", "Error", MessageBoxButton.OK, MessageBoxImage.Error); return; }
-                if (or.ReqRATE.Trim() == "")
-                {
-                    continue;
-                }
-                else if(double.Parse(or.ReqRATE)>10 || double.Parse(or.ReqRATE) < 0)
+
+
+                if(double.Parse(or.ReqRATE)>10 || double.Parse(or.ReqRATE) < 0)
                 {
                     flagVALID--;
                     break;
