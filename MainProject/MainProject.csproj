@@ -8,4 +8,88 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="AdminPage_Parham\images\!-symbol.png" />
+    <None Remove="AdminPage_Parham\images\answer-symbol.png" />
+    <None Remove="AdminPage_Parham\images\letter-symbol.png" />
+    <None Remove="AdminPage_Parham\images\magnifier.png" />
+    <None Remove="AdminPage_Parham\images\retaurant4.jpg" />
+    <None Remove="CustomerMainPage_Parham\Images\history symbol.png" />
+    <None Remove="CustomerMainPage_Parham\Images\letter-symbol.png" />
+    <None Remove="CustomerMainPage_Parham\Images\magnifier.png" />
+    <None Remove="CustomerMainPage_Parham\Images\user Sysmbol .png" />
+    <None Remove="JsonFiles\Complaint\All_ReceptionComment.json" />
+    <None Remove="LoginForm_Matin\BackMusic_Matin\Mix_BackMusic2.mp3" />
+    <None Remove="LoginForm_Matin\BackMusic_Matin\MusicBack.mp3" />
+    <None Remove="matinImages_matin\back.png" />
+    <None Remove="matinImages_matin\NoIMG.png" />
+    <None Remove="OrderHistoryPage_Matin\Images\reset.png" />
+    <None Remove="reserrveORorderFoods_CustomerPage_Matin\Images\imgICon.png" />
+    <None Remove="reserrveORorderFoods_CustomerPage_Matin\Images\NoIMG.png" />
+    <None Remove="ReviewAndEditUnreviewedComplaints_Matin\Images\reset.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="AdminPage_Parham\images\!-symbol.png" />
+    <Resource Include="AdminPage_Parham\images\answer-symbol.png" />
+    <Resource Include="AdminPage_Parham\images\letter-symbol.png" />
+    <Resource Include="AdminPage_Parham\images\magnifier.png" />
+    <Resource Include="AdminPage_Parham\images\retaurant4.jpg" />
+    <Resource Include="CustomerMainPage_Parham\Images\history symbol.png" />
+    <Resource Include="CustomerMainPage_Parham\Images\letter-symbol.png" />
+    <Resource Include="CustomerMainPage_Parham\Images\magnifier.png" />
+    <Resource Include="CustomerMainPage_Parham\Images\user Sysmbol .png" />
+    <Resource Include="Follow_RegisterComplaints_Matin\Images\save.png" />
+    <Resource Include="AddRestunts_AdminPanel_Matin\Images\woodBack.jpg" />
+    <Resource Include="Follow_RegisterComplaints_Matin\Images\addIcon.png" />
+    <Resource Include="Follow_RegisterComplaints_Matin\Images\edit.png" />
+    <Resource Include="Follow_RegisterComplaints_Matin\Images\IconAdd_.png" />
+    <Resource Include="LoginForm_Matin\BackMusic_Matin\Mix_BackMusic2.mp3" />
+    <Resource Include="LoginForm_Matin\BackMusic_Matin\MusicBack.mp3" />
+    <Resource Include="LoginForm_Matin\images\background1.jpg" />
+    <Resource Include="LoginForm_Matin\images\res1.jpg" />
+    <Resource Include="LoginForm_Matin\images\res2.jpg" />
+    <Resource Include="matinImages_matin\back.png" />
+    <Resource Include="matinImages_matin\NoIMG.png" />
+    <Resource Include="OrderHistoryPage_Matin\Images\edit.png" />
+    <Resource Include="OrderHistoryPage_Matin\Images\reset.png" />
+    <Resource Include="OrderHistoryPage_Matin\Images\save.png" />
+    <Resource Include="reserrveORorderFoods_CustomerPage_Matin\Images\add.png" />
+    <Resource Include="reserrveORorderFoods_CustomerPage_Matin\Images\comment.png" />
+    <Resource Include="reserrveORorderFoods_CustomerPage_Matin\Images\demo.png" />
+    <Resource Include="reserrveORorderFoods_CustomerPage_Matin\Images\imgICon.png" />
+    <Resource Include="reserrveORorderFoods_CustomerPage_Matin\Images\NoIMG.png" />
+    <Resource Include="reserrveORorderFoods_CustomerPage_Matin\Images\remove.png" />
+    <Resource Include="ReviewAndEditUnreviewedComplaints_Matin\Images\edit.png" />
+    <Resource Include="ReviewAndEditUnreviewedComplaints_Matin\Images\reset.png" />
+    <Resource Include="ReviewAndEditUnreviewedComplaints_Matin\Images\save.png" />
+    <Resource Include="Review_Search_OrderAndReservation_ResturantsPanel_Matin\Images\s1.jpg" />
+    <Resource Include="Review_Search_OrderAndReservation_ResturantsPanel_Matin\Images\s2.jpg" />
+    <Resource Include="Search_complaints_PageADMIN_Matin\Images\s1.jpg" />
+    <Resource Include="Search_complaints_PageADMIN_Matin\Images\s2.jpg" />
+    <Resource Include="Search_Restuant_PageADMIN_Matin\Images\s1.jpg" />
+    <Resource Include="Search_Restuant_PageADMIN_Matin\Images\s2.jpg" />
+    <Resource Include="SetPassWordPage_Matin\images\hide.png" />
+    <Resource Include="SetPassWordPage_Matin\images\lock_background.jpg" />
+    <Resource Include="SetPassWordPage_Matin\images\show.png" />
+    <Resource Include="SignInPage_Matin\images\backGround2.jpg" />
+    <Resource Include="SignInPage_Matin\images\icons8-email-64.jpg" />
+    <Resource Include="SignInPage_Matin\images\icons8-name-tag-64.jpg" />
+    <Resource Include="SignInPage_Matin\images\icons8-phone-64.jpg" />
+    <Resource Include="SignInPage_Matin\images\user.jpg" />
+    <Folder Include="ChangeFoodInventory_Parham\Images\" />
+    <Folder Include="ChangeMenu_Parham\Images\" />
+    <Folder Include="Images\" />
+    <Folder Include="FoodImages\" />
+    <Folder Include="ProfilePage_Parham\images\" />
+    <Folder Include="RestaurantPanel_Parham\images\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CsvHelper" Version="33.0.1" />
+    <PackageReference Include="MailKit" Version="4.7.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
 </Project>
+

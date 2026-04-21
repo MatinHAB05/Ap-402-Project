@@ -7,7 +7,63 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="AddFood_Parham\AddFood\AddFood.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="AdminPage_Parham\AdminEditPass_Matin\AdminEditPass.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="AnswerToFoodComment_RestaurantPanel_Parham\AnswerToFoodComment\AnswerToFoodComment.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ChangeFoodInformation_Parham\ChangeFoodInformation\ChangeFoodInformation.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ChangeFoodInventory_Parham\ChangeFoodINverntory\ChangeFoodInverntory.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="CommentSection_CustomerPanel_Matin\CommentSection_CustomerPanel.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="LoginForm_Matin\MusicWindowHIDE.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="reserrveORorderFoods_CustomerPage_Matin\Window1.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ReviewUNREAD_AdminPanel_Matin\ReviewUNREAD_AdminPanel.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="AddFood_Parham\AddFood\AddFood.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="AdminPage_Parham\AdminEditPass_Matin\AdminEditPass.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="AnswerToFoodComment_RestaurantPanel_Parham\AnswerToFoodComment\AnswerToFoodComment.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ChangeFoodInformation_Parham\ChangeFoodInformation\ChangeFoodInformation.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ChangeFoodInventory_Parham\ChangeFoodINverntory\ChangeFoodInverntory.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="CommentSection_CustomerPanel_Matin\CommentSection_CustomerPanel.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="LoginForm_Matin\MusicWindowHIDE.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="reserrveORorderFoods_CustomerPage_Matin\Window1.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ReviewUNREAD_AdminPanel_Matin\ReviewUNREAD_AdminPanel.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

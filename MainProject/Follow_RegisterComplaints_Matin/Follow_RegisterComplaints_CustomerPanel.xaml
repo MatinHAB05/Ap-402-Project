@@ -1,0 +1,63 @@
+﻿<Window x:Class="MainProject.Follow_RegisterComplaints_Matin.Follow_RegisterComplaints_CustomerPanel"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MainProject.Follow_RegisterComplaints_Matin"
+        xmlns:UseObj="clr-namespace:MainProject.Follow_RegisterComplaints_Matin.UserControls"
+        mc:Ignorable="d"
+        Title="Follow_RegisterComplaints_CustomerPanel" Height="750" Width="1200" Background="PeachPuff" Loaded="Window_Loaded" Closing="Window_Closing">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0"  Margin="20,5,15,0" >
+            <StackPanel>
+                <Button  Click="BackPage" Grid.Column="0" Grid.Row="0" Background="#123456" HorizontalAlignment="Left" Foreground="DarkBlue" Height="30" Width="70">
+                    <Image Source="/matinImages_matin/back.png" />
+                </Button>
+                <Expander Margin="10,0,0,0" Header="Register New Complaints" IsExpanded="False">
+                <StackPanel>
+                    <UseObj:UserControlFollowAndRegisterComplaints_CustomerPanel x:Name="user1" HeightTxtBox="34" LabelContent="Resturants Name : " Margin="0,0,0,5"/>
+                    <UseObj:UserControlFollowAndRegisterComplaints_CustomerPanel x:Name="user2" HeightTxtBox="34" LabelContent="Title : " Margin="0,0,0,5"/>
+                    <UseObj:UserControlFollowAndRegisterComplaints_CustomerPanel x:Name="user3" HeightTxtBox="80" LabelContent="Description : " Margin="0,0,0,15"/>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,0,0,0">
+                        <Label  FontSize="14" FontWeight="DemiBold" Content="Add Complaints"/>
+                        <Button Click="AddComplaints" Width="30" BorderThickness="0" >
+                            <Image Source="/Follow_RegisterComplaints_Matin/Images/IconAdd_.png" />
+                        </Button>
+
+                    </StackPanel>
+                </StackPanel>
+            </Expander>
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="1"  Margin="15,5,15,30" >
+
+            <ScrollViewer >
+                <DataGrid x:Name="DataGridResault" Margin="5" AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Name" Binding="{Binding UserName}" x:Name="ColName"  IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Title" Binding="{Binding Title}" x:Name="ColTitle"  IsReadOnly="True"/>
+                        <DataGridTextColumn Header="NameRes" Binding="{Binding NameRes}" x:Name="ColNameRes"  IsReadOnly="True"/>
+                        <DataGridTemplateColumn Header="IsChecked">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <CheckBox x:Name="IsCheced"  IsChecked="{Binding IsChecked}" IsHitTestVisible="False" Focusable="False" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTextColumn Header="Response" Binding="{Binding Response}" x:Name="ColResponse"  IsReadOnly="True"/>
+
+                    </DataGrid.Columns>
+                </DataGrid>
+            </ScrollViewer>
+        </Grid>
+
+    </Grid>
+</Window>

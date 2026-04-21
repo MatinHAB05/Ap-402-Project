@@ -1,0 +1,86 @@
+[
+  {
+    "customerType": 0,
+    "UserName": "UserNameDemo",
+    "UserID": 123,
+    "Name": "Matin",
+    "LastName": "Baki",
+    "Email_Unique": "m9652973@gmail.com",
+    "PassWord": "123123",
+    "Phone": "09165307304",
+    "Address": "This is Address",
+    "Gender": 0
+  },
+  {
+    "customerType": 0,
+    "UserName": "C",
+    "UserID": 0,
+    "Name": "matin",
+    "LastName": "baki",
+    "Email_Unique": "m9652973@gmail.com",
+    "PassWord": "Matin123123",
+    "Phone": "09123456789",
+    "Address": "",
+    "Gender": 0
+  },
+  {
+    "customerType": 0,
+    "UserName": "Demo_UserName",
+    "UserID": 0,
+    "Name": "Demo_Name",
+    "LastName": "Demo_LastName",
+    "Email_Unique": "m9652973@gmail.com",
+    "PassWord": "123123",
+    "Phone": "09123456789",
+    "Address": "This is a Address",
+    "Gender": 1
+  },
+  {
+    "customerType": 0,
+    "UserName": "matin123123",
+    "UserID": 0,
+    "Name": "matin",
+    "LastName": "baki",
+    "Email_Unique": "m9652973@gmail.com",
+    "PassWord": "Matin123123",
+    "Phone": "09987654321",
+    "Address": "saasasdassasa",
+    "Gender": 0
+  },
+  {
+    "customerType": 0,
+    "UserName": "afw3rwsdwr32wasd",
+    "UserID": 0,
+    "Name": "adadsadsa",
+    "LastName": "dsaadsasadsadsa",
+    "Email_Unique": "alijasemi2112@gmail.com",
+    "PassWord": "MMMMAAAAasdadsaasda12312",
+    "Phone": "09999666333",
+    "Address": "",
+    "Gender": 0
+  },
+  {
+    "customerType": 2,
+    "UserName": "azaz",
+    "UserID": 0,
+    "Name": "azaz",
+    "LastName": "azazzzz",
+    "Email_Unique": "alijasemi2112@gmail.com",
+    "PassWord": "Paspas123",
+    "Phone": "09145236987",
+    "Address": "",
+    "Gender": 0
+  },
+  {
+    "customerType": 1,
+    "UserName": "UserUserUser",
+    "UserID": 0,
+    "Name": "matinparham",
+    "LastName": "projeckt",
+    "Email_Unique": "parham200483@gmail.com",
+    "PassWord": "Pass123123",
+    "Phone": "09456987123",
+    "Address": "Address",
+    "Gender": 0
+  }
+]
