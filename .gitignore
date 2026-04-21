@@ -1,4 +1,4 @@
-.vs/
-MainProject/bin/
-MainProject/obj/
-MainProject/packages/
+.vs/*
+MainProject/bin/*
+MainProject/obj/*
+MainProject/packages/*
