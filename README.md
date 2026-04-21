@@ -118,6 +118,6 @@ This project was genuinely challenging and required a lot of work, so I hope the
 
 > And hey — don’t forget to give the project a star! 😉
 
----
+
 
 [^1]: Advanced Programming
