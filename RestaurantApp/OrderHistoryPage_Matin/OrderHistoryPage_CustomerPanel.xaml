@@ -1,0 +1,59 @@
+﻿<Window x:Class="RestaurantApp.OrderHistoryPage_Matin.OrderHistoryPage_CustomerPanel"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RestaurantApp.OrderHistoryPage_Matin"
+        mc:Ignorable="d"
+        Title="OrderHistoryPage_CustomerPanel" Height="750" Width="1200" Background="PeachPuff" Closing="Window_Closing">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Button  Click="BackPage" Grid.Column="0" Grid.Row="0" Background="#123456" HorizontalAlignment="Left" Foreground="DarkBlue" Height="30" Width="70">
+                <Image Source="/matinImages_matin/back.png" />
+            </Button>
+
+        </Grid>
+        
+        <Grid Grid.Row="1"  Margin="20,5,15,0" >
+            <Button x:Name="SaveBut" Click="SaveEvent" Background="Transparent" BorderThickness="0" Height="60" HorizontalAlignment="Left" ToolTip="Save edits!" >
+                <Image Source="/OrderHistoryPage_Matin/Images/save.png" />
+            </Button>
+            <Button x:Name="ResetBut" Click="ResetEvent" Background="Transparent" BorderThickness="0" Height="60" HorizontalAlignment="Left" ToolTip="Reset edits!" Margin="80,0,0,0" >
+                <Image Source="/OrderHistoryPage_Matin/Images/reset.png" />
+
+            </Button>
+            <Button  x:Name="EditBut" Click="EditEvent" Margin="10,0,0,0" Height="50"   BorderThickness="0" Background="Transparent" HorizontalAlignment="Left" ToolTip="Turn on Edit Mode!" >
+                <Image Source="/OrderHistoryPage_Matin/Images/edit.png" />
+            </Button>
+
+        </Grid>
+
+        <Grid Grid.Row="2"  Margin="15,5,15,30" >
+
+            <ScrollViewer >
+                <DataGrid x:Name="DataGridResault" Margin="5" AutoGenerateColumns="False" CanUserAddRows="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="User Name" Binding="{Binding User_UserName}" x:Name="ColUserName"  IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Request ID" Binding="{Binding ReqID}" x:Name="ColName"  IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Full Name" Binding="{Binding FullCustomerName}" x:Name="ColFullName"  IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Resturaunt Name" Binding="{Binding ResturauantName}" x:Name="ColResturauantName"  IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Request Type" Binding="{Binding RequestType}" x:Name="ColRequestType"  IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Food Name" Binding="{Binding FoodName}" x:Name="ColFoodName"  IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Price" Binding="{Binding price}" x:Name="Colprice"  IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Food ID" Binding="{Binding FoodID}" x:Name="ColFoodID"  IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Request Rate" Binding="{Binding ReqRATE}" x:Name="ColReqRATE"  IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Add New Comment" Binding="{Binding Content }" x:Name="ColComment"  IsReadOnly="True"/>
+
+                    </DataGrid.Columns>
+                </DataGrid>
+            </ScrollViewer>
+        </Grid>
+
+    </Grid>
+</Window>

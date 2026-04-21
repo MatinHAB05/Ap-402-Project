@@ -1,0 +1,93 @@
+﻿<Window x:Class="RestaurantApp.Search_complaints_PageADMIN_Matin.Search_complaints_AdminPageForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RestaurantApp.Search_complaints_PageADMIN_Matin"
+        xmlns:USEcon="clr-namespace:RestaurantApp.Search_complaints_PageADMIN_Matin.UserControls"
+        mc:Ignorable="d"
+        Title="Search_complaints_PageADMIN" Height="824" Width="1500" Background="#FFF5EE" PreviewMouseDown="Window_MouseDown" Closing="Window_Closing">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Button  Click="BackPage" Grid.Column="0" Grid.Row="0" Background="#123456" HorizontalAlignment="Left" Foreground="DarkBlue" Height="30" Width="70">
+                <Image Source="/matinImages_matin/back.png" />
+            </Button>
+        </Grid>
+
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="220" />
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="1">
+            <Border BorderThickness="2" Background="White" BorderBrush="LightGray" Margin="8,10,8,10">
+                <StackPanel Margin="5,5,5,5">
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Filters" FontSize="20" Foreground="Black"  VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                        <Label Margin="15,0,0,0" FontSize="13" VerticalAlignment="Center" HorizontalAlignment="Right">
+                            <Hyperlink Click="RemoveFilters" >Remove Filters</Hyperlink>
+                        </Label>
+                    </StackPanel>
+                    <USEcon:searchBox x:Name="UserNameT" WidthImage="30" WidthTxtBox="229" Margin="5,15,5,15" ToolTip="UserName"/>
+                    <USEcon:searchBox x:Name="TitleT" WidthImage="30" WidthTxtBox="229"  Margin="5,15,5,15" ToolTip="Title"/>
+                    <USEcon:searchBox x:Name="RestaurantNameT" WidthImage="30" WidthTxtBox="229"  Margin="5,15,5,15" ToolTip="Restaurant Name"/>
+                    <StackPanel Orientation="Horizontal">
+                        <USEcon:searchBox x:Name="FirstT" WidthImage="0" WidthTxtBox="120"   Margin="5,5,0,15" ToolTip="First Name"/>
+                        <USEcon:searchBox x:Name="LastT" WidthImage="30"  WidthTxtBox="110"  Margin="2,5,5,15" ToolTip="Last Name"/>
+                    </StackPanel>
+
+
+                    <Label Content="? complaint" Margin="0,0,0,0"/>
+                    <RadioButton Content="Reviewed" x:Name="radioButton" GroupName="Complaints" Margin="0,0,0,3" />
+                    <RadioButton Content="UnReviewed" x:Name="radioButton2" GroupName="Complaints"  Margin="0,0,0,3"/>
+                    <RadioButton Content="None" x:Name="radioButton3" GroupName="Complaints"  Margin="0,0,0,25"/>
+
+
+
+                    <Button Content="Search" VerticalAlignment="Center" HorizontalAlignment="Center" Background="DeepSkyBlue" Foreground="White" FontSize="20" Width="100" Height="40" Click="SEARCH"/>
+                </StackPanel>
+
+
+
+            </Border>
+
+
+
+        </Grid>
+        
+        <ScrollViewer >
+            <Border BorderThickness="2" Background="White" BorderBrush="LightGray" Margin="8,10,8,10">
+
+                <Grid Grid.Column="0"  Margin="8,10,8,10">
+                    <DataGrid x:Name="DataGridResault" Margin="5" AutoGenerateColumns="False " IsReadOnly="True">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Complaint ID" Binding="{Binding ComplaintID}" x:Name="ColComID" />
+                            <DataGridTextColumn Header="Name" Binding="{Binding name}" x:Name="ColName" />
+                            <DataGridTextColumn Header="LastName" Binding="{Binding LastName}" x:Name="ColLastName"  />
+                            <DataGridTextColumn Header="UserName" Binding="{Binding UserName}" x:Name="ColUserName"  />
+                            <DataGridTextColumn Header="Title" Binding="{Binding Title}" x:Name="ColTitle"  />
+                            <DataGridTextColumn Header="NameRes" Binding="{Binding NameRes}" x:Name="ColNameRes"  />
+                            <DataGridTemplateColumn Header="IsChecked">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <CheckBox x:Name="IsCheced"  IsChecked="{Binding IsChecked}" IsHitTestVisible="False" Focusable="False"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <DataGridTextColumn Header="Response" Binding="{Binding Response}" x:Name="ColResponse"  IsReadOnly="True"/>
+
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </Border>
+
+        </ScrollViewer>
+            </Grid>
+    </Grid>
+</Window> 

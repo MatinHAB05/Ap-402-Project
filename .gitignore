@@ -1,4 +1,5 @@
 .vs/*
-MainProject/bin/*
-MainProject/obj/*
-MainProject/packages/*
+RestaurantApp/bin/*
+RestaurantApp/obj/*
+RestaurantApp/packages/*
+script.iss

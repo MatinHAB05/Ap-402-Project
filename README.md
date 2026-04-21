@@ -31,6 +31,7 @@ The Restaurant Management GUI Application is a .NET‑based software built using
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+
 ## Technologies and Features
 
 - C#
@@ -43,6 +44,7 @@ The Restaurant Management GUI Application is a .NET‑based software built using
 - Regex Validation
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 
 ## Getting Started
 
@@ -63,11 +65,13 @@ The Restaurant Management GUI Application is a .NET‑based software built using
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+
 ## Preview
 
 dadash dadash
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 
 ## Authors
 
@@ -80,16 +84,18 @@ Matin Hasanali Baki
 Parham Mohammadi
 
 - ❤️[GitHub](https://github.com/parham200483)
-- ✉️[Email](mailto:?????@gmail.com)
+- ✉️[Email](mailto:????@gmail.com)
 - 📞[Telegram](https://t.me/Parham_md)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 
 ## Acknowledgments
 
@@ -105,10 +111,13 @@ wpf داک چیزی
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+
 ## Last Words
 
 This project was genuinely challenging and required a lot of work, so I hope the final result turned out clean and polished.
 
 > And hey — don’t forget to give the project a star! 😉
+
+
 
 [^1]: Advanced Programming

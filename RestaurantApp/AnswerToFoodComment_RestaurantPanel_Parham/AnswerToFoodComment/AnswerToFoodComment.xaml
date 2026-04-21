@@ -1,0 +1,28 @@
+﻿<Window x:Class="RestaurantApp.AnswerToFoodComment_RestaurantPanel_Parham.AnswerToFoodComment.AnswerToFoodComment"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RestaurantApp.AnswerToFoodComment_RestaurantPanel_Parham.AnswerToFoodComment"
+        mc:Ignorable="d"
+        Background="LightSkyBlue"
+        Title="AnswerToFoodComment" Closing="Window_Closing" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition/>
+            <RowDefinition Height="40"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBlock Name="AnswerFormIntro" Grid.Row="0" Width="400" Height="40"/>
+        <TextBlock Name="UserTitle" Grid.Row="1" Width="400" Height="39" VerticalAlignment="Center" HorizontalAlignment="Left" Background="White"/>
+        <TextBlock Name="UserText" Grid.Row="2" Width="650" Height="100" VerticalAlignment="Center" HorizontalAlignment="Left" Background="White"/>
+        <TextBox Name="AnswerText" Grid.Row="4" Width="650" Height="100" VerticalAlignment="Center" HorizontalAlignment="Left" Background="White"/>
+        <TextBlock Text="Enter Answer" Grid.Row="3" Margin="700,0,0,0" Width="100" Height="20" VerticalAlignment="Center" Background="LightSkyBlue"/>
+        <Button Grid.Row="4" Margin="700,60,0,0" Width="40" Height="40" Content="Done" Click="Answer_Completed"/>
+        <Button  Click="BackPage" Grid.Column="0" Grid.Row="0" Background="#123456" HorizontalAlignment="Left" Foreground="DarkBlue" Height="30" Width="70">
+            <Image Source="/matinImages_matin/back.png" />
+        </Button>
+    </Grid>
+</Window>

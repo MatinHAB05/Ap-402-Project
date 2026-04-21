@@ -1,0 +1,82 @@
+﻿<Window x:Class="RestaurantApp.Review_Search_OrderAndReservation_ResturantsPanel_Matin.Review_Search_OrderAndReservation_ResturantsPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RestaurantApp.Review_Search_OrderAndReservation_ResturantsPanel_Matin"
+        xmlns:USEcon="clr-namespace:RestaurantApp.Review_Search_OrderAndReservation_ResturantsPanel_Matin.UserControls"
+        mc:Ignorable="d"
+        Title="Review_Search_OrderAndReservation_ResturantsPage" Height="750" Width="1500" Background="#FFF5EE" PreviewMouseDown="Window_MouseDown" >
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="220" />
+        </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="1">
+            <Border BorderThickness="2" Background="White" BorderBrush="LightGray" Margin="8,10,8,10">
+                <ScrollViewer VerticalScrollBarVisibility="Hidden" x:Name="SC_view1"  >
+
+                    <StackPanel Margin="5,5,5,5">
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Filters" FontSize="20" Foreground="Black"  VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                        <Label Margin="15,0,0,0" FontSize="13" VerticalAlignment="Center" HorizontalAlignment="Right">
+                            <Hyperlink Click="RemoveFilters" >Remove Filters</Hyperlink>
+                        </Label>
+                    </StackPanel>
+                    <USEcon:UserControl1 x:Name="D"  Margin="5,15,5,5"/>
+                    <USEcon:UserControl1 x:Name="D2"  Margin="5,5,5,15"/>
+                    <USEcon:UserControl1 x:Name="D3"  Margin="5,5,5,15"/>
+
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Min Price :" FontWeight="Bold" Margin="5,5,5,2" FontSize="15"/>
+                        <Label x:Name="PricesLabel" Content="{Binding MinPricesSearch,UpdateSourceTrigger=PropertyChanged}"  VerticalContentAlignment="Center"/>
+                    </StackPanel>
+                    <Slider x:Name="sliderPrice"  Maximum="{Binding MaxPricesSearch,UpdateSourceTrigger=PropertyChanged}"  Minimum="0" LargeChange="0.5" TickPlacement="BottomRight" TickFrequency="0.1" Value="{Binding MinPricesSearch,  Mode=OneWayToSource , FallbackValue =0}" Margin="5,5,5,15" ValueChanged="sliderPrice_ValueChanged"/>
+
+
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Max Price :" FontWeight="Bold" Margin="5,5,5,2" FontSize="15"/>
+                        <Label x:Name="PricesLabel2" Content="{Binding MaxPricesSearch,UpdateSourceTrigger=PropertyChanged}" VerticalContentAlignment="Center"/>
+                    </StackPanel>
+                    <Slider x:Name="sliderPrice2" Maximum="5" Minimum="{Binding MinPricesSearch,UpdateSourceTrigger=PropertyChanged}"   LargeChange="0.5" TickPlacement="BottomRight" TickFrequency="0.1" Value="{Binding MaxPricesSearch,  Mode=OneWayToSource , FallbackValue=5}"    Margin="5,5,5,15" ValueChanged="sliderPrice_ValueChanged"/>
+
+                    <Label Content="Start Time :" FontWeight="Bold" Margin="5,5,5,2" FontSize="15"/>
+                    <DatePicker x:Name="DatePickerStart" Margin="5" DisplayDateStart="1800/1/1" DisplayDateEnd="{Binding EndDate,UpdateSourceTrigger=PropertyChanged}"   SelectedDate="{Binding StartDate,  Mode=OneWayToSource }" />
+
+                    <Label Content="End Time :" FontWeight="Bold" Margin="5,5,5,2" FontSize="15"/>
+                    <DatePicker x:Name="DatePickerEnd" DisplayDateStart="{Binding StartDate,UpdateSourceTrigger=PropertyChanged}" DisplayDateEnd="3000/12/29"  Margin="5" SelectedDate="{Binding EndDate,  Mode=OneWayToSource}"  />
+                    
+                    <Label Content="Reservation -or- Order?" Margin="0,0,0,0"/>
+                    <RadioButton Content="Reservation" x:Name="radioButton" GroupName="ShoppingType" Margin="5,0,0,3" />
+                    <RadioButton Content="Order" x:Name="radioButton2" GroupName="ShoppingType"  Margin="5,0,0,25"/>
+
+                    <Button Content="Search" VerticalAlignment="Center" HorizontalAlignment="Center" Background="DeepSkyBlue" Foreground="White" FontSize="25" Width="140" Height="40" Click="SearchClick"/>
+                    <Button  VerticalAlignment="Center" HorizontalAlignment="Center" Background="Orange" Foreground="White" FontSize="20" Width="140" Height="40" Margin="0,20" Click="Create_csvFile">
+                        Build .csv File
+                    </Button>
+
+                </StackPanel>
+
+
+        </ScrollViewer >
+
+        </Border>
+
+
+
+        </Grid>
+
+
+        <ScrollViewer VerticalScrollBarVisibility="Hidden" MouseEnter="ScrollViewer_MouseEnter2" MouseLeave="ScrollViewer_MouseLeave2" x:Name="SC_view2">
+            <Border BorderThickness="2" Background="White" BorderBrush="LightGray" Margin="8,10,8,10">
+
+                <Grid Grid.Column="0"  Margin="8,10,8,10">
+                    <DataGrid x:Name="DataGridResault" IsReadOnly="True" />
+                </Grid>
+            </Border>
+
+        </ScrollViewer>
+
+    </Grid>
+</Window> 

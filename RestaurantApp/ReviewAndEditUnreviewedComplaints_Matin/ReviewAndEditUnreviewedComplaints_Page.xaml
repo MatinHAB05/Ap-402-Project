@@ -1,0 +1,65 @@
+﻿<Window x:Class="RestaurantApp.ReviewAndEditUnreviewedComplaints_Matin.ReviewAndEditUnreviewedComplaints_Page"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RestaurantApp.ReviewAndEditUnreviewedComplaints_Matin"
+        mc:Ignorable="d"
+        Title="ReviewAndEditUnreviewedComplaints_Page" Height="750" Width="1200" Background="PeachPuff" Closing="Window_Closing">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        
+        <Grid Grid.Row="0">
+            <Button  Click="BackPage" Grid.Column="0" Grid.Row="0" Background="#123456" HorizontalAlignment="Left" Foreground="DarkBlue" Height="30" Width="70">
+                <Image Source="/matinImages_matin/back.png" />
+            </Button>
+        </Grid>
+
+        <Grid Grid.Row="1"  Margin="20,5,15,0" >
+                <Button x:Name="SaveBut" Click="SaveEvent" Background="Transparent" BorderThickness="0" Height="60" HorizontalAlignment="Left" ToolTip="Save edits!" >
+                <Image Source="/ReviewAndEditUnreviewedComplaints_Matin/Images/save.png" />
+            </Button>
+            <Button x:Name="ResetBut" Click="ResetEvent" Background="Transparent" BorderThickness="0" Height="60" HorizontalAlignment="Left" ToolTip="Reset edits!" Margin="80,0,0,0" >
+                <Image Source="/ReviewAndEditUnreviewedComplaints_Matin/Images/reset.png" />
+            </Button>
+            <Button  x:Name="EditBut" Click="EditEvent" Margin="10,0,0,0" Height="50"   BorderThickness="0" Background="Transparent" HorizontalAlignment="Left" ToolTip="Turn on Edit Mode!" >
+                <Image Source="/ReviewAndEditUnreviewedComplaints_Matin/Images/edit.png" />
+            </Button>
+            
+
+        </Grid>
+        
+        <Grid Grid.Row="2"  Margin="15,5,15,30" >
+
+            <ScrollViewer >
+                <DataGrid x:Name="DataGridResault" Margin="5" AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Complaint ID" Binding="{Binding ComplaintID}" x:Name="ColComID"  IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Name" Binding="{Binding name}" x:Name="ColName"  IsReadOnly="True"/>
+                        <DataGridTextColumn Header="LastName" Binding="{Binding LastName}" x:Name="ColLastName"  IsReadOnly="True"/>
+                        <DataGridTextColumn Header="UserName" Binding="{Binding UserName}" x:Name="ColUserName"  IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Title" Binding="{Binding Title}" x:Name="ColTitle"  IsReadOnly="True"/>
+                        <DataGridTextColumn Header="NameRes" Binding="{Binding NameRes}" x:Name="ColNameRes"  IsReadOnly="True"/>
+                        <DataGridTemplateColumn Header="IsChecked">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <CheckBox x:Name="IsCheced"  IsChecked="{Binding IsChecked}" IsHitTestVisible="False" Focusable="False" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTextColumn Header="Response" Binding="{Binding Response}" x:Name="ColResponse"  IsReadOnly="True"/>
+
+                    </DataGrid.Columns>
+                </DataGrid>
+            </ScrollViewer>
+        </Grid>
+
+    </Grid>
+</Window>
