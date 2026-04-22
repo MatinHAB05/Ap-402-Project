@@ -2,5 +2,7 @@
 RestaurantApp/bin/*
 RestaurantApp/obj/*
 RestaurantApp/packages/*
-script.iss
 buildApp/*
+*.ico
+*.exe
+*.html
