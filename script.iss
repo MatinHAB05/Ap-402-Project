@@ -11,7 +11,7 @@ OutputDir=output
 OutputBaseFilename=RestaurantApp_Setup
 Compression=lzma
 SolidCompression=yes
-LicenseFile=license.txt
+LicenseFile=LICENSE
 ; آیکون برنامه (اختیاری)
 SetupIconFile=publish\AppIcon.ico
 
