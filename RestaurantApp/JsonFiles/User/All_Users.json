@@ -82,5 +82,17 @@
     "Phone": "09456987123",
     "Address": "Address",
     "Gender": 0
+  },
+  {
+    "customerType": 0,
+    "UserName": "myusername",
+    "UserID": 0,
+    "Name": "matin",
+    "LastName": "hab",
+    "Email_Unique": "m9652973@gmail.com",
+    "PassWord": "123123123AAsasd",
+    "Phone": "09121472586",
+    "Address": "",
+    "Gender": 0
   }
 ]

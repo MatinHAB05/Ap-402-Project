@@ -1,6 +1,6 @@
 [
   {
-    "IsCanReserve": true,
+    "IsCanReserve": false,
     "UserName": "UserNameRes2",
     "UserID": 999,
     "Rating": 6.0,
@@ -18,53 +18,15 @@
             "FoodID": 149,
             "price": 97.0,
             "Raw_Materials": null,
-            "xBar": 7.2,
+            "xBar": 7.0,
             "RemNumber": 0,
             "comments_IN_ORDER": [
               {
                 "ISedit": false,
-                "Reply": [],
+                "Reply": null,
                 "Title": "This is Title from Json",
                 "Content": "This is Content from Json",
                 "CommentID": 115,
-                "User_UserName": "Demo_UserName"
-              }
-            ],
-            "FoodCategory": "C1",
-            "Image_Path": ""
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "IsCanReserve": false,
-    "UserName": "UserNameRes3",
-    "UserID": 888,
-    "Rating": 6.0,
-    "PassWord": "123123",
-    "CityName": "Tehran",
-    "RestaurantName": "ResName3",
-    "receptionType": 1,
-    "AddreesOfRestaurant": "Add3",
-    "Menu": [
-      {
-        "Name": "C1",
-        "Foods": [
-          {
-            "Name": "FName",
-            "FoodID": 155,
-            "price": 97.0,
-            "Raw_Materials": null,
-            "xBar": 7.2,
-            "RemNumber": 2,
-            "comments_IN_ORDER": [
-              {
-                "ISedit": false,
-                "Reply": [],
-                "Title": "This is Title from Json",
-                "Content": "This is Content from Json",
-                "CommentID": 453,
                 "User_UserName": "Demo_UserName"
               }
             ],
@@ -94,12 +56,12 @@
             "FoodID": 785,
             "price": 97.0,
             "Raw_Materials": null,
-            "xBar": 7.2,
-            "RemNumber": 4,
+            "xBar": 3.65,
+            "RemNumber": 1,
             "comments_IN_ORDER": [
               {
                 "ISedit": false,
-                "Reply": [],
+                "Reply": null,
                 "Title": "This is Title from Json",
                 "Content": "This is Content from Json",
                 "CommentID": 109,
@@ -132,21 +94,12 @@
             "FoodID": 450,
             "price": 97.0,
             "Raw_Materials": null,
-            "xBar": 7.2,
+            "xBar": 3.65,
             "RemNumber": 4,
             "comments_IN_ORDER": [
               {
                 "ISedit": false,
-                "Reply": [
-                  {
-                    "ISedit": false,
-                    "Reply": null,
-                    "Title": "asdasd",
-                    "Content": "adadssad",
-                    "CommentID": 0,
-                    "User_UserName": "Demo_UserName"
-                  }
-                ],
+                "Reply": null,
                 "Title": "This is Title from Json",
                 "Content": "This is Content from Json",
                 "CommentID": 788,
@@ -203,21 +156,12 @@
             "FoodID": 145,
             "price": 97.0,
             "Raw_Materials": null,
-            "xBar": 7.2,
+            "xBar": 3.65,
             "RemNumber": 0,
             "comments_IN_ORDER": [
               {
                 "ISedit": false,
-                "Reply": [
-                  {
-                    "ISedit": false,
-                    "Reply": null,
-                    "Title": "This is Title from Json Reply",
-                    "Content": "jjj",
-                    "CommentID": 572,
-                    "User_UserName": "UserNameRes1"
-                  }
-                ],
+                "Reply": null,
                 "Title": "This is Title from Json",
                 "Content": "This is Content from Json",
                 "CommentID": 1144,
@@ -225,16 +169,7 @@
               },
               {
                 "ISedit": false,
-                "Reply": [
-                  {
-                    "ISedit": false,
-                    "Reply": null,
-                    "Title": "222",
-                    "Content": "222",
-                    "CommentID": 0,
-                    "User_UserName": "Demo_UserName"
-                  }
-                ],
+                "Reply": null,
                 "Title": "This is Title from Json",
                 "Content": "This is Content from Json",
                 "CommentID": 1155,
@@ -242,19 +177,48 @@
               },
               {
                 "ISedit": false,
-                "Reply": [
-                  {
-                    "ISedit": false,
-                    "Reply": null,
-                    "Title": "111",
-                    "Content": "1111",
-                    "CommentID": 0,
-                    "User_UserName": "Demo_UserName"
-                  }
-                ],
+                "Reply": null,
                 "Title": "This is Title from Json",
                 "Content": "This is Content from Json",
                 "CommentID": 4135,
+                "User_UserName": "Demo_UserName"
+              }
+            ],
+            "FoodCategory": "C1",
+            "Image_Path": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "IsCanReserve": true,
+    "UserName": "UserNameRes3",
+    "UserID": 888,
+    "Rating": 6.0,
+    "PassWord": "123123",
+    "CityName": "Tehran",
+    "RestaurantName": "ResName3",
+    "receptionType": 1,
+    "AddreesOfRestaurant": "Add3",
+    "Menu": [
+      {
+        "Name": "C1",
+        "Foods": [
+          {
+            "Name": "FName",
+            "FoodID": 155,
+            "price": 97.0,
+            "Raw_Materials": null,
+            "xBar": 7.2,
+            "RemNumber": 2,
+            "comments_IN_ORDER": [
+              {
+                "ISedit": false,
+                "Reply": null,
+                "Title": "This is Title from Json",
+                "Content": "This is Content from Json",
+                "CommentID": 453,
                 "User_UserName": "Demo_UserName"
               }
             ],
